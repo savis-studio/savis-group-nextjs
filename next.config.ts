@@ -19,11 +19,18 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  output: "standalone",
+  // The file tracer copies a native addon (.node) but not the shared libraries next to it (libvips for sharp).
+  // Without these the standalone server fails with "Could not load the sharp module".
+  outputFileTracingIncludes: {
+    "/*": ["./node_modules/@img/**/*", "./node_modules/@libsql/**/*", "./node_modules/libsql/**/*"],
+  },
   turbopack: { root: path.resolve(__dirname) },
   poweredByHeader: false,
   async headers() {
     return [
       { source: "/:path*", headers: securityHeaders },
+      { source: "/media/:filename", headers: [{ key: "Cache-Control", value: "public, max-age=86400, stale-while-revalidate=604800" }] },
       // Keep admin and API responses out of shared caches.
       { source: "/admin/:path*", headers: [{ key: "Cache-Control", value: "no-store" }] },
       { source: "/api/:path*", headers: [{ key: "Cache-Control", value: "no-store" }] },

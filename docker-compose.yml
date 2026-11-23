@@ -1,0 +1,79 @@
+# SAVIS on a shared VPS. No port is published to the host: traffic arrives through the Cloudflare Tunnel only.
+# Run from ~/savis with a .env next to this file (see DEPLOY.md). Use ./deploy.sh instead of starting by hand.
+name: savis
+
+x-logging: &logging
+  driver: json-file
+  options:
+    max-size: "10m"
+    max-file: "3"
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: savis
+      POSTGRES_DB: savis
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+    # Small instance: the VPS is shared with other services.
+    command: ["postgres", "-c", "shared_buffers=128MB", "-c", "max_connections=30", "-c", "work_mem=4MB"]
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U savis -d savis"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+    mem_limit: 512m
+    logging: *logging
+
+  app:
+    image: ghcr.io/savis-studio/savis-app:${SAVIS_IMAGE_TAG:?set by deploy.sh}
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      PAYLOAD_SECRET: ${PAYLOAD_SECRET:?set PAYLOAD_SECRET in .env}
+      DATABASE_URL: postgres://savis:${POSTGRES_PASSWORD}@postgres:5432/savis
+      SERVER_URL: ${SERVER_URL:?set SERVER_URL in .env}
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:-}
+      INDEXABLE_HOST: ${INDEXABLE_HOST:-}
+      CF_ACCESS_TEAM_DOMAIN: ${CF_ACCESS_TEAM_DOMAIN:?set CF_ACCESS_TEAM_DOMAIN in .env}
+      CF_ACCESS_AUD: ${CF_ACCESS_AUD:?set CF_ACCESS_AUD in .env}
+    volumes:
+      - media:/app/media
+    mem_limit: 768m
+    logging: *logging
+
+  # One-off jobs: `docker compose run --rm tools npx payload migrate`. Not started by `up`.
+  tools:
+    image: ghcr.io/savis-studio/savis-tools:${SAVIS_IMAGE_TAG:?set by deploy.sh}
+    profiles: ["tools"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      PAYLOAD_SECRET: ${PAYLOAD_SECRET:?set PAYLOAD_SECRET in .env}
+      DATABASE_URL: postgres://savis:${POSTGRES_PASSWORD}@postgres:5432/savis
+      SERVER_URL: ${SERVER_URL:?set SERVER_URL in .env}
+    mem_limit: 768m
+    logging: *logging
+
+  cloudflared:
+    image: cloudflare/cloudflared:${CLOUDFLARED_TAG:?pin a version in .env, see DEPLOY.md}
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run
+    environment:
+      TUNNEL_TOKEN: ${TUNNEL_TOKEN:?set TUNNEL_TOKEN in .env}
+    depends_on:
+      - app
+    mem_limit: 128m
+    logging: *logging
+
+volumes:
+  pgdata:
+  media:

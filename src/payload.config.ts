@@ -35,7 +35,7 @@ export default buildConfig({
   upload: { limits: { fileSize: 10 * 1024 * 1024 } },
   // SQLite for local work; set DATABASE_URL=postgres://... in staging and production.
   db: /^postgres(ql)?:/.test(databaseUrl)
-    ? postgresAdapter({ pool: { connectionString: databaseUrl } })
+    ? postgresAdapter({ pool: { connectionString: databaseUrl }, migrationDir: path.resolve(dirname, "migrations") })
     : sqliteAdapter({ client: { url: databaseUrl } }),
   sharp,
 });

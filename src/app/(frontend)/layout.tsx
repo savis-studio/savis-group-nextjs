@@ -11,6 +11,10 @@ import { getCatalog } from "@/lib/cms";
 const sora = Sora({ subsets: ["latin"], weight: ["600", "700"], variable: "--font-sora", display: "swap" });
 const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-inter", display: "swap" });
 
+// Rendered per request. The CMS is not reachable while the Docker image is built, so nothing may be prerendered from it.
+// Header and footer data is cached for 60 s and refreshed on every catalogue edit (see getCatalog).
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "SAVIS Group",
   description: "Trusted Digital Infrastructure for a Smarter World",
