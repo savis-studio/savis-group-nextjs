@@ -1,18 +1,8 @@
-import {
-  Button, CtaBanner, Hero, PillarCard, Section, SectionHead, SiteFooter, SiteHeader,
-} from "@/components/ui";
-
-const nav = [
-  { label: "Solutions", href: "/solutions" },
-  { label: "Products", href: "/products" },
-  { label: "About", href: "/about" },
-  { label: "News", href: "/news" },
-];
+import { Button, CtaBanner, Hero, PillarCard, Section, SectionHead } from "@/components/ui";
 
 export default function Home() {
   return (
     <>
-      <SiteHeader nav={nav} current="Solutions" />
       <main>
         <Hero
           eyebrow="Trusted Digital Infrastructure for a Smarter World"
@@ -43,11 +33,6 @@ export default function Home() {
           </CtaBanner>
         </Section>
       </main>
-      <SiteFooter
-        tagline="Trusted Digital Infrastructure for a Smarter World"
-        columns={[{ heading: "Company", links: [{ label: "About", href: "/about" }, { label: "News", href: "/news" }] }]}
-        legal="© 2026 SAVIS Group"
-      />
     </>
   );
 }
