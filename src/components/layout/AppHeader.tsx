@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { Button, Logo, SmartLink } from "@/components/ui";
-import { industries, pillars } from "./catalog";
+import type { Catalog } from "@/lib/cms";
 import {
   companyMenu, insightsMenu, mainNav, resourcesMenu, servicesMenu, solutionsMenu, utilityLinks,
 } from "./nav-data";
@@ -37,7 +37,7 @@ function LinkList({ links, onNavigate }: { links: Link[]; onNavigate: () => void
 }
 
 /** Utility bar, sticky header, five mega-menus (desktop) and an accordion drawer (below 1100px). */
-export function AppHeader() {
+export function AppHeader({ pillars, industries }: Catalog) {
   const [open, setOpen] = useState<MenuId | null>(null);
   const [drawer, setDrawer] = useState(false);
   const [tab, setTab] = useState<"products" | "industry">("products");

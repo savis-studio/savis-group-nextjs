@@ -1,5 +1,5 @@
 import { Logo, SmartLink } from "@/components/ui";
-import { industries, pillars } from "./catalog";
+import type { Catalog } from "@/lib/cms";
 import {
   certifications, footerCompany, footerOffices, footerRegions, footerSolutions, hotline, legalLinks,
 } from "./nav-data";
@@ -9,7 +9,7 @@ const social = [
   { label: "LinkedIn", href: "https://www.linkedin.com/company/savis-technology-group/" },
 ];
 
-export function AppFooter() {
+export function AppFooter({ pillars, industries }: Catalog) {
   return (
     <footer className="sv-footer">
       <div className="sv-wrap">

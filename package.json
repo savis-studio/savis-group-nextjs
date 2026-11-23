@@ -2,19 +2,33 @@
   "name": "savis-group-nextjs",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "tsc --noEmit",
-    "tokens": "node scripts/build-tokens.mjs design-system/tokens.json src/styles/generated"
+    "tokens": "node scripts/build-tokens.mjs design-system/tokens.json src/styles/generated",
+    "seed": "payload run src/seed/index.ts",
+    "payload": "payload",
+    "generate:types": "payload generate:types",
+    "generate:importmap": "payload generate:importmap"
   },
   "dependencies": {
+    "@payloadcms/db-postgres": "^3.94.1",
+    "@payloadcms/db-sqlite": "^3.94.1",
+    "@payloadcms/next": "^3.94.1",
+    "@payloadcms/richtext-lexical": "^3.94.1",
+    "graphql": "^16.15.0",
     "next": "^16.4.6",
+    "payload": "^3.94.1",
     "react": "^19.3.1",
-    "react-dom": "^19.3.1"
+    "react-dom": "^19.3.1",
+    "sharp": "^0.35.5"
   },
   "devDependencies": {
+    "@swc-node/register": "^1.12.1",
+    "@swc/core": "^1.16.22",
     "@tailwindcss/postcss": "^4.3.5",
     "@types/node": "^26.6.6",
     "@types/react": "^19.3.0",
