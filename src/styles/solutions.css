@@ -225,3 +225,8 @@
 .sv-feat__c b{display:block;margin-top:3px;font:700 14.5px/1.25 var(--font-display)}
 @media (max-width:900px){.sv-feat{display:none}}
 .sv-feat .uc-steps{display:none}
+
+.sv-jump button.sv-jump__btn{font:600 14px var(--font-body);color:var(--muted);background:none;border:1px solid transparent;border-radius:var(--radius-pill);padding:6px 14px;cursor:pointer}
+.sv-jump button.sv-jump__btn:hover{color:var(--brand)}
+.sv-jump button.sv-jump__btn[aria-pressed=true]{color:var(--brand);border-color:var(--brand);background:var(--chip)}
+.sv-jump button.sv-jump__btn:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
