@@ -194,3 +194,20 @@ export const INDUSTRY_GROUPS: Array<[title: string, ids: string[]]> = [
 
 export const getJourney = (pillarId: string): Journey | undefined =>
   (journeys as unknown as Record<string, Journey>)[pillarId];
+
+/* ---------- Relations for product pages ---------- */
+export const useCasesOfProduct = (slug: string) => getUseCases().filter((u) => u.products.includes(slug));
+export const casesOfProduct = (slug: string) =>
+  (cases.items as unknown as Array<CaseStudy & { products: string[] }>).filter((c) => c.products?.includes(slug));
+export const industriesOfProduct = (slug: string) => getIndustries().filter((i) => i.picks.includes(slug));
+
+/** Five standard questions for a product, answered from its detail record. */
+export function productFaq(name: string, d: ProductDetail): Array<[string, string]> {
+  return [
+    [`What problem does ${name} solve?`, d.sum],
+    [`How can ${name} be deployed?`, `${d.dep.join(", ")}. The model is agreed during solution design, together with sizing, high availability and data residency.`],
+    ["How does it integrate with our systems?", `Through ${d.int.join(", ")}. SAVIS engineers deliver the integration and testing with your core systems.`],
+    ["Which standards and regulations does it address?", `${d.std.join(", ")}. Certification status is confirmed per product and version on request.`],
+    ["What do we need to prepare?", `${d.pre.join(", ")}. SAVIS runs an assessment workshop to confirm scope, then a production-grade pilot before roll-out.`],
+  ];
+}

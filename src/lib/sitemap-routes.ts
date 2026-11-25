@@ -51,7 +51,7 @@ export function dynamicRoutes(): SitemapRoute[] {
     for (const id of ids) out.push({ path: `${base}/${id}`, ready, priority });
   };
   add(true, "/solutions", getPillars().map((p) => p.id), 0.8); // Phase 3a
-  add(false, "/products", products.map((p) => p.slug), 0.7); // Phase 3
+  add(true, "/products", products.map((p) => p.slug), 0.7); // Phase 3
   add(false, "/industries", industries.items.map((i) => i.id), 0.7); // Phase 3
   add(false, "/use-cases", useCases.map((u) => u.id), 0.6); // Phase 3
   add(false, "/customers", getCases().map((c) => c.id), 0.6); // Phase 4
