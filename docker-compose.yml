@@ -41,8 +41,9 @@ services:
       SERVER_URL: ${SERVER_URL:?set SERVER_URL in .env}
       ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:-}
       INDEXABLE_HOST: ${INDEXABLE_HOST:-}
-      CF_ACCESS_TEAM_DOMAIN: ${CF_ACCESS_TEAM_DOMAIN:?set CF_ACCESS_TEAM_DOMAIN in .env}
-      CF_ACCESS_AUD: ${CF_ACCESS_AUD:?set CF_ACCESS_AUD in .env}
+      CF_ACCESS_TEAM_DOMAIN: ${CF_ACCESS_TEAM_DOMAIN:-}
+      CF_ACCESS_AUD: ${CF_ACCESS_AUD:-}
+      CF_ACCESS_ENFORCE: ${CF_ACCESS_ENFORCE:-}
     volumes:
       - media:/app/media
     mem_limit: 768m
