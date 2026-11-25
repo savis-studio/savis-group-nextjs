@@ -12,12 +12,12 @@ const Chevron = () => (
   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
 );
 
-function Cards({ cards, onNavigate }: { cards: FeatureCard[]; onNavigate: () => void }) {
+function Cards({ cards, art, onNavigate }: { cards: FeatureCard[]; art: Record<string, string>; onNavigate: () => void }) {
   return (
     <div className="sv-mx__cards">
       {cards.map((c) => (
         <SmartLink key={c.title} href={c.href} className="sv-mx__card" onClick={onNavigate}>
-          <span className="sv-mx__thumb" aria-hidden="true" />
+          <span className={`sv-mx__thumb${c.art ? ` uc-th-${c.art.cls}` : ""}`} aria-hidden="true">{art[c.title] && <span dangerouslySetInnerHTML={{ __html: art[c.title] }} />}</span>
           <span className="sv-mx__body">
             <em>{c.tag}</em>
             <b>{c.title}</b>
@@ -38,7 +38,7 @@ function LinkList({ links, onNavigate }: { links: Link[]; onNavigate: () => void
 }
 
 /** Utility bar, sticky header, five mega-menus (desktop) and an accordion drawer (below 1100px). */
-export function AppHeader({ pillars, industries, productHrefs }: Catalog & { productHrefs: Record<string, string> }) {
+export function AppHeader({ pillars, industries, productHrefs, cardArt }: Catalog & { productHrefs: Record<string, string>; cardArt: Record<string, string> }) {
   const [open, setOpen] = useState<MenuId | null>(null);
   const [drawer, setDrawer] = useState(false);
   const [tab, setTab] = useState<"products" | "industry">("products");
@@ -149,7 +149,7 @@ export function AppHeader({ pillars, industries, productHrefs }: Catalog & { pro
                     <SmartLink href={servicesMenu.all.href} className="sv-mx__more" onClick={close}>{servicesMenu.all.label}</SmartLink>
                     <SmartLink href={servicesMenu.talk.href} className="sv-mx__more" onClick={close}>{servicesMenu.talk.label}</SmartLink>
                   </div>
-                  <div><span className="sv-mx__k">Featured</span><Cards cards={servicesMenu.cards} onNavigate={close} /></div>
+                  <div><span className="sv-mx__k">Featured</span><Cards cards={servicesMenu.cards} art={cardArt} onNavigate={close} /></div>
                 </div>
               )}
 
@@ -181,7 +181,7 @@ export function AppHeader({ pillars, industries, productHrefs }: Catalog & { pro
                     <LinkList links={resourcesMenu.links} onNavigate={close} />
                     <SmartLink href={resourcesMenu.all.href} className="sv-mx__more" onClick={close}>{resourcesMenu.all.label}</SmartLink>
                   </div>
-                  <div><span className="sv-mx__k">Featured resources</span><Cards cards={resourcesMenu.cards} onNavigate={close} /></div>
+                  <div><span className="sv-mx__k">Featured resources</span><Cards cards={resourcesMenu.cards} art={cardArt} onNavigate={close} /></div>
                 </div>
               )}
 
@@ -193,7 +193,7 @@ export function AppHeader({ pillars, industries, productHrefs }: Catalog & { pro
                     <SmartLink href={companyMenu.contact.href} className="sv-mx__more" onClick={close}>{companyMenu.contact.label}</SmartLink>
                     <SmartLink href={companyMenu.partner.href} className="sv-mx__more" onClick={close}>{companyMenu.partner.label}</SmartLink>
                   </div>
-                  <div><span className="sv-mx__k">Featured</span><Cards cards={companyMenu.cards} onNavigate={close} /></div>
+                  <div><span className="sv-mx__k">Featured</span><Cards cards={companyMenu.cards} art={cardArt} onNavigate={close} /></div>
                 </div>
               )}
             </div>
