@@ -124,6 +124,8 @@ Checks, run against a production build (for example `CF_ACCESS_ENFORCE=off npx n
 - Lighthouse 12 (local, default mobile settings): SEO 100 on all sampled pages; accessibility 98 to 100; best practices 96 to 100;
   performance 84 to 95 (home is lowest: LCP about 3.4 s and about 400 ms blocking time from the hero canvases).
 
-Known gaps: no site search (the button was removed from the header); no cookie-consent UI (the "Cookie settings" footer link
+Site search: the header button opens an overlay that filters `/search-index` (JSON built from bundled data plus CMS articles, titles, summaries and keywords only) in the browser; `/search?q=` is the no-JS results page (noindex). Shortcuts: Ctrl/Cmd+K, `/`.
+
+Known gaps: no cookie-consent UI (the "Cookie settings" footer link
 was removed, but the cookie policy text still describes analytics and marketing consent); contact messages are stored in Payload
 (`inquiries`) with no email notification.

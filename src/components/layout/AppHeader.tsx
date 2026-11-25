@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { Button, Logo } from "@/components/ui";
 import { NavLink as SmartLink } from "./NavLink";
 import type { Catalog } from "@/lib/cms";
+import { SearchOverlay } from "./SearchOverlay";
 import {
   companyMenu, insightsMenu, mainNav, resourcesMenu, servicesMenu, solutionsMenu, utilityLinks,
 } from "./nav-data";
@@ -41,14 +42,20 @@ function LinkList({ links, onNavigate }: { links: Link[]; onNavigate: () => void
 export function AppHeader({ pillars, industries, productHrefs, cardArt }: Catalog & { productHrefs: Record<string, string>; cardArt: Record<string, string> }) {
   const [open, setOpen] = useState<MenuId | null>(null);
   const [drawer, setDrawer] = useState(false);
+  const [searching, setSearching] = useState(false);
   const [tab, setTab] = useState<"products" | "industry">("products");
   const [pillarId, setPillarId] = useState<string | null>(null);
   const ref = useRef<HTMLElement>(null);
 
   const close = () => { setOpen(null); setDrawer(false); };
+  const closeSearch = () => { setSearching(false); ref.current?.querySelector<HTMLElement>(".sv-search")?.focus(); };
 
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") { setOpen(null); setDrawer(false); } };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") { setOpen(null); setDrawer(false); }
+      const typing = /^(INPUT|TEXTAREA|SELECT)$/.test((e.target as HTMLElement).tagName) || (e.target as HTMLElement).isContentEditable;
+      if ((e.key === "k" && (e.metaKey || e.ctrlKey)) || (e.key === "/" && !typing)) { e.preventDefault(); setSearching(true); setOpen(null); setDrawer(false); }
+    };
     const onDoc = (e: MouseEvent) => { if (ref.current && !ref.current.contains(e.target as Node)) setOpen(null); };
     document.addEventListener("keydown", onKey);
     document.addEventListener("mousedown", onDoc);
@@ -79,6 +86,10 @@ export function AppHeader({ pillars, industries, productHrefs, cardArt }: Catalo
             </ul>
           </nav>
           <div className="sv-header__actions">
+            <button type="button" className="sv-search" aria-label="Search" aria-haspopup="dialog" onClick={() => { setSearching(true); setOpen(null); setDrawer(false); }}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg>
+              <span className="sv-search__lbl">Search</span>
+            </button>
             <Button href="/contact">Contact us</Button>
             <button type="button" className="sv-icon-btn" aria-label={drawer ? "Close menu" : "Open menu"} aria-expanded={drawer} aria-controls="sv-drawer" onClick={() => { setDrawer(!drawer); setOpen(null); }}>
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
@@ -219,6 +230,7 @@ export function AppHeader({ pillars, industries, productHrefs, cardArt }: Catalo
           </div>
         )}
       </header>
+      <SearchOverlay open={searching} onClose={closeSearch} />
     </>
   );
 }

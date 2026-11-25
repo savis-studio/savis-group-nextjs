@@ -23,3 +23,19 @@ const cases: Array<[string, string]> = [
   ["#services-advise", "/services#advise"], ["#resources-blog", "/insights"], ["#services-pro", "/services#professional"], ["#report-nd-case-2026", "/insights"], ["#use-cases-matrix", "/use-cases#matrix"], ["/already/a/path", "/already/a/path"], ["mailto:a@b.c", "mailto:a@b.c"],
 ];
 for (const [h, p] of cases) eq(`route ${h}`, hashToPath(h), p);
+
+// site search
+import { fold, search as siteSearch, type SearchEntry } from "../src/lib/search";
+const idx: SearchEntry[] = [
+  { t: "Digital Identity & Trust", u: "/solutions/identity", k: "Solution", s: "Verify people and sign.", x: "Định danh số eKYC" },
+  { t: "TrustOnboard", u: "/products/trustonboard", k: "Product", s: "Remote onboarding with liveness." },
+  { t: "National Root CA for NEAC", u: "/customers/neac", k: "Customer story", s: "Root CA and PKI.", x: "NEAC VietNam" },
+  { t: "Passkey payments", u: "/use-cases/passkey-payments", k: "Use case", s: "Strong customer authentication." },
+];
+eq("fold accents", fold("Định danh số"), "dinh danh so");
+eq("search by title", siteSearch(idx, "trustonboard").map((e) => e.u), ["/products/trustonboard"]);
+eq("search by accented keyword", siteSearch(idx, "dinh danh").map((e) => e.u), ["/solutions/identity"]);
+eq("search needs every word", siteSearch(idx, "root pki neac").map((e) => e.u), ["/customers/neac"]);
+eq("search no match", siteSearch(idx, "zzz"), []);
+eq("search empty query", siteSearch(idx, "  "), []);
+eq("title word beats summary", siteSearch(idx, "identity")[0]?.u, "/solutions/identity");
