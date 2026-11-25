@@ -176,7 +176,7 @@ export function AppHeader({ pillars, industries, productHrefs, cardArt }: Catalo
                     <div className="sv-mx__news">
                       {insightsMenu.latest.map((n) => (
                         <SmartLink key={n.title} href={n.href} className="sv-mx__item" onClick={close}>
-                          <em>{n.tag}</em><time>{n.date}</time><b>{n.title}</b>
+                          <img src={n.photo} alt="" loading="lazy" className="sv-mx__nthumb" /><span className="sv-mx__ntext"><span className="sv-mx__meta"><em>{n.tag}</em> · <time>{n.date}</time></span><b>{n.title}</b></span>
                         </SmartLink>
                       ))}
                     </div>

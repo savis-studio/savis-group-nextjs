@@ -160,3 +160,11 @@
 .sv-mx__tab span{margin-top:0;padding-left:38px}
 .sv-mx__tab b{flex:1 1 calc(100% - 40px)}
 .sv-mx__photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.sv-mx__news{grid-template-columns:1fr;gap:var(--space-14)}
+.sv-mx__item{flex-direction:row;align-items:center;gap:var(--space-18);padding:0;border:0;border-radius:0}
+.sv-mx__item:hover{border-color:transparent}
+.sv-mx__nthumb{flex:none;width:210px;aspect-ratio:16/9;object-fit:cover;border-radius:var(--radius-md)}
+.sv-mx__ntext{display:flex;flex-direction:column;gap:6px;min-width:0}
+.sv-mx__meta,.sv-mx__meta em,.sv-mx__meta time{font:500 12.5px var(--font-body);font-style:normal;letter-spacing:0;text-transform:none;color:var(--muted)}
+.sv-mx__item b{font:500 17px/1.4 var(--font-body);color:var(--ink)}
+.sv-mx__item:hover b{color:var(--brand)}

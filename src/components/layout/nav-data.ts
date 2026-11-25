@@ -48,8 +48,8 @@ export const servicesMenu = {
 
 export const insightsMenu = {
   latest: [
-    { tag: "Press release", date: "22 November 2026", title: "What TrustCA's eIDAS certification means for customers in Vietnam and ASEAN", href: "#news-trustca-eidas-certification-what-it-means" },
-    { tag: "Award", date: "6 November 2026", title: "SAVIS SuperApp platform wins the ASOCIO Smart City Awards 2026", href: "#news-asocio-smart-city-2026" },
+    { photo: "/images/company/vn-national-assembly.jpg", tag: "Press release", date: "22 November 2026", title: "What TrustCA's eIDAS certification means for customers in Vietnam and ASEAN", href: "#news-trustca-eidas-certification-what-it-means" },
+    { photo: "/images/company/saigon-night.jpg", tag: "Award", date: "6 November 2026", title: "SAVIS SuperApp platform wins the ASOCIO Smart City Awards 2026", href: "#news-asocio-smart-city-2026" },
   ],
   all: { label: "All insights →", href: "#insights" },
   links: [
