@@ -4,6 +4,8 @@ import { PageShell } from "@/components/page/PageShell";
 import { JumpBar } from "@/components/solutions/Blocks";
 import { Button, Section, SectionHead } from "@/components/ui";
 import { getCaseCategories, getCases, getClientGroups } from "@/lib/content";
+import { INSIGHT_GROUPS } from "@/lib/insight-groups";
+import { getArticles } from "@/lib/insights";
 import { buildMetadata } from "@/lib/seo";
 import { HeroMosaic } from "@/components/ui/HeroMosaic";
 import { caseThumb } from "@/lib/thumbs";
@@ -16,17 +18,20 @@ export const metadata: Metadata = buildMetadata({
   path: PATH,
 });
 
-export default function CustomersPage() {
+export default async function CustomersPage() {
+  const articles = await getArticles();
+  const tabs = INSIGHT_GROUPS.filter((g) => articles.some(g.pick));
   const cases = getCases();
   const cats = getCaseCategories() as Array<{ id: string; name: string; lead?: string }>;
   return (
     <PageShell
       path={PATH}
-      eyebrow="Customers"
-      title="Trusted by institutions that cannot afford to fail."
-      label="Customers"
-      aside={<HeroMosaic bare items={cases.slice(0, 4).map((c) => ({ spec: caseThumb(c as never), title: (c as { client: string }).client }))} />}
-      lead="Central banks, ministries, banks and telcos run their digital trust on SAVIS. Read how each programme was designed, delivered and operated."
+      eyebrow="Case study"
+      title="Trust, deployed in production."
+      label="Case studies"
+      trail={[{ label: "Insights", href: "/insights" }]}
+      aside={<HeroMosaic bare items={cases.slice(0, 4).map((c) => ({ key: c.id, spec: caseThumb(c as never), title: (c as { client: string }).client }))} />}
+      lead="National PKI, bank CAs, open banking and digital government — real projects, real results."
       actions={
         <>
           <Button href="/contact" onBand>Discuss Your Project</Button>
@@ -34,6 +39,12 @@ export default function CustomersPage() {
         </>
       }
     >
+      <nav className="sv-jump" aria-label="Insights">
+        <div className="sv-wrap">
+          {tabs.map((g) => <a key={g.id} className="sv-jump__a" href={`/insights#${g.id}`}>{g.label}</a>)}
+          <a className="sv-jump__a sv-jump__a--on" href="/customers" aria-current="page">Case Study</a>
+        </div>
+      </nav>
       <JumpBar links={cats.map((c) => ({ href: `#${c.id}`, label: c.name }))} />
       {cats.map((c, i) => {
         const items = cases.filter((x) => x.cat === c.id);

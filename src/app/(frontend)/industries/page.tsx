@@ -3,6 +3,7 @@ import { PageShell } from "@/components/page/PageShell";
 import { Button, Card, Section, SectionHead } from "@/components/ui";
 import { INDUSTRY_GROUPS, getIndustry } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
+import { HubDiagram } from "@/components/ui/HeroDiagrams";
 import { IndustryThumb } from "@/components/ui/Thumb";
 import { industryThumb } from "@/lib/thumbs";
 
@@ -21,6 +22,7 @@ export default function IndustriesPage() {
       eyebrow="Industries"
       title="Solutions shaped by sector."
       label="Industries"
+      aside={<HubDiagram />}
       lead="Pick your sector to see the products, use cases and case studies that matter most."
       trail={[{ label: "Solutions & Products", href: "/solutions" }]}
       actions={

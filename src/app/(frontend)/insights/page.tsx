@@ -7,7 +7,8 @@ import { Thumb } from "@/components/ui/Thumb";
 import { getCases } from "@/lib/content";
 import { caseThumb, newsThumb } from "@/lib/thumbs";
 import { FilterTabs } from "@/components/page/FilterTabs";
-import { getArticles, type ArticleDetail } from "@/lib/insights";
+import { INSIGHT_GROUPS } from "@/lib/insight-groups";
+import { getArticles } from "@/lib/insights";
 import { buildMetadata } from "@/lib/seo";
 
 const PATH = "/insights";
@@ -18,19 +19,11 @@ export const metadata: Metadata = buildMetadata({
   path: PATH,
 });
 
-/** Tabs of the page, in order. A tab with no articles is left out. Blog and tech bulletins will appear once there are any. */
-const GROUPS: Array<{ id: string; label: string; eyebrow: string; title: string; pick: (n: ArticleDetail) => boolean }> = [
-  { id: "news", label: "News", eyebrow: "News", title: "What is changing", pick: (n) => n.type === "press" && n.cat !== "Press release" },
-  { id: "press", label: "Press Releases", eyebrow: "Press", title: "Press releases", pick: (n) => n.type === "press" && n.cat === "Press release" },
-  { id: "regulation", label: "Regulation & Policy", eyebrow: "Regulation", title: "Regulation & policy", pick: (n) => n.type === "news" },
-  { id: "insights", label: "Research", eyebrow: "Insights", title: "Research & reference architectures", pick: (n) => n.type === "insight" },
-];
-
 export default async function InsightsPage() {
   const all = await getArticles();
   const latest = [...all].filter((n) => n.type !== "insight").sort((a, b) => (b.iso ?? "").localeCompare(a.iso ?? ""))[0];
   const featured = getCases()[0];
-  const panels = GROUPS.flatMap((g, i) => {
+  const panels = INSIGHT_GROUPS.flatMap((g, i) => {
     const items = all.filter(g.pick);
     if (!items.length) return [];
     return [{

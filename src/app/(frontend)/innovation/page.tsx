@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { NewsTile } from "@/components/home/NewsTile";
+import { AtomDiagram } from "@/components/ui/HeroDiagrams";
 import { PageShell } from "@/components/page/PageShell";
 import { InfoCard } from "@/components/solutions/Blocks";
 import { Button, Card, Section, SectionHead } from "@/components/ui";
@@ -24,6 +25,7 @@ export default async function InnovationPage() {
   return (
     <PageShell
       path={PATH}
+      aside={<AtomDiagram />}
       eyebrow="Innovation"
       title="Building the trust layer for the next decade."
       label="Innovation"
