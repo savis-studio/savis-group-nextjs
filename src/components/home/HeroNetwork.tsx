@@ -19,6 +19,7 @@ export function HeroNetwork() {
     let mx = -999, my = -999;
     let raf = 0;
     let visible = true;
+    let last = 0;
 
     const size = () => {
       const r = canvas.parentElement!.getBoundingClientRect();
@@ -42,11 +43,16 @@ export function HeroNetwork() {
     };
     const onLeave = () => { mx = my = -999; };
 
-    const step = () => {
+    const step = (now: number) => {
+      raf = requestAnimationFrame(step);
+      const dt = now - last;
+      if (dt < 33 || document.hidden) return; // 30 fps is plenty for slow drift
+      last = now;
+      const k = Math.min(dt, 100) / 16.7;
       if (visible) {
         ctx.clearRect(0, 0, w, h);
         for (const p of nodes) {
-          p.x += p.vx; p.y += p.vy;
+          p.x += p.vx * k; p.y += p.vy * k;
           if (p.x < 0 || p.x > w) p.vx *= -1;
           if (p.y < 0 || p.y > h) p.vy *= -1;
         }
@@ -70,7 +76,6 @@ export function HeroNetwork() {
           ctx.beginPath(); ctx.arc(p.x, p.y, 1.6, 0, 6.3); ctx.fill();
         }
       }
-      raf = requestAnimationFrame(step);
     };
 
     size();

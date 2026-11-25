@@ -135,9 +135,12 @@ export function Globe({ offices, label }: { offices: Office[]; label: string }) 
       }
     };
 
+    let last = 0;
     const loop = (now: number) => {
-      if (visible) draw(now);
       raf = requestAnimationFrame(loop);
+      if (now - last < 33 || document.hidden) return; // 30 fps
+      last = now;
+      if (visible) draw(now);
     };
 
     if (reduced) {

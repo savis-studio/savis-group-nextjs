@@ -1,8 +1,7 @@
 import type { CSSProperties } from "react";
 import { Button, Stat } from "@/components/ui";
 import type { Office } from "@/lib/content";
-import { Globe } from "./Globe";
-import { HeroNetwork } from "./HeroNetwork";
+import { DeferredGlobe, DeferredNetwork } from "./Deferred";
 
 const WORDS = ["nations.", "banks.", "smart cities.", "enterprises."];
 
@@ -20,7 +19,7 @@ export function HomeHero({ offices, stats }: HomeHeroProps) {
         <i className="sv-home__orb sv-home__orb--2" />
         <i className="sv-home__orb sv-home__orb--3" />
         <i className="sv-home__grid" />
-        <HeroNetwork />
+        <DeferredNetwork />
       </div>
       <div className="sv-wrap sv-home__hero-in">
         <div className="sv-home__hero-row">
@@ -45,7 +44,7 @@ export function HomeHero({ offices, stats }: HomeHeroProps) {
             </div>
           </div>
           <div className="sv-home__globe">
-            <Globe offices={offices} label={`Globe showing ${offices.length} SAVIS offices connected to Hanoi headquarters`} />
+            <DeferredGlobe offices={offices} label={`Globe showing ${offices.length} SAVIS offices connected to Hanoi headquarters`} />
           </div>
         </div>
         <div className="sv-home__kpi">

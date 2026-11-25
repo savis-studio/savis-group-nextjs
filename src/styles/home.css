@@ -4,7 +4,7 @@
 .sv-home__hero{position:relative;overflow:hidden;isolation:isolate;display:flex;align-items:center;min-height:min(88vh,860px);padding-block:96px 56px}
 .sv-home__hero-in{position:relative;z-index:2;width:100%}
 .sv-home__bg{position:absolute;inset:0;z-index:0;pointer-events:none}
-.sv-home__orb{position:absolute;display:block;border-radius:50%;filter:blur(70px);opacity:.55;mix-blend-mode:screen}
+.sv-home__orb{position:absolute;display:block;border-radius:50%;opacity:.55}
 .sv-home__orb--1{width:46vw;height:46vw;left:-12vw;top:-22vw;background:radial-gradient(circle,var(--blue-500),transparent 65%);animation:sv-drift 18s ease-in-out infinite}
 .sv-home__orb--2{width:40vw;height:40vw;right:-10vw;bottom:-26vw;background:radial-gradient(circle,var(--cyan-500),transparent 65%);animation:sv-drift 22s ease-in-out infinite reverse}
 .sv-home__orb--3{width:28vw;height:28vw;left:38%;top:20%;opacity:.28;background:radial-gradient(circle,#6E45C2,transparent 65%);animation:sv-drift 26s ease-in-out infinite}
@@ -15,7 +15,7 @@
 .sv-home__hero-txt h1{margin:0;letter-spacing:-.03em}
 .sv-home__globe{flex:1 1 320px;display:flex;justify-content:center;min-width:0}
 .sv-home__rot{position:relative;display:inline-grid;vertical-align:bottom}
-.sv-home__rot b{grid-area:1/1;font-weight:inherit;background:linear-gradient(90deg,var(--cyan-400),var(--cyan-100) 40%,#B18CFF);-webkit-background-clip:text;background-clip:text;color:transparent;opacity:0;transform:translateY(.45em);filter:blur(6px);animation:sv-rot 10s infinite;animation-delay:calc(var(--i)*2.5s)}
+.sv-home__rot b{grid-area:1/1;font-weight:inherit;background:linear-gradient(90deg,var(--cyan-400),var(--cyan-100) 40%,#B18CFF);-webkit-background-clip:text;background-clip:text;color:transparent;opacity:0;transform:translateY(.45em);animation:sv-rot 10s infinite;animation-delay:calc(var(--i)*2.5s - .5s)}
 .sv-home__kpi{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:56px;border-top:1px solid rgba(111,227,255,.18)}
 .sv-home__kpi .sv-stat{padding:20px 20px 0 0;border-top:0}
 .sv-home__kpi .sv-stat b{font-size:clamp(30px,3.4vw,44px);line-height:1;font-weight:800}
@@ -106,7 +106,7 @@
 
 /* ---------- Motion ---------- */
 @keyframes sv-drift{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(6vw,4vw) scale(1.15)}66%{transform:translate(-4vw,6vw) scale(.92)}}
-@keyframes sv-rot{0%{opacity:0;transform:translateY(.45em);filter:blur(6px)}4%,22%{opacity:1;transform:none;filter:none}26%,100%{opacity:0;transform:translateY(-.45em);filter:blur(6px)}}
+@keyframes sv-rot{0%{opacity:0;transform:translateY(.45em)}4%,22%{opacity:1;transform:none}26%,100%{opacity:0;transform:translateY(-.45em)}}
 @keyframes sv-marquee{to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){
   .sv-home__orb,.sv-home__row,.sv-home__rot b{animation:none!important}
