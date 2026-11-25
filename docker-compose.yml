@@ -75,6 +75,19 @@ services:
     mem_limit: 128m
     logging: *logging
 
+  # Second tunnel for the production hostname (savis-group.com). Optional: starts only when COMPOSE_PROFILES=prod and TUNNEL_TOKEN_PROD are set in .env.
+  cloudflared-prod:
+    image: cloudflare/cloudflared:${CLOUDFLARED_TAG:?pin a version in .env, see DEPLOY.md}
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run
+    environment:
+      TUNNEL_TOKEN: ${TUNNEL_TOKEN_PROD:-}
+    depends_on:
+      - app
+    mem_limit: 128m
+    logging: *logging
+    profiles: ["prod"]
+
 volumes:
   pgdata:
   media:
