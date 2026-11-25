@@ -37,6 +37,8 @@ const readCatalog = unstable_cache(
 
 /** Pillars and industries for the header and footer. Falls back to the bundled catalogue when the CMS is empty or unreachable. */
 export async function getCatalog(): Promise<Catalog> {
+  // No database while `next build` prerenders pages (and in the Docker build): use the bundled catalogue.
+  if (process.env.NEXT_PHASE === "phase-production-build") return { pillars: fallbackPillars, industries: fallbackIndustries };
   try {
     const catalog = await readCatalog();
     if (catalog) return catalog;

@@ -12,7 +12,8 @@
     "seed": "payload run src/seed/index.ts",
     "payload": "payload",
     "generate:types": "payload generate:types",
-    "generate:importmap": "payload generate:importmap"
+    "generate:importmap": "payload generate:importmap",
+    "check": "tsx scripts/check-seo.ts"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "^3.94.1",
@@ -35,6 +36,7 @@
     "esbuild": "^0.28.2",
     "postcss": "^8.5.33",
     "tailwindcss": "^4.3.5",
+    "tsx": "^4.23.15",
     "typescript": "^7.0.2"
   }
 }

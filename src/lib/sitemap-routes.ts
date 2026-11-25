@@ -1,0 +1,64 @@
+import { getCases, getNews, getPillars } from "./content";
+import products from "@/data/mockup/products.json";
+import useCases from "@/data/mockup/use-cases.json";
+import industries from "@/data/mockup/industries.json";
+
+/**
+ * Every public route, with `ready` set once its page exists. The sitemap lists only ready routes, so crawlers are never
+ * pointed at a 404. Flip a flag in the same change that adds the page (see docs/ROUTES.md for the phase of each).
+ */
+export interface SitemapRoute {
+  path: string;
+  ready: boolean;
+  lastModified?: string;
+  priority?: number;
+}
+
+const staticRoute = (path: string, ready: boolean, priority = 0.6): SitemapRoute => ({ path, ready, priority });
+
+export const STATIC_ROUTES: SitemapRoute[] = [
+  staticRoute("/", true, 1),
+  // Phase 3
+  staticRoute("/solutions", false, 0.9),
+  staticRoute("/industries", false, 0.8),
+  staticRoute("/use-cases", false, 0.8),
+  // Phase 4
+  staticRoute("/customers", false, 0.8),
+  staticRoute("/insights", false, 0.8),
+  staticRoute("/resources", false, 0.7),
+  // Phase 5
+  staticRoute("/services", false, 0.8),
+  staticRoute("/innovation", false, 0.7),
+  staticRoute("/innovation/pqc-lab", false, 0.6),
+  staticRoute("/about", false, 0.7),
+  staticRoute("/about/culture", false, 0.4),
+  staticRoute("/about/esg", false, 0.4),
+  staticRoute("/about/integrity", false, 0.4),
+  staticRoute("/partners", false, 0.6),
+  staticRoute("/careers", false, 0.6),
+  staticRoute("/contact", false, 0.7),
+  staticRoute("/investors", false, 0.5),
+  staticRoute("/trust-center", false, 0.6),
+  staticRoute("/privacy", false, 0.2),
+  staticRoute("/terms", false, 0.2),
+  staticRoute("/cookies", false, 0.2),
+];
+
+/** Dynamic collections: one entry per record. Flip `ready` with the phase that builds the detail page. */
+export function dynamicRoutes(): SitemapRoute[] {
+  const out: SitemapRoute[] = [];
+  const add = (ready: boolean, base: string, ids: string[], priority: number) => {
+    for (const id of ids) out.push({ path: `${base}/${id}`, ready, priority });
+  };
+  add(false, "/solutions", getPillars().map((p) => p.id), 0.8); // Phase 3
+  add(false, "/products", products.map((p) => p.slug), 0.7); // Phase 3
+  add(false, "/industries", industries.items.map((i) => i.id), 0.7); // Phase 3
+  add(false, "/use-cases", useCases.map((u) => u.id), 0.6); // Phase 3
+  add(false, "/customers", getCases().map((c) => c.id), 0.6); // Phase 4
+  for (const n of getNews()) {
+    out.push({ path: `/insights/${n.id}`, ready: false, lastModified: n.iso, priority: 0.5 }); // Phase 4
+  }
+  return out;
+}
+
+export const readyRoutes = (): SitemapRoute[] => [...STATIC_ROUTES, ...dynamicRoutes()].filter((r) => r.ready);

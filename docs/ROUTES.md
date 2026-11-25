@@ -54,7 +54,8 @@ Old product aliases from `route()`:
 | `ds-smart-ekyc` | `/products/trustonboard/datasheet` |
 | `ds-digital-id-mobile` | `/products/national-eid-trust/datasheet` |
 
-Hash URLs are never seen by the server, so no redirect is needed for them. Only the legacy slugs above matter.
+Hash URLs are never seen by the server, so no redirect is needed for them. The product renames are implemented in `src/data/redirects.ts`
+(Next answers `308`, a permanent redirect that search engines treat like a 301). Add a line there whenever a slug changes.
 
 ## Data files (`src/data/mockup/`)
 
@@ -90,13 +91,15 @@ Hash URLs are never seen by the server, so no redirect is needed for them. Only 
 - `BreadcrumbList` everywhere below the top level.
 
 **Crawling**
-- `app/sitemap.ts` (static routes + all dynamic records, with `lastModified`), `app/robots.ts` pointing at it.
+- `app/sitemap.ts` lists only routes marked `ready` in `src/lib/sitemap-routes.ts`; flip the flag in the same change that adds a page. `app/robots.ts` points at it.
 - `noindex` stays on every host other than `INDEXABLE_HOST` (already in `src/proxy.ts`).
 - Admin and API are already blocked by Cloudflare Access; add them to `robots.txt` as well.
 
 **Rendering and speed**
-- Public content pages must not be `force-dynamic`. Today the frontend layout is, because it reads the catalogue. Before Phase 3:
-  render pages statically or with ISR (`revalidate`), and keep the header/footer catalogue on its existing 60 s cache tag.
+- Done in Phase 2: the frontend layout is no longer `force-dynamic`. Pages are prerendered and refreshed every 60 s (ISR). While `next build`
+  runs there is no database, so `getCatalog()` returns the bundled catalogue; the first refresh after deploy brings in the CMS data.
+  Admin edits still purge the cache at once. New pages must not read cookies, headers or search params unless they need to, or they become dynamic again.
+- The canonical origin is the constant `SITE_ORIGIN` in `src/lib/site.ts` (not an env var), because prerendered HTML cannot read runtime env.
 - `next/image` for every photo, with width/height and meaningful `alt`.
 
 ## Open points

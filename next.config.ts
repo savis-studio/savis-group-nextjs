@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 import path from "node:path";
 import { withPayload } from "@payloadcms/next/withPayload";
+import { REDIRECTS } from "./src/data/redirects";
 
 const isProd = process.env.NODE_ENV === "production";
 
@@ -27,6 +28,11 @@ const nextConfig: NextConfig = {
   },
   turbopack: { root: path.resolve(__dirname) },
   poweredByHeader: false,
+  // One URL per page: no trailing slash.
+  trailingSlash: false,
+  async redirects() {
+    return REDIRECTS.map((r) => ({ source: r.from, destination: r.to, permanent: true }));
+  },
   async headers() {
     return [
       { source: "/:path*", headers: securityHeaders },

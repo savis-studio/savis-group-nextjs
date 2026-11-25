@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import "@/styles/home.css";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { buildMetadata, organizationLd, websiteLd } from "@/lib/seo";
+import { SITE_DESCRIPTION, SITE_NAME, SITE_TAGLINE } from "@/lib/site";
 import { AudienceTabs } from "@/components/home/AudienceTabs";
 import { CaseCard } from "@/components/home/CaseCard";
 import { FilmSection } from "@/components/home/FilmSection";
@@ -13,9 +16,9 @@ import {
 } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "SAVIS Group — Trusted Digital Infrastructure for a Smarter World",
-  description:
-    "Identity, trust and secure platforms for nations, banks, smart cities and enterprises. Five solution pillars, delivered end to end on core technology SAVIS designs and builds itself.",
+  ...buildMetadata({ title: SITE_TAGLINE, description: SITE_DESCRIPTION, path: "/" }),
+  // The home title stands alone; the layout template would repeat the site name.
+  title: { absolute: `${SITE_NAME} — Digital Trust, Identity & Secure Platforms` },
 };
 
 const STATS = [
@@ -47,6 +50,7 @@ export default function Home() {
 
   return (
     <main>
+      <JsonLd data={[organizationLd(), websiteLd()]} />
       <HomeHero offices={getOffices()} stats={STATS} />
       <StandardsMarquee items={getStandards()} />
 

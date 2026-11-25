@@ -8,6 +8,7 @@ const ALIASES: Record<string, string> = {
   "p-digital-id-mobile": "p-national-eid-trust",
   "ds-smart-ekyc": "ds-trustonboard",
   "ds-digital-id-mobile": "ds-national-eid-trust",
+  "partner-portal": "partners",
 };
 
 /** Top-level pages that keep their name. */
