@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 import path from "node:path";
 import { withPayload } from "@payloadcms/next/withPayload";
+import { LEGACY_REDIRECTS } from "./src/data/legacy-redirects";
 import { REDIRECTS } from "./src/data/redirects";
 
 const isProd = process.env.NODE_ENV === "production";
@@ -31,7 +32,11 @@ const nextConfig: NextConfig = {
   // One URL per page: no trailing slash.
   trailingSlash: false,
   async redirects() {
-    return REDIRECTS.map((r) => ({ source: r.from, destination: r.to, permanent: true }));
+    return [
+      // One host: www goes to the apex (the canonical origin in src/lib/site.ts).
+      { source: "/:path*", has: [{ type: "host" as const, value: "www.savis-group.com" }], destination: "https://savis-group.com/:path*", permanent: true },
+      ...[...REDIRECTS, ...LEGACY_REDIRECTS].map((r) => ({ source: r.from, destination: r.to, permanent: true })),
+    ];
   },
   async headers() {
     return [

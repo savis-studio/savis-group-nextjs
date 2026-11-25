@@ -129,3 +129,10 @@ Site search: the header button opens an overlay that filters `/search-index` (JS
 Known gaps: no cookie-consent UI (the "Cookie settings" footer link
 was removed, but the cookie policy text still describes analytics and marketing consent); contact messages are stored in Payload
 (`inquiries`) with no email notification.
+
+## Previous site (`/en/...`)
+
+savis-group.com used to serve a site with every page under `/en`. `src/data/legacy-redirects.ts` sends those URLs (301) to the
+pages here: `/en/x` to `/x`, `/en/solutions/<pillar>/<group>/<product>` to `/products/<product>` (or to the solution page for
+products that no longer exist), and `/en/insights/<title-slug>` to `/insights/<id>`. `www` redirects to the apex.
+`npx tsx scripts/check-legacy.ts` checks the 140 URLs crawled from the old site (`scripts/fixtures/legacy-urls.txt`): all land on an existing page.
