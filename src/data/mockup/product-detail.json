@@ -1,0 +1,10651 @@
+{
+ "trustonboard": {
+  "sum": "Fraudsters now attack onboarding with deepfakes, injected video and forged documents. TrustOnboard checks the document, the chip, the face, the liveness and the device in one flow and returns a single Trust Score your rules can act on.",
+  "feat": [
+   [
+    "Document and NFC chip",
+    "Reads MRZ and chip, verifies issuer signatures (ICAO 9303) and security features."
+   ],
+   [
+    "Face match",
+    "Compares the selfie with the chip photo or document portrait."
+   ],
+   [
+    "Liveness & deepfake defense",
+    "Passive liveness, deepfake and video-injection detection."
+   ],
+   [
+    "Device intelligence",
+    "Emulators, rooted devices, remote-access tools and SIM swap signals."
+   ],
+   [
+    "Trust Score",
+    "One explainable score combining every check, with reason codes."
+   ],
+   [
+    "Orchestration console",
+    "Configure journeys, thresholds and manual review without code."
+   ]
+  ],
+  "int": [
+   "REST API and webhooks",
+   "Android, iOS and web SDKs",
+   "OpenID4VP for wallet-based PID",
+   "VNeID connector (VietNam)"
+  ],
+  "dep": [
+   "On-premises",
+   "Private or national cloud",
+   "SaaS (Digital Trust as a Service)"
+  ],
+  "std": [
+   "ICAO 9303",
+   "ISO/IEC 30107-3 PAD",
+   "SBV Circulars 50/2024 and 77/2025",
+   "ETSI TS 119 461",
+   "GDPR / PDPL VietNam"
+  ],
+  "pre": [
+   "Onboarding journey and risk policy",
+   "Core system API for account creation",
+   "Case-review team for referrals"
+  ],
+  "go": [
+   "Map current onboarding, fraud losses and regulatory levels",
+   "Design journeys, thresholds and reason codes",
+   "Pilot on one product or channel",
+   "Roll out to all channels and agents",
+   "Tune scores monthly with fraud data"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Customers",
+     "users"
+    ],
+    [
+     "Agents",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Banking / telco app",
+     "phone"
+    ],
+    [
+     "Web onboarding",
+     "web"
+    ],
+    [
+     "Branch tablet",
+     "kiosk"
+    ]
+   ],
+   "mods": [
+    "Document + NFC chip",
+    "Face match",
+    "Liveness & deepfake",
+    "Device intelligence",
+    "Trust Score engine"
+   ],
+   "core": [
+    [
+     "Keys & signatures",
+     "key"
+    ],
+    [
+     "Evidence store",
+     "db"
+    ]
+   ],
+   "ent": [
+    [
+     "Core banking / BSS",
+     "bank"
+    ],
+    [
+     "AML / KYC case mgmt",
+     "doc"
+    ],
+    [
+     "National register",
+     "gov"
+    ]
+   ],
+   "steps": [
+    "The customer starts onboarding in the app, on the web or with an agent.",
+    "The channel streams document, chip, selfie and device data to TrustOnboard.",
+    "Every check is signed and the evidence is stored for audit.",
+    "The Trust Score and reason codes create, refer or reject the account in core and AML systems."
+   ]
+  }
+ },
+ "savis-abis": {
+  "sum": "Duplicate and synthetic identities undermine every register built on top of them. SAVIS ABIS de-duplicates face and fingerprint records at national scale so each person is enrolled once.",
+  "feat": [
+   [
+    "Multimodal",
+    "Face and fingerprint templates, fused scoring."
+   ],
+   [
+    "1:N de-duplication",
+    "Search a new enrolment against the whole register."
+   ],
+   [
+    "1:1 verification",
+    "Real-time match for services and border points."
+   ],
+   [
+    "Scale-out",
+    "Add matcher nodes as the population grows."
+   ],
+   [
+    "Adjudication",
+    "Review workflow for possible duplicates."
+   ],
+   [
+    "Open API",
+    "REST API, modular and decoupled architecture."
+   ],
+   [
+    "MOSIP-ready",
+    "Queue-based ABIS interface; no personal data sent to ABIS (MOSIP compliance testing in progress)."
+   ]
+  ],
+  "int": [
+   "REST API",
+   "MOSIP-compatible queue interface (ABIS API) — complementary solution",
+   "Enrolment client SDKs",
+   "Batch import of legacy records"
+  ],
+  "dep": [
+   "On-premises (national data centre)",
+   "Private cloud on COTS hardware"
+  ],
+  "std": [
+   "ISO/IEC 19794 / 39794 templates",
+   "ISO/IEC 30107-3 PAD at capture",
+   "MOSIP ABIS API — compliance testing in progress",
+   "GDPR-aligned privacy controls"
+  ],
+  "pre": [
+   "Enrolment centres or mobile kits",
+   "Legacy biometric data to migrate",
+   "Data protection approval"
+  ],
+  "go": [
+   "Size population, transactions and legacy data",
+   "Design matcher topology and adjudication",
+   "Pilot with one region or programme",
+   "National roll-out and legacy migration",
+   "24/7 operation and capacity planning"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Citizens",
+     "users"
+    ],
+    [
+     "Registration officers",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Enrolment stations",
+     "kiosk"
+    ],
+    [
+     "Mobile kits",
+     "phone"
+    ],
+    [
+     "Service points",
+     "web"
+    ]
+   ],
+   "mods": [
+    "Template extraction",
+    "1:N de-duplication",
+    "1:1 verification",
+    "Adjudication workflow",
+    "Matcher cluster"
+   ],
+   "core": [
+    [
+     "Encrypted template store",
+     "db"
+    ],
+    [
+     "Record signing",
+     "key"
+    ]
+   ],
+   "ent": [
+    [
+     "Civil register / IDMS",
+     "gov"
+    ],
+    [
+     "ID card & credential issuance",
+     "card"
+    ],
+    [
+     "SIM, voter, benefit registers",
+     "users"
+    ]
+   ],
+   "steps": [
+    "Citizens are enrolled with face and fingerprints.",
+    "Captures flow from stations and mobile kits to ABIS.",
+    "Templates are encrypted; identity records are signed.",
+    "Only unique identities are passed to the civil register and issuance systems."
+   ]
+  }
+ },
+ "touchless-fingerprint": {
+  "sum": "Fingerprint scanners are costly to deploy and maintain at every branch, agent and border point. Touchless Fingerprint turns any smartphone camera into a four-finger capture and matching device.",
+  "feat": [
+   [
+    "Four fingers at once",
+    "Capture with the rear camera, guided by on-screen frames."
+   ],
+   [
+    "Quality and liveness",
+    "Automatic quality check and spoof detection."
+   ],
+   [
+    "Interoperable output",
+    "Templates and images for existing AFIS/ABIS."
+   ],
+   [
+    "1:1 and 1:N",
+    "Match on the device or on the server."
+   ],
+   [
+    "Offline mode",
+    "Capture and match without a network."
+   ],
+   [
+    "SDKs",
+    "Android, iOS and web."
+   ]
+  ],
+  "int": [
+   "Android / iOS / web SDK",
+   "SAVIS ABIS connector",
+   "SAVIS TrustOnboard"
+  ],
+  "dep": [
+   "SDK embedded in your app",
+   "Server matching on-premises or cloud"
+  ],
+  "std": [
+   "ISO/IEC 19794-4 / 39794",
+   "ISO/IEC 30107-3 PAD"
+  ],
+  "pre": [
+   "Mobile app or agent app",
+   "Matching back end (SAVIS ABIS or existing AFIS)"
+  ],
+  "go": [
+   "Select journeys: onboarding, approval, field enrolment",
+   "Integrate SDK and matching",
+   "Pilot with agents or one branch network",
+   "Roll out to customers",
+   "Monitor match rates and quality"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Customers",
+     "users"
+    ],
+    [
+     "Field agents",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Mobile app",
+     "phone"
+    ],
+    [
+     "Agent app",
+     "phone"
+    ]
+   ],
+   "mods": [
+    "Camera capture SDK",
+    "Quality & liveness",
+    "Template extraction",
+    "1:1 / 1:N matching"
+   ],
+   "core": [
+    [
+     "On-device processing",
+     "chip"
+    ],
+    [
+     "Template store",
+     "db"
+    ]
+   ],
+   "ent": [
+    [
+     "SAVIS ABIS / AFIS",
+     "server"
+    ],
+    [
+     "Onboarding & core systems",
+     "bank"
+    ]
+   ],
+   "steps": [
+    "The user shows four fingers to the phone camera.",
+    "The SDK checks quality and liveness and extracts templates.",
+    "Templates are matched on the device or stored encrypted.",
+    "Results go to ABIS and the onboarding or approval system."
+   ]
+  }
+ },
+ "face-biometrics": {
+  "sum": "Face is the most convenient biometric, and the one most attacked. SAVIS Face Biometrics combines quality capture, fast matching and liveness for onboarding, login and identification.",
+  "feat": [
+   [
+    "Guided capture",
+    "Quality checks for pose, light and occlusion."
+   ],
+   [
+    "1:1 verification",
+    "Selfie against chip or document photo."
+   ],
+   [
+    "1:N identification",
+    "Search against a gallery or watch list."
+   ],
+   [
+    "Liveness",
+    "Passive liveness included."
+   ],
+   [
+    "Web and mobile SDKs",
+    "One integration for every channel."
+   ],
+   [
+    "On-device or server",
+    "Choose by privacy and performance."
+   ]
+  ],
+  "int": [
+   "Android / iOS / web SDK",
+   "REST API",
+   "TrustOnboard, ABIS"
+  ],
+  "dep": [
+   "SDK + on-premises server",
+   "Cloud API"
+  ],
+  "std": [
+   "ISO/IEC 19794-5 / 39794-5",
+   "ISO/IEC 30107-3",
+   "ICAO portrait quality"
+  ],
+  "pre": [
+   "Channel app",
+   "Reference photos (chip, register or enrolment)"
+  ],
+  "go": [
+   "Define journeys and thresholds",
+   "Integrate SDK and API",
+   "Pilot on login or onboarding",
+   "Roll out to all channels",
+   "Monitor accuracy and fairness"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Customers",
+     "users"
+    ],
+    [
+     "Staff",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Mobile app",
+     "phone"
+    ],
+    [
+     "Web",
+     "web"
+    ],
+    [
+     "Kiosk",
+     "kiosk"
+    ]
+   ],
+   "mods": [
+    "Capture & quality",
+    "Liveness",
+    "Template extraction",
+    "1:1 / 1:N matching"
+   ],
+   "core": [
+    [
+     "Template store",
+     "db"
+    ],
+    [
+     "Audit log",
+     "doc"
+    ]
+   ],
+   "ent": [
+    [
+     "IAM / onboarding",
+     "server"
+    ],
+    [
+     "Registers & watch lists",
+     "gov"
+    ]
+   ],
+   "steps": [
+    "The user takes a selfie in any channel.",
+    "Capture quality and liveness are checked.",
+    "Templates are matched and the decision is logged.",
+    "IAM, onboarding or register systems receive the result."
+   ]
+  }
+ },
+ "palm-biometrics": {
+  "sum": "Palm recognition is touchless, hygienic and hard to observe. SAVIS Palm Biometrics brings it to phones and kiosks for public services, border points and access control.",
+  "feat": [
+   [
+    "Touchless capture",
+    "Phone camera or kiosk reader."
+   ],
+   [
+    "Fast matching",
+    "1:1 and 1:N."
+   ],
+   [
+    "Liveness",
+    "Spoof detection at capture."
+   ],
+   [
+    "Privacy",
+    "Templates, not images, are stored."
+   ],
+   [
+    "SDKs",
+    "Android, iOS and kiosk."
+   ],
+   [
+    "Pairs with payments",
+    "Shares the platform with Palm Biometric Payment."
+   ]
+  ],
+  "int": [
+   "SDK",
+   "REST API",
+   "Access-control and kiosk integration"
+  ],
+  "dep": [
+   "On-premises",
+   "Cloud"
+  ],
+  "std": [
+   "ISO/IEC 30107-3",
+   "GDPR / PDPL"
+  ],
+  "pre": [
+   "Kiosks or app",
+   "Enrolment process"
+  ],
+  "go": [
+   "Choose services and sites",
+   "Integrate kiosks and app",
+   "Pilot at one site",
+   "Roll out",
+   "Operate and monitor"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Citizens",
+     "users"
+    ],
+    [
+     "Travellers",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Kiosk",
+     "kiosk"
+    ],
+    [
+     "Mobile app",
+     "phone"
+    ],
+    [
+     "Access gate",
+     "shield"
+    ]
+   ],
+   "mods": [
+    "Palm capture",
+    "Liveness",
+    "Template matching",
+    "Policy decision"
+   ],
+   "core": [
+    [
+     "Template store",
+     "db"
+    ],
+    [
+     "Audit log",
+     "doc"
+    ]
+   ],
+   "ent": [
+    [
+     "Service portal",
+     "gov"
+    ],
+    [
+     "Access control",
+     "lock"
+    ]
+   ],
+   "steps": [
+    "The person presents a palm to a kiosk, phone or gate.",
+    "Capture and liveness run at the edge.",
+    "Templates are matched; decisions are logged.",
+    "The service or gate is opened."
+   ]
+  }
+ },
+ "liveness-deepfake": {
+  "sum": "Generative AI makes face spoofing cheap. Liveness & Deepfake Defense stops printed photos, masks, replays, deepfakes and injected video before they reach your decision.",
+  "feat": [
+   [
+    "Passive liveness",
+    "No head movements or prompts."
+   ],
+   [
+    "Deepfake detection",
+    "Detects synthetic and swapped faces."
+   ],
+   [
+    "Injection detection",
+    "Detects virtual cameras and stream tampering."
+   ],
+   [
+    "On-device AI",
+    "Runs on the phone for speed and privacy."
+   ],
+   [
+    "Risk signals",
+    "Feeds TrustOnboard and fraud engines."
+   ],
+   [
+    "Continuous updates",
+    "Models updated against new attack types."
+   ]
+  ],
+  "int": [
+   "SDK",
+   "REST API",
+   "TrustOnboard, SAM Auth Server"
+  ],
+  "dep": [
+   "SDK on device",
+   "Server verification"
+  ],
+  "std": [
+   "ISO/IEC 30107-3",
+   "CEN TS 18099 (injection)",
+   "SBV Circular 77/2025 (PAD Level 2)"
+  ],
+  "pre": [
+   "Face capture journey",
+   "Decision engine to consume signals"
+  ],
+  "go": [
+   "Assess current attack exposure",
+   "Integrate SDK into journeys",
+   "Pilot with red-team testing",
+   "Roll out",
+   "Monitor attacks and update models"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Customers",
+     "users"
+    ],
+    [
+     "Attackers",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Mobile app",
+     "phone"
+    ],
+    [
+     "Web",
+     "web"
+    ]
+   ],
+   "mods": [
+    "Passive liveness",
+    "Deepfake detector",
+    "Injection detector",
+    "Risk signals"
+   ],
+   "core": [
+    [
+     "On-device AI",
+     "chip"
+    ],
+    [
+     "Evidence log",
+     "doc"
+    ]
+   ],
+   "ent": [
+    [
+     "Onboarding / IAM",
+     "server"
+    ],
+    [
+     "Fraud engine",
+     "shield"
+    ]
+   ],
+   "steps": [
+    "A face is captured in the app or browser.",
+    "Liveness, deepfake and injection checks run on the device.",
+    "Signals and evidence are logged.",
+    "Onboarding, login or fraud systems act on the result."
+   ]
+  }
+ },
+ "cryptoid": {
+  "sum": "Online-only identity excludes people without smartphones or coverage. CryptoID puts a signed identity — with biometrics — into a QR code that can be verified anywhere, even offline.",
+  "feat": [
+   [
+    "Signed QR credential",
+    "Issued and signed by the authority."
+   ],
+   [
+    "Biometric unlock",
+    "Face or fingerprint confirms the holder."
+   ],
+   [
+    "Selective sharing",
+    "Share only the attributes needed."
+   ],
+   [
+    "Offline verification",
+    "No network needed to verify."
+   ],
+   [
+    "Many carriers",
+    "Paper, card, phone, or smart card by NFC."
+   ],
+   [
+    "PKI-backed",
+    "Tamper-evident with issuer signatures."
+   ],
+   [
+    "Visible Digital Seal",
+    "Signed 2D barcode (QR, DataMatrix) following ISO 22376 encoding; certification in progress."
+   ],
+   [
+    "Trust lists",
+    "Verifiers download issuer trust lists in advance for fully offline checks."
+   ]
+  ],
+  "int": [
+   "Issuance API",
+   "Verifier SDK (mobile)",
+   "SAVIS ABIS and civil register"
+  ],
+  "dep": [
+   "On-premises issuance",
+   "Cloud verifier apps"
+  ],
+  "std": [
+   "ISO 22376:2023 Visible Digital Seal — alignment, certification in progress",
+   "ISO 22385:2023 trust framework — in progress",
+   "ISO/IEC 39794 biometric templates",
+   "ECDSA P-256 / P-384 signatures",
+   "X.509 PKI"
+  ],
+  "pre": [
+   "Identity register",
+   "Issuer signing keys"
+  ],
+  "go": [
+   "Define credential types and attributes",
+   "Set up issuance and keys",
+   "Pilot in one programme",
+   "Scale to registers and verifiers",
+   "Operate key lifecycle"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Holders",
+     "users"
+    ],
+    [
+     "Field verifiers",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Printed card / paper",
+     "qr"
+    ],
+    [
+     "Mobile app",
+     "phone"
+    ],
+    [
+     "Verifier app",
+     "phone"
+    ]
+   ],
+   "mods": [
+    "CryptoID issuance",
+    "Biometric binding",
+    "Selective disclosure",
+    "Offline verifier"
+   ],
+   "core": [
+    [
+     "Issuer signing keys",
+     "key"
+    ],
+    [
+     "Revocation list",
+     "doc"
+    ]
+   ],
+   "ent": [
+    [
+     "Civil register",
+     "gov"
+    ],
+    [
+     "Programme databases",
+     "db"
+    ]
+   ],
+   "steps": [
+    "An authority issues CryptoID to the holder.",
+    "The holder presents it on paper, card or phone.",
+    "The verifier checks the issuer signature and the biometric offline.",
+    "Programmes update records when connectivity returns."
+   ]
+  }
+ },
+ "smart-ekyc": {
+  "sum": "Branch visits and paper forms slow growth. Smart eKYC verifies the document and the face remotely so customers can open accounts in minutes.",
+  "feat": [
+   [
+    "OCR",
+    "Reads ID cards and passports."
+   ],
+   [
+    "Chip reading",
+    "NFC read of chip ID cards."
+   ],
+   [
+    "Face match",
+    "Selfie versus document or chip photo."
+   ],
+   [
+    "Liveness",
+    "Presentation-attack detection."
+   ],
+   [
+    "Form pre-fill",
+    "Data flows into your forms."
+   ],
+   [
+    "Audit trail",
+    "Evidence kept for compliance."
+   ]
+  ],
+  "int": [
+   "SDK",
+   "REST API",
+   "VNeID connector"
+  ],
+  "dep": [
+   "On-premises",
+   "Cloud"
+  ],
+  "std": [
+   "SBV Circulars 50/2024, 77/2025",
+   "ISO/IEC 30107-3"
+  ],
+  "pre": [
+   "Onboarding app",
+   "Core system API"
+  ],
+  "go": [
+   "Review onboarding",
+   "Design journey",
+   "Pilot",
+   "Roll out",
+   "Optimise"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Customers",
+     "users"
+    ]
+   ],
+   "ch": [
+    [
+     "Mobile app",
+     "phone"
+    ],
+    [
+     "Web",
+     "web"
+    ]
+   ],
+   "mods": [
+    "OCR",
+    "NFC chip",
+    "Face match",
+    "Liveness"
+   ],
+   "core": [
+    [
+     "Evidence store",
+     "db"
+    ]
+   ],
+   "ent": [
+    [
+     "Core banking",
+     "bank"
+    ],
+    [
+     "AML",
+     "doc"
+    ]
+   ],
+   "steps": [
+    "The customer scans the ID and takes a selfie.",
+    "eKYC checks run.",
+    "Evidence is stored.",
+    "The account is opened in core systems."
+   ]
+  }
+ },
+ "id-verification": {
+  "sum": "Forged and altered documents are the first line of identity fraud. ID Verification checks that ID cards and passports are genuine before you trust the data on them.",
+  "feat": [
+   [
+    "Chip authentication",
+    "Passive and active authentication of chip data."
+   ],
+   [
+    "Security features",
+    "Checks visual features and MRZ consistency."
+   ],
+   [
+    "Data validation",
+    "Cross-checks fields and expiry."
+   ],
+   [
+    "Multi-document",
+    "ID cards, passports, permits."
+   ],
+   [
+    "Kiosk and mobile",
+    "Same checks everywhere."
+   ],
+   [
+    "Reason codes",
+    "Clear outcome for review."
+   ]
+  ],
+  "int": [
+   "SDK",
+   "REST API",
+   "TrustOnboard"
+  ],
+  "dep": [
+   "On-premises",
+   "Cloud"
+  ],
+  "std": [
+   "ICAO 9303"
+  ],
+  "pre": [
+   "Document types in scope"
+  ],
+  "go": [
+   "List documents",
+   "Integrate",
+   "Pilot",
+   "Roll out",
+   "Monitor"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Customers",
+     "users"
+    ]
+   ],
+   "ch": [
+    [
+     "Mobile",
+     "phone"
+    ],
+    [
+     "Kiosk",
+     "kiosk"
+    ]
+   ],
+   "mods": [
+    "MRZ & OCR",
+    "Chip authentication",
+    "Feature checks"
+   ],
+   "core": [
+    [
+     "CSCA certificates",
+     "key"
+    ]
+   ],
+   "ent": [
+    [
+     "Onboarding",
+     "server"
+    ]
+   ],
+   "steps": [
+    "A document is presented.",
+    "Chip and features are checked.",
+    "Signatures are validated against issuer certificates.",
+    "The result is returned to onboarding."
+   ]
+  }
+ },
+ "kms": {
+  "sum": "Keys scattered across applications and clouds are a compliance and breach risk. KMS gives one place to generate, rotate, back up and revoke keys under policy.",
+  "feat": [
+   [
+    "Central policy",
+    "Algorithms, rotation and owners per application."
+   ],
+   [
+    "Lifecycle",
+    "Generate, distribute, rotate, back up, revoke."
+   ],
+   [
+    "Multi-cloud",
+    "Manage cloud keys alongside on-premises keys."
+   ],
+   [
+    "Hardware root",
+    "Keys generated in GP HSM, Payment HSM or HSM as a Service."
+   ],
+   [
+    "Audit",
+    "Every key use and change logged."
+   ],
+   [
+    "Crypto-agility ready",
+    "Switch algorithms by policy."
+   ]
+  ],
+  "int": [
+   "KMIP",
+   "REST",
+   "PKCS#11",
+   "Cloud KMS connectors"
+  ],
+  "dep": [
+   "On-premises",
+   "Hybrid cloud"
+  ],
+  "std": [
+   "NIST SP 800-57",
+   "PCI DSS key management",
+   "ISO/IEC 27001"
+  ],
+  "pre": [
+   "Key inventory",
+   "Application owners"
+  ],
+  "go": [
+   "Inventory keys and owners",
+   "Define policies",
+   "Migrate first applications",
+   "Extend to all systems",
+   "Audit and rotate"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Security admins",
+     "user"
+    ],
+    [
+     "Applications",
+     "server"
+    ]
+   ],
+   "ch": [
+    [
+     "KMS console",
+     "web"
+    ],
+    [
+     "KMS API",
+     "api"
+    ]
+   ],
+   "mods": [
+    "Policy engine",
+    "Key lifecycle",
+    "Distribution",
+    "Audit"
+   ],
+   "core": [
+    [
+     "GP HSM / Payment HSM",
+     "chip"
+    ],
+    [
+     "SAM Appliance",
+     "server"
+    ]
+   ],
+   "ent": [
+    [
+     "Databases",
+     "db"
+    ],
+    [
+     "Payment systems",
+     "card"
+    ],
+    [
+     "Cloud KMS",
+     "cloud"
+    ]
+   ],
+   "steps": [
+    "Admins define policy; applications request keys.",
+    "Requests go through the console or KMIP / REST / PKCS#11.",
+    "Keys are generated and protected in hardware.",
+    "Keys are distributed to databases, payment systems and clouds, and every use is audited."
+   ]
+  }
+ },
+ "zero-trust-gateway": {
+  "sum": "VPNs trust anyone inside the network. The Zero Trust Gateway Appliance checks identity, device health and policy on every request before granting access.",
+  "feat": [
+   [
+    "Identity-aware access",
+    "SSO with MFA and FIDO2."
+   ],
+   [
+    "Device posture",
+    "Health checks before access."
+   ],
+   [
+    "Per-app access",
+    "No network-wide access."
+   ],
+   [
+    "mTLS",
+    "Encrypted, authenticated connections."
+   ],
+   [
+    "Policy engine",
+    "Context-based rules."
+   ],
+   [
+    "Audit",
+    "Full access logging to SOC."
+   ]
+  ],
+  "int": [
+   "SAML / OIDC IdP",
+   "MDM / EDR",
+   "SIEM"
+  ],
+  "dep": [
+   "Appliance on-premises",
+   "Virtual appliance"
+  ],
+  "std": [
+   "NIST SP 800-207",
+   "ISO/IEC 27001"
+  ],
+  "pre": [
+   "Application inventory",
+   "Identity provider"
+  ],
+  "go": [
+   "Map apps and users",
+   "Design policies",
+   "Pilot with contractors",
+   "Replace VPN",
+   "Continuous tuning"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Staff",
+     "users"
+    ],
+    [
+     "Contractors",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Laptop / browser",
+     "web"
+    ],
+    [
+     "Mobile",
+     "phone"
+    ]
+   ],
+   "mods": [
+    "Identity check",
+    "Device posture",
+    "Policy engine",
+    "Secure tunnel (mTLS)"
+   ],
+   "core": [
+    [
+     "Certificates",
+     "key"
+    ]
+   ],
+   "ent": [
+    [
+     "Internal apps",
+     "server"
+    ],
+    [
+     "SIEM / SOC",
+     "soc"
+    ]
+   ],
+   "steps": [
+    "A user requests an application.",
+    "Identity and device are verified.",
+    "Policy decides; a per-app tunnel opens.",
+    "Access is logged to the SOC."
+   ]
+  }
+ },
+ "savis-soc": {
+  "sum": "Attacks happen at night and at weekends, and alerts arrive faster than any team can read them. SAVIS AI SOC pairs AI-assisted detection and triage with analysts on shift 24/7, so real threats are found first and contained before they become breaches.",
+  "feat": [
+   [
+    "AI-assisted triage",
+    "Machine learning correlates and ranks alerts so analysts focus on real threats, not noise."
+   ],
+   [
+    "Behavioral anomaly detection",
+    "Spots unusual users, devices and traffic that rules alone miss."
+   ],
+   [
+    "24/7 analysts",
+    "Experts on shift around the clock review AI findings and lead the response."
+   ],
+   [
+    "SIEM and SOAR",
+    "Correlation and automated playbooks, with AI-suggested response steps."
+   ],
+   [
+    "Threat intelligence and response",
+    "Sector-tuned feeds, containment and forensics."
+   ],
+   [
+    "Managed or hybrid",
+    "SOC as a service or co-managed, with compliance reporting for regulators and audits."
+   ]
+  ],
+  "int": [
+   "Syslog / agents",
+   "EDR / NDR",
+   "Cloud logs"
+  ],
+  "dep": [
+   "Managed SOC",
+   "Co-managed",
+   "On-premises SOC build"
+  ],
+  "std": [
+   "ISO/IEC 27001",
+   "ISO/IEC 27035",
+   "NIST CSF"
+  ],
+  "pre": [
+   "Log sources",
+   "Escalation contacts"
+  ],
+  "go": [
+   "Onboard log sources",
+   "Tune use cases",
+   "Go live with playbooks",
+   "Monthly reviews",
+   "Continuous improvement"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Your IT team",
+     "users"
+    ]
+   ],
+   "ch": [
+    [
+     "SOC portal",
+     "web"
+    ],
+    [
+     "Alerts & reports",
+     "doc"
+    ]
+   ],
+   "mods": [
+    "Log collection",
+    "AI detection & triage",
+    "SIEM correlation",
+    "SOAR playbooks"
+   ],
+   "core": [
+    [
+     "Evidence vault",
+     "db"
+    ]
+   ],
+   "ent": [
+    [
+     "Servers & cloud",
+     "cloud"
+    ],
+    [
+     "Network & endpoints",
+     "net"
+    ]
+   ],
+   "steps": [
+    "Your team sees prioritized alerts and reports in the portal.",
+    "Logs flow from systems into the AI SOC, where AI correlates and ranks them.",
+    "Evidence is preserved.",
+    "Analysts contain threats in your network and cloud."
+   ]
+  }
+ },
+ "crypto-agility": {
+  "sum": "Quantum computers will break today's public-key cryptography. Crypto Agility finds every algorithm, key and certificate and lets you switch them by policy.",
+  "feat": [
+   [
+    "Discovery",
+    "Scan code, networks and certificates."
+   ],
+   [
+    "CBOM",
+    "Cryptographic bill of materials."
+   ],
+   [
+    "Risk ranking",
+    "Prioritise by data lifetime and exposure."
+   ],
+   [
+    "Policy switching",
+    "Change algorithms without rewriting apps."
+   ],
+   [
+    "Hybrid PQC",
+    "Classical + ML-KEM / ML-DSA."
+   ],
+   [
+    "Reporting",
+    "Migration progress for boards and regulators."
+   ]
+  ],
+  "int": [
+   "Scanners and agents",
+   "PKI / KMS",
+   "CI pipelines"
+  ],
+  "dep": [
+   "On-premises",
+   "Hybrid"
+  ],
+  "std": [
+   "NIST FIPS 203 / 204 / 205",
+   "NIST IR 8547"
+  ],
+  "pre": [
+   "System inventory",
+   "Owners per system"
+  ],
+  "go": [
+   "Discover cryptography",
+   "Rank risk",
+   "Plan migration",
+   "Migrate in waves",
+   "Monitor"
+  ],
+  "arch": {
+   "users": [
+    [
+     "CISO team",
+     "users"
+    ]
+   ],
+   "ch": [
+    [
+     "Dashboard",
+     "chart"
+    ],
+    [
+     "API",
+     "api"
+    ]
+   ],
+   "mods": [
+    "Discovery",
+    "CBOM",
+    "Risk engine",
+    "Policy switch"
+   ],
+   "core": [
+    [
+     "PKI / KMS",
+     "key"
+    ]
+   ],
+   "ent": [
+    [
+     "Applications",
+     "server"
+    ],
+    [
+     "Network",
+     "net"
+    ]
+   ],
+   "steps": [
+    "The CISO team sees inventory and risk.",
+    "Discovery scans systems.",
+    "Keys and certificates are re-issued by policy.",
+    "Applications move to hybrid PQC."
+   ]
+  }
+ },
+ "superapp-mgov": {
+  "sum": "Citizens juggle many apps and portals. The SAVIS SuperApp platform gives one app for every public service, with digital ID, payments and notifications built in.",
+  "feat": [
+   [
+    "Single sign-on with national ID",
+    "VNeID and national identity login."
+   ],
+   [
+    "Service catalogue",
+    "Public services as mini apps."
+   ],
+   [
+    "Payments",
+    "Fees and fines paid in the app."
+   ],
+   [
+    "Feedback and alerts",
+    "Two-way communication with residents."
+   ],
+   [
+    "Data sharing",
+    "Connected to the Digital Integration Platform and registers."
+   ],
+   [
+    "Secure by design",
+    "Information-security level approvals."
+   ]
+  ],
+  "int": [
+   "Digital Integration Platform (LGSP / NDXP)",
+   "National ID login",
+   "Payment gateways"
+  ],
+  "dep": [
+   "Government cloud",
+   "On-premises"
+  ],
+  "std": [
+   "Government security levels",
+   "Decree 69/2024 identification"
+  ],
+  "pre": [
+   "Service catalogue",
+   "Data-sharing agreements"
+  ],
+  "go": [
+   "Select first services",
+   "Integrate identity and the Digital Integration Platform",
+   "Launch with core services",
+   "Add mini apps",
+   "Operate and analyse"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Residents",
+     "users"
+    ],
+    [
+     "Businesses",
+     "bank"
+    ],
+    [
+     "Visitors",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "SuperApp",
+     "phone"
+    ],
+    [
+     "Web portal",
+     "web"
+    ],
+    [
+     "Smart Kiosk",
+     "kiosk"
+    ]
+   ],
+   "mods": [
+    "Identity & SSO",
+    "Service mini apps",
+    "Payments",
+    "Notifications",
+    "Analytics"
+   ],
+   "core": [
+    [
+     "Signing & seals",
+     "key"
+    ]
+   ],
+   "ent": [
+    [
+     "Digital Integration Platform",
+     "api"
+    ],
+    [
+     "One-Stop-Shop",
+     "doc"
+    ],
+    [
+     "National registers",
+     "gov"
+    ]
+   ],
+   "steps": [
+    "Residents and businesses use the app, portal or kiosk.",
+    "They sign in with national identity.",
+    "Decisions are signed and sealed.",
+    "Services connect through the Digital Integration Platform to registers and back offices."
+   ]
+  }
+ },
+ "lgsp": {
+  "sum": "Ministries, provinces and communes run hundreds of systems that must share data and services securely. SAVIS Digital Integration Platform connects applications and services from central to local government and secures every API call to the FAPI 2.0 Security Profile.",
+  "feat": [
+   [
+    "Central-to-local integration",
+    "Connects ministries, national databases and the national data exchange platform with provincial and commune systems."
+   ],
+   [
+    "API gateway & service catalogue",
+    "Publish, discover and reuse shared services and data from one catalogue."
+   ],
+   [
+    "FAPI 2.0 security",
+    "Pushed authorisation requests, PKCE and sender-constrained tokens (mTLS or DPoP) for every client."
+   ],
+   [
+    "Strong client authentication",
+    "private_key_jwt or mutual TLS with certificates from the government PKI."
+   ],
+   [
+    "Consent & audit",
+    "Every data exchange authorised, logged and traceable end to end."
+   ],
+   [
+    "Monitoring & SLA",
+    "Health, usage and security dashboards for each agency and integration."
+   ]
+  ],
+  "int": [
+   "REST / OpenAPI 3",
+   "SOAP & legacy adapters",
+   "NDXP · national databases",
+   "Events & message queues",
+   "National identity (OpenID Connect)"
+  ],
+  "dep": [
+   "Government cloud",
+   "On-premises",
+   "Hybrid"
+  ],
+  "std": [
+   "FAPI 2.0 Security Profile",
+   "OAuth 2.0 · OpenID Connect",
+   "RFC 9126 PAR · RFC 7636 PKCE",
+   "RFC 9449 DPoP · RFC 8705 mTLS",
+   "National e-government architecture framework"
+  ],
+  "pre": [
+   "System and API inventory",
+   "Data-sharing agreements"
+  ],
+  "go": [
+   "Inventory systems and APIs",
+   "Design the catalogue and security profile",
+   "Onboard first agencies and clients",
+   "Scale to all ministries, provinces and communes",
+   "Operate and monitor 24/7"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Ministries",
+     "gov"
+    ],
+    [
+     "Provinces & communes",
+     "gov"
+    ],
+    [
+     "Citizens & businesses",
+     "users"
+    ]
+   ],
+   "ch": [
+    [
+     "Agency apps",
+     "server"
+    ],
+    [
+     "SuperApp & portals",
+     "phone"
+    ]
+   ],
+   "mods": [
+    "API gateway",
+    "Service catalogue",
+    "FAPI 2.0 authorisation",
+    "Consent & audit",
+    "Monitoring"
+   ],
+   "core": [
+    [
+     "Government PKI",
+     "key"
+    ]
+   ],
+   "ent": [
+    [
+     "National databases",
+     "db"
+    ],
+    [
+     "NDXP",
+     "api"
+    ],
+    [
+     "Provincial systems",
+     "server"
+    ]
+   ],
+   "steps": [
+    "Agency and citizen apps register as FAPI 2.0 clients.",
+    "Clients authenticate with mTLS or private_key_jwt and receive sender-constrained tokens.",
+    "The gateway checks token, consent and policy on every call.",
+    "Data flows between national, provincial and commune systems — fully logged."
+   ]
+  }
+ },
+ "smart-city": {
+  "sum": "City data sits in silos. The Smart City Solution connects sensors, cameras and services into one operations centre.",
+  "feat": [
+   [
+    "Operations centre",
+    "Live city dashboards."
+   ],
+   [
+    "Incident management",
+    "Detect, dispatch, resolve."
+   ],
+   [
+    "AI video",
+    "With AI Camera Security."
+   ],
+   [
+    "IoT",
+    "Sensors and gateways."
+   ],
+   [
+    "Citizen reports",
+    "From the SuperApp."
+   ],
+   [
+    "Analytics",
+    "KPIs for leaders."
+   ]
+  ],
+  "int": [
+   "IoT protocols",
+   "Video management",
+   "SuperApp"
+  ],
+  "dep": [
+   "Government cloud",
+   "On-premises"
+  ],
+  "std": [
+   "ISO 37120 indicators"
+  ],
+  "pre": [
+   "Sensor and camera inventory"
+  ],
+  "go": [
+   "Assess",
+   "Design",
+   "Pilot one district",
+   "Scale",
+   "Operate"
+  ],
+  "arch": {
+   "users": [
+    [
+     "City operators",
+     "users"
+    ],
+    [
+     "Residents",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Operations centre",
+     "chart"
+    ],
+    [
+     "SuperApp",
+     "phone"
+    ]
+   ],
+   "mods": [
+    "Data platform",
+    "Incident management",
+    "AI video analytics",
+    "Dashboards"
+   ],
+   "core": [
+    [
+     "Device PKI",
+     "key"
+    ]
+   ],
+   "ent": [
+    [
+     "Cameras & sensors",
+     "cam"
+    ],
+    [
+     "Agency systems",
+     "gov"
+    ]
+   ],
+   "steps": [
+    "Operators and residents interact.",
+    "Data flows into the platform.",
+    "Devices are authenticated.",
+    "Agencies act on incidents."
+   ]
+  }
+ },
+ "open-banking-suite": {
+  "sum": "Open banking regulations require safe, consented API access for third parties. The Open Banking Suite gives banks API management, consent, TPP onboarding and a developer portal in one.",
+  "feat": [
+   [
+    "API management",
+    "Publish, secure and meter APIs."
+   ],
+   [
+    "Consent",
+    "Collect, revoke and prove consent."
+   ],
+   [
+    "TPP onboarding",
+    "Verify providers and certificates."
+   ],
+   [
+    "Developer portal",
+    "Sandbox and documentation."
+   ],
+   [
+    "Strong authentication",
+    "FIDO2 and transaction signing."
+   ],
+   [
+    "Monitoring",
+    "Usage and SLA reports."
+   ]
+  ],
+  "int": [
+   "OAuth 2 / FAPI",
+   "mTLS / eIDAS certificates",
+   "Core banking adapters"
+  ],
+  "dep": [
+   "On-premises",
+   "Private cloud"
+  ],
+  "std": [
+   "SBV Circular 64/2024",
+   "FAPI 2.0",
+   "PSD2 / PSD3"
+  ],
+  "pre": [
+   "API catalogue",
+   "Consent policy"
+  ],
+  "go": [
+   "Define API scope",
+   "Set up consent and TPP",
+   "Sandbox",
+   "Go live",
+   "Expand APIs"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Customers",
+     "users"
+    ],
+    [
+     "Third-party providers",
+     "bank"
+    ]
+   ],
+   "ch": [
+    [
+     "TPP apps",
+     "phone"
+    ],
+    [
+     "Developer portal",
+     "web"
+    ]
+   ],
+   "mods": [
+    "API gateway",
+    "Consent management",
+    "TPP manager",
+    "Strong authentication"
+   ],
+   "core": [
+    [
+     "Certificates & keys",
+     "key"
+    ]
+   ],
+   "ent": [
+    [
+     "Core banking",
+     "bank"
+    ],
+    [
+     "Payment switch",
+     "card"
+    ]
+   ],
+   "steps": [
+    "A customer uses a third-party app.",
+    "The TPP calls bank APIs.",
+    "Consent and certificates are checked.",
+    "Core banking serves data or payments."
+   ]
+  }
+ },
+ "api-security-transaction-signing": {
+  "sum": "Phishing and malware steal OTPs and change payees. Transaction signing binds every payment to the customer's signature over amount and payee.",
+  "feat": [
+   [
+    "Dynamic linking",
+    "Amount and payee in the signature."
+   ],
+   [
+    "WYSIWYS",
+    "What you see is what you sign."
+   ],
+   [
+    "Multiple authenticators",
+    "App, TrustPass, Sign Card."
+   ],
+   [
+    "API security",
+    "Signed and encrypted API calls."
+   ],
+   [
+    "Risk-based",
+    "Step up only when needed."
+   ],
+   [
+    "Evidence",
+    "Non-repudiable logs."
+   ]
+  ],
+  "int": [
+   "REST",
+   "FIDO2",
+   "3DS"
+  ],
+  "dep": [
+   "On-premises",
+   "Private cloud"
+  ],
+  "std": [
+   "SBV Circular 50/2024 types C and D",
+   "PSD2 RTS Article 5"
+  ],
+  "pre": [
+   "Payment channels"
+  ],
+  "go": [
+   "Map payment flows",
+   "Integrate signing",
+   "Pilot",
+   "Roll out",
+   "Monitor"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Customers",
+     "users"
+    ]
+   ],
+   "ch": [
+    [
+     "Mobile banking",
+     "phone"
+    ],
+    [
+     "Internet banking",
+     "web"
+    ]
+   ],
+   "mods": [
+    "Signing service",
+    "Risk engine",
+    "API protection"
+   ],
+   "core": [
+    [
+     "Keys in hardware",
+     "key"
+    ]
+   ],
+   "ent": [
+    [
+     "Core banking",
+     "bank"
+    ],
+    [
+     "Payment switch",
+     "card"
+    ]
+   ],
+   "steps": [
+    "The customer initiates a payment.",
+    "The channel requests a signature over the details.",
+    "Keys sign in hardware.",
+    "Core banking verifies before executing."
+   ]
+  }
+ },
+ "tokenization": {
+  "sum": "Stored card numbers are a breach and PCI DSS burden. Tokenization replaces them with tokens that are useless if stolen.",
+  "feat": [
+   [
+    "Network and local tokens",
+    "Card and account tokenisation."
+   ],
+   [
+    "Vault",
+    "Protected token vault."
+   ],
+   [
+    "Device binding",
+    "Tokens bound to devices."
+   ],
+   [
+    "Lifecycle",
+    "Issue, suspend, delete."
+   ],
+   [
+    "PCI scope reduction",
+    "Fewer systems hold card data."
+   ],
+   [
+    "APIs",
+    "For wallets and merchants."
+   ]
+  ],
+  "int": [
+   "REST",
+   "Card scheme token services"
+  ],
+  "dep": [
+   "On-premises",
+   "Private cloud"
+  ],
+  "std": [
+   "PCI DSS",
+   "EMVCo Payment Tokenisation"
+  ],
+  "pre": [
+   "Card data flows"
+  ],
+  "go": [
+   "Map card data",
+   "Design tokens",
+   "Pilot",
+   "Roll out",
+   "Audit"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Cardholders",
+     "users"
+    ]
+   ],
+   "ch": [
+    [
+     "Wallet",
+     "phone"
+    ],
+    [
+     "Merchant",
+     "web"
+    ]
+   ],
+   "mods": [
+    "Token service",
+    "Vault",
+    "Lifecycle"
+   ],
+   "core": [
+    [
+     "Payment HSM",
+     "chip"
+    ]
+   ],
+   "ent": [
+    [
+     "Card management",
+     "card"
+    ],
+    [
+     "Schemes",
+     "globe"
+    ]
+   ],
+   "steps": [
+    "The cardholder pays.",
+    "The channel uses a token.",
+    "Keys are protected in hardware.",
+    "Tokens are mapped to cards."
+   ]
+  }
+ },
+ "digital-banking-platform": {
+  "sum": "Customers expect to do everything on the phone. The Digital Banking Platform delivers onboarding, accounts, payments and lending on web and mobile.",
+  "feat": [
+   [
+    "Digital onboarding",
+    "With TrustOnboard."
+   ],
+   [
+    "Accounts and cards",
+    "Full self-service."
+   ],
+   [
+    "Payments",
+    "Transfers and QR."
+   ],
+   [
+    "Lending",
+    "Digital loan journeys."
+   ],
+   [
+    "Security",
+    "SCA and app protection."
+   ],
+   [
+    "Configurable",
+    "Products without code."
+   ]
+  ],
+  "int": [
+   "Core banking APIs",
+   "NAPAS / VietQR"
+  ],
+  "dep": [
+   "On-premises",
+   "Private cloud"
+  ],
+  "std": [
+   "SBV Circulars"
+  ],
+  "pre": [
+   "Core banking APIs"
+  ],
+  "go": [
+   "Define products",
+   "Integrate core",
+   "Pilot",
+   "Launch",
+   "Iterate"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Customers",
+     "users"
+    ]
+   ],
+   "ch": [
+    [
+     "Mobile app",
+     "phone"
+    ],
+    [
+     "Web",
+     "web"
+    ]
+   ],
+   "mods": [
+    "Onboarding",
+    "Accounts",
+    "Payments",
+    "Lending"
+   ],
+   "core": [
+    [
+     "SCA & signing",
+     "key"
+    ]
+   ],
+   "ent": [
+    [
+     "Core banking",
+     "bank"
+    ],
+    [
+     "NAPAS / VietQR",
+     "card"
+    ]
+   ],
+   "steps": [
+    "Customers use the app.",
+    "Requests reach the platform.",
+    "Transactions are authenticated.",
+    "Core banking executes."
+   ]
+  }
+ },
+ "mrp-ai": {
+  "sum": "Newsrooms must produce more content for more channels with the same team. SAVIS MRP AI plans and produces content with AI assistance.",
+  "feat": [
+   [
+    "Planning",
+    "AI-assisted editorial planning."
+   ],
+   [
+    "Production",
+    "Drafting, transcription and summarising."
+   ],
+   [
+    "Multi-channel",
+    "TV, web and social."
+   ],
+   [
+    "Workflow",
+    "Assign and approve."
+   ],
+   [
+    "Archive search",
+    "Find footage fast."
+   ],
+   [
+    "Recognised",
+    "Sao Khuê Award 2026."
+   ]
+  ],
+  "int": [
+   "MAM",
+   "CMS",
+   "Playout"
+  ],
+  "dep": [
+   "On-premises",
+   "Cloud"
+  ],
+  "std": [
+   "Broadcast workflows"
+  ],
+  "pre": [
+   "Content systems"
+  ],
+  "go": [
+   "Assess workflow",
+   "Configure",
+   "Pilot one desk",
+   "Roll out",
+   "Optimise"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Editors",
+     "users"
+    ]
+   ],
+   "ch": [
+    [
+     "MRP AI workspace",
+     "web"
+    ]
+   ],
+   "mods": [
+    "Planning",
+    "AI production",
+    "Workflow"
+   ],
+   "core": [
+    [
+     "Media Hub",
+     "shield"
+    ]
+   ],
+   "ent": [
+    [
+     "MAM / CMS",
+     "media"
+    ],
+    [
+     "Playout",
+     "server"
+    ]
+   ],
+   "steps": [
+    "Editors plan in the workspace.",
+    "AI assists production.",
+    "Access is secured.",
+    "Content flows to MAM, CMS and playout."
+   ]
+  }
+ },
+ "trusted-archive": {
+  "sum": "Electronic records must stay legally valid for decades. Trusted Archive 2.0 preserves signatures, timestamps and evidence for the long term.",
+  "feat": [
+   [
+    "Long-term validation",
+    "LTV renewal of signatures."
+   ],
+   [
+    "Timestamping",
+    "Proof of existence."
+   ],
+   [
+    "Integrity",
+    "Hash chains and audit."
+   ],
+   [
+    "Retention",
+    "Policies by record type."
+   ],
+   [
+    "Search",
+    "Find records fast."
+   ],
+   [
+    "Export",
+    "Evidence packages."
+   ]
+  ],
+  "int": [
+   "REST",
+   "Document systems"
+  ],
+  "dep": [
+   "On-premises",
+   "Cloud"
+  ],
+  "std": [
+   "ETSI EN 319 1xx / 4xx",
+   "PDF/A"
+  ],
+  "pre": [
+   "Retention policy"
+  ],
+  "go": [
+   "Classify records",
+   "Configure",
+   "Migrate",
+   "Operate",
+   "Audit"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Records officers",
+     "users"
+    ]
+   ],
+   "ch": [
+    [
+     "Archive portal",
+     "web"
+    ]
+   ],
+   "mods": [
+    "Ingest",
+    "LTV renewal",
+    "Retention",
+    "Search"
+   ],
+   "core": [
+    [
+     "Timestamp & keys",
+     "key"
+    ]
+   ],
+   "ent": [
+    [
+     "Document systems",
+     "doc"
+    ],
+    [
+     "Storage",
+     "db"
+    ]
+   ],
+   "steps": [
+    "Officers manage records.",
+    "Records are ingested.",
+    "Signatures are renewed with timestamps.",
+    "Records are stored and searchable."
+   ]
+  }
+ },
+ "dx-open-healthcare": {
+  "sum": "Hospital systems do not talk to each other, and patients repeat their history at every visit. SAVIS OpenHealth Platform connects HIS, EMR and PACS through open APIs with signed records.",
+  "feat": [
+   [
+    "Open APIs",
+    "Connect HIS, EMR, PACS."
+   ],
+   [
+    "Signed records",
+    "Doctors sign records digitally."
+   ],
+   [
+    "Patient app",
+    "Appointments and results."
+   ],
+   [
+    "Identity",
+    "Staff and patient identity."
+   ],
+   [
+    "Data protection",
+    "Consent and access control."
+   ],
+   [
+    "Interoperability",
+    "Standards-based exchange."
+   ]
+  ],
+  "int": [
+   "HL7 FHIR",
+   "DICOM",
+   "National health data"
+  ],
+  "dep": [
+   "On-premises",
+   "Cloud"
+  ],
+  "std": [
+   "HL7 FHIR",
+   "DICOM"
+  ],
+  "pre": [
+   "System inventory"
+  ],
+  "go": [
+   "Assess systems",
+   "Design",
+   "Pilot one department",
+   "Roll out",
+   "Operate"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Patients",
+     "users"
+    ],
+    [
+     "Clinicians",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Patient app",
+     "phone"
+    ],
+    [
+     "Clinical workstation",
+     "web"
+    ]
+   ],
+   "mods": [
+    "Open API layer",
+    "Patient services",
+    "Record signing"
+   ],
+   "core": [
+    [
+     "Signing keys",
+     "key"
+    ]
+   ],
+   "ent": [
+    [
+     "HIS / EMR",
+     "health"
+    ],
+    [
+     "PACS",
+     "db"
+    ]
+   ],
+   "steps": [
+    "Patients and clinicians use apps.",
+    "Requests go through open APIs.",
+    "Records are signed.",
+    "Data is exchanged with HIS, EMR and PACS."
+   ]
+  }
+ },
+ "vneid-integration": {
+  "sum": "Businesses need verified identity data without storing more than they need. VNeID Integration connects to VietNam's national electronic identity with consent and audit.",
+  "feat": [
+   [
+    "VNeID login and verification",
+    "Verify customers against national identity."
+   ],
+   [
+    "Consent",
+    "Explicit, revocable consent per purpose."
+   ],
+   [
+    "Data minimisation",
+    "Only the attributes required."
+   ],
+   [
+    "Audit logs",
+    "Evidence of every request."
+   ]
+  ],
+  "int": [
+   "REST API and SDKs",
+   "OpenID4VCI / OpenID4VP",
+   "ISO/IEC 18013-5 / -7"
+  ],
+  "dep": [
+   "On-premises",
+   "Private or national cloud"
+  ],
+  "std": [
+   "ICAO 9303",
+   "ISO/IEC 18013-5",
+   "W3C VC 2.0",
+   "Decree 69/2024"
+  ],
+  "pre": [
+   "Identity data sources",
+   "Relying-party systems"
+  ],
+  "go": [
+   "Map identity journeys and assurance levels",
+   "Design issuance, verification and data flows",
+   "Pilot with one service or population",
+   "Roll out to channels and relying parties",
+   "Operate lifecycle and monitoring"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Citizens",
+     "users"
+    ],
+    [
+     "Customers",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Mobile app",
+     "phone"
+    ],
+    [
+     "Web",
+     "web"
+    ],
+    [
+     "Kiosk",
+     "kiosk"
+    ]
+   ],
+   "mods": [
+    "VNeID login and verification",
+    "Consent",
+    "Data minimisation",
+    "Audit logs"
+   ],
+   "core": [
+    [
+     "Issuer keys · PKI",
+     "key"
+    ],
+    [
+     "Evidence store",
+     "db"
+    ]
+   ],
+   "ent": [
+    [
+     "National identity / registers",
+     "gov"
+    ],
+    [
+     "Core systems",
+     "bank"
+    ]
+   ],
+   "tag": "Digital Identity & Verification",
+   "steps": [
+    "Citizens and Customers use VNeID Integration through mobile app, web, kiosk.",
+    "The channel calls VNeID Integration by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to National identity / registers and Core systems."
+   ]
+  }
+ },
+ "decentralized-identity": {
+  "sum": "Centralised identity databases are single points of failure. Decentralized Identity uses DIDs and verifiable credentials the holder controls.",
+  "feat": [
+   [
+    "DIDs",
+    "Self-sovereign identifiers."
+   ],
+   [
+    "VC issuance",
+    "W3C VC 2.0 and SD-JWT VC."
+   ],
+   [
+    "Verifier",
+    "Check issuers, status and holder binding."
+   ],
+   [
+    "Resolver",
+    "DID resolution and trust registry."
+   ]
+  ],
+  "int": [
+   "REST API and SDKs",
+   "OpenID4VCI / OpenID4VP",
+   "ISO/IEC 18013-5 / -7"
+  ],
+  "dep": [
+   "On-premises",
+   "Private or national cloud"
+  ],
+  "std": [
+   "ICAO 9303",
+   "ISO/IEC 18013-5",
+   "W3C VC 2.0",
+   "Decree 69/2024"
+  ],
+  "pre": [
+   "Identity data sources",
+   "Relying-party systems"
+  ],
+  "go": [
+   "Map identity journeys and assurance levels",
+   "Design issuance, verification and data flows",
+   "Pilot with one service or population",
+   "Roll out to channels and relying parties",
+   "Operate lifecycle and monitoring"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Citizens",
+     "users"
+    ],
+    [
+     "Customers",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Mobile app",
+     "phone"
+    ],
+    [
+     "Web",
+     "web"
+    ],
+    [
+     "Kiosk",
+     "kiosk"
+    ]
+   ],
+   "mods": [
+    "DIDs",
+    "VC issuance",
+    "Verifier",
+    "Resolver"
+   ],
+   "core": [
+    [
+     "Issuer keys · PKI",
+     "key"
+    ],
+    [
+     "Evidence store",
+     "db"
+    ]
+   ],
+   "ent": [
+    [
+     "National identity / registers",
+     "gov"
+    ],
+    [
+     "Core systems",
+     "bank"
+    ]
+   ],
+   "tag": "Digital Identity & Verification",
+   "steps": [
+    "Citizens and Customers use Decentralized Identity (DID) through mobile app, web, kiosk.",
+    "The channel calls Decentralized Identity (DID) by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to National identity / registers and Core systems."
+   ]
+  }
+ },
+ "mobile-pki-identity": {
+  "sum": "Software keys on phones are easy to steal. Mobile Identity PKI keeps identity and signing keys in the phone's secure hardware.",
+  "feat": [
+   [
+    "Hardware-backed keys",
+    "Secure Element, StrongBox, Secure Enclave."
+   ],
+   [
+    "Certificate issuance",
+    "X.509 certificates for the device user."
+   ],
+   [
+    "Signing and login",
+    "Sign documents and authenticate."
+   ],
+   [
+    "Lifecycle",
+    "Renew and revoke remotely."
+   ]
+  ],
+  "int": [
+   "REST API and SDKs",
+   "OpenID4VCI / OpenID4VP",
+   "ISO/IEC 18013-5 / -7"
+  ],
+  "dep": [
+   "On-premises",
+   "Private or national cloud"
+  ],
+  "std": [
+   "ICAO 9303",
+   "ISO/IEC 18013-5",
+   "W3C VC 2.0",
+   "Decree 69/2024"
+  ],
+  "pre": [
+   "Identity data sources",
+   "Relying-party systems"
+  ],
+  "go": [
+   "Map identity journeys and assurance levels",
+   "Design issuance, verification and data flows",
+   "Pilot with one service or population",
+   "Roll out to channels and relying parties",
+   "Operate lifecycle and monitoring"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Citizens",
+     "users"
+    ],
+    [
+     "Customers",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Mobile app",
+     "phone"
+    ],
+    [
+     "Web",
+     "web"
+    ],
+    [
+     "Kiosk",
+     "kiosk"
+    ]
+   ],
+   "mods": [
+    "Hardware-backed keys",
+    "Certificate issuance",
+    "Signing and login",
+    "Lifecycle"
+   ],
+   "core": [
+    [
+     "Issuer keys · PKI",
+     "key"
+    ],
+    [
+     "Evidence store",
+     "db"
+    ]
+   ],
+   "ent": [
+    [
+     "National identity / registers",
+     "gov"
+    ],
+    [
+     "Core systems",
+     "bank"
+    ]
+   ],
+   "tag": "Digital Identity & Verification",
+   "steps": [
+    "Citizens and Customers use Mobile Identity PKI through mobile app, web, kiosk.",
+    "The channel calls Mobile Identity PKI by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to National identity / registers and Core systems."
+   ]
+  }
+ },
+ "trustsign-mobile": {
+  "sum": "Remote signatures need a strong, convenient way to activate the key. TrustSign Mobile activates signatures and approves transactions on the phone.",
+  "feat": [
+   [
+    "Signature activation",
+    "Sole control for remote QSCD."
+   ],
+   [
+    "Transaction approval",
+    "Amount and payee on screen."
+   ],
+   [
+    "Secure hardware keys",
+    "Secure Element or Secure Enclave."
+   ],
+   [
+    "Biometric unlock",
+    "Face or fingerprint."
+   ]
+  ],
+  "int": [
+   "FIDO2 / WebAuthn",
+   "OIDC / SAML",
+   "REST API and mobile SDKs"
+  ],
+  "dep": [
+   "On-premises",
+   "Private cloud",
+   "Managed service"
+  ],
+  "std": [
+   "FIDO2",
+   "NIST SP 800-63-4",
+   "SBV Circulars 50/2024, 77/2025",
+   "PSD2 RTS"
+  ],
+  "pre": [
+   "Identity provider or user directory",
+   "Channel apps to integrate"
+  ],
+  "go": [
+   "Map login and approval journeys by risk",
+   "Design authenticators and policies",
+   "Pilot with one channel or user group",
+   "Migrate users from passwords and SMS OTP",
+   "Monitor fraud and adoption"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Customers",
+     "users"
+    ],
+    [
+     "Staff",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Mobile app",
+     "phone"
+    ],
+    [
+     "Web",
+     "web"
+    ],
+    [
+     "Hardware key",
+     "key"
+    ]
+   ],
+   "mods": [
+    "Signature activation",
+    "Transaction approval",
+    "Secure hardware keys",
+    "Biometric unlock"
+   ],
+   "core": [
+    [
+     "SAM Auth Server",
+     "server"
+    ],
+    [
+     "Keys in hardware",
+     "chip"
+    ]
+   ],
+   "ent": [
+    [
+     "IAM / IdP",
+     "api"
+    ],
+    [
+     "Core applications",
+     "bank"
+    ]
+   ],
+   "tag": "Authentication & Access",
+   "steps": [
+    "Customers and Staff use TrustSign Mobile through mobile app, web, hardware key.",
+    "The channel calls TrustSign Mobile by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to IAM / IdP and Core applications."
+   ]
+  }
+ },
+ "mobile-identity-sca": {
+  "sum": "SMS OTP no longer meets SCA expectations. Mobile Identity SCA uses device-bound keys and biometrics to approve logins and payments.",
+  "feat": [
+   [
+    "Device binding",
+    "Keys bound to the phone."
+   ],
+   [
+    "Biometric approval",
+    "Face or fingerprint."
+   ],
+   [
+    "Dynamic linking",
+    "Amount and payee signed."
+   ],
+   [
+    "Push approvals",
+    "Out-of-band confirmation."
+   ]
+  ],
+  "int": [
+   "FIDO2 / WebAuthn",
+   "OIDC / SAML",
+   "REST API and mobile SDKs"
+  ],
+  "dep": [
+   "On-premises",
+   "Private cloud",
+   "Managed service"
+  ],
+  "std": [
+   "FIDO2",
+   "NIST SP 800-63-4",
+   "SBV Circulars 50/2024, 77/2025",
+   "PSD2 RTS"
+  ],
+  "pre": [
+   "Identity provider or user directory",
+   "Channel apps to integrate"
+  ],
+  "go": [
+   "Map login and approval journeys by risk",
+   "Design authenticators and policies",
+   "Pilot with one channel or user group",
+   "Migrate users from passwords and SMS OTP",
+   "Monitor fraud and adoption"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Customers",
+     "users"
+    ],
+    [
+     "Staff",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Mobile app",
+     "phone"
+    ],
+    [
+     "Web",
+     "web"
+    ],
+    [
+     "Hardware key",
+     "key"
+    ]
+   ],
+   "mods": [
+    "Device binding",
+    "Biometric approval",
+    "Dynamic linking",
+    "Push approvals"
+   ],
+   "core": [
+    [
+     "SAM Auth Server",
+     "server"
+    ],
+    [
+     "Keys in hardware",
+     "chip"
+    ]
+   ],
+   "ent": [
+    [
+     "IAM / IdP",
+     "api"
+    ],
+    [
+     "Core applications",
+     "bank"
+    ]
+   ],
+   "tag": "Authentication & Access",
+   "steps": [
+    "Customers and Staff use Mobile Identity SCA through mobile app, web, hardware key.",
+    "The channel calls Mobile Identity SCA by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to IAM / IdP and Core applications."
+   ]
+  }
+ },
+ "smartotp-plus": {
+  "sum": "Plain OTP apps are vulnerable to phishing and SIM swap. SmartOTP+ binds codes to the device and shows what is approved.",
+  "feat": [
+   [
+    "Device binding",
+    "Codes only on the registered device."
+   ],
+   [
+    "Transaction display",
+    "Details shown before approval."
+   ],
+   [
+    "SIM-swap protection",
+    "Detects suspicious changes."
+   ],
+   [
+    "OCRA / TOTP",
+    "Standard algorithms."
+   ]
+  ],
+  "int": [
+   "FIDO2 / WebAuthn",
+   "OIDC / SAML",
+   "REST API and mobile SDKs"
+  ],
+  "dep": [
+   "On-premises",
+   "Private cloud",
+   "Managed service"
+  ],
+  "std": [
+   "FIDO2",
+   "NIST SP 800-63-4",
+   "SBV Circulars 50/2024, 77/2025",
+   "PSD2 RTS"
+  ],
+  "pre": [
+   "Identity provider or user directory",
+   "Channel apps to integrate"
+  ],
+  "go": [
+   "Map login and approval journeys by risk",
+   "Design authenticators and policies",
+   "Pilot with one channel or user group",
+   "Migrate users from passwords and SMS OTP",
+   "Monitor fraud and adoption"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Customers",
+     "users"
+    ],
+    [
+     "Staff",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Mobile app",
+     "phone"
+    ],
+    [
+     "Web",
+     "web"
+    ],
+    [
+     "Hardware key",
+     "key"
+    ]
+   ],
+   "mods": [
+    "Device binding",
+    "Transaction display",
+    "SIM-swap protection",
+    "OCRA / TOTP"
+   ],
+   "core": [
+    [
+     "SAM Auth Server",
+     "server"
+    ],
+    [
+     "Keys in hardware",
+     "chip"
+    ]
+   ],
+   "ent": [
+    [
+     "IAM / IdP",
+     "api"
+    ],
+    [
+     "Core applications",
+     "bank"
+    ]
+   ],
+   "tag": "Authentication & Access",
+   "steps": [
+    "Customers and Staff use SmartOTP+ through mobile app, web, hardware key.",
+    "The channel calls SmartOTP+ by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to IAM / IdP and Core applications."
+   ]
+  }
+ },
+ "iam-ciam": {
+  "sum": "Separate logins per system frustrate users and weaken control. IAM & CIAM gives workforce and customer identity, SSO and access policy in one place.",
+  "feat": [
+   [
+    "Single sign-on",
+    "OIDC and SAML."
+   ],
+   [
+    "MFA and passkeys",
+    "Strong authentication built in."
+   ],
+   [
+    "Access policies",
+    "Roles, attributes and risk."
+   ],
+   [
+    "Self-service",
+    "Registration, recovery and consent."
+   ]
+  ],
+  "int": [
+   "FIDO2 / WebAuthn",
+   "OIDC / SAML",
+   "REST API and mobile SDKs"
+  ],
+  "dep": [
+   "On-premises",
+   "Private cloud",
+   "Managed service"
+  ],
+  "std": [
+   "FIDO2",
+   "NIST SP 800-63-4",
+   "SBV Circulars 50/2024, 77/2025",
+   "PSD2 RTS"
+  ],
+  "pre": [
+   "Identity provider or user directory",
+   "Channel apps to integrate"
+  ],
+  "go": [
+   "Map login and approval journeys by risk",
+   "Design authenticators and policies",
+   "Pilot with one channel or user group",
+   "Migrate users from passwords and SMS OTP",
+   "Monitor fraud and adoption"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Customers",
+     "users"
+    ],
+    [
+     "Staff",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Mobile app",
+     "phone"
+    ],
+    [
+     "Web",
+     "web"
+    ],
+    [
+     "Hardware key",
+     "key"
+    ]
+   ],
+   "mods": [
+    "Single sign-on",
+    "MFA and passkeys",
+    "Access policies",
+    "Self-service"
+   ],
+   "core": [
+    [
+     "SAM Auth Server",
+     "server"
+    ],
+    [
+     "Keys in hardware",
+     "chip"
+    ]
+   ],
+   "ent": [
+    [
+     "IAM / IdP",
+     "api"
+    ],
+    [
+     "Core applications",
+     "bank"
+    ]
+   ],
+   "tag": "Authentication & Access",
+   "steps": [
+    "Customers and Staff use IAM & CIAM through mobile app, web, hardware key.",
+    "The channel calls IAM & CIAM by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to IAM / IdP and Core applications."
+   ]
+  }
+ },
+ "credential-management": {
+  "sum": "Cards, tokens and certificates are managed in spreadsheets and emails. Credential Management issues, renews and revokes them from one console.",
+  "feat": [
+   [
+    "Issuance workflows",
+    "Request, approve, issue."
+   ],
+   [
+    "Lifecycle",
+    "Renew, suspend, revoke."
+   ],
+   [
+    "Self-service",
+    "PIN reset and unblock."
+   ],
+   [
+    "Audit",
+    "Who holds which credential."
+   ]
+  ],
+  "int": [
+   "FIDO2 / WebAuthn",
+   "OIDC / SAML",
+   "REST API and mobile SDKs"
+  ],
+  "dep": [
+   "On-premises",
+   "Private cloud",
+   "Managed service"
+  ],
+  "std": [
+   "FIDO2",
+   "NIST SP 800-63-4",
+   "SBV Circulars 50/2024, 77/2025",
+   "PSD2 RTS"
+  ],
+  "pre": [
+   "Identity provider or user directory",
+   "Channel apps to integrate"
+  ],
+  "go": [
+   "Map login and approval journeys by risk",
+   "Design authenticators and policies",
+   "Pilot with one channel or user group",
+   "Migrate users from passwords and SMS OTP",
+   "Monitor fraud and adoption"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Customers",
+     "users"
+    ],
+    [
+     "Staff",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Mobile app",
+     "phone"
+    ],
+    [
+     "Web",
+     "web"
+    ],
+    [
+     "Hardware key",
+     "key"
+    ]
+   ],
+   "mods": [
+    "Issuance workflows",
+    "Lifecycle",
+    "Self-service",
+    "Audit"
+   ],
+   "core": [
+    [
+     "SAM Auth Server",
+     "server"
+    ],
+    [
+     "Keys in hardware",
+     "chip"
+    ]
+   ],
+   "ent": [
+    [
+     "IAM / IdP",
+     "api"
+    ],
+    [
+     "Core applications",
+     "bank"
+    ]
+   ],
+   "tag": "Authentication & Access",
+   "steps": [
+    "Customers and Staff use Credential Management through mobile app, web, hardware key.",
+    "The channel calls Credential Management by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to IAM / IdP and Core applications."
+   ]
+  }
+ },
+ "pki-token": {
+  "sum": "Signing keys on PCs can be copied. PKI Token keeps certificates and private keys in a USB cryptographic device.",
+  "feat": [
+   [
+    "Secure key storage",
+    "Keys never leave the token."
+   ],
+   [
+    "Digital signing",
+    "Documents and transactions."
+   ],
+   [
+    "Secure login",
+    "Windows and web login."
+   ],
+   [
+    "Standard middleware",
+    "PKCS#11 and minidriver."
+   ]
+  ],
+  "int": [
+   "PKCS#11 / minidriver",
+   "PC/SC, NFC",
+   "Credential Management API"
+  ],
+  "dep": [
+   "On-premises",
+   "Managed issuance"
+  ],
+  "std": [
+   "FIPS 201 (PIV)",
+   "ISO/IEC 7816 / 14443",
+   "X.509"
+  ],
+  "pre": [
+   "Identity source (HR, registry)",
+   "Issuance process"
+  ],
+  "go": [
+   "Define credential types and policies",
+   "Integrate CA and access systems",
+   "Pilot with one site or department",
+   "Mass issuance",
+   "Lifecycle and revocation"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Employees",
+     "users"
+    ],
+    [
+     "Citizens",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Card / token",
+     "card"
+    ],
+    [
+     "Phone (virtual card)",
+     "phone"
+    ],
+    [
+     "Door / PC",
+     "lock"
+    ]
+   ],
+   "mods": [
+    "Secure key storage",
+    "Digital signing",
+    "Secure login",
+    "Standard middleware"
+   ],
+   "core": [
+    [
+     "Credential Management",
+     "server"
+    ],
+    [
+     "CA · PKI",
+     "key"
+    ]
+   ],
+   "ent": [
+    [
+     "HR / registry",
+     "users"
+    ],
+    [
+     "Access control",
+     "lock"
+    ]
+   ],
+   "tag": "Secure Credentials & Tokens",
+   "steps": [
+    "Employees and Citizens use PKI Token through card / token, phone (virtual card), door / pc.",
+    "The channel calls PKI Token by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to HR / registry and Access control."
+   ]
+  }
+ },
+ "smart-card-piv": {
+  "sum": "Employees carry separate badges, passwords and tokens. Smart Card PIV combines door access, PC login and signatures on one card.",
+  "feat": [
+   [
+    "Physical access",
+    "Doors and turnstiles."
+   ],
+   [
+    "Logical access",
+    "PC and VPN login."
+   ],
+   [
+    "Digital signatures",
+    "On-card keys."
+   ],
+   [
+    "PIV compatibility",
+    "FIPS 201 data model."
+   ]
+  ],
+  "int": [
+   "PKCS#11 / minidriver",
+   "PC/SC, NFC",
+   "Credential Management API"
+  ],
+  "dep": [
+   "On-premises",
+   "Managed issuance"
+  ],
+  "std": [
+   "FIPS 201 (PIV)",
+   "ISO/IEC 7816 / 14443",
+   "X.509"
+  ],
+  "pre": [
+   "Identity source (HR, registry)",
+   "Issuance process"
+  ],
+  "go": [
+   "Define credential types and policies",
+   "Integrate CA and access systems",
+   "Pilot with one site or department",
+   "Mass issuance",
+   "Lifecycle and revocation"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Employees",
+     "users"
+    ],
+    [
+     "Citizens",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Card / token",
+     "card"
+    ],
+    [
+     "Phone (virtual card)",
+     "phone"
+    ],
+    [
+     "Door / PC",
+     "lock"
+    ]
+   ],
+   "mods": [
+    "Physical access",
+    "Logical access",
+    "Digital signatures",
+    "PIV compatibility"
+   ],
+   "core": [
+    [
+     "Credential Management",
+     "server"
+    ],
+    [
+     "CA · PKI",
+     "key"
+    ]
+   ],
+   "ent": [
+    [
+     "HR / registry",
+     "users"
+    ],
+    [
+     "Access control",
+     "lock"
+    ]
+   ],
+   "tag": "Secure Credentials & Tokens",
+   "steps": [
+    "Employees and Citizens use Smart Card PIV through card / token, phone (virtual card), door / pc.",
+    "The channel calls Smart Card PIV by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to HR / registry and Access control."
+   ]
+  }
+ },
+ "crypto-bio-token": {
+  "sum": "A stolen token with a PIN is still a risk. Crypto Bio Token releases the key only after the owner's fingerprint matches on the device.",
+  "feat": [
+   [
+    "Match-on-device",
+    "Fingerprint never leaves the token."
+   ],
+   [
+    "PKI signing",
+    "Certificates and keys inside."
+   ],
+   [
+    "Two factors in one",
+    "Possession and biometric."
+   ],
+   [
+    "USB / NFC",
+    "Works with PCs and phones."
+   ]
+  ],
+  "int": [
+   "PKCS#11 / minidriver",
+   "PC/SC, NFC",
+   "Credential Management API"
+  ],
+  "dep": [
+   "On-premises",
+   "Managed issuance"
+  ],
+  "std": [
+   "FIPS 201 (PIV)",
+   "ISO/IEC 7816 / 14443",
+   "X.509"
+  ],
+  "pre": [
+   "Identity source (HR, registry)",
+   "Issuance process"
+  ],
+  "go": [
+   "Define credential types and policies",
+   "Integrate CA and access systems",
+   "Pilot with one site or department",
+   "Mass issuance",
+   "Lifecycle and revocation"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Employees",
+     "users"
+    ],
+    [
+     "Citizens",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Card / token",
+     "card"
+    ],
+    [
+     "Phone (virtual card)",
+     "phone"
+    ],
+    [
+     "Door / PC",
+     "lock"
+    ]
+   ],
+   "mods": [
+    "Match-on-device",
+    "PKI signing",
+    "Two factors in one",
+    "USB / NFC"
+   ],
+   "core": [
+    [
+     "Credential Management",
+     "server"
+    ],
+    [
+     "CA · PKI",
+     "key"
+    ]
+   ],
+   "ent": [
+    [
+     "HR / registry",
+     "users"
+    ],
+    [
+     "Access control",
+     "lock"
+    ]
+   ],
+   "tag": "Secure Credentials & Tokens",
+   "steps": [
+    "Employees and Citizens use Crypto Bio Token through card / token, phone (virtual card), door / pc.",
+    "The channel calls Crypto Bio Token by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to HR / registry and Access control."
+   ]
+  }
+ },
+ "smart-virtual-card": {
+  "sum": "Plastic cards are costly and easy to lose. Smart Virtual Card puts identity, access, payment and signing on the phone.",
+  "feat": [
+   [
+    "Virtual card",
+    "Issued to the phone wallet."
+   ],
+   [
+    "NFC access",
+    "Doors and campus services."
+   ],
+   [
+    "Payments",
+    "Campus and transit payments."
+   ],
+   [
+    "Editions",
+    "Education, Citizen, Enterprise."
+   ]
+  ],
+  "int": [
+   "PKCS#11 / minidriver",
+   "PC/SC, NFC",
+   "Credential Management API"
+  ],
+  "dep": [
+   "On-premises",
+   "Managed issuance"
+  ],
+  "std": [
+   "FIPS 201 (PIV)",
+   "ISO/IEC 7816 / 14443",
+   "X.509"
+  ],
+  "pre": [
+   "Identity source (HR, registry)",
+   "Issuance process"
+  ],
+  "go": [
+   "Define credential types and policies",
+   "Integrate CA and access systems",
+   "Pilot with one site or department",
+   "Mass issuance",
+   "Lifecycle and revocation"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Employees",
+     "users"
+    ],
+    [
+     "Citizens",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Card / token",
+     "card"
+    ],
+    [
+     "Phone (virtual card)",
+     "phone"
+    ],
+    [
+     "Door / PC",
+     "lock"
+    ]
+   ],
+   "mods": [
+    "Virtual card",
+    "NFC access",
+    "Payments",
+    "Editions"
+   ],
+   "core": [
+    [
+     "Credential Management",
+     "server"
+    ],
+    [
+     "CA · PKI",
+     "key"
+    ]
+   ],
+   "ent": [
+    [
+     "HR / registry",
+     "users"
+    ],
+    [
+     "Access control",
+     "lock"
+    ]
+   ],
+   "tag": "Secure Credentials & Tokens",
+   "steps": [
+    "Employees and Citizens use Smart Virtual Card through card / token, phone (virtual card), door / pc.",
+    "The channel calls Smart Virtual Card by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to HR / registry and Access control."
+   ]
+  }
+ },
+ "national-pki": {
+  "sum": "A country's digital signatures need a trusted root. National PKI delivers the root and subordinate CA hierarchy and its operations.",
+  "feat": [
+   [
+    "Offline root CA",
+    "Key ceremony and secure facility."
+   ],
+   [
+    "Subordinate CAs",
+    "For public and private providers."
+   ],
+   [
+    "Validation",
+    "CRL and OCSP at national scale."
+   ],
+   [
+    "WebTrust-grade operations",
+    "Policies and audits."
+   ]
+  ],
+  "int": [
+   "CMP / EST / SCEP / ACME",
+   "OCSP / CRL",
+   "CSC API",
+   "PKCS#11"
+  ],
+  "dep": [
+   "On-premises (offline root)",
+   "Hybrid"
+  ],
+  "std": [
+   "RFC 5280 / 6960 / 3161",
+   "WebTrust for CAs",
+   "ETSI EN 319 411"
+  ],
+  "pre": [
+   "Certificate policy",
+   "Secure facility for the root"
+  ],
+  "go": [
+   "Define CP/CPS and hierarchy",
+   "Design CA, RA, VA and HSM",
+   "Key ceremony and pilot",
+   "Production issuance",
+   "Audit and operations"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Relying parties",
+     "users"
+    ],
+    [
+     "Applications",
+     "server"
+    ]
+   ],
+   "ch": [
+    [
+     "Enrolment / RA",
+     "web"
+    ],
+    [
+     "Signing API",
+     "api"
+    ]
+   ],
+   "mods": [
+    "Offline root CA",
+    "Subordinate CAs",
+    "Validation",
+    "WebTrust-grade operations"
+   ],
+   "core": [
+    [
+     "Root & issuing CAs",
+     "key"
+    ],
+    [
+     "HSM",
+     "chip"
+    ]
+   ],
+   "ent": [
+    [
+     "Directories / CRL / OCSP",
+     "db"
+    ],
+    [
+     "Business systems",
+     "server"
+    ]
+   ],
+   "tag": "PKI Infrastructure",
+   "steps": [
+    "Relying parties and Applications use National PKI through enrolment / ra, signing api.",
+    "The channel calls National PKI by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Directories / CRL / OCSP and Business systems."
+   ]
+  }
+ },
+ "pki-in-a-box": {
+  "sum": "Building a PKI takes months. PKI in a Box ships CA, RA, validation and key protection in one appliance.",
+  "feat": [
+   [
+    "CA and RA",
+    "Issue and manage certificates."
+   ],
+   [
+    "Validation",
+    "OCSP and CRL."
+   ],
+   [
+    "Key protection",
+    "Hardware-protected CA keys."
+   ],
+   [
+    "Ready in weeks",
+    "Pre-configured templates."
+   ]
+  ],
+  "int": [
+   "CMP / EST / SCEP / ACME",
+   "OCSP / CRL",
+   "CSC API",
+   "PKCS#11"
+  ],
+  "dep": [
+   "On-premises (offline root)",
+   "Hybrid"
+  ],
+  "std": [
+   "RFC 5280 / 6960 / 3161",
+   "WebTrust for CAs",
+   "ETSI EN 319 411"
+  ],
+  "pre": [
+   "Certificate policy",
+   "Secure facility for the root"
+  ],
+  "go": [
+   "Define CP/CPS and hierarchy",
+   "Design CA, RA, VA and HSM",
+   "Key ceremony and pilot",
+   "Production issuance",
+   "Audit and operations"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Relying parties",
+     "users"
+    ],
+    [
+     "Applications",
+     "server"
+    ]
+   ],
+   "ch": [
+    [
+     "Enrolment / RA",
+     "web"
+    ],
+    [
+     "Signing API",
+     "api"
+    ]
+   ],
+   "mods": [
+    "CA and RA",
+    "Validation",
+    "Key protection",
+    "Ready in weeks"
+   ],
+   "core": [
+    [
+     "Root & issuing CAs",
+     "key"
+    ],
+    [
+     "HSM",
+     "chip"
+    ]
+   ],
+   "ent": [
+    [
+     "Directories / CRL / OCSP",
+     "db"
+    ],
+    [
+     "Business systems",
+     "server"
+    ]
+   ],
+   "tag": "PKI Infrastructure",
+   "steps": [
+    "Relying parties and Applications use PKI in a Box through enrolment / ra, signing api.",
+    "The channel calls PKI in a Box by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Directories / CRL / OCSP and Business systems."
+   ]
+  }
+ },
+ "timestamp-tsa": {
+  "sum": "Without trusted time, signatures can be disputed. The Timestamp Authority proves when data existed.",
+  "feat": [
+   [
+    "RFC 3161 timestamps",
+    "Standard tokens."
+   ],
+   [
+    "Accurate time source",
+    "Synchronised and audited."
+   ],
+   [
+    "High volume",
+    "For systems and archives."
+   ],
+   [
+    "On-premises",
+    "Under your control."
+   ]
+  ],
+  "int": [
+   "CMP / EST / SCEP / ACME",
+   "OCSP / CRL",
+   "CSC API",
+   "PKCS#11"
+  ],
+  "dep": [
+   "On-premises (offline root)",
+   "Hybrid"
+  ],
+  "std": [
+   "RFC 5280 / 6960 / 3161",
+   "WebTrust for CAs",
+   "ETSI EN 319 411"
+  ],
+  "pre": [
+   "Certificate policy",
+   "Secure facility for the root"
+  ],
+  "go": [
+   "Define CP/CPS and hierarchy",
+   "Design CA, RA, VA and HSM",
+   "Key ceremony and pilot",
+   "Production issuance",
+   "Audit and operations"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Relying parties",
+     "users"
+    ],
+    [
+     "Applications",
+     "server"
+    ]
+   ],
+   "ch": [
+    [
+     "Enrolment / RA",
+     "web"
+    ],
+    [
+     "Signing API",
+     "api"
+    ]
+   ],
+   "mods": [
+    "RFC 3161 timestamps",
+    "Accurate time source",
+    "High volume",
+    "On-premises"
+   ],
+   "core": [
+    [
+     "Root & issuing CAs",
+     "key"
+    ],
+    [
+     "HSM",
+     "chip"
+    ]
+   ],
+   "ent": [
+    [
+     "Directories / CRL / OCSP",
+     "db"
+    ],
+    [
+     "Business systems",
+     "server"
+    ]
+   ],
+   "tag": "PKI Infrastructure",
+   "steps": [
+    "Relying parties and Applications use Timestamp Authority (TSA) through enrolment / ra, signing api.",
+    "The channel calls Timestamp Authority (TSA) by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Directories / CRL / OCSP and Business systems."
+   ]
+  }
+ },
+ "signing-gateway": {
+  "sum": "Applications integrate with many CAs and key stores. Signing Gateway routes every request to the right key and policy.",
+  "feat": [
+   [
+    "Single API",
+    "One interface for all signing."
+   ],
+   [
+    "Routing and policy",
+    "By document, user and level."
+   ],
+   [
+    "Verification",
+    "Validate signatures and timestamps."
+   ],
+   [
+    "Audit",
+    "Central logs."
+   ]
+  ],
+  "int": [
+   "CMP / EST / SCEP / ACME",
+   "OCSP / CRL",
+   "CSC API",
+   "PKCS#11"
+  ],
+  "dep": [
+   "On-premises (offline root)",
+   "Hybrid"
+  ],
+  "std": [
+   "RFC 5280 / 6960 / 3161",
+   "WebTrust for CAs",
+   "ETSI EN 319 411"
+  ],
+  "pre": [
+   "Certificate policy",
+   "Secure facility for the root"
+  ],
+  "go": [
+   "Define CP/CPS and hierarchy",
+   "Design CA, RA, VA and HSM",
+   "Key ceremony and pilot",
+   "Production issuance",
+   "Audit and operations"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Relying parties",
+     "users"
+    ],
+    [
+     "Applications",
+     "server"
+    ]
+   ],
+   "ch": [
+    [
+     "Enrolment / RA",
+     "web"
+    ],
+    [
+     "Signing API",
+     "api"
+    ]
+   ],
+   "mods": [
+    "Single API",
+    "Routing and policy",
+    "Verification",
+    "Audit"
+   ],
+   "core": [
+    [
+     "Root & issuing CAs",
+     "key"
+    ],
+    [
+     "HSM",
+     "chip"
+    ]
+   ],
+   "ent": [
+    [
+     "Directories / CRL / OCSP",
+     "db"
+    ],
+    [
+     "Business systems",
+     "server"
+    ]
+   ],
+   "tag": "PKI Infrastructure",
+   "steps": [
+    "Relying parties and Applications use Signing Gateway through enrolment / ra, signing api.",
+    "The channel calls Signing Gateway by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Directories / CRL / OCSP and Business systems."
+   ]
+  }
+ },
+ "signing-server": {
+  "sum": "Systems need to sign thousands of documents automatically. SAVIS Signing Server provides high-volume server-side signing and e-seals.",
+  "feat": [
+   [
+    "Bulk signing",
+    "High-throughput."
+   ],
+   [
+    "Organisational e-seals",
+    "For invoices and records."
+   ],
+   [
+    "PAdES / XAdES / CAdES",
+    "Standard formats."
+   ],
+   [
+    "Hardware keys",
+    "Keys protected in HSM."
+   ]
+  ],
+  "int": [
+   "CMP / EST / SCEP / ACME",
+   "OCSP / CRL",
+   "CSC API",
+   "PKCS#11"
+  ],
+  "dep": [
+   "On-premises (offline root)",
+   "Hybrid"
+  ],
+  "std": [
+   "RFC 5280 / 6960 / 3161",
+   "WebTrust for CAs",
+   "ETSI EN 319 411"
+  ],
+  "pre": [
+   "Certificate policy",
+   "Secure facility for the root"
+  ],
+  "go": [
+   "Define CP/CPS and hierarchy",
+   "Design CA, RA, VA and HSM",
+   "Key ceremony and pilot",
+   "Production issuance",
+   "Audit and operations"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Relying parties",
+     "users"
+    ],
+    [
+     "Applications",
+     "server"
+    ]
+   ],
+   "ch": [
+    [
+     "Enrolment / RA",
+     "web"
+    ],
+    [
+     "Signing API",
+     "api"
+    ]
+   ],
+   "mods": [
+    "Bulk signing",
+    "Organisational e-seals",
+    "PAdES / XAdES / CAdES",
+    "Hardware keys"
+   ],
+   "core": [
+    [
+     "Root & issuing CAs",
+     "key"
+    ],
+    [
+     "HSM",
+     "chip"
+    ]
+   ],
+   "ent": [
+    [
+     "Directories / CRL / OCSP",
+     "db"
+    ],
+    [
+     "Business systems",
+     "server"
+    ]
+   ],
+   "tag": "PKI Infrastructure",
+   "steps": [
+    "Relying parties and Applications use SAVIS Signing Server through enrolment / ra, signing api.",
+    "The channel calls SAVIS Signing Server by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Directories / CRL / OCSP and Business systems."
+   ]
+  }
+ },
+ "trustca-timestamp": {
+  "sum": "Signatures must stay valid long after certificates expire. TrustCA Timestamp proves when a document was signed and supports LTV.",
+  "feat": [
+   [
+    "Trusted timestamps",
+    "From a licensed provider."
+   ],
+   [
+    "LTV",
+    "Long-term validation data."
+   ],
+   [
+    "API",
+    "For any application."
+   ],
+   [
+    "Audit",
+    "Independent evidence."
+   ]
+  ],
+  "int": [
+   "CSC API",
+   "REST",
+   "PDF / XML signing"
+  ],
+  "dep": [
+   "TrustCA service",
+   "On-premises"
+  ],
+  "std": [
+   "eIDAS 2.0",
+   "ETSI EN 319 4xx",
+   "Law on E-Transactions 2023"
+  ],
+  "pre": [
+   "Signing workflows"
+  ],
+  "go": [
+   "Map documents and signature levels",
+   "Integrate",
+   "Pilot",
+   "Roll out",
+   "Operate"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Signers",
+     "users"
+    ],
+    [
+     "Businesses",
+     "bank"
+    ]
+   ],
+   "ch": [
+    [
+     "Signing app",
+     "phone"
+    ],
+    [
+     "Business apps",
+     "web"
+    ]
+   ],
+   "mods": [
+    "Trusted timestamps",
+    "LTV",
+    "API",
+    "Audit"
+   ],
+   "core": [
+    [
+     "TrustCA CA",
+     "key"
+    ],
+    [
+     "Remote QSCD",
+     "chip"
+    ]
+   ],
+   "ent": [
+    [
+     "Document systems",
+     "doc"
+    ],
+    [
+     "Archive",
+     "db"
+    ]
+   ],
+   "tag": "Trust Services · TrustCA QTSP eIDAS 2.0",
+   "steps": [
+    "Signers and Businesses use TrustCA Timestamp through signing app, business apps.",
+    "The channel calls TrustCA Timestamp by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Document systems and Archive."
+   ]
+  }
+ },
+ "trustca-ekyc-biometric": {
+  "sum": "Getting a certificate used to require a visit. TrustCA eKYC Biometric verifies the person and issues a certificate in the same flow.",
+  "feat": [
+   [
+    "Face and fingerprint eKYC",
+    "Biometric identity proofing."
+   ],
+   [
+    "Instant certificate",
+    "Issued after verification."
+   ],
+   [
+    "Liveness",
+    "Presentation-attack detection."
+   ],
+   [
+    "Evidence",
+    "Kept for the CA audit."
+   ]
+  ],
+  "int": [
+   "CSC API",
+   "REST",
+   "PDF / XML signing"
+  ],
+  "dep": [
+   "TrustCA service",
+   "On-premises"
+  ],
+  "std": [
+   "eIDAS 2.0",
+   "ETSI EN 319 4xx",
+   "Law on E-Transactions 2023"
+  ],
+  "pre": [
+   "Signing workflows"
+  ],
+  "go": [
+   "Map documents and signature levels",
+   "Integrate",
+   "Pilot",
+   "Roll out",
+   "Operate"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Signers",
+     "users"
+    ],
+    [
+     "Businesses",
+     "bank"
+    ]
+   ],
+   "ch": [
+    [
+     "Signing app",
+     "phone"
+    ],
+    [
+     "Business apps",
+     "web"
+    ]
+   ],
+   "mods": [
+    "Face and fingerprint eKYC",
+    "Instant certificate",
+    "Liveness",
+    "Evidence"
+   ],
+   "core": [
+    [
+     "TrustCA CA",
+     "key"
+    ],
+    [
+     "Remote QSCD",
+     "chip"
+    ]
+   ],
+   "ent": [
+    [
+     "Document systems",
+     "doc"
+    ],
+    [
+     "Archive",
+     "db"
+    ]
+   ],
+   "tag": "Trust Services · TrustCA QTSP eIDAS 2.0",
+   "steps": [
+    "Signers and Businesses use TrustCA eKYC Biometric through signing app, business apps.",
+    "The channel calls TrustCA eKYC Biometric by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Document systems and Archive."
+   ]
+  }
+ },
+ "paperless": {
+  "sum": "Paper approvals slow every process. SAVIS Paperless signs, timestamps and archives every form and approval.",
+  "feat": [
+   [
+    "Digital forms",
+    "Capture and validate."
+   ],
+   [
+    "Approvals",
+    "Workflow with signatures."
+   ],
+   [
+    "Timestamps",
+    "Legal proof of time."
+   ],
+   [
+    "Archive",
+    "Long-term storage."
+   ]
+  ],
+  "int": [
+   "CSC API",
+   "REST",
+   "PDF / XML signing"
+  ],
+  "dep": [
+   "TrustCA service",
+   "On-premises"
+  ],
+  "std": [
+   "eIDAS 2.0",
+   "ETSI EN 319 4xx",
+   "Law on E-Transactions 2023"
+  ],
+  "pre": [
+   "Signing workflows"
+  ],
+  "go": [
+   "Map documents and signature levels",
+   "Integrate",
+   "Pilot",
+   "Roll out",
+   "Operate"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Signers",
+     "users"
+    ],
+    [
+     "Businesses",
+     "bank"
+    ]
+   ],
+   "ch": [
+    [
+     "Signing app",
+     "phone"
+    ],
+    [
+     "Business apps",
+     "web"
+    ]
+   ],
+   "mods": [
+    "Digital forms",
+    "Approvals",
+    "Timestamps",
+    "Archive"
+   ],
+   "core": [
+    [
+     "TrustCA CA",
+     "key"
+    ],
+    [
+     "Remote QSCD",
+     "chip"
+    ]
+   ],
+   "ent": [
+    [
+     "Document systems",
+     "doc"
+    ],
+    [
+     "Archive",
+     "db"
+    ]
+   ],
+   "tag": "Trust Services · TrustCA QTSP eIDAS 2.0",
+   "steps": [
+    "Signers and Businesses use SAVIS Paperless through signing app, business apps.",
+    "The channel calls SAVIS Paperless by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Document systems and Archive."
+   ]
+  }
+ },
+ "trustca-va-ra": {
+  "sum": "Relying parties must know a certificate is valid; issuers must verify applicants. TrustCA VA/RA provides validation and registration services.",
+  "feat": [
+   [
+    "OCSP / CRL",
+    "Real-time status."
+   ],
+   [
+    "Registration",
+    "Identity proofing for applicants."
+   ],
+   [
+    "APIs",
+    "For integrators."
+   ],
+   [
+    "SLAs",
+    "Operated by TrustCA."
+   ]
+  ],
+  "int": [
+   "CSC API",
+   "REST",
+   "PDF / XML signing"
+  ],
+  "dep": [
+   "TrustCA service",
+   "On-premises"
+  ],
+  "std": [
+   "eIDAS 2.0",
+   "ETSI EN 319 4xx",
+   "Law on E-Transactions 2023"
+  ],
+  "pre": [
+   "Signing workflows"
+  ],
+  "go": [
+   "Map documents and signature levels",
+   "Integrate",
+   "Pilot",
+   "Roll out",
+   "Operate"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Signers",
+     "users"
+    ],
+    [
+     "Businesses",
+     "bank"
+    ]
+   ],
+   "ch": [
+    [
+     "Signing app",
+     "phone"
+    ],
+    [
+     "Business apps",
+     "web"
+    ]
+   ],
+   "mods": [
+    "OCSP / CRL",
+    "Registration",
+    "APIs",
+    "SLAs"
+   ],
+   "core": [
+    [
+     "TrustCA CA",
+     "key"
+    ],
+    [
+     "Remote QSCD",
+     "chip"
+    ]
+   ],
+   "ent": [
+    [
+     "Document systems",
+     "doc"
+    ],
+    [
+     "Archive",
+     "db"
+    ]
+   ],
+   "tag": "Trust Services · TrustCA QTSP eIDAS 2.0",
+   "steps": [
+    "Signers and Businesses use TrustCA VA/RA through signing app, business apps.",
+    "The channel calls TrustCA VA/RA by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Document systems and Archive."
+   ]
+  }
+ },
+ "ecertify": {
+  "sum": "Paper diplomas and certificates are easy to forge. SAVIS eCertify issues tamper-evident digital certificates that anyone can verify.",
+  "feat": [
+   [
+    "Digital issuance",
+    "Signed by the institution."
+   ],
+   [
+    "QR verification",
+    "Verify in seconds."
+   ],
+   [
+    "Revocation",
+    "Withdraw if needed."
+   ],
+   [
+    "Wallet-ready",
+    "W3C VC compatible."
+   ]
+  ],
+  "int": [
+   "CSC API",
+   "REST",
+   "PDF / XML signing"
+  ],
+  "dep": [
+   "TrustCA service",
+   "On-premises"
+  ],
+  "std": [
+   "eIDAS 2.0",
+   "ETSI EN 319 4xx",
+   "Law on E-Transactions 2023"
+  ],
+  "pre": [
+   "Signing workflows"
+  ],
+  "go": [
+   "Map documents and signature levels",
+   "Integrate",
+   "Pilot",
+   "Roll out",
+   "Operate"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Signers",
+     "users"
+    ],
+    [
+     "Businesses",
+     "bank"
+    ]
+   ],
+   "ch": [
+    [
+     "Signing app",
+     "phone"
+    ],
+    [
+     "Business apps",
+     "web"
+    ]
+   ],
+   "mods": [
+    "Digital issuance",
+    "QR verification",
+    "Revocation",
+    "Wallet-ready"
+   ],
+   "core": [
+    [
+     "TrustCA CA",
+     "key"
+    ],
+    [
+     "Remote QSCD",
+     "chip"
+    ]
+   ],
+   "ent": [
+    [
+     "Document systems",
+     "doc"
+    ],
+    [
+     "Archive",
+     "db"
+    ]
+   ],
+   "tag": "Trust Services · TrustCA QTSP eIDAS 2.0",
+   "steps": [
+    "Signers and Businesses use SAVIS eCertify through signing app, business apps.",
+    "The channel calls SAVIS eCertify by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Document systems and Archive."
+   ]
+  }
+ },
+ "webtrust-readiness": {
+  "sum": "Browser and OS trust programmes require WebTrust audits. WebTrust Readiness prepares CAs to pass.",
+  "feat": [
+   [
+    "Gap assessment",
+    "Against WebTrust criteria."
+   ],
+   [
+    "Policies",
+    "CP/CPS and procedures."
+   ],
+   [
+    "Controls",
+    "Technical and physical."
+   ],
+   [
+    "Audit preparation",
+    "Evidence and dry runs."
+   ]
+  ],
+  "int": [
+   "Policy templates",
+   "Control evidence"
+  ],
+  "dep": [
+   "Consulting engagement"
+  ],
+  "std": [
+   "WebTrust for CAs",
+   "ETSI EN 319 401 / 411",
+   "eIDAS 2.0"
+  ],
+  "pre": [
+   "Scope and audit target"
+  ],
+  "go": [
+   "Gap analysis",
+   "Remediation plan",
+   "Controls and evidence",
+   "Pre-audit",
+   "Certification audit"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Compliance team",
+     "users"
+    ]
+   ],
+   "ch": [
+    [
+     "Workshops",
+     "users"
+    ],
+    [
+     "Assessment portal",
+     "web"
+    ]
+   ],
+   "mods": [
+    "Gap assessment",
+    "Policies",
+    "Controls",
+    "Audit preparation"
+   ],
+   "core": [
+    [
+     "Policy & evidence",
+     "doc"
+    ]
+   ],
+   "ent": [
+    [
+     "Auditor / CAB",
+     "shield"
+    ]
+   ],
+   "tag": "Trust Compliance & Readiness",
+   "steps": [
+    "Compliance team use WebTrust Readiness through workshops, assessment portal.",
+    "The channel calls WebTrust Readiness by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Auditor / CAB."
+   ]
+  }
+ },
+ "eidas-readiness": {
+  "sum": "eIDAS 2.0 changes what trust services and wallets must do. eIDAS 2.0 Readiness prepares for conformity assessment.",
+  "feat": [
+   [
+    "Gap analysis",
+    "Against eIDAS 2.0 and ETSI."
+   ],
+   [
+    "Policies",
+    "ETSI-based documentation."
+   ],
+   [
+    "Wallet readiness",
+    "ARF alignment."
+   ],
+   [
+    "CAB preparation",
+    "Evidence packs."
+   ]
+  ],
+  "int": [
+   "Policy templates",
+   "Control evidence"
+  ],
+  "dep": [
+   "Consulting engagement"
+  ],
+  "std": [
+   "WebTrust for CAs",
+   "ETSI EN 319 401 / 411",
+   "eIDAS 2.0"
+  ],
+  "pre": [
+   "Scope and audit target"
+  ],
+  "go": [
+   "Gap analysis",
+   "Remediation plan",
+   "Controls and evidence",
+   "Pre-audit",
+   "Certification audit"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Compliance team",
+     "users"
+    ]
+   ],
+   "ch": [
+    [
+     "Workshops",
+     "users"
+    ],
+    [
+     "Assessment portal",
+     "web"
+    ]
+   ],
+   "mods": [
+    "Gap analysis",
+    "Policies",
+    "Wallet readiness",
+    "CAB preparation"
+   ],
+   "core": [
+    [
+     "Policy & evidence",
+     "doc"
+    ]
+   ],
+   "ent": [
+    [
+     "Auditor / CAB",
+     "shield"
+    ]
+   ],
+   "tag": "Trust Compliance & Readiness",
+   "steps": [
+    "Compliance team use eIDAS 2.0 Readiness through workshops, assessment portal.",
+    "The channel calls eIDAS 2.0 Readiness by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Auditor / CAB."
+   ]
+  }
+ },
+ "fraud-prevention": {
+  "sum": "Fraud moves faster than rules updated monthly. Fraud Prevention & Risk Management scores sessions and transactions in real time.",
+  "feat": [
+   [
+    "Real-time scoring",
+    "Rules and machine learning."
+   ],
+   [
+    "Signals",
+    "Device, behaviour, transaction."
+   ],
+   [
+    "Case management",
+    "Investigate and resolve."
+   ],
+   [
+    "Feedback loop",
+    "Learn from outcomes."
+   ]
+  ],
+  "int": [
+   "Mobile SDK",
+   "REST API",
+   "Webhooks"
+  ],
+  "dep": [
+   "On-premises",
+   "Cloud"
+  ],
+  "std": [
+   "SBV Circular 77/2025",
+   "OWASP MASVS"
+  ],
+  "pre": [
+   "Channel apps",
+   "Fraud rules"
+  ],
+  "go": [
+   "Baseline fraud patterns",
+   "Integrate SDK and signals",
+   "Pilot rules",
+   "Roll out",
+   "Tune continuously"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Customers",
+     "users"
+    ],
+    [
+     "Fraud team",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Mobile app",
+     "phone"
+    ],
+    [
+     "Web",
+     "web"
+    ]
+   ],
+   "mods": [
+    "Real-time scoring",
+    "Signals",
+    "Case management",
+    "Feedback loop"
+   ],
+   "core": [
+    [
+     "Risk engine",
+     "shield"
+    ]
+   ],
+   "ent": [
+    [
+     "Core banking",
+     "bank"
+    ],
+    [
+     "Case management",
+     "doc"
+    ]
+   ],
+   "tag": "Fraud & App Protection",
+   "steps": [
+    "Customers and Fraud team use Fraud Prevention & Risk Management through mobile app, web.",
+    "The channel calls Fraud Prevention & Risk Management by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Core banking and Case management."
+   ]
+  }
+ },
+ "device-intelligence": {
+  "sum": "Fraudsters use emulators, rooted phones and remote-access tools. Device Intelligence scores every device in real time.",
+  "feat": [
+   [
+    "Emulator and root detection",
+    "Catch fake devices."
+   ],
+   [
+    "Remote-access detection",
+    "Stop screen-sharing scams."
+   ],
+   [
+    "SIM-swap signals",
+    "Flag risky changes."
+   ],
+   [
+    "Device farms",
+    "Detect large-scale abuse."
+   ]
+  ],
+  "int": [
+   "Mobile SDK",
+   "REST API",
+   "Webhooks"
+  ],
+  "dep": [
+   "On-premises",
+   "Cloud"
+  ],
+  "std": [
+   "SBV Circular 77/2025",
+   "OWASP MASVS"
+  ],
+  "pre": [
+   "Channel apps",
+   "Fraud rules"
+  ],
+  "go": [
+   "Baseline fraud patterns",
+   "Integrate SDK and signals",
+   "Pilot rules",
+   "Roll out",
+   "Tune continuously"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Customers",
+     "users"
+    ],
+    [
+     "Fraud team",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Mobile app",
+     "phone"
+    ],
+    [
+     "Web",
+     "web"
+    ]
+   ],
+   "mods": [
+    "Emulator and root detection",
+    "Remote-access detection",
+    "SIM-swap signals",
+    "Device farms"
+   ],
+   "core": [
+    [
+     "Risk engine",
+     "shield"
+    ]
+   ],
+   "ent": [
+    [
+     "Core banking",
+     "bank"
+    ],
+    [
+     "Case management",
+     "doc"
+    ]
+   ],
+   "tag": "Fraud & App Protection",
+   "steps": [
+    "Customers and Fraud team use Device Intelligence through mobile app, web.",
+    "The channel calls Device Intelligence by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Core banking and Case management."
+   ]
+  }
+ },
+ "device-fingerprint-sdk": {
+  "sum": "Account takeover often comes from new or fake devices. The Device Fingerprint SDK recognises each device behind a login or payment.",
+  "feat": [
+   [
+    "Stable device ID",
+    "Privacy-preserving fingerprint."
+   ],
+   [
+    "Bot detection",
+    "Automated traffic."
+   ],
+   [
+    "Account takeover",
+    "New-device alerts."
+   ],
+   [
+    "Lightweight SDK",
+    "Mobile and web."
+   ]
+  ],
+  "int": [
+   "Mobile SDK",
+   "REST API",
+   "Webhooks"
+  ],
+  "dep": [
+   "On-premises",
+   "Cloud"
+  ],
+  "std": [
+   "SBV Circular 77/2025",
+   "OWASP MASVS"
+  ],
+  "pre": [
+   "Channel apps",
+   "Fraud rules"
+  ],
+  "go": [
+   "Baseline fraud patterns",
+   "Integrate SDK and signals",
+   "Pilot rules",
+   "Roll out",
+   "Tune continuously"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Customers",
+     "users"
+    ],
+    [
+     "Fraud team",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Mobile app",
+     "phone"
+    ],
+    [
+     "Web",
+     "web"
+    ]
+   ],
+   "mods": [
+    "Stable device ID",
+    "Bot detection",
+    "Account takeover",
+    "Lightweight SDK"
+   ],
+   "core": [
+    [
+     "Risk engine",
+     "shield"
+    ]
+   ],
+   "ent": [
+    [
+     "Core banking",
+     "bank"
+    ],
+    [
+     "Case management",
+     "doc"
+    ]
+   ],
+   "tag": "Fraud & App Protection",
+   "steps": [
+    "Customers and Fraud team use Device Fingerprint SDK through mobile app, web.",
+    "The channel calls Device Fingerprint SDK by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Core banking and Case management."
+   ]
+  }
+ },
+ "rasp-plus": {
+  "sum": "Banking apps are reverse-engineered and hooked. RASP+ protects apps at runtime.",
+  "feat": [
+   [
+    "Anti-tampering",
+    "Detect modified apps."
+   ],
+   [
+    "Anti-hooking",
+    "Block instrumentation."
+   ],
+   [
+    "Root / jailbreak",
+    "Stop on compromised devices."
+   ],
+   [
+    "Overlay protection",
+    "Stop screen overlays."
+   ]
+  ],
+  "int": [
+   "Mobile SDK",
+   "REST API",
+   "Webhooks"
+  ],
+  "dep": [
+   "On-premises",
+   "Cloud"
+  ],
+  "std": [
+   "SBV Circular 77/2025",
+   "OWASP MASVS"
+  ],
+  "pre": [
+   "Channel apps",
+   "Fraud rules"
+  ],
+  "go": [
+   "Baseline fraud patterns",
+   "Integrate SDK and signals",
+   "Pilot rules",
+   "Roll out",
+   "Tune continuously"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Customers",
+     "users"
+    ],
+    [
+     "Fraud team",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Mobile app",
+     "phone"
+    ],
+    [
+     "Web",
+     "web"
+    ]
+   ],
+   "mods": [
+    "Anti-tampering",
+    "Anti-hooking",
+    "Root / jailbreak",
+    "Overlay protection"
+   ],
+   "core": [
+    [
+     "Risk engine",
+     "shield"
+    ]
+   ],
+   "ent": [
+    [
+     "Core banking",
+     "bank"
+    ],
+    [
+     "Case management",
+     "doc"
+    ]
+   ],
+   "tag": "Fraud & App Protection",
+   "steps": [
+    "Customers and Fraud team use RASP+ through mobile app, web.",
+    "The channel calls RASP+ by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Core banking and Case management."
+   ]
+  }
+ },
+ "trustshield": {
+  "sum": "App attacks must feed the transaction decision. TrustShield protects banking and wallet apps and sends threat signals to the back end.",
+  "feat": [
+   [
+    "RASP",
+    "Runtime protection."
+   ],
+   [
+    "Anti-tampering",
+    "Integrity checks."
+   ],
+   [
+    "Threat signals",
+    "To risk engines."
+   ],
+   [
+    "Policy",
+    "Block, step up or allow."
+   ]
+  ],
+  "int": [
+   "Mobile SDK",
+   "REST API",
+   "Webhooks"
+  ],
+  "dep": [
+   "On-premises",
+   "Cloud"
+  ],
+  "std": [
+   "SBV Circular 77/2025",
+   "OWASP MASVS"
+  ],
+  "pre": [
+   "Channel apps",
+   "Fraud rules"
+  ],
+  "go": [
+   "Baseline fraud patterns",
+   "Integrate SDK and signals",
+   "Pilot rules",
+   "Roll out",
+   "Tune continuously"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Customers",
+     "users"
+    ],
+    [
+     "Fraud team",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Mobile app",
+     "phone"
+    ],
+    [
+     "Web",
+     "web"
+    ]
+   ],
+   "mods": [
+    "RASP",
+    "Anti-tampering",
+    "Threat signals",
+    "Policy"
+   ],
+   "core": [
+    [
+     "Risk engine",
+     "shield"
+    ]
+   ],
+   "ent": [
+    [
+     "Core banking",
+     "bank"
+    ],
+    [
+     "Case management",
+     "doc"
+    ]
+   ],
+   "tag": "Fraud & App Protection",
+   "steps": [
+    "Customers and Fraud team use TrustShield through mobile app, web.",
+    "The channel calls TrustShield by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Core banking and Case management."
+   ]
+  }
+ },
+ "cyber-security": {
+  "sum": "Security tools from many vendors need to work as one. SAVIS Cyber Security designs, integrates and supports network, application, endpoint and data security.",
+  "feat": [
+   [
+    "Network security",
+    "Firewalls and segmentation."
+   ],
+   [
+    "Application security",
+    "WAF and API protection."
+   ],
+   [
+    "Endpoint security",
+    "EDR and hardening."
+   ],
+   [
+    "Data security",
+    "DLP and encryption."
+   ]
+  ],
+  "int": [
+   "Syslog / agents",
+   "EDR / NDR"
+  ],
+  "dep": [
+   "Managed",
+   "On-premises"
+  ],
+  "std": [
+   "ISO/IEC 27001",
+   "NIST CSF"
+  ],
+  "pre": [
+   "Log sources"
+  ],
+  "go": [
+   "Assess",
+   "Design",
+   "Deploy",
+   "Go live",
+   "Operate"
+  ],
+  "arch": {
+   "users": [
+    [
+     "IT & security team",
+     "users"
+    ]
+   ],
+   "ch": [
+    [
+     "Portal & reports",
+     "web"
+    ]
+   ],
+   "mods": [
+    "Network security",
+    "Application security",
+    "Endpoint security",
+    "Data security"
+   ],
+   "core": [
+    [
+     "SIEM / SOAR",
+     "soc"
+    ]
+   ],
+   "ent": [
+    [
+     "Networks & cloud",
+     "cloud"
+    ],
+    [
+     "Endpoints",
+     "phone"
+    ]
+   ],
+   "tag": "Security Operations",
+   "steps": [
+    "IT & security team use SAVIS Cyber Security through portal & reports.",
+    "The channel calls SAVIS Cyber Security by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Networks & cloud and Endpoints."
+   ]
+  }
+ },
+ "gp-hsm": {
+  "sum": "Keys in software can be extracted. GP HSM generates and uses keys inside certified hardware.",
+  "feat": [
+   [
+    "Key generation",
+    "Inside the hardware boundary."
+   ],
+   [
+    "Signing and encryption",
+    "For PKI, databases and apps."
+   ],
+   [
+    "Standard APIs",
+    "PKCS#11, JCE, CNG."
+   ],
+   [
+    "High availability",
+    "Clustering."
+   ]
+  ],
+  "int": [
+   "PKCS#11",
+   "KMIP",
+   "REST",
+   "JCE / CNG"
+  ],
+  "dep": [
+   "On-premises",
+   "HSM as a Service"
+  ],
+  "std": [
+   "FIPS 140-3",
+   "PCI PIN / PCI DSS",
+   "NIST SP 800-57"
+  ],
+  "pre": [
+   "Key inventory"
+  ],
+  "go": [
+   "Inventory keys",
+   "Design key hierarchy",
+   "Migrate first apps",
+   "Extend",
+   "Audit"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Security admins",
+     "user"
+    ],
+    [
+     "Applications",
+     "server"
+    ]
+   ],
+   "ch": [
+    [
+     "Console",
+     "web"
+    ],
+    [
+     "API",
+     "api"
+    ]
+   ],
+   "mods": [
+    "Key generation",
+    "Signing and encryption",
+    "Standard APIs",
+    "High availability"
+   ],
+   "core": [
+    [
+     "HSM",
+     "chip"
+    ],
+    [
+     "SAM Appliance",
+     "server"
+    ]
+   ],
+   "ent": [
+    [
+     "Databases",
+     "db"
+    ],
+    [
+     "Payment systems",
+     "card"
+    ]
+   ],
+   "tag": "Cryptography & Key Management",
+   "steps": [
+    "Security admins and Applications use GP HSM through console, api.",
+    "The channel calls GP HSM by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Databases and Payment systems."
+   ]
+  }
+ },
+ "hsm-as-a-service": {
+  "sum": "Buying and running HSMs takes skills and capital. HSM as a Service delivers dedicated HSMs operated by SAVIS.",
+  "feat": [
+   [
+    "Dedicated HSMs",
+    "Not shared with other tenants."
+   ],
+   [
+    "Operated by SAVIS",
+    "Monitoring and maintenance."
+   ],
+   [
+    "Standard APIs",
+    "Same as on-premises."
+   ],
+   [
+    "Scale on demand",
+    "Add capacity as needed."
+   ]
+  ],
+  "int": [
+   "PKCS#11",
+   "KMIP",
+   "REST",
+   "JCE / CNG"
+  ],
+  "dep": [
+   "On-premises",
+   "HSM as a Service"
+  ],
+  "std": [
+   "FIPS 140-3",
+   "PCI PIN / PCI DSS",
+   "NIST SP 800-57"
+  ],
+  "pre": [
+   "Key inventory"
+  ],
+  "go": [
+   "Inventory keys",
+   "Design key hierarchy",
+   "Migrate first apps",
+   "Extend",
+   "Audit"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Security admins",
+     "user"
+    ],
+    [
+     "Applications",
+     "server"
+    ]
+   ],
+   "ch": [
+    [
+     "Console",
+     "web"
+    ],
+    [
+     "API",
+     "api"
+    ]
+   ],
+   "mods": [
+    "Dedicated HSMs",
+    "Operated by SAVIS",
+    "Standard APIs",
+    "Scale on demand"
+   ],
+   "core": [
+    [
+     "HSM",
+     "chip"
+    ],
+    [
+     "SAM Appliance",
+     "server"
+    ]
+   ],
+   "ent": [
+    [
+     "Databases",
+     "db"
+    ],
+    [
+     "Payment systems",
+     "card"
+    ]
+   ],
+   "tag": "Cryptography & Key Management",
+   "steps": [
+    "Security admins and Applications use HSM as a Service through console, api.",
+    "The channel calls HSM as a Service by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Databases and Payment systems."
+   ]
+  }
+ },
+ "secure-enterprise-browser": {
+  "sum": "Work happens in the browser, outside network controls. Secure Enterprise Browser enforces zero-trust policy there.",
+  "feat": [
+   [
+    "Data-loss controls",
+    "Copy, paste, download, print."
+   ],
+   [
+    "Isolation",
+    "Separate risky content."
+   ],
+   [
+    "Identity-aware",
+    "Policy by user and device."
+   ],
+   [
+    "Audit",
+    "Session logging."
+   ]
+  ],
+  "int": [
+   "SAML / OIDC",
+   "MDM / EDR"
+  ],
+  "dep": [
+   "Appliance",
+   "Cloud"
+  ],
+  "std": [
+   "NIST SP 800-207"
+  ],
+  "pre": [
+   "App inventory",
+   "IdP"
+  ],
+  "go": [
+   "Map apps",
+   "Policies",
+   "Pilot",
+   "Replace VPN",
+   "Tune"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Staff",
+     "users"
+    ],
+    [
+     "Contractors",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Browser",
+     "web"
+    ],
+    [
+     "Laptop / mobile",
+     "phone"
+    ]
+   ],
+   "mods": [
+    "Data-loss controls",
+    "Isolation",
+    "Identity-aware",
+    "Audit"
+   ],
+   "core": [
+    [
+     "Policy engine",
+     "shield"
+    ]
+   ],
+   "ent": [
+    [
+     "Internal & SaaS apps",
+     "server"
+    ],
+    [
+     "SIEM",
+     "soc"
+    ]
+   ],
+   "tag": "Zero Trust & Network Security",
+   "steps": [
+    "Staff and Contractors use Secure Enterprise Browser through browser, laptop / mobile.",
+    "The channel calls Secure Enterprise Browser by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Internal & SaaS apps and SIEM."
+   ]
+  }
+ },
+ "quantum-vault": {
+  "sum": "Secrets that must stay confidential for decades face quantum risk. Quantum Vault protects keys, secrets and certificates with PQC.",
+  "feat": [
+   [
+    "PQC protection",
+    "ML-KEM wrapping."
+   ],
+   [
+    "Secrets management",
+    "Keys, tokens, certificates."
+   ],
+   [
+    "Access policy",
+    "Fine-grained control."
+   ],
+   [
+    "Audit",
+    "Every access logged."
+   ]
+  ],
+  "int": [
+   "Hybrid TLS / IPsec",
+   "PKCS#11",
+   "REST"
+  ],
+  "dep": [
+   "Appliance",
+   "Software",
+   "Lab"
+  ],
+  "std": [
+   "NIST FIPS 203 / 204 / 205",
+   "ETSI QSC"
+  ],
+  "pre": [
+   "Crypto inventory"
+  ],
+  "go": [
+   "Discover",
+   "Rank risk",
+   "Pilot in PQC Lab",
+   "Migrate in waves",
+   "Monitor"
+  ],
+  "arch": {
+   "users": [
+    [
+     "CISO team",
+     "users"
+    ],
+    [
+     "Applications",
+     "server"
+    ]
+   ],
+   "ch": [
+    [
+     "Network",
+     "net"
+    ],
+    [
+     "APIs",
+     "api"
+    ]
+   ],
+   "mods": [
+    "PQC protection",
+    "Secrets management",
+    "Access policy",
+    "Audit"
+   ],
+   "core": [
+    [
+     "PQC keys",
+     "key"
+    ],
+    [
+     "HSM · TPM",
+     "chip"
+    ]
+   ],
+   "ent": [
+    [
+     "Data stores",
+     "db"
+    ],
+    [
+     "Partner links",
+     "globe"
+    ]
+   ],
+   "tag": "Quantum-Safe Security",
+   "steps": [
+    "CISO team and Applications use Quantum Vault through network, apis.",
+    "The channel calls Quantum Vault by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Data stores and Partner links."
+   ]
+  }
+ },
+ "quantum-safe-storage": {
+  "sum": "Data stolen today can be decrypted tomorrow. Quantum Safe Storage encrypts data at rest with post-quantum algorithms.",
+  "feat": [
+   [
+    "PQC encryption",
+    "Hybrid ML-KEM."
+   ],
+   [
+    "Transparent",
+    "For files and objects."
+   ],
+   [
+    "Key management",
+    "Integrated with KMS."
+   ],
+   [
+    "Compliance",
+    "Long-term confidentiality."
+   ]
+  ],
+  "int": [
+   "Hybrid TLS / IPsec",
+   "PKCS#11",
+   "REST"
+  ],
+  "dep": [
+   "Appliance",
+   "Software",
+   "Lab"
+  ],
+  "std": [
+   "NIST FIPS 203 / 204 / 205",
+   "ETSI QSC"
+  ],
+  "pre": [
+   "Crypto inventory"
+  ],
+  "go": [
+   "Discover",
+   "Rank risk",
+   "Pilot in PQC Lab",
+   "Migrate in waves",
+   "Monitor"
+  ],
+  "arch": {
+   "users": [
+    [
+     "CISO team",
+     "users"
+    ],
+    [
+     "Applications",
+     "server"
+    ]
+   ],
+   "ch": [
+    [
+     "Network",
+     "net"
+    ],
+    [
+     "APIs",
+     "api"
+    ]
+   ],
+   "mods": [
+    "PQC encryption",
+    "Transparent",
+    "Key management",
+    "Compliance"
+   ],
+   "core": [
+    [
+     "PQC keys",
+     "key"
+    ],
+    [
+     "HSM · TPM",
+     "chip"
+    ]
+   ],
+   "ent": [
+    [
+     "Data stores",
+     "db"
+    ],
+    [
+     "Partner links",
+     "globe"
+    ]
+   ],
+   "tag": "Quantum-Safe Security",
+   "steps": [
+    "CISO team and Applications use Quantum Safe Storage through network, apis.",
+    "The channel calls Quantum Safe Storage by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Data stores and Partner links."
+   ]
+  }
+ },
+ "quantum-readiness": {
+  "sum": "Migration to PQC starts with knowing where cryptography is. The Quantum Readiness Program discovers, assesses and plans.",
+  "feat": [
+   [
+    "Crypto discovery",
+    "Inventory and CBOM."
+   ],
+   [
+    "Risk assessment",
+    "By data lifetime."
+   ],
+   [
+    "Roadmap",
+    "Phased migration plan."
+   ],
+   [
+    "Lab testing",
+    "In the SAVIS PQC Lab."
+   ]
+  ],
+  "int": [
+   "Hybrid TLS / IPsec",
+   "PKCS#11",
+   "REST"
+  ],
+  "dep": [
+   "Appliance",
+   "Software",
+   "Lab"
+  ],
+  "std": [
+   "NIST FIPS 203 / 204 / 205",
+   "ETSI QSC"
+  ],
+  "pre": [
+   "Crypto inventory"
+  ],
+  "go": [
+   "Discover",
+   "Rank risk",
+   "Pilot in PQC Lab",
+   "Migrate in waves",
+   "Monitor"
+  ],
+  "arch": {
+   "users": [
+    [
+     "CISO team",
+     "users"
+    ],
+    [
+     "Applications",
+     "server"
+    ]
+   ],
+   "ch": [
+    [
+     "Network",
+     "net"
+    ],
+    [
+     "APIs",
+     "api"
+    ]
+   ],
+   "mods": [
+    "Crypto discovery",
+    "Risk assessment",
+    "Roadmap",
+    "Lab testing"
+   ],
+   "core": [
+    [
+     "PQC keys",
+     "key"
+    ],
+    [
+     "HSM · TPM",
+     "chip"
+    ]
+   ],
+   "ent": [
+    [
+     "Data stores",
+     "db"
+    ],
+    [
+     "Partner links",
+     "globe"
+    ]
+   ],
+   "tag": "Quantum-Safe Security",
+   "steps": [
+    "CISO team and Applications use Quantum Readiness Program through network, apis.",
+    "The channel calls Quantum Readiness Program by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Data stores and Partner links."
+   ]
+  }
+ },
+ "pqc-suite": {
+  "sum": "Developers need PQC building blocks. The PQC Suite provides algorithms and tools for migration and hybrid deployment.",
+  "feat": [
+   [
+    "NIST algorithms",
+    "ML-KEM, ML-DSA, SLH-DSA."
+   ],
+   [
+    "Hybrid modes",
+    "Classical + PQC."
+   ],
+   [
+    "Libraries",
+    "For applications."
+   ],
+   [
+    "Testing",
+    "Interoperability and performance."
+   ]
+  ],
+  "int": [
+   "Hybrid TLS / IPsec",
+   "PKCS#11",
+   "REST"
+  ],
+  "dep": [
+   "Appliance",
+   "Software",
+   "Lab"
+  ],
+  "std": [
+   "NIST FIPS 203 / 204 / 205",
+   "ETSI QSC"
+  ],
+  "pre": [
+   "Crypto inventory"
+  ],
+  "go": [
+   "Discover",
+   "Rank risk",
+   "Pilot in PQC Lab",
+   "Migrate in waves",
+   "Monitor"
+  ],
+  "arch": {
+   "users": [
+    [
+     "CISO team",
+     "users"
+    ],
+    [
+     "Applications",
+     "server"
+    ]
+   ],
+   "ch": [
+    [
+     "Network",
+     "net"
+    ],
+    [
+     "APIs",
+     "api"
+    ]
+   ],
+   "mods": [
+    "NIST algorithms",
+    "Hybrid modes",
+    "Libraries",
+    "Testing"
+   ],
+   "core": [
+    [
+     "PQC keys",
+     "key"
+    ],
+    [
+     "HSM · TPM",
+     "chip"
+    ]
+   ],
+   "ent": [
+    [
+     "Data stores",
+     "db"
+    ],
+    [
+     "Partner links",
+     "globe"
+    ]
+   ],
+   "tag": "Quantum-Safe Security",
+   "steps": [
+    "CISO team and Applications use PQC Suite through network, apis.",
+    "The channel calls PQC Suite by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Data stores and Partner links."
+   ]
+  }
+ },
+ "qkd": {
+  "sum": "Some links need key exchange based on physics. QKD is delivered with technology partners for high-security links.",
+  "feat": [
+   [
+    "Quantum key distribution",
+    "Keys from photon states."
+   ],
+   [
+    "Partner technology",
+    "Integrated by SAVIS."
+   ],
+   [
+    "Key delivery",
+    "To encryptors."
+   ],
+   [
+    "Hybrid with PQC",
+    "Defence in depth."
+   ]
+  ],
+  "int": [
+   "Hybrid TLS / IPsec",
+   "PKCS#11",
+   "REST"
+  ],
+  "dep": [
+   "Appliance",
+   "Software",
+   "Lab"
+  ],
+  "std": [
+   "NIST FIPS 203 / 204 / 205",
+   "ETSI QSC"
+  ],
+  "pre": [
+   "Crypto inventory"
+  ],
+  "go": [
+   "Discover",
+   "Rank risk",
+   "Pilot in PQC Lab",
+   "Migrate in waves",
+   "Monitor"
+  ],
+  "arch": {
+   "users": [
+    [
+     "CISO team",
+     "users"
+    ],
+    [
+     "Applications",
+     "server"
+    ]
+   ],
+   "ch": [
+    [
+     "Network",
+     "net"
+    ],
+    [
+     "APIs",
+     "api"
+    ]
+   ],
+   "mods": [
+    "Quantum key distribution",
+    "Partner technology",
+    "Key delivery",
+    "Hybrid with PQC"
+   ],
+   "core": [
+    [
+     "PQC keys",
+     "key"
+    ],
+    [
+     "HSM · TPM",
+     "chip"
+    ]
+   ],
+   "ent": [
+    [
+     "Data stores",
+     "db"
+    ],
+    [
+     "Partner links",
+     "globe"
+    ]
+   ],
+   "tag": "Quantum-Safe Security",
+   "steps": [
+    "CISO team and Applications use QKD through network, apis.",
+    "The channel calls QKD by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Data stores and Partner links."
+   ]
+  }
+ },
+ "quantum-communication": {
+  "sum": "Quantum networks are moving from labs to pilots. Quantum Communication supports pilots and research.",
+  "feat": [
+   [
+    "Pilots",
+    "With partners and institutions."
+   ],
+   [
+    "Research",
+    "Applied programmes."
+   ],
+   [
+    "Integration",
+    "With existing networks."
+   ],
+   [
+    "Skills",
+    "Training and knowledge transfer."
+   ]
+  ],
+  "int": [
+   "Hybrid TLS / IPsec",
+   "PKCS#11",
+   "REST"
+  ],
+  "dep": [
+   "Appliance",
+   "Software",
+   "Lab"
+  ],
+  "std": [
+   "NIST FIPS 203 / 204 / 205",
+   "ETSI QSC"
+  ],
+  "pre": [
+   "Crypto inventory"
+  ],
+  "go": [
+   "Discover",
+   "Rank risk",
+   "Pilot in PQC Lab",
+   "Migrate in waves",
+   "Monitor"
+  ],
+  "arch": {
+   "users": [
+    [
+     "CISO team",
+     "users"
+    ],
+    [
+     "Applications",
+     "server"
+    ]
+   ],
+   "ch": [
+    [
+     "Network",
+     "net"
+    ],
+    [
+     "APIs",
+     "api"
+    ]
+   ],
+   "mods": [
+    "Pilots",
+    "Research",
+    "Integration",
+    "Skills"
+   ],
+   "core": [
+    [
+     "PQC keys",
+     "key"
+    ],
+    [
+     "HSM · TPM",
+     "chip"
+    ]
+   ],
+   "ent": [
+    [
+     "Data stores",
+     "db"
+    ],
+    [
+     "Partner links",
+     "globe"
+    ]
+   ],
+   "tag": "Quantum-Safe Security",
+   "steps": [
+    "CISO team and Applications use Quantum Communication through network, apis.",
+    "The channel calls Quantum Communication by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Data stores and Partner links."
+   ]
+  }
+ },
+ "data-encryption": {
+  "sum": "Sensitive data is exposed in databases, files and backups. Data Encryption & Protection encrypts it at rest and in transit.",
+  "feat": [
+   [
+    "Database encryption",
+    "TDE and column-level."
+   ],
+   [
+    "File encryption",
+    "Folders and shares."
+   ],
+   [
+    "In transit",
+    "TLS everywhere."
+   ],
+   [
+    "Key control",
+    "Keys in your KMS."
+   ]
+  ],
+  "int": [
+   "TDE",
+   "File / app encryption",
+   "Tokenisation API"
+  ],
+  "dep": [
+   "On-premises",
+   "Hybrid"
+  ],
+  "std": [
+   "PCI DSS",
+   "Law 91/2025 on personal data"
+  ],
+  "pre": [
+   "Data classification"
+  ],
+  "go": [
+   "Classify data",
+   "Design",
+   "Pilot",
+   "Roll out",
+   "Audit"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Data owners",
+     "users"
+    ]
+   ],
+   "ch": [
+    [
+     "Applications",
+     "server"
+    ]
+   ],
+   "mods": [
+    "Database encryption",
+    "File encryption",
+    "In transit",
+    "Key control"
+   ],
+   "core": [
+    [
+     "KMS · HSM",
+     "key"
+    ]
+   ],
+   "ent": [
+    [
+     "Databases",
+     "db"
+    ],
+    [
+     "File & cloud storage",
+     "cloud"
+    ]
+   ],
+   "tag": "Data Security",
+   "steps": [
+    "Data owners use Data Encryption & Protection through applications.",
+    "The channel calls Data Encryption & Protection by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Databases and File & cloud storage."
+   ]
+  }
+ },
+ "egate": {
+  "sum": "Citizens need one front door to public services. SAVIS eGate is the portal and integrated one-stop electronic system.",
+  "feat": [
+   [
+    "Service portal",
+    "All procedures in one place."
+   ],
+   [
+    "Online submission",
+    "Forms and documents."
+   ],
+   [
+    "Status tracking",
+    "Real-time progress."
+   ],
+   [
+    "Integration",
+    "With back-office systems."
+   ]
+  ],
+  "int": [
+   "National identity login",
+   "Digital Integration Platform (LGSP / NDXP)",
+   "Payment gateways"
+  ],
+  "dep": [
+   "Government cloud"
+  ],
+  "std": [
+   "E-government architecture framework",
+   "Decree 69/2024"
+  ],
+  "pre": [
+   "Procedure catalogue"
+  ],
+  "go": [
+   "Select procedures",
+   "Integrate identity and data",
+   "Launch",
+   "Expand",
+   "Operate"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Residents",
+     "users"
+    ],
+    [
+     "Businesses",
+     "bank"
+    ]
+   ],
+   "ch": [
+    [
+     "Portal",
+     "web"
+    ],
+    [
+     "SuperApp",
+     "phone"
+    ],
+    [
+     "Counter",
+     "kiosk"
+    ]
+   ],
+   "mods": [
+    "Service portal",
+    "Online submission",
+    "Status tracking",
+    "Integration"
+   ],
+   "core": [
+    [
+     "National identity",
+     "key"
+    ],
+    [
+     "Signing & seals",
+     "doc"
+    ]
+   ],
+   "ent": [
+    [
+     "Digital Integration Platform",
+     "api"
+    ],
+    [
+     "Agency systems",
+     "gov"
+    ]
+   ],
+   "tag": "Digital Government Platforms",
+   "steps": [
+    "Residents and Businesses use SAVIS eGate through portal, superapp, counter.",
+    "The channel calls SAVIS eGate by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Digital Integration Platform and Agency systems."
+   ]
+  }
+ },
+ "one-stop-shop": {
+  "sum": "Administrative procedures pass through many desks. One-Stop-Shop processes them in a single window.",
+  "feat": [
+   [
+    "Single window",
+    "Receive and return results."
+   ],
+   [
+    "Workflow",
+    "Route between agencies."
+   ],
+   [
+    "Deadlines",
+    "SLA tracking."
+   ],
+   [
+    "Reporting",
+    "Performance dashboards."
+   ]
+  ],
+  "int": [
+   "National identity login",
+   "Digital Integration Platform (LGSP / NDXP)",
+   "Payment gateways"
+  ],
+  "dep": [
+   "Government cloud"
+  ],
+  "std": [
+   "E-government architecture framework",
+   "Decree 69/2024"
+  ],
+  "pre": [
+   "Procedure catalogue"
+  ],
+  "go": [
+   "Select procedures",
+   "Integrate identity and data",
+   "Launch",
+   "Expand",
+   "Operate"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Residents",
+     "users"
+    ],
+    [
+     "Businesses",
+     "bank"
+    ]
+   ],
+   "ch": [
+    [
+     "Portal",
+     "web"
+    ],
+    [
+     "SuperApp",
+     "phone"
+    ],
+    [
+     "Counter",
+     "kiosk"
+    ]
+   ],
+   "mods": [
+    "Single window",
+    "Workflow",
+    "Deadlines",
+    "Reporting"
+   ],
+   "core": [
+    [
+     "National identity",
+     "key"
+    ],
+    [
+     "Signing & seals",
+     "doc"
+    ]
+   ],
+   "ent": [
+    [
+     "Digital Integration Platform",
+     "api"
+    ],
+    [
+     "Agency systems",
+     "gov"
+    ]
+   ],
+   "tag": "Digital Government Platforms",
+   "steps": [
+    "Residents and Businesses use One-Stop-Shop through portal, superapp, counter.",
+    "The channel calls One-Stop-Shop by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Digital Integration Platform and Agency systems."
+   ]
+  }
+ },
+ "smart-kiosk": {
+  "sum": "Not every resident can use online services alone. Smart Kiosk offers self-service with identity verification and document services.",
+  "feat": [
+   [
+    "Chip ID reading",
+    "Verify the citizen."
+   ],
+   [
+    "Face match",
+    "Confirm the holder."
+   ],
+   [
+    "Document services",
+    "Scan, submit, print."
+   ],
+   [
+    "Payments",
+    "Pay fees at the kiosk."
+   ]
+  ],
+  "int": [
+   "Chip ID reader",
+   "Face match",
+   "Printer, scanner"
+  ],
+  "dep": [
+   "Kiosk hardware + software"
+  ],
+  "std": [
+   "ICAO 9303"
+  ],
+  "pre": [
+   "Sites"
+  ],
+  "go": [
+   "Choose sites",
+   "Configure services",
+   "Pilot",
+   "Roll out",
+   "Operate"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Residents",
+     "users"
+    ]
+   ],
+   "ch": [
+    [
+     "Smart Kiosk",
+     "kiosk"
+    ]
+   ],
+   "mods": [
+    "Chip ID reading",
+    "Face match",
+    "Document services",
+    "Payments"
+   ],
+   "core": [
+    [
+     "Identity verification",
+     "shield"
+    ]
+   ],
+   "ent": [
+    [
+     "Public services",
+     "gov"
+    ]
+   ],
+   "tag": "Citizen Service Touchpoints",
+   "steps": [
+    "Residents use Smart Kiosk through smart kiosk.",
+    "The channel calls Smart Kiosk by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Public services."
+   ]
+  }
+ },
+ "iot-devices": {
+  "sum": "City and enterprise deployments need reliable connected devices. IoT Devices provides gateways and sensors.",
+  "feat": [
+   [
+    "Gateways",
+    "Edge connectivity."
+   ],
+   [
+    "Sensors",
+    "Environment, traffic, assets."
+   ],
+   [
+    "Remote management",
+    "Configure and update."
+   ],
+   [
+    "Integration",
+    "With platforms."
+   ]
+  ],
+  "int": [
+   "MQTT / CoAP",
+   "EST / ACME for devices",
+   "BLE / NFC"
+  ],
+  "dep": [
+   "Cloud",
+   "On-premises"
+  ],
+  "std": [
+   "ETSI EN 303 645",
+   "IEC 62443",
+   "CCC Digital Key"
+  ],
+  "pre": [
+   "Device fleet"
+  ],
+  "go": [
+   "Inventory devices",
+   "Design identity and updates",
+   "Pilot",
+   "Fleet roll-out",
+   "Operate"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Operators",
+     "users"
+    ],
+    [
+     "Drivers",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Devices & gateways",
+     "chip"
+    ],
+    [
+     "Mobile app",
+     "phone"
+    ]
+   ],
+   "mods": [
+    "Gateways",
+    "Sensors",
+    "Remote management",
+    "Integration"
+   ],
+   "core": [
+    [
+     "Device PKI",
+     "key"
+    ],
+    [
+     "Secure element",
+     "chip"
+    ]
+   ],
+   "ent": [
+    [
+     "IoT platform",
+     "cloud"
+    ],
+    [
+     "OEM back end",
+     "server"
+    ]
+   ],
+   "tag": "IoT, Mobility & Connected Devices",
+   "steps": [
+    "Operators and Drivers use IoT Devices through devices & gateways, mobile app.",
+    "The channel calls IoT Devices by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to IoT platform and OEM back end."
+   ]
+  }
+ },
+ "iot-device-security": {
+  "sum": "Unsecured devices become entry points. IoT Device Security gives every device an identity and signed firmware.",
+  "feat": [
+   [
+    "Device certificates",
+    "Unique identity."
+   ],
+   [
+    "Protected keys",
+    "Secure elements."
+   ],
+   [
+    "Signed firmware",
+    "Secure boot and OTA."
+   ],
+   [
+    "Fleet management",
+    "Rotate and revoke."
+   ]
+  ],
+  "int": [
+   "MQTT / CoAP",
+   "EST / ACME for devices",
+   "BLE / NFC"
+  ],
+  "dep": [
+   "Cloud",
+   "On-premises"
+  ],
+  "std": [
+   "ETSI EN 303 645",
+   "IEC 62443",
+   "CCC Digital Key"
+  ],
+  "pre": [
+   "Device fleet"
+  ],
+  "go": [
+   "Inventory devices",
+   "Design identity and updates",
+   "Pilot",
+   "Fleet roll-out",
+   "Operate"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Operators",
+     "users"
+    ],
+    [
+     "Drivers",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Devices & gateways",
+     "chip"
+    ],
+    [
+     "Mobile app",
+     "phone"
+    ]
+   ],
+   "mods": [
+    "Device certificates",
+    "Protected keys",
+    "Signed firmware",
+    "Fleet management"
+   ],
+   "core": [
+    [
+     "Device PKI",
+     "key"
+    ],
+    [
+     "Secure element",
+     "chip"
+    ]
+   ],
+   "ent": [
+    [
+     "IoT platform",
+     "cloud"
+    ],
+    [
+     "OEM back end",
+     "server"
+    ]
+   ],
+   "tag": "IoT, Mobility & Connected Devices",
+   "steps": [
+    "Operators and Drivers use IoT Device Security through devices & gateways, mobile app.",
+    "The channel calls IoT Device Security by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to IoT platform and OEM back end."
+   ]
+  }
+ },
+ "digital-car-key": {
+  "sum": "Physical keys are hard to share and easy to lose. Digital Car Key lets owners use, share and revoke car keys from a phone, following the CCC Digital Key standard.",
+  "feat": [
+   [
+    "Phone as key",
+    "NFC tap, BLE connection and UWB hands-free passive entry (CCC Digital Key 3.0)."
+   ],
+   [
+    "Sharing",
+    "Time-limited and restricted keys for family, drivers and fleets, across iOS and Android as introduced in CCC Digital Key 4.0."
+   ],
+   [
+    "Revocation",
+    "Instant, from the owner app or the carmaker backend."
+   ],
+   [
+    "Secure element",
+    "Keys in hardware in phone and vehicle, backed by SAVIS PKI."
+   ]
+  ],
+  "int": [
+   "MQTT / CoAP",
+   "EST / ACME for devices",
+   "BLE / NFC"
+  ],
+  "dep": [
+   "Cloud",
+   "On-premises"
+  ],
+  "std": [
+   "ETSI EN 303 645",
+   "IEC 62443",
+   "CCC Digital Key"
+  ],
+  "pre": [
+   "Device fleet"
+  ],
+  "go": [
+   "Inventory devices",
+   "Design identity and updates",
+   "Pilot",
+   "Fleet roll-out",
+   "Operate"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Operators",
+     "users"
+    ],
+    [
+     "Drivers",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Devices & gateways",
+     "chip"
+    ],
+    [
+     "Mobile app",
+     "phone"
+    ]
+   ],
+   "mods": [
+    "Phone as key",
+    "Sharing",
+    "Revocation",
+    "Secure element"
+   ],
+   "core": [
+    [
+     "Device PKI",
+     "key"
+    ],
+    [
+     "Secure element",
+     "chip"
+    ]
+   ],
+   "ent": [
+    [
+     "IoT platform",
+     "cloud"
+    ],
+    [
+     "OEM back end",
+     "server"
+    ]
+   ],
+   "tag": "IoT, Mobility & Connected Devices",
+   "steps": [
+    "Operators and Drivers use Digital Car Key through devices & gateways, mobile app.",
+    "The channel calls Digital Car Key by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to IoT platform and OEM back end."
+   ]
+  }
+ },
+ "open-api": {
+  "sum": "Bank APIs need security, metering and versioning. SAVIS Open API manages standardised banking and finance APIs.",
+  "feat": [
+   [
+    "API gateway",
+    "Security and throttling."
+   ],
+   [
+    "Versioning",
+    "Lifecycle management."
+   ],
+   [
+    "Analytics",
+    "Usage and errors."
+   ],
+   [
+    "Standards",
+    "Open banking specifications."
+   ]
+  ],
+  "int": [
+   "OAuth 2 / FAPI 2.0",
+   "mTLS",
+   "REST"
+  ],
+  "dep": [
+   "On-premises",
+   "Private cloud"
+  ],
+  "std": [
+   "SBV Circular 64/2024",
+   "FAPI 2.0"
+  ],
+  "pre": [
+   "API catalogue",
+   "Consent policy"
+  ],
+  "go": [
+   "Define scope",
+   "Set up",
+   "Sandbox",
+   "Go live",
+   "Expand"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Customers",
+     "users"
+    ],
+    [
+     "TPPs & fintech",
+     "api"
+    ]
+   ],
+   "ch": [
+    [
+     "TPP apps",
+     "phone"
+    ],
+    [
+     "Developer portal",
+     "web"
+    ]
+   ],
+   "mods": [
+    "API gateway",
+    "Versioning",
+    "Analytics",
+    "Standards"
+   ],
+   "core": [
+    [
+     "Consent & certificates",
+     "key"
+    ]
+   ],
+   "ent": [
+    [
+     "Core banking",
+     "bank"
+    ],
+    [
+     "Insurance / lending",
+     "doc"
+    ]
+   ],
+   "tag": "Open Banking Suite",
+   "steps": [
+    "Customers and TPPs & fintech use SAVIS Open API through tpp apps, developer portal.",
+    "The channel calls SAVIS Open API by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Core banking and Insurance / lending."
+   ]
+  }
+ },
+ "open-finance-api": {
+  "sum": "Open finance goes beyond payments. Open Finance API standardises accounts, lending and insurance data.",
+  "feat": [
+   [
+    "Account data",
+    "Balances and transactions."
+   ],
+   [
+    "Lending",
+    "Applications and status."
+   ],
+   [
+    "Insurance",
+    "Policies and claims."
+   ],
+   [
+    "Consent-bound",
+    "Every call checked."
+   ]
+  ],
+  "int": [
+   "OAuth 2 / FAPI 2.0",
+   "mTLS",
+   "REST"
+  ],
+  "dep": [
+   "On-premises",
+   "Private cloud"
+  ],
+  "std": [
+   "SBV Circular 64/2024",
+   "FAPI 2.0"
+  ],
+  "pre": [
+   "API catalogue",
+   "Consent policy"
+  ],
+  "go": [
+   "Define scope",
+   "Set up",
+   "Sandbox",
+   "Go live",
+   "Expand"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Customers",
+     "users"
+    ],
+    [
+     "TPPs & fintech",
+     "api"
+    ]
+   ],
+   "ch": [
+    [
+     "TPP apps",
+     "phone"
+    ],
+    [
+     "Developer portal",
+     "web"
+    ]
+   ],
+   "mods": [
+    "Account data",
+    "Lending",
+    "Insurance",
+    "Consent-bound"
+   ],
+   "core": [
+    [
+     "Consent & certificates",
+     "key"
+    ]
+   ],
+   "ent": [
+    [
+     "Core banking",
+     "bank"
+    ],
+    [
+     "Insurance / lending",
+     "doc"
+    ]
+   ],
+   "tag": "Open Banking Suite",
+   "steps": [
+    "Customers and TPPs & fintech use Open Finance API through tpp apps, developer portal.",
+    "The channel calls Open Finance API by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Core banking and Insurance / lending."
+   ]
+  }
+ },
+ "open-banking-portal": {
+  "sum": "Third parties need documentation, sandboxes and onboarding. The Open Banking Portal serves developers and partners.",
+  "feat": [
+   [
+    "Documentation",
+    "API references."
+   ],
+   [
+    "Sandbox",
+    "Test data."
+   ],
+   [
+    "Onboarding",
+    "Registration workflow."
+   ],
+   [
+    "Support",
+    "Tickets and status."
+   ]
+  ],
+  "int": [
+   "OAuth 2 / FAPI 2.0",
+   "mTLS",
+   "REST"
+  ],
+  "dep": [
+   "On-premises",
+   "Private cloud"
+  ],
+  "std": [
+   "SBV Circular 64/2024",
+   "FAPI 2.0"
+  ],
+  "pre": [
+   "API catalogue",
+   "Consent policy"
+  ],
+  "go": [
+   "Define scope",
+   "Set up",
+   "Sandbox",
+   "Go live",
+   "Expand"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Customers",
+     "users"
+    ],
+    [
+     "TPPs & fintech",
+     "api"
+    ]
+   ],
+   "ch": [
+    [
+     "TPP apps",
+     "phone"
+    ],
+    [
+     "Developer portal",
+     "web"
+    ]
+   ],
+   "mods": [
+    "Documentation",
+    "Sandbox",
+    "Onboarding",
+    "Support"
+   ],
+   "core": [
+    [
+     "Consent & certificates",
+     "key"
+    ]
+   ],
+   "ent": [
+    [
+     "Core banking",
+     "bank"
+    ],
+    [
+     "Insurance / lending",
+     "doc"
+    ]
+   ],
+   "tag": "Open Banking Suite",
+   "steps": [
+    "Customers and TPPs & fintech use Open Banking Portal through tpp apps, developer portal.",
+    "The channel calls Open Banking Portal by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Core banking and Insurance / lending."
+   ]
+  }
+ },
+ "consent-management": {
+  "sum": "Regulators expect proof of consent. Consent Management collects, tracks and proves customer consent.",
+  "feat": [
+   [
+    "Collect",
+    "Granular, purpose-based."
+   ],
+   [
+    "Revoke",
+    "Any time, any channel."
+   ],
+   [
+    "Prove",
+    "Signed evidence."
+   ],
+   [
+    "Dashboard",
+    "For customers and auditors."
+   ]
+  ],
+  "int": [
+   "OAuth 2 / FAPI 2.0",
+   "mTLS",
+   "REST"
+  ],
+  "dep": [
+   "On-premises",
+   "Private cloud"
+  ],
+  "std": [
+   "SBV Circular 64/2024",
+   "FAPI 2.0"
+  ],
+  "pre": [
+   "API catalogue",
+   "Consent policy"
+  ],
+  "go": [
+   "Define scope",
+   "Set up",
+   "Sandbox",
+   "Go live",
+   "Expand"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Customers",
+     "users"
+    ],
+    [
+     "TPPs & fintech",
+     "api"
+    ]
+   ],
+   "ch": [
+    [
+     "TPP apps",
+     "phone"
+    ],
+    [
+     "Developer portal",
+     "web"
+    ]
+   ],
+   "mods": [
+    "Collect",
+    "Revoke",
+    "Prove",
+    "Dashboard"
+   ],
+   "core": [
+    [
+     "Consent & certificates",
+     "key"
+    ]
+   ],
+   "ent": [
+    [
+     "Core banking",
+     "bank"
+    ],
+    [
+     "Insurance / lending",
+     "doc"
+    ]
+   ],
+   "tag": "Open Banking Suite",
+   "steps": [
+    "Customers and TPPs & fintech use Consent Management through tpp apps, developer portal.",
+    "The channel calls Consent Management by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Core banking and Insurance / lending."
+   ]
+  }
+ },
+ "tpp-manager": {
+  "sum": "Banks must verify and monitor third parties. TPP Manager onboards providers and manages their certificates.",
+  "feat": [
+   [
+    "Onboarding",
+    "Verification workflow."
+   ],
+   [
+    "Certificates",
+    "mTLS and signing."
+   ],
+   [
+    "Monitoring",
+    "Usage and anomalies."
+   ],
+   [
+    "Suspension",
+    "Revoke access quickly."
+   ]
+  ],
+  "int": [
+   "OAuth 2 / FAPI 2.0",
+   "mTLS",
+   "REST"
+  ],
+  "dep": [
+   "On-premises",
+   "Private cloud"
+  ],
+  "std": [
+   "SBV Circular 64/2024",
+   "FAPI 2.0"
+  ],
+  "pre": [
+   "API catalogue",
+   "Consent policy"
+  ],
+  "go": [
+   "Define scope",
+   "Set up",
+   "Sandbox",
+   "Go live",
+   "Expand"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Customers",
+     "users"
+    ],
+    [
+     "TPPs & fintech",
+     "api"
+    ]
+   ],
+   "ch": [
+    [
+     "TPP apps",
+     "phone"
+    ],
+    [
+     "Developer portal",
+     "web"
+    ]
+   ],
+   "mods": [
+    "Onboarding",
+    "Certificates",
+    "Monitoring",
+    "Suspension"
+   ],
+   "core": [
+    [
+     "Consent & certificates",
+     "key"
+    ]
+   ],
+   "ent": [
+    [
+     "Core banking",
+     "bank"
+    ],
+    [
+     "Insurance / lending",
+     "doc"
+    ]
+   ],
+   "tag": "Open Banking Suite",
+   "steps": [
+    "Customers and TPPs & fintech use TPP Manager through tpp apps, developer portal.",
+    "The channel calls TPP Manager by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Core banking and Insurance / lending."
+   ]
+  }
+ },
+ "3d-secure": {
+  "sum": "Card-not-present fraud keeps rising. 3D Secure 2.0 authenticates online card payments with frictionless and challenge flows.",
+  "feat": [
+   [
+    "Risk-based",
+    "Frictionless when safe."
+   ],
+   [
+    "Strong challenge",
+    "FIDO2, push, passkeys."
+   ],
+   [
+    "SPC",
+    "Secure Payment Confirmation."
+   ],
+   [
+    "Scheme certified flows",
+    "EMV 3DS."
+   ]
+  ],
+  "int": [
+   "EMV 3DS",
+   "ISO 8583",
+   "REST"
+  ],
+  "dep": [
+   "On-premises",
+   "Managed"
+  ],
+  "std": [
+   "PCI DSS",
+   "PCI PIN",
+   "EMVCo"
+  ],
+  "pre": [
+   "Payment flows"
+  ],
+  "go": [
+   "Map flows",
+   "Design",
+   "Certify",
+   "Go live",
+   "Operate"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Cardholders",
+     "users"
+    ],
+    [
+     "Merchants",
+     "web"
+    ]
+   ],
+   "ch": [
+    [
+     "E-commerce",
+     "web"
+    ],
+    [
+     "POS / kiosk",
+     "card"
+    ],
+    [
+     "Mobile",
+     "phone"
+    ]
+   ],
+   "mods": [
+    "Risk-based",
+    "Strong challenge",
+    "SPC",
+    "Scheme certified flows"
+   ],
+   "core": [
+    [
+     "Payment HSM",
+     "chip"
+    ]
+   ],
+   "ent": [
+    [
+     "Issuer systems",
+     "bank"
+    ],
+    [
+     "Card schemes",
+     "globe"
+    ]
+   ],
+   "tag": "Payment & Transaction Security",
+   "steps": [
+    "Cardholders and Merchants use 3D Secure 2.0 through e-commerce, pos / kiosk, mobile.",
+    "The channel calls 3D Secure 2.0 by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Issuer systems and Card schemes."
+   ]
+  }
+ },
+ "payment-hsm": {
+  "sum": "Card and PIN processing requires certified hardware. Payment HSM handles PIN, card verification, EMV and key exchange.",
+  "feat": [
+   [
+    "PIN processing",
+    "Translation and verification."
+   ],
+   [
+    "Card verification",
+    "CVV and ARQC."
+   ],
+   [
+    "Key exchange",
+    "With schemes and partners."
+   ],
+   [
+    "Compliance",
+    "PCI PIN aligned."
+   ]
+  ],
+  "int": [
+   "EMV 3DS",
+   "ISO 8583",
+   "REST"
+  ],
+  "dep": [
+   "On-premises",
+   "Managed"
+  ],
+  "std": [
+   "PCI DSS",
+   "PCI PIN",
+   "EMVCo"
+  ],
+  "pre": [
+   "Payment flows"
+  ],
+  "go": [
+   "Map flows",
+   "Design",
+   "Certify",
+   "Go live",
+   "Operate"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Cardholders",
+     "users"
+    ],
+    [
+     "Merchants",
+     "web"
+    ]
+   ],
+   "ch": [
+    [
+     "E-commerce",
+     "web"
+    ],
+    [
+     "POS / kiosk",
+     "card"
+    ],
+    [
+     "Mobile",
+     "phone"
+    ]
+   ],
+   "mods": [
+    "PIN processing",
+    "Card verification",
+    "Key exchange",
+    "Compliance"
+   ],
+   "core": [
+    [
+     "Payment HSM",
+     "chip"
+    ]
+   ],
+   "ent": [
+    [
+     "Issuer systems",
+     "bank"
+    ],
+    [
+     "Card schemes",
+     "globe"
+    ]
+   ],
+   "tag": "Payment & Transaction Security",
+   "steps": [
+    "Cardholders and Merchants use Payment HSM through e-commerce, pos / kiosk, mobile.",
+    "The channel calls Payment HSM by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Issuer systems and Card schemes."
+   ]
+  }
+ },
+ "palm-biometric-payment": {
+  "sum": "Customers forget cards and phones. Palm Biometric Payment lets them pay with the palm of the hand.",
+  "feat": [
+   [
+    "Palm enrolment",
+    "Linked to card or account."
+   ],
+   [
+    "Contactless payment",
+    "At POS and gates."
+   ],
+   [
+    "Liveness",
+    "Spoof-resistant."
+   ],
+   [
+    "Use cases",
+    "Retail, transit, campuses."
+   ]
+  ],
+  "int": [
+   "EMV 3DS",
+   "ISO 8583",
+   "REST"
+  ],
+  "dep": [
+   "On-premises",
+   "Managed"
+  ],
+  "std": [
+   "PCI DSS",
+   "PCI PIN",
+   "EMVCo"
+  ],
+  "pre": [
+   "Payment flows"
+  ],
+  "go": [
+   "Map flows",
+   "Design",
+   "Certify",
+   "Go live",
+   "Operate"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Cardholders",
+     "users"
+    ],
+    [
+     "Merchants",
+     "web"
+    ]
+   ],
+   "ch": [
+    [
+     "E-commerce",
+     "web"
+    ],
+    [
+     "POS / kiosk",
+     "card"
+    ],
+    [
+     "Mobile",
+     "phone"
+    ]
+   ],
+   "mods": [
+    "Palm enrolment",
+    "Contactless payment",
+    "Liveness",
+    "Use cases"
+   ],
+   "core": [
+    [
+     "Payment HSM",
+     "chip"
+    ]
+   ],
+   "ent": [
+    [
+     "Issuer systems",
+     "bank"
+    ],
+    [
+     "Card schemes",
+     "globe"
+    ]
+   ],
+   "tag": "Payment & Transaction Security",
+   "steps": [
+    "Cardholders and Merchants use Palm Biometric Payment through e-commerce, pos / kiosk, mobile.",
+    "The channel calls Palm Biometric Payment by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Issuer systems and Card schemes."
+   ]
+  }
+ },
+ "mobile-ewallet": {
+  "sum": "E-wallets are prime fraud targets. Mobile eWallet launches a white-label wallet hardened against fraud and tampering.",
+  "feat": [
+   [
+    "Top-up and transfers",
+    "Bank-linked."
+   ],
+   [
+    "QR payments",
+    "VietQR."
+   ],
+   [
+    "App protection",
+    "RASP and device risk."
+   ],
+   [
+    "White-label",
+    "Your brand."
+   ]
+  ],
+  "int": [
+   "Core banking APIs",
+   "NAPAS / VietQR"
+  ],
+  "dep": [
+   "On-premises",
+   "Private cloud"
+  ],
+  "std": [
+   "SBV Circulars"
+  ],
+  "pre": [
+   "Licences and core APIs"
+  ],
+  "go": [
+   "Define products",
+   "Integrate",
+   "Pilot",
+   "Launch",
+   "Iterate"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Customers",
+     "users"
+    ]
+   ],
+   "ch": [
+    [
+     "Mobile app",
+     "phone"
+    ],
+    [
+     "Web",
+     "web"
+    ]
+   ],
+   "mods": [
+    "Top-up and transfers",
+    "QR payments",
+    "App protection",
+    "White-label"
+   ],
+   "core": [
+    [
+     "SCA & signing",
+     "key"
+    ]
+   ],
+   "ent": [
+    [
+     "Core banking",
+     "bank"
+    ],
+    [
+     "NAPAS / VietQR",
+     "card"
+    ]
+   ],
+   "tag": "Digital Banking",
+   "steps": [
+    "Customers use Mobile eWallet through mobile app, web.",
+    "The channel calls Mobile eWallet by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Core banking and NAPAS / VietQR."
+   ]
+  }
+ },
+ "econtract": {
+  "sum": "Contracts printed, signed and scanned waste days. Smart eContract creates, signs and manages them end to end.",
+  "feat": [
+   [
+    "Templates",
+    "Reusable clauses."
+   ],
+   [
+    "Multi-party signing",
+    "Remote and in sequence."
+   ],
+   [
+    "Timestamps",
+    "Legal proof."
+   ],
+   [
+    "Repository",
+    "Search and renewals."
+   ]
+  ],
+  "int": [
+   "REST",
+   "ERP connectors"
+  ],
+  "dep": [
+   "Cloud",
+   "On-premises"
+  ],
+  "std": [
+   "Law on E-Transactions 2023",
+   "Decree 123/2020 e-invoices"
+  ],
+  "pre": [
+   "Templates"
+  ],
+  "go": [
+   "Map documents",
+   "Integrate",
+   "Pilot",
+   "Roll out",
+   "Operate"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Businesses",
+     "bank"
+    ],
+    [
+     "Customers",
+     "users"
+    ]
+   ],
+   "ch": [
+    [
+     "Web",
+     "web"
+    ],
+    [
+     "Mobile",
+     "phone"
+    ]
+   ],
+   "mods": [
+    "Templates",
+    "Multi-party signing",
+    "Timestamps",
+    "Repository"
+   ],
+   "core": [
+    [
+     "Signing & timestamps",
+     "key"
+    ]
+   ],
+   "ent": [
+    [
+     "ERP / CRM",
+     "server"
+    ],
+    [
+     "Tax authority",
+     "gov"
+    ]
+   ],
+   "tag": "Digital Agreements",
+   "steps": [
+    "Businesses and Customers use Smart eContract through web, mobile.",
+    "The channel calls Smart eContract by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to ERP / CRM and Tax authority."
+   ]
+  }
+ },
+ "go-invoice": {
+  "sum": "E-invoicing rules change and must be followed exactly. SAVIS eInvoice issues, signs, sends and stores e-invoices.",
+  "feat": [
+   [
+    "Issuance",
+    "Tax-compliant formats."
+   ],
+   [
+    "Signing",
+    "Organisational seal."
+   ],
+   [
+    "Delivery",
+    "Email and portal."
+   ],
+   [
+    "Storage",
+    "Retention and search."
+   ]
+  ],
+  "int": [
+   "REST",
+   "ERP connectors"
+  ],
+  "dep": [
+   "Cloud",
+   "On-premises"
+  ],
+  "std": [
+   "Law on E-Transactions 2023",
+   "Decree 123/2020 e-invoices"
+  ],
+  "pre": [
+   "Templates"
+  ],
+  "go": [
+   "Map documents",
+   "Integrate",
+   "Pilot",
+   "Roll out",
+   "Operate"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Businesses",
+     "bank"
+    ],
+    [
+     "Customers",
+     "users"
+    ]
+   ],
+   "ch": [
+    [
+     "Web",
+     "web"
+    ],
+    [
+     "Mobile",
+     "phone"
+    ]
+   ],
+   "mods": [
+    "Issuance",
+    "Signing",
+    "Delivery",
+    "Storage"
+   ],
+   "core": [
+    [
+     "Signing & timestamps",
+     "key"
+    ]
+   ],
+   "ent": [
+    [
+     "ERP / CRM",
+     "server"
+    ],
+    [
+     "Tax authority",
+     "gov"
+    ]
+   ],
+   "tag": "Digital Agreements",
+   "steps": [
+    "Businesses and Customers use SAVIS eInvoice through web, mobile.",
+    "The channel calls SAVIS eInvoice by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to ERP / CRM and Tax authority."
+   ]
+  }
+ },
+ "blockchain-framework": {
+  "sum": "Shared ledgers need permissioning and strong key protection. The Blockchain Framework delivers a permissioned platform for banks and governments.",
+  "feat": [
+   [
+    "Permissioned network",
+    "Known participants."
+   ],
+   [
+    "Smart contracts",
+    "Business logic."
+   ],
+   [
+    "Key protection",
+    "HSM-backed."
+   ],
+   [
+    "Interoperability",
+    "APIs and adapters."
+   ]
+  ],
+  "int": [
+   "REST",
+   "Ledger APIs"
+  ],
+  "dep": [
+   "Private network",
+   "On-premises"
+  ],
+  "std": [
+   "ISO 20022",
+   "Sandbox regulations"
+  ],
+  "pre": [
+   "Regulatory sandbox"
+  ],
+  "go": [
+   "Define use case",
+   "Design",
+   "Sandbox pilot",
+   "Production",
+   "Operate"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Institutions",
+     "bank"
+    ],
+    [
+     "Investors",
+     "users"
+    ]
+   ],
+   "ch": [
+    [
+     "Wallets",
+     "phone"
+    ],
+    [
+     "Portals",
+     "web"
+    ]
+   ],
+   "mods": [
+    "Permissioned network",
+    "Smart contracts",
+    "Key protection",
+    "Interoperability"
+   ],
+   "core": [
+    [
+     "HSM · MPC keys",
+     "key"
+    ]
+   ],
+   "ent": [
+    [
+     "Ledger nodes",
+     "net"
+    ],
+    [
+     "Core banking",
+     "bank"
+    ]
+   ],
+   "tag": "Digital Assets",
+   "steps": [
+    "Institutions and Investors use Blockchain Framework through wallets, portals.",
+    "The channel calls Blockchain Framework by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Ledger nodes and Core banking."
+   ]
+  }
+ },
+ "stablecoin": {
+  "sum": "Fiat-backed tokens need reserves and controls. The Stablecoin Platform issues, manages and redeems them.",
+  "feat": [
+   [
+    "Issuance and redemption",
+    "Mint and burn."
+   ],
+   [
+    "Reserve controls",
+    "Proof and reporting."
+   ],
+   [
+    "Compliance",
+    "KYC and limits."
+   ],
+   [
+    "Wallet integration",
+    "APIs."
+   ]
+  ],
+  "int": [
+   "REST",
+   "Ledger APIs"
+  ],
+  "dep": [
+   "Private network",
+   "On-premises"
+  ],
+  "std": [
+   "ISO 20022",
+   "Sandbox regulations"
+  ],
+  "pre": [
+   "Regulatory sandbox"
+  ],
+  "go": [
+   "Define use case",
+   "Design",
+   "Sandbox pilot",
+   "Production",
+   "Operate"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Institutions",
+     "bank"
+    ],
+    [
+     "Investors",
+     "users"
+    ]
+   ],
+   "ch": [
+    [
+     "Wallets",
+     "phone"
+    ],
+    [
+     "Portals",
+     "web"
+    ]
+   ],
+   "mods": [
+    "Issuance and redemption",
+    "Reserve controls",
+    "Compliance",
+    "Wallet integration"
+   ],
+   "core": [
+    [
+     "HSM · MPC keys",
+     "key"
+    ]
+   ],
+   "ent": [
+    [
+     "Ledger nodes",
+     "net"
+    ],
+    [
+     "Core banking",
+     "bank"
+    ]
+   ],
+   "tag": "Digital Assets",
+   "steps": [
+    "Institutions and Investors use Stablecoin Platform through wallets, portals.",
+    "The channel calls Stablecoin Platform by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Ledger nodes and Core banking."
+   ]
+  }
+ },
+ "cbdc": {
+  "sum": "Central banks are piloting digital currency. The CBDC Platform supports issuance and distribution pilots.",
+  "feat": [
+   [
+    "Issuance",
+    "Central bank controlled."
+   ],
+   [
+    "Distribution",
+    "Through intermediaries."
+   ],
+   [
+    "Retail and wholesale",
+    "Both models."
+   ],
+   [
+    "Offline options",
+    "For inclusion pilots."
+   ]
+  ],
+  "int": [
+   "REST",
+   "Ledger APIs"
+  ],
+  "dep": [
+   "Private network",
+   "On-premises"
+  ],
+  "std": [
+   "ISO 20022",
+   "Sandbox regulations"
+  ],
+  "pre": [
+   "Regulatory sandbox"
+  ],
+  "go": [
+   "Define use case",
+   "Design",
+   "Sandbox pilot",
+   "Production",
+   "Operate"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Institutions",
+     "bank"
+    ],
+    [
+     "Investors",
+     "users"
+    ]
+   ],
+   "ch": [
+    [
+     "Wallets",
+     "phone"
+    ],
+    [
+     "Portals",
+     "web"
+    ]
+   ],
+   "mods": [
+    "Issuance",
+    "Distribution",
+    "Retail and wholesale",
+    "Offline options"
+   ],
+   "core": [
+    [
+     "HSM · MPC keys",
+     "key"
+    ]
+   ],
+   "ent": [
+    [
+     "Ledger nodes",
+     "net"
+    ],
+    [
+     "Core banking",
+     "bank"
+    ]
+   ],
+   "tag": "Digital Assets",
+   "steps": [
+    "Institutions and Investors use CBDC Platform through wallets, portals.",
+    "The channel calls CBDC Platform by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Ledger nodes and Core banking."
+   ]
+  }
+ },
+ "rwa-tokenization": {
+  "sum": "Real-world assets are illiquid and paper-based. RWA Tokenization turns bonds, funds and property into regulated tokens.",
+  "feat": [
+   [
+    "Asset onboarding",
+    "Legal and data model."
+   ],
+   [
+    "Token issuance",
+    "Regulated tokens."
+   ],
+   [
+    "Transfer controls",
+    "Whitelists and rules."
+   ],
+   [
+    "Lifecycle",
+    "Coupons, redemptions."
+   ]
+  ],
+  "int": [
+   "REST",
+   "Ledger APIs"
+  ],
+  "dep": [
+   "Private network",
+   "On-premises"
+  ],
+  "std": [
+   "ISO 20022",
+   "Sandbox regulations"
+  ],
+  "pre": [
+   "Regulatory sandbox"
+  ],
+  "go": [
+   "Define use case",
+   "Design",
+   "Sandbox pilot",
+   "Production",
+   "Operate"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Institutions",
+     "bank"
+    ],
+    [
+     "Investors",
+     "users"
+    ]
+   ],
+   "ch": [
+    [
+     "Wallets",
+     "phone"
+    ],
+    [
+     "Portals",
+     "web"
+    ]
+   ],
+   "mods": [
+    "Asset onboarding",
+    "Token issuance",
+    "Transfer controls",
+    "Lifecycle"
+   ],
+   "core": [
+    [
+     "HSM · MPC keys",
+     "key"
+    ]
+   ],
+   "ent": [
+    [
+     "Ledger nodes",
+     "net"
+    ],
+    [
+     "Core banking",
+     "bank"
+    ]
+   ],
+   "tag": "Digital Assets",
+   "steps": [
+    "Institutions and Investors use RWA Tokenization through wallets, portals.",
+    "The channel calls RWA Tokenization by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Ledger nodes and Core banking."
+   ]
+  }
+ },
+ "crypto-custody": {
+  "sum": "Institutions need custody they can audit. Crypto Wallet & Custody protects digital assets with HSM and multi-party keys.",
+  "feat": [
+   [
+    "MPC and HSM",
+    "Key protection."
+   ],
+   [
+    "Policies",
+    "Approvals and limits."
+   ],
+   [
+    "Cold storage",
+    "Offline keys."
+   ],
+   [
+    "Audit",
+    "Full trail."
+   ]
+  ],
+  "int": [
+   "REST",
+   "Ledger APIs"
+  ],
+  "dep": [
+   "Private network",
+   "On-premises"
+  ],
+  "std": [
+   "ISO 20022",
+   "Sandbox regulations"
+  ],
+  "pre": [
+   "Regulatory sandbox"
+  ],
+  "go": [
+   "Define use case",
+   "Design",
+   "Sandbox pilot",
+   "Production",
+   "Operate"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Institutions",
+     "bank"
+    ],
+    [
+     "Investors",
+     "users"
+    ]
+   ],
+   "ch": [
+    [
+     "Wallets",
+     "phone"
+    ],
+    [
+     "Portals",
+     "web"
+    ]
+   ],
+   "mods": [
+    "MPC and HSM",
+    "Policies",
+    "Cold storage",
+    "Audit"
+   ],
+   "core": [
+    [
+     "HSM · MPC keys",
+     "key"
+    ]
+   ],
+   "ent": [
+    [
+     "Ledger nodes",
+     "net"
+    ],
+    [
+     "Core banking",
+     "bank"
+    ]
+   ],
+   "tag": "Digital Assets",
+   "steps": [
+    "Institutions and Investors use Crypto Wallet & Custody through wallets, portals.",
+    "The channel calls Crypto Wallet & Custody by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Ledger nodes and Core banking."
+   ]
+  }
+ },
+ "data-lake-bi": {
+  "sum": "Data scattered across systems blocks decisions. SAVIS Data Lake & BI centralises it with dashboards and reporting.",
+  "feat": [
+   [
+    "Data lake",
+    "Central storage."
+   ],
+   [
+    "Pipelines",
+    "Ingest and transform."
+   ],
+   [
+    "Dashboards",
+    "Self-service BI."
+   ],
+   [
+    "Governance",
+    "Access and lineage."
+   ]
+  ],
+  "int": [
+   "ETL / ELT",
+   "REST"
+  ],
+  "dep": [
+   "On-premises",
+   "Cloud"
+  ],
+  "std": [
+   "Data protection law"
+  ],
+  "pre": [
+   "Data sources"
+  ],
+  "go": [
+   "Assess data",
+   "Design model",
+   "Pilot dashboards",
+   "Scale",
+   "Operate"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Managers",
+     "users"
+    ],
+    [
+     "Analysts",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Dashboards",
+     "chart"
+    ],
+    [
+     "Self-service BI",
+     "web"
+    ]
+   ],
+   "mods": [
+    "Data lake",
+    "Pipelines",
+    "Dashboards",
+    "Governance"
+   ],
+   "core": [
+    [
+     "Access control",
+     "lock"
+    ]
+   ],
+   "ent": [
+    [
+     "Source systems",
+     "db"
+    ]
+   ],
+   "tag": "Data & Analytics",
+   "steps": [
+    "Managers and Analysts use SAVIS Data Lake & BI through dashboards, self-service bi.",
+    "The channel calls SAVIS Data Lake & BI by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Source systems."
+   ]
+  }
+ },
+ "ai-kpi": {
+  "sum": "KPIs are tracked in spreadsheets. SAVIS AI KPI tracks performance with AI-assisted dashboards.",
+  "feat": [
+   [
+    "KPI catalogue",
+    "Define and assign."
+   ],
+   [
+    "AI insights",
+    "Trends and alerts."
+   ],
+   [
+    "Dashboards",
+    "For leaders."
+   ],
+   [
+    "Reporting",
+    "Automated reports."
+   ]
+  ],
+  "int": [
+   "ETL / ELT",
+   "REST"
+  ],
+  "dep": [
+   "On-premises",
+   "Cloud"
+  ],
+  "std": [
+   "Data protection law"
+  ],
+  "pre": [
+   "Data sources"
+  ],
+  "go": [
+   "Assess data",
+   "Design model",
+   "Pilot dashboards",
+   "Scale",
+   "Operate"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Managers",
+     "users"
+    ],
+    [
+     "Analysts",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Dashboards",
+     "chart"
+    ],
+    [
+     "Self-service BI",
+     "web"
+    ]
+   ],
+   "mods": [
+    "KPI catalogue",
+    "AI insights",
+    "Dashboards",
+    "Reporting"
+   ],
+   "core": [
+    [
+     "Access control",
+     "lock"
+    ]
+   ],
+   "ent": [
+    [
+     "Source systems",
+     "db"
+    ]
+   ],
+   "tag": "Data & Analytics",
+   "steps": [
+    "Managers and Analysts use SAVIS AI KPI through dashboards, self-service bi.",
+    "The channel calls SAVIS AI KPI by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Source systems."
+   ]
+  }
+ },
+ "cdp-360": {
+  "sum": "Customer data is fragmented across channels. CDP 360 unifies audience profiles.",
+  "feat": [
+   [
+    "Unified profiles",
+    "Across channels."
+   ],
+   [
+    "Segmentation",
+    "Real-time audiences."
+   ],
+   [
+    "Activation",
+    "To marketing tools."
+   ],
+   [
+    "Consent-aware",
+    "Respect choices."
+   ]
+  ],
+  "int": [
+   "ETL / ELT",
+   "REST"
+  ],
+  "dep": [
+   "On-premises",
+   "Cloud"
+  ],
+  "std": [
+   "Data protection law"
+  ],
+  "pre": [
+   "Data sources"
+  ],
+  "go": [
+   "Assess data",
+   "Design model",
+   "Pilot dashboards",
+   "Scale",
+   "Operate"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Managers",
+     "users"
+    ],
+    [
+     "Analysts",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Dashboards",
+     "chart"
+    ],
+    [
+     "Self-service BI",
+     "web"
+    ]
+   ],
+   "mods": [
+    "Unified profiles",
+    "Segmentation",
+    "Activation",
+    "Consent-aware"
+   ],
+   "core": [
+    [
+     "Access control",
+     "lock"
+    ]
+   ],
+   "ent": [
+    [
+     "Source systems",
+     "db"
+    ]
+   ],
+   "tag": "Data & Analytics",
+   "steps": [
+    "Managers and Analysts use CDP 360 Big Data through dashboards, self-service bi.",
+    "The channel calls CDP 360 Big Data by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Source systems."
+   ]
+  }
+ },
+ "savis-mdm": {
+  "sum": "Documents live in folders and inboxes. SAVIS MDM stores, classifies, searches and shares them with control.",
+  "feat": [
+   [
+    "Storage",
+    "Central repository."
+   ],
+   [
+    "Classification",
+    "Metadata and tags."
+   ],
+   [
+    "Search",
+    "Full text."
+   ],
+   [
+    "Versions and access",
+    "History and permissions."
+   ]
+  ],
+  "int": [
+   "ETL / ELT",
+   "REST"
+  ],
+  "dep": [
+   "On-premises",
+   "Cloud"
+  ],
+  "std": [
+   "Data protection law"
+  ],
+  "pre": [
+   "Data sources"
+  ],
+  "go": [
+   "Assess data",
+   "Design model",
+   "Pilot dashboards",
+   "Scale",
+   "Operate"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Managers",
+     "users"
+    ],
+    [
+     "Analysts",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Dashboards",
+     "chart"
+    ],
+    [
+     "Self-service BI",
+     "web"
+    ]
+   ],
+   "mods": [
+    "Storage",
+    "Classification",
+    "Search",
+    "Versions and access"
+   ],
+   "core": [
+    [
+     "Access control",
+     "lock"
+    ]
+   ],
+   "ent": [
+    [
+     "Source systems",
+     "db"
+    ]
+   ],
+   "tag": "Data & Analytics",
+   "steps": [
+    "Managers and Analysts use SAVIS MDM through dashboards, self-service bi.",
+    "The channel calls SAVIS MDM by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Source systems."
+   ]
+  }
+ },
+ "earchive-box": {
+  "sum": "Some records must stay on-premises. eArchive Box is an archive appliance for electronic records.",
+  "feat": [
+   [
+    "Appliance",
+    "Ready to install."
+   ],
+   [
+    "Retention",
+    "Policies by type."
+   ],
+   [
+    "Integrity",
+    "Timestamps and hashes."
+   ],
+   [
+    "Search",
+    "Find records fast."
+   ]
+  ],
+  "int": [
+   "REST",
+   "Document connectors"
+  ],
+  "dep": [
+   "Appliance",
+   "On-premises"
+  ],
+  "std": [
+   "ETSI",
+   "PDF/A"
+  ],
+  "pre": [
+   "Retention policy"
+  ],
+  "go": [
+   "Classify",
+   "Configure",
+   "Migrate",
+   "Operate",
+   "Audit"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Records officers",
+     "users"
+    ]
+   ],
+   "ch": [
+    [
+     "Portal",
+     "web"
+    ]
+   ],
+   "mods": [
+    "Appliance",
+    "Retention",
+    "Integrity",
+    "Search"
+   ],
+   "core": [
+    [
+     "Timestamps · LTV",
+     "key"
+    ]
+   ],
+   "ent": [
+    [
+     "Document systems",
+     "doc"
+    ]
+   ],
+   "tag": "Records & Archiving",
+   "steps": [
+    "Records officers use eArchive Box through portal.",
+    "The channel calls eArchive Box by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Document systems."
+   ]
+  }
+ },
+ "smart-ocr": {
+  "sum": "Manual data entry is slow and error-prone. Smart OCR extracts data from scanned documents and forms.",
+  "feat": [
+   [
+    "Extraction",
+    "Fields and tables."
+   ],
+   [
+    "Vietnamese and English",
+    "Multi-language."
+   ],
+   [
+    "Validation",
+    "Rules and review."
+   ],
+   [
+    "APIs",
+    "For workflows."
+   ]
+  ],
+  "int": [
+   "REST",
+   "Connectors"
+  ],
+  "dep": [
+   "On-premises",
+   "Cloud"
+  ],
+  "std": [
+   "Law on E-Transactions 2023"
+  ],
+  "pre": [
+   "Document types"
+  ],
+  "go": [
+   "Map processes",
+   "Design",
+   "Pilot",
+   "Roll out",
+   "Optimise"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Staff",
+     "users"
+    ],
+    [
+     "Citizens",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Scanner",
+     "doc"
+    ],
+    [
+     "Web forms",
+     "web"
+    ]
+   ],
+   "mods": [
+    "Extraction",
+    "Vietnamese and English",
+    "Validation",
+    "APIs"
+   ],
+   "core": [
+    [
+     "Signing",
+     "key"
+    ]
+   ],
+   "ent": [
+    [
+     "Back-office systems",
+     "server"
+    ],
+    [
+     "Archive",
+     "db"
+    ]
+   ],
+   "tag": "Intelligent Documents",
+   "steps": [
+    "Staff and Citizens use Smart OCR through scanner, web forms.",
+    "The channel calls Smart OCR by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Back-office systems and Archive."
+   ]
+  }
+ },
+ "bpm-paperless": {
+  "sum": "Approvals stall in email. SAVIS BPM Paperless automates workflows end to end with digital signing.",
+  "feat": [
+   [
+    "Process designer",
+    "Model workflows."
+   ],
+   [
+    "Approvals",
+    "With signatures."
+   ],
+   [
+    "SLA tracking",
+    "Deadlines."
+   ],
+   [
+    "Integration",
+    "With systems."
+   ]
+  ],
+  "int": [
+   "REST",
+   "Connectors"
+  ],
+  "dep": [
+   "On-premises",
+   "Cloud"
+  ],
+  "std": [
+   "Law on E-Transactions 2023"
+  ],
+  "pre": [
+   "Document types"
+  ],
+  "go": [
+   "Map processes",
+   "Design",
+   "Pilot",
+   "Roll out",
+   "Optimise"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Staff",
+     "users"
+    ],
+    [
+     "Citizens",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Scanner",
+     "doc"
+    ],
+    [
+     "Web forms",
+     "web"
+    ]
+   ],
+   "mods": [
+    "Process designer",
+    "Approvals",
+    "SLA tracking",
+    "Integration"
+   ],
+   "core": [
+    [
+     "Signing",
+     "key"
+    ]
+   ],
+   "ent": [
+    [
+     "Back-office systems",
+     "server"
+    ],
+    [
+     "Archive",
+     "db"
+    ]
+   ],
+   "tag": "Intelligent Documents",
+   "steps": [
+    "Staff and Citizens use SAVIS BPM Paperless through scanner, web forms.",
+    "The channel calls SAVIS BPM Paperless by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Back-office systems and Archive."
+   ]
+  }
+ },
+ "smart-eform": {
+  "sum": "Paper forms create errors. Smart eForm captures validated data with e-signing.",
+  "feat": [
+   [
+    "Form builder",
+    "No code."
+   ],
+   [
+    "Validation",
+    "Rules and lookups."
+   ],
+   [
+    "E-signing",
+    "Sign on submit."
+   ],
+   [
+    "Integration",
+    "Send to back office."
+   ]
+  ],
+  "int": [
+   "REST",
+   "Connectors"
+  ],
+  "dep": [
+   "On-premises",
+   "Cloud"
+  ],
+  "std": [
+   "Law on E-Transactions 2023"
+  ],
+  "pre": [
+   "Document types"
+  ],
+  "go": [
+   "Map processes",
+   "Design",
+   "Pilot",
+   "Roll out",
+   "Optimise"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Staff",
+     "users"
+    ],
+    [
+     "Citizens",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Scanner",
+     "doc"
+    ],
+    [
+     "Web forms",
+     "web"
+    ]
+   ],
+   "mods": [
+    "Form builder",
+    "Validation",
+    "E-signing",
+    "Integration"
+   ],
+   "core": [
+    [
+     "Signing",
+     "key"
+    ]
+   ],
+   "ent": [
+    [
+     "Back-office systems",
+     "server"
+    ],
+    [
+     "Archive",
+     "db"
+    ]
+   ],
+   "tag": "Intelligent Documents",
+   "steps": [
+    "Staff and Citizens use Smart eForm through scanner, web forms.",
+    "The channel calls Smart eForm by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Back-office systems and Archive."
+   ]
+  }
+ },
+ "ai-automation": {
+  "sum": "Repetitive work drains teams. AI & Intelligent Automation applies AI to routine processes; scope is defined with each customer.",
+  "feat": [
+   [
+    "Process discovery",
+    "Find automation candidates."
+   ],
+   [
+    "AI assistants",
+    "Drafting and classification."
+   ],
+   [
+    "Automation",
+    "Bots and workflows."
+   ],
+   [
+    "Governance",
+    "Human in the loop."
+   ]
+  ],
+  "int": [
+   "REST",
+   "Connectors"
+  ],
+  "dep": [
+   "On-premises",
+   "Cloud"
+  ],
+  "std": [
+   "Law on E-Transactions 2023"
+  ],
+  "pre": [
+   "Document types"
+  ],
+  "go": [
+   "Map processes",
+   "Design",
+   "Pilot",
+   "Roll out",
+   "Optimise"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Staff",
+     "users"
+    ],
+    [
+     "Citizens",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Scanner",
+     "doc"
+    ],
+    [
+     "Web forms",
+     "web"
+    ]
+   ],
+   "mods": [
+    "Process discovery",
+    "AI assistants",
+    "Automation",
+    "Governance"
+   ],
+   "core": [
+    [
+     "Signing",
+     "key"
+    ]
+   ],
+   "ent": [
+    [
+     "Back-office systems",
+     "server"
+    ],
+    [
+     "Archive",
+     "db"
+    ]
+   ],
+   "tag": "Intelligent Documents",
+   "steps": [
+    "Staff and Citizens use AI & Intelligent Automation through scanner, web forms.",
+    "The channel calls AI & Intelligent Automation by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Back-office systems and Archive."
+   ]
+  }
+ },
+ "cms-ai-hub": {
+  "sum": "Publishing to many channels takes time. CMS AI Hub creates, tags, translates and publishes from one place.",
+  "feat": [
+   [
+    "Content creation",
+    "AI-assisted."
+   ],
+   [
+    "Tagging",
+    "Automatic metadata."
+   ],
+   [
+    "Translation",
+    "Multi-language."
+   ],
+   [
+    "Multi-channel",
+    "Web, apps, social."
+   ]
+  ],
+  "int": [
+   "MOS",
+   "REST",
+   "Broadcast I/O"
+  ],
+  "dep": [
+   "On-premises",
+   "Cloud"
+  ],
+  "std": [
+   "Broadcast standards"
+  ],
+  "pre": [
+   "Content systems"
+  ],
+  "go": [
+   "Assess workflow",
+   "Design",
+   "Pilot one channel",
+   "Roll out",
+   "Operate"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Editors",
+     "users"
+    ],
+    [
+     "Viewers",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Newsroom",
+     "media"
+    ],
+    [
+     "Apps & web",
+     "phone"
+    ]
+   ],
+   "mods": [
+    "Content creation",
+    "Tagging",
+    "Translation",
+    "Multi-channel"
+   ],
+   "core": [
+    [
+     "Media Hub",
+     "shield"
+    ],
+    [
+     "KMS",
+     "key"
+    ]
+   ],
+   "ent": [
+    [
+     "Archive / MAM",
+     "db"
+    ],
+    [
+     "Playout",
+     "server"
+    ]
+   ],
+   "tag": "Media Platforms",
+   "steps": [
+    "Editors and Viewers use CMS AI Hub through newsroom, apps & web.",
+    "The channel calls CMS AI Hub by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Archive / MAM and Playout."
+   ]
+  }
+ },
+ "mam-intelligent-automation": {
+  "sum": "Footage is hard to find. MAM Intelligent Automation indexes, transcribes and tags it automatically.",
+  "feat": [
+   [
+    "Indexing",
+    "Faces, objects, scenes."
+   ],
+   [
+    "Transcription",
+    "Speech to text."
+   ],
+   [
+    "Search",
+    "Seconds, not hours."
+   ],
+   [
+    "Workflow",
+    "Ingest to archive."
+   ]
+  ],
+  "int": [
+   "MOS",
+   "REST",
+   "Broadcast I/O"
+  ],
+  "dep": [
+   "On-premises",
+   "Cloud"
+  ],
+  "std": [
+   "Broadcast standards"
+  ],
+  "pre": [
+   "Content systems"
+  ],
+  "go": [
+   "Assess workflow",
+   "Design",
+   "Pilot one channel",
+   "Roll out",
+   "Operate"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Editors",
+     "users"
+    ],
+    [
+     "Viewers",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Newsroom",
+     "media"
+    ],
+    [
+     "Apps & web",
+     "phone"
+    ]
+   ],
+   "mods": [
+    "Indexing",
+    "Transcription",
+    "Search",
+    "Workflow"
+   ],
+   "core": [
+    [
+     "Media Hub",
+     "shield"
+    ],
+    [
+     "KMS",
+     "key"
+    ]
+   ],
+   "ent": [
+    [
+     "Archive / MAM",
+     "db"
+    ],
+    [
+     "Playout",
+     "server"
+    ]
+   ],
+   "tag": "Media Platforms",
+   "steps": [
+    "Editors and Viewers use MAM Intelligent Automation through newsroom, apps & web.",
+    "The channel calls MAM Intelligent Automation by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Archive / MAM and Playout."
+   ]
+  }
+ },
+ "converged-newsroom": {
+  "sum": "Separate teams for TV, web and social duplicate work. Converged Newsroom brings them together.",
+  "feat": [
+   [
+    "Single desk",
+    "One story, many outputs."
+   ],
+   [
+    "Planning",
+    "Assignments."
+   ],
+   [
+    "Publishing",
+    "All channels."
+   ],
+   [
+    "Collaboration",
+    "Shared rundowns."
+   ]
+  ],
+  "int": [
+   "MOS",
+   "REST",
+   "Broadcast I/O"
+  ],
+  "dep": [
+   "On-premises",
+   "Cloud"
+  ],
+  "std": [
+   "Broadcast standards"
+  ],
+  "pre": [
+   "Content systems"
+  ],
+  "go": [
+   "Assess workflow",
+   "Design",
+   "Pilot one channel",
+   "Roll out",
+   "Operate"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Editors",
+     "users"
+    ],
+    [
+     "Viewers",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Newsroom",
+     "media"
+    ],
+    [
+     "Apps & web",
+     "phone"
+    ]
+   ],
+   "mods": [
+    "Single desk",
+    "Planning",
+    "Publishing",
+    "Collaboration"
+   ],
+   "core": [
+    [
+     "Media Hub",
+     "shield"
+    ],
+    [
+     "KMS",
+     "key"
+    ]
+   ],
+   "ent": [
+    [
+     "Archive / MAM",
+     "db"
+    ],
+    [
+     "Playout",
+     "server"
+    ]
+   ],
+   "tag": "Media Platforms",
+   "steps": [
+    "Editors and Viewers use Converged Newsroom through newsroom, apps & web.",
+    "The channel calls Converged Newsroom by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Archive / MAM and Playout."
+   ]
+  }
+ },
+ "playout-cg": {
+  "sum": "Channel playout needs reliability. Playout & CG automates playout with real-time graphics.",
+  "feat": [
+   [
+    "Automation",
+    "Schedules and failover."
+   ],
+   [
+    "Character graphics",
+    "Real-time CG."
+   ],
+   [
+    "Monitoring",
+    "Alarms."
+   ],
+   [
+    "Integration",
+    "With traffic and MAM."
+   ]
+  ],
+  "int": [
+   "MOS",
+   "REST",
+   "Broadcast I/O"
+  ],
+  "dep": [
+   "On-premises",
+   "Cloud"
+  ],
+  "std": [
+   "Broadcast standards"
+  ],
+  "pre": [
+   "Content systems"
+  ],
+  "go": [
+   "Assess workflow",
+   "Design",
+   "Pilot one channel",
+   "Roll out",
+   "Operate"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Editors",
+     "users"
+    ],
+    [
+     "Viewers",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Newsroom",
+     "media"
+    ],
+    [
+     "Apps & web",
+     "phone"
+    ]
+   ],
+   "mods": [
+    "Automation",
+    "Character graphics",
+    "Monitoring",
+    "Integration"
+   ],
+   "core": [
+    [
+     "Media Hub",
+     "shield"
+    ],
+    [
+     "KMS",
+     "key"
+    ]
+   ],
+   "ent": [
+    [
+     "Archive / MAM",
+     "db"
+    ],
+    [
+     "Playout",
+     "server"
+    ]
+   ],
+   "tag": "Media Platforms",
+   "steps": [
+    "Editors and Viewers use Playout & CG through newsroom, apps & web.",
+    "The channel calls Playout & CG by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Archive / MAM and Playout."
+   ]
+  }
+ },
+ "media-trust-hub": {
+  "sum": "Broadcasters face account takeover and leaks. SAVIS Media Hub secures identity, signing and access for content, staff and partners.",
+  "feat": [
+   [
+    "Identity",
+    "Staff and partners."
+   ],
+   [
+    "Signing",
+    "Content provenance."
+   ],
+   [
+    "Secure access",
+    "Zero trust."
+   ],
+   [
+    "Audit",
+    "Who did what."
+   ]
+  ],
+  "int": [
+   "MOS",
+   "REST",
+   "Broadcast I/O"
+  ],
+  "dep": [
+   "On-premises",
+   "Cloud"
+  ],
+  "std": [
+   "Broadcast standards"
+  ],
+  "pre": [
+   "Content systems"
+  ],
+  "go": [
+   "Assess workflow",
+   "Design",
+   "Pilot one channel",
+   "Roll out",
+   "Operate"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Editors",
+     "users"
+    ],
+    [
+     "Viewers",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Newsroom",
+     "media"
+    ],
+    [
+     "Apps & web",
+     "phone"
+    ]
+   ],
+   "mods": [
+    "Identity",
+    "Signing",
+    "Secure access",
+    "Audit"
+   ],
+   "core": [
+    [
+     "Media Hub",
+     "shield"
+    ],
+    [
+     "KMS",
+     "key"
+    ]
+   ],
+   "ent": [
+    [
+     "Archive / MAM",
+     "db"
+    ],
+    [
+     "Playout",
+     "server"
+    ]
+   ],
+   "tag": "Media Platforms",
+   "steps": [
+    "Editors and Viewers use SAVIS Media Hub through newsroom, apps & web.",
+    "The channel calls SAVIS Media Hub by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Archive / MAM and Playout."
+   ]
+  }
+ },
+ "forensic-watermarking": {
+  "sum": "Piracy costs content owners revenue. Forensic Watermarking & Multi-DRM traces leaks and controls playback.",
+  "feat": [
+   [
+    "Forensic watermarks",
+    "Invisible, per viewer."
+   ],
+   [
+    "Multi-DRM",
+    "Major DRM systems."
+   ],
+   [
+    "Key management",
+    "Keys in KMS."
+   ],
+   [
+    "Leak tracing",
+    "Identify sources."
+   ]
+  ],
+  "int": [
+   "MOS",
+   "REST",
+   "Broadcast I/O"
+  ],
+  "dep": [
+   "On-premises",
+   "Cloud"
+  ],
+  "std": [
+   "Broadcast standards"
+  ],
+  "pre": [
+   "Content systems"
+  ],
+  "go": [
+   "Assess workflow",
+   "Design",
+   "Pilot one channel",
+   "Roll out",
+   "Operate"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Editors",
+     "users"
+    ],
+    [
+     "Viewers",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Newsroom",
+     "media"
+    ],
+    [
+     "Apps & web",
+     "phone"
+    ]
+   ],
+   "mods": [
+    "Forensic watermarks",
+    "Multi-DRM",
+    "Key management",
+    "Leak tracing"
+   ],
+   "core": [
+    [
+     "Media Hub",
+     "shield"
+    ],
+    [
+     "KMS",
+     "key"
+    ]
+   ],
+   "ent": [
+    [
+     "Archive / MAM",
+     "db"
+    ],
+    [
+     "Playout",
+     "server"
+    ]
+   ],
+   "tag": "Media Platforms",
+   "steps": [
+    "Editors and Viewers use Forensic Watermarking & Multi-DRM through newsroom, apps & web.",
+    "The channel calls Forensic Watermarking & Multi-DRM by API or SDK.",
+    "Keys, evidence and policies are protected in the trust core.",
+    "Results flow to Archive / MAM and Playout."
+   ]
+  }
+ },
+ "enrollment-station": {
+  "sum": "National ID, voter and benefit programmes live or die at the enrolment desk. SAVIS Enrollment Station captures face, fingerprints, documents and signature to international quality standards — in a fixed office or a rugged mobile kit that works offline.",
+  "feat": [
+   [
+    "Face to ICAO 9303",
+    "Guided portrait capture with quality checks and liveness."
+   ],
+   [
+    "Ten fingerprints",
+    "Flat 4-4-2 slap capture, or touchless capture with the phone camera."
+   ],
+   [
+    "Document reading",
+    "ID and passport scanning with MRZ/OCR and NFC chip reading."
+   ],
+   [
+    "Signature and photo",
+    "Electronic signature pad; optional iris via partner devices."
+   ],
+   [
+    "Offline-first",
+    "Encrypted local storage; sync to ABIS when the network returns."
+   ],
+   [
+    "Fixed or mobile",
+    "High-volume office station or battery-powered field kit."
+   ]
+  ],
+  "int": [
+   "SAVIS Enrollment Suite",
+   "SAVIS ABIS / MOSIP registration client",
+   "REST / queue upload, encrypted packets"
+  ],
+  "dep": [
+   "Fixed station (office, embassy, border post)",
+   "Mobile kit (field registration)",
+   "Devices OEM-sourced from certified third-party manufacturers"
+  ],
+  "std": [
+   "ICAO 9303 portrait",
+   "NFIQ 2 fingerprint quality",
+   "ISO/IEC 19794 / 39794",
+   "ISO/IEC 30107-3 PAD"
+  ],
+  "pre": [
+   "Number of sites and mobile teams",
+   "Power and connectivity at sites",
+   "Data-protection approval"
+  ],
+  "go": [
+   "Survey sites, volumes and connectivity",
+   "Select station and kit configurations",
+   "Pilot in one district with the ABIS",
+   "Mass enrolment campaign",
+   "Maintenance, spares and operator support"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Citizens",
+     "users"
+    ],
+    [
+     "Registration officers",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Fixed station",
+     "kiosk"
+    ],
+    [
+     "Mobile kit",
+     "phone"
+    ]
+   ],
+   "mods": [
+    "Face camera (ICAO)",
+    "Fingerprint scanner",
+    "Document + NFC reader",
+    "Signature pad",
+    "Encrypted packet"
+   ],
+   "core": [
+    [
+     "Device & operator keys",
+     "key"
+    ],
+    [
+     "Local encrypted store",
+     "db"
+    ]
+   ],
+   "ent": [
+    [
+     "SAVIS ABIS",
+     "server"
+    ],
+    [
+     "MOSIP / IDMS",
+     "gov"
+    ],
+    [
+     "Card & CryptoID issuance",
+     "card"
+    ]
+   ],
+   "tag": "Third-party certified devices",
+   "steps": [
+    "A registration officer enrols the citizen at a fixed station or with a mobile kit.",
+    "Face, fingerprints, document and signature are captured and quality-checked.",
+    "The record is encrypted and signed by the device and operator.",
+    "The packet is uploaded to ABIS for de-duplication and then to issuance."
+   ]
+  }
+ },
+ "enrollment-suite": {
+  "sum": "Hardware alone does not make a clean register. SAVIS Enrollment Suite is the registration software that guides operators step by step, checks quality and fraud on the spot, and works with many device brands.",
+  "feat": [
+   [
+    "Guided wizard",
+    "Step-by-step biographic and biometric capture."
+   ],
+   [
+    "On-the-spot checks",
+    "Liveness, quality and possible duplicate alerts during enrolment."
+   ],
+   [
+    "Operator control",
+    "Roles, supervisor approval and audit of operator actions."
+   ],
+   [
+    "Device-agnostic",
+    "Works with multiple certified scanners and cameras."
+   ],
+   [
+    "Offline sync",
+    "Encrypted queues, resumable uploads."
+   ],
+   [
+    "Reports",
+    "Daily statistics by site, team and operator."
+   ]
+  ],
+  "int": [
+   "Device drivers / SDKs",
+   "SAVIS ABIS",
+   "MOSIP registration client (complementary)",
+   "REST APIs"
+  ],
+  "dep": [
+   "Windows / Linux workstation",
+   "Android mobile kit",
+   "Central management server"
+  ],
+  "std": [
+   "ICAO 9303",
+   "ISO/IEC 19794 / 39794",
+   "NFIQ 2"
+  ],
+  "pre": [
+   "Enrolment forms and rules",
+   "Operator organisation"
+  ],
+  "go": [
+   "Define forms, rules and roles",
+   "Configure devices and workflows",
+   "Train operators and pilot",
+   "Roll out to all sites",
+   "Monitor quality and productivity"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Registration officers",
+     "user"
+    ],
+    [
+     "Supervisors",
+     "users"
+    ]
+   ],
+   "ch": [
+    [
+     "Station app",
+     "web"
+    ],
+    [
+     "Mobile app",
+     "phone"
+    ]
+   ],
+   "mods": [
+    "Enrolment wizard",
+    "Quality & liveness",
+    "Duplicate alerts",
+    "Operator audit",
+    "Sync engine"
+   ],
+   "core": [
+    [
+     "Packet signing",
+     "key"
+    ],
+    [
+     "Audit log",
+     "doc"
+    ]
+   ],
+   "ent": [
+    [
+     "SAVIS ABIS",
+     "server"
+    ],
+    [
+     "Civil register / IDMS",
+     "gov"
+    ]
+   ],
+   "steps": [
+    "Officers enrol people with the guided wizard.",
+    "Quality, liveness and duplicates are checked on the spot.",
+    "Packets and operator actions are signed and logged.",
+    "Data is synchronised to ABIS and the register."
+   ]
+  }
+ },
+ "mosip-integration": {
+  "sum": "Many countries build their national identity on MOSIP, the open-source modular identity platform. SAVIS designs, integrates and operates MOSIP-based identity management systems (IDMS) and adds the components a national programme needs: ABIS, enrolment devices, PKI, authentication with eSignet, credentials with Inji and CryptoID, and CRVS integration.",
+  "feat": [
+   [
+    "IDMS deployment",
+    "Pre-registration, registration client, registration processor, ID repository, ID authentication and resident services."
+   ],
+   [
+    "ABIS for MOSIP",
+    "SAVIS ABIS through the MOSIP queue-based ABIS API."
+   ],
+   [
+    "Enrolment devices",
+    "Enrollment Station and mobile kits for the registration client."
+   ],
+   [
+    "eSignet authentication",
+    "OIDC login for relying parties with biometrics and FIDO2."
+   ],
+   [
+    "Inji and CryptoID credentials",
+    "Wallet and printable credentials verifiable offline."
+   ],
+   [
+    "Birth-to-ID with CRVS",
+    "UIN created from birth registration in SAVIS CRVS / OpenCRVS."
+   ]
+  ],
+  "int": [
+   "MOSIP ABIS API (queues, JSON)",
+   "MOSIP registration client",
+   "eSignet (OIDC)",
+   "Inji / OpenID4VCI"
+  ],
+  "dep": [
+   "National data centre",
+   "Government cloud"
+  ],
+  "std": [
+   "MOSIP specifications — compliance testing in progress",
+   "ISO/IEC 19794 / 39794",
+   "OpenID4VCI / OIDC"
+  ],
+  "pre": [
+   "MOSIP programme scope",
+   "Integration environment and test kit"
+  ],
+  "go": [
+   "Assess the MOSIP roadmap and gaps",
+   "Design SAVIS components and interfaces",
+   "Integrate and run the MOSIP test kit",
+   "Go live with registration and de-duplication",
+   "Operate and extend to authentication and credentials"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Residents",
+     "users"
+    ],
+    [
+     "Registration officers",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "MOSIP registration client",
+     "kiosk"
+    ],
+    [
+     "eSignet login",
+     "web"
+    ],
+    [
+     "Inji wallet",
+     "phone"
+    ]
+   ],
+   "mods": [
+    "SAVIS ABIS adapter",
+    "Enrollment devices",
+    "Authentication (FIDO2, biometrics)",
+    "Credential issuance",
+    "PKI / key support"
+   ],
+   "core": [
+    [
+     "MOSIP key manager",
+     "key"
+    ],
+    [
+     "Message queues",
+     "api"
+    ]
+   ],
+   "ent": [
+    [
+     "MOSIP core (ID repository)",
+     "gov"
+    ],
+    [
+     "Relying parties",
+     "bank"
+    ]
+   ],
+   "tag": "Complementary to MOSIP",
+   "steps": [
+    "Residents enrol through the MOSIP registration client with SAVIS devices.",
+    "Packets are processed by MOSIP and sent to SAVIS ABIS through queues.",
+    "Keys and signatures are protected for the MOSIP key manager.",
+    "Relying parties authenticate residents and accept credentials."
+   ]
+  }
+ },
+ "savis-crvs": {
+  "sum": "Children without a birth certificate struggle to get an ID, school place, health care or social protection later in life. SAVIS CRVS digitises civil registration — birth, death and other vital events — on OpenCRVS, the open-source Digital Public Good, and connects it to national ID, health and statistics.",
+  "feat": [
+   [
+    "Vital events",
+    "Birth and death registration, corrections and certified copies; further events configured per country."
+   ],
+   [
+    "Declare, validate, register",
+    "Role-based work queues for field agents, registration agents and local registrars."
+   ],
+   [
+    "Offline-first",
+    "Declarations captured offline in remote areas and synchronised later."
+   ],
+   [
+    "Signed certificates",
+    "Certificates signed with SAVIS PKI, verifiable by QR; optional verifiable credentials."
+   ],
+   [
+    "Birth-to-ID",
+    "UIN creation in MOSIP on birth registration; death registration flags the ID as deceased."
+   ],
+   [
+    "Real-time statistics",
+    "Completeness and timeliness dashboards for planners."
+   ]
+  ],
+  "int": [
+   "MOSIP Packet Manager and eSignet",
+   "National ID / population register",
+   "Health systems (birth and death notifications)",
+   "Statistics and social-protection registries"
+  ],
+  "dep": [
+   "Government data centre",
+   "Government cloud",
+   "Kubernetes or container deployment, including air-gapped installs"
+  ],
+  "std": [
+   "UN Principles and Recommendations for a Vital Statistics System",
+   "HL7 FHIR (health notifications)",
+   "OpenID Connect (eSignet)",
+   "X.509 PKI for certificate signing"
+  ],
+  "pre": [
+   "Civil registration law and forms",
+   "Registration offices, roles and jurisdictions",
+   "Legacy records to migrate"
+  ],
+  "go": [
+   "Assess the CRVS law, forms and offices",
+   "Configure events, roles, certificates and languages",
+   "Pilot in one district with health and ID integration",
+   "Roll out nationally and migrate legacy records",
+   "Operate, train and report vital statistics"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Parents and informants",
+     "users"
+    ],
+    [
+     "Registrars and field agents",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Field app (offline)",
+     "phone"
+    ],
+    [
+     "Registration office",
+     "web"
+    ],
+    [
+     "Health facility notification",
+     "health"
+    ]
+   ],
+   "mods": [
+    "Declare & validate",
+    "Register & certify",
+    "Corrections & certified copies",
+    "Performance dashboards",
+    "Integration services"
+   ],
+   "core": [
+    [
+     "Certificate signing (PKI)",
+     "key"
+    ],
+    [
+     "Audit trail",
+     "doc"
+    ]
+   ],
+   "ent": [
+    [
+     "MOSIP / national ID",
+     "gov"
+    ],
+    [
+     "Health information systems",
+     "health"
+    ],
+    [
+     "Statistics & social protection",
+     "chart"
+    ]
+   ],
+   "tag": "Built on OpenCRVS",
+   "steps": [
+    "A birth or death is declared by an informant, field agent or health facility.",
+    "Registration agents validate and the registrar registers the event.",
+    "Certificates are signed and every action is logged.",
+    "The event updates national ID, health and statistics systems."
+   ]
+  }
+ },
+ "savis-idms": {
+  "sum": "A national ID programme is only as good as its identity register. SAVIS IDMS is the system of record that manages every identity from enrolment to death — linking biographic and biometric data, documents, credentials and life events, with full audit and privacy controls.",
+  "feat": [
+   [
+    "Identity register",
+    "Unique identity number, biographic records, document and credential history."
+   ],
+   [
+    "Lifecycle",
+    "Create, update, correct, suspend, revoke and mark as deceased — with approvals."
+   ],
+   [
+    "Biometric link",
+    "Integrates SAVIS ABIS or third-party ABIS for de-duplication."
+   ],
+   [
+    "Issuance orchestration",
+    "Triggers ID cards, Mobile ID, wallet PID and CryptoID."
+   ],
+   [
+    "Life-event sync",
+    "Birth and death from CRVS; updates from civil and population registers."
+   ],
+   [
+    "Privacy and audit",
+    "Tokenised IDs for relying parties, consent records, tamper-evident audit logs."
+   ]
+  ],
+  "int": [
+   "Enrollment Suite / registration clients",
+   "SAVIS ABIS or MOSIP-compatible ABIS",
+   "SAVIS CRVS / OpenCRVS",
+   "Card personalisation and PKI",
+   "Digital Integration Platform (LGSP / NDXP)"
+  ],
+  "dep": [
+   "National data centre (primary + DR)",
+   "Government cloud"
+  ],
+  "std": [
+   "ISO/IEC 24760 identity management framework",
+   "ICAO 9303",
+   "ISO/IEC 19794 / 39794",
+   "National data-protection law"
+  ],
+  "pre": [
+   "Legal basis and data model",
+   "Legacy registers to migrate",
+   "Enrolment network"
+  ],
+  "go": [
+   "Assess registers, laws and data quality",
+   "Design the data model, lifecycle and integrations",
+   "Pilot with one region and legacy migration",
+   "National roll-out and issuance",
+   "Operate, audit and scale"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Citizens and residents",
+     "users"
+    ],
+    [
+     "Registration officers",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Enrolment centres",
+     "kiosk"
+    ],
+    [
+     "Self-service portal",
+     "web"
+    ],
+    [
+     "CRVS events",
+     "doc"
+    ]
+   ],
+   "mods": [
+    "Identity register",
+    "Lifecycle workflows",
+    "Biometric link (ABIS)",
+    "Issuance orchestration",
+    "Audit and privacy"
+   ],
+   "core": [
+    [
+     "Record signing · PKI",
+     "key"
+    ],
+    [
+     "Tokenisation",
+     "shield"
+    ]
+   ],
+   "ent": [
+    [
+     "SAVIS ABIS",
+     "server"
+    ],
+    [
+     "Card / Mobile ID / wallet",
+     "card"
+    ],
+    [
+     "SAVIS IDVS (relying parties)",
+     "api"
+    ]
+   ],
+   "tag": "Identity system of record",
+   "steps": [
+    "People enrol at centres; births and deaths arrive from CRVS.",
+    "IDMS creates or updates the identity and runs ABIS de-duplication.",
+    "Records are signed and identifiers tokenised for privacy.",
+    "Credentials are issued, and relying parties verify through IDVS."
+   ]
+  }
+ },
+ "savis-idvs": {
+  "sum": "Banks, telcos and agencies need to check identities against the national register — quickly, with consent, and without copying the whole register. SAVIS IDVS is the national identity verification service that answers those requests securely and bills them per transaction.",
+  "feat": [
+   [
+    "Demographic match",
+    "Yes / no or match score against the register."
+   ],
+   [
+    "Biometric 1:1",
+    "Face or fingerprint verification against the enrolled record."
+   ],
+   [
+    "Consent-based eKYC",
+    "Returns only the attributes the person agrees to share."
+   ],
+   [
+    "Partner management",
+    "Onboarding, API keys, certificates, quotas and SLAs per relying party."
+   ],
+   [
+    "Tokenised identifiers",
+    "Partner-specific tokens instead of the national ID number."
+   ],
+   [
+    "Billing and audit",
+    "Per-transaction metering, invoices and full audit trail."
+   ]
+  ],
+  "int": [
+   "REST / OIDC (eSignet-style) APIs",
+   "mTLS and signed requests",
+   "OTP and FIDO2 authenticators",
+   "Bank, telco and agency connectors"
+  ],
+  "dep": [
+   "National data centre",
+   "Government cloud with DR"
+  ],
+  "std": [
+   "NIST SP 800-63-4 (IAL / AAL)",
+   "Decree 69/2024 identification levels",
+   "OpenID Connect",
+   "ISO/IEC 30107-3 for biometric checks"
+  ],
+  "pre": [
+   "IDMS or national register",
+   "Relying-party onboarding rules and fees",
+   "Data-protection approvals"
+  ],
+  "go": [
+   "Define verification services, levels and fees",
+   "Integrate with IDMS and ABIS",
+   "Pilot with two or three banks or telcos",
+   "Open to all licensed relying parties",
+   "Operate, monitor and bill"
+  ],
+  "arch": {
+   "users": [
+    [
+     "Customers and citizens",
+     "users"
+    ],
+    [
+     "Relying-party staff",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Bank and telco apps",
+     "bank"
+    ],
+    [
+     "Agency systems",
+     "gov"
+    ],
+    [
+     "Agent and branch",
+     "kiosk"
+    ]
+   ],
+   "mods": [
+    "Verification API",
+    "Biometric 1:1",
+    "Consent & attribute release",
+    "Partner management",
+    "Metering & billing"
+   ],
+   "core": [
+    [
+     "Request signing · mTLS",
+     "key"
+    ],
+    [
+     "Audit log",
+     "doc"
+    ]
+   ],
+   "ent": [
+    [
+     "SAVIS IDMS / register",
+     "db"
+    ],
+    [
+     "SAVIS ABIS",
+     "server"
+    ],
+    [
+     "Partner billing",
+     "chart"
+    ]
+   ],
+   "tag": "National verification service",
+   "steps": [
+    "A customer opens an account or SIM with a relying party.",
+    "The relying party calls IDVS with the person's consent.",
+    "Requests are authenticated, signed and logged.",
+    "IDVS checks IDMS and ABIS and returns a match result and consented attributes."
+   ]
+  }
+ }
+}

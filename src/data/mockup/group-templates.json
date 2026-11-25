@@ -1,0 +1,1659 @@
+{
+ "digital-identity": {
+  "intro": "Turn a verified person into a trusted digital identity: verify documents and chips, onboard remotely, issue mobile IDs and wallets, and connect to national identity.",
+  "users": [
+   [
+    "Citizens",
+    "users"
+   ],
+   [
+    "Customers",
+    "user"
+   ]
+  ],
+  "ch": [
+   [
+    "Mobile app",
+    "phone"
+   ],
+   [
+    "Web",
+    "web"
+   ],
+   [
+    "Kiosk",
+    "kiosk"
+   ]
+  ],
+  "core": [
+   [
+    "Issuer keys · PKI",
+    "key"
+   ],
+   [
+    "Evidence store",
+    "db"
+   ]
+  ],
+  "ent": [
+   [
+    "National identity / registers",
+    "gov"
+   ],
+   [
+    "Core systems",
+    "bank"
+   ]
+  ],
+  "int": [
+   "REST API and SDKs",
+   "OpenID4VCI / OpenID4VP",
+   "ISO/IEC 18013-5 / -7"
+  ],
+  "dep": [
+   "On-premises",
+   "Private or national cloud"
+  ],
+  "std": [
+   "ICAO 9303",
+   "ISO/IEC 18013-5",
+   "W3C VC 2.0",
+   "Decree 69/2024"
+  ],
+  "pre": [
+   "Identity data sources",
+   "Relying-party systems"
+  ],
+  "go": [
+   "Map identity journeys and assurance levels",
+   "Design issuance, verification and data flows",
+   "Pilot with one service or population",
+   "Roll out to channels and relying parties",
+   "Operate lifecycle and monitoring"
+  ]
+ },
+ "biometrics": {
+  "intro": "Multimodal biometrics from capture to national-scale matching: touchless fingerprint, face and palm, deepfake-resistant liveness, ABIS de-duplication and offline CryptoID credentials.",
+  "users": [
+   [
+    "Citizens",
+    "users"
+   ],
+   [
+    "Officers",
+    "user"
+   ]
+  ],
+  "ch": [
+   [
+    "Mobile app",
+    "phone"
+   ],
+   [
+    "Enrolment station",
+    "kiosk"
+   ]
+  ],
+  "core": [
+   [
+    "Template store",
+    "db"
+   ],
+   [
+    "Signing keys",
+    "key"
+   ]
+  ],
+  "ent": [
+   [
+    "Registers",
+    "gov"
+   ],
+   [
+    "Onboarding systems",
+    "bank"
+   ]
+  ],
+  "int": [
+   "Android / iOS / web SDKs",
+   "REST API"
+  ],
+  "dep": [
+   "On-premises",
+   "Cloud"
+  ],
+  "std": [
+   "ISO/IEC 19794 / 39794",
+   "ISO/IEC 30107-3"
+  ],
+  "pre": [
+   "Capture journeys",
+   "Matching back end"
+  ],
+  "go": [
+   "Assess",
+   "Design",
+   "Pilot",
+   "Roll out",
+   "Operate"
+  ]
+ },
+ "authentication-access": {
+  "intro": "Replace passwords and SMS OTP with phishing-resistant authentication: passkeys, device-bound keys, transaction signing and hardware authenticators — for customers and staff.",
+  "users": [
+   [
+    "Customers",
+    "users"
+   ],
+   [
+    "Staff",
+    "user"
+   ]
+  ],
+  "ch": [
+   [
+    "Mobile app",
+    "phone"
+   ],
+   [
+    "Web",
+    "web"
+   ],
+   [
+    "Hardware key",
+    "key"
+   ]
+  ],
+  "core": [
+   [
+    "SAM Auth Server",
+    "server"
+   ],
+   [
+    "Keys in hardware",
+    "chip"
+   ]
+  ],
+  "ent": [
+   [
+    "IAM / IdP",
+    "api"
+   ],
+   [
+    "Core applications",
+    "bank"
+   ]
+  ],
+  "int": [
+   "FIDO2 / WebAuthn",
+   "OIDC / SAML",
+   "REST API and mobile SDKs"
+  ],
+  "dep": [
+   "On-premises",
+   "Private cloud",
+   "Managed service"
+  ],
+  "std": [
+   "FIDO2",
+   "NIST SP 800-63-4",
+   "SBV Circulars 50/2024, 77/2025",
+   "PSD2 RTS"
+  ],
+  "pre": [
+   "Identity provider or user directory",
+   "Channel apps to integrate"
+  ],
+  "go": [
+   "Map login and approval journeys by risk",
+   "Design authenticators and policies",
+   "Pilot with one channel or user group",
+   "Migrate users from passwords and SMS OTP",
+   "Monitor fraud and adoption"
+  ]
+ },
+ "secure-credentials": {
+  "intro": "Physical and virtual credentials that carry keys and identity: PKI tokens, PIV smart cards, biometric tokens and virtual cards on the phone — issued and revoked from one place.",
+  "users": [
+   [
+    "Employees",
+    "users"
+   ],
+   [
+    "Citizens",
+    "user"
+   ]
+  ],
+  "ch": [
+   [
+    "Card / token",
+    "card"
+   ],
+   [
+    "Phone (virtual card)",
+    "phone"
+   ],
+   [
+    "Door / PC",
+    "lock"
+   ]
+  ],
+  "core": [
+   [
+    "Credential Management",
+    "server"
+   ],
+   [
+    "CA · PKI",
+    "key"
+   ]
+  ],
+  "ent": [
+   [
+    "HR / registry",
+    "users"
+   ],
+   [
+    "Access control",
+    "lock"
+   ]
+  ],
+  "int": [
+   "PKCS#11 / minidriver",
+   "PC/SC, NFC",
+   "Credential Management API"
+  ],
+  "dep": [
+   "On-premises",
+   "Managed issuance"
+  ],
+  "std": [
+   "FIPS 201 (PIV)",
+   "ISO/IEC 7816 / 14443",
+   "X.509"
+  ],
+  "pre": [
+   "Identity source (HR, registry)",
+   "Issuance process"
+  ],
+  "go": [
+   "Define credential types and policies",
+   "Integrate CA and access systems",
+   "Pilot with one site or department",
+   "Mass issuance",
+   "Lifecycle and revocation"
+  ]
+ },
+ "pki-infrastructure": {
+  "intro": "The public-key infrastructure that every digital signature depends on — from a national root CA to enterprise PKI, timestamping and high-volume signing.",
+  "users": [
+   [
+    "Relying parties",
+    "users"
+   ],
+   [
+    "Applications",
+    "server"
+   ]
+  ],
+  "ch": [
+   [
+    "Enrolment / RA",
+    "web"
+   ],
+   [
+    "Signing API",
+    "api"
+   ]
+  ],
+  "core": [
+   [
+    "Root & issuing CAs",
+    "key"
+   ],
+   [
+    "HSM",
+    "chip"
+   ]
+  ],
+  "ent": [
+   [
+    "Directories / CRL / OCSP",
+    "db"
+   ],
+   [
+    "Business systems",
+    "server"
+   ]
+  ],
+  "int": [
+   "CMP / EST / SCEP / ACME",
+   "OCSP / CRL",
+   "CSC API",
+   "PKCS#11"
+  ],
+  "dep": [
+   "On-premises (offline root)",
+   "Hybrid"
+  ],
+  "std": [
+   "RFC 5280 / 6960 / 3161",
+   "WebTrust for CAs",
+   "ETSI EN 319 411"
+  ],
+  "pre": [
+   "Certificate policy",
+   "Secure facility for the root"
+  ],
+  "go": [
+   "Define CP/CPS and hierarchy",
+   "Design CA, RA, VA and HSM",
+   "Key ceremony and pilot",
+   "Production issuance",
+   "Audit and operations"
+  ]
+ },
+ "trust-services": {
+  "intro": "TrustCA qualified trust services: remote signing, timestamps, biometric eKYC with instant certificates, validation and paperless workflows with legal validity.",
+  "users": [
+   [
+    "Signers",
+    "users"
+   ],
+   [
+    "Businesses",
+    "bank"
+   ]
+  ],
+  "ch": [
+   [
+    "Signing app",
+    "phone"
+   ],
+   [
+    "Business apps",
+    "web"
+   ]
+  ],
+  "core": [
+   [
+    "TrustCA CA",
+    "key"
+   ],
+   [
+    "Remote QSCD",
+    "chip"
+   ]
+  ],
+  "ent": [
+   [
+    "Document systems",
+    "doc"
+   ],
+   [
+    "Archive",
+    "db"
+   ]
+  ],
+  "int": [
+   "CSC API",
+   "REST",
+   "PDF / XML signing"
+  ],
+  "dep": [
+   "TrustCA service",
+   "On-premises"
+  ],
+  "std": [
+   "eIDAS 2.0",
+   "ETSI EN 319 4xx",
+   "Law on E-Transactions 2023"
+  ],
+  "pre": [
+   "Signing workflows"
+  ],
+  "go": [
+   "Map documents and signature levels",
+   "Integrate",
+   "Pilot",
+   "Roll out",
+   "Operate"
+  ]
+ },
+ "trust-readiness": {
+  "intro": "Get trust services, CAs and wallets ready for audit: gap analysis, ETSI-based policies, controls and evidence for WebTrust and eIDAS 2.0.",
+  "users": [
+   [
+    "Compliance team",
+    "users"
+   ]
+  ],
+  "ch": [
+   [
+    "Workshops",
+    "users"
+   ],
+   [
+    "Assessment portal",
+    "web"
+   ]
+  ],
+  "core": [
+   [
+    "Policy & evidence",
+    "doc"
+   ]
+  ],
+  "ent": [
+   [
+    "Auditor / CAB",
+    "shield"
+   ]
+  ],
+  "int": [
+   "Policy templates",
+   "Control evidence"
+  ],
+  "dep": [
+   "Consulting engagement"
+  ],
+  "std": [
+   "WebTrust for CAs",
+   "ETSI EN 319 401 / 411",
+   "eIDAS 2.0"
+  ],
+  "pre": [
+   "Scope and audit target"
+  ],
+  "go": [
+   "Gap analysis",
+   "Remediation plan",
+   "Controls and evidence",
+   "Pre-audit",
+   "Certification audit"
+  ]
+ },
+ "fraud-app-protection": {
+  "intro": "Stop fraud before login or payment: device intelligence, app self-protection and real-time risk decisions feeding every channel.",
+  "users": [
+   [
+    "Customers",
+    "users"
+   ],
+   [
+    "Fraud team",
+    "user"
+   ]
+  ],
+  "ch": [
+   [
+    "Mobile app",
+    "phone"
+   ],
+   [
+    "Web",
+    "web"
+   ]
+  ],
+  "core": [
+   [
+    "Risk engine",
+    "shield"
+   ]
+  ],
+  "ent": [
+   [
+    "Core banking",
+    "bank"
+   ],
+   [
+    "Case management",
+    "doc"
+   ]
+  ],
+  "int": [
+   "Mobile SDK",
+   "REST API",
+   "Webhooks"
+  ],
+  "dep": [
+   "On-premises",
+   "Cloud"
+  ],
+  "std": [
+   "SBV Circular 77/2025",
+   "OWASP MASVS"
+  ],
+  "pre": [
+   "Channel apps",
+   "Fraud rules"
+  ],
+  "go": [
+   "Baseline fraud patterns",
+   "Integrate SDK and signals",
+   "Pilot rules",
+   "Roll out",
+   "Tune continuously"
+  ]
+ },
+ "security-operations": {
+  "intro": "Detect, respond and recover around the clock with a 24/7 SOC and integrated security solutions.",
+  "users": [
+   [
+    "IT & security team",
+    "users"
+   ]
+  ],
+  "ch": [
+   [
+    "Portal & reports",
+    "web"
+   ]
+  ],
+  "core": [
+   [
+    "SIEM / SOAR",
+    "soc"
+   ]
+  ],
+  "ent": [
+   [
+    "Networks & cloud",
+    "cloud"
+   ],
+   [
+    "Endpoints",
+    "phone"
+   ]
+  ],
+  "int": [
+   "Syslog / agents",
+   "EDR / NDR"
+  ],
+  "dep": [
+   "Managed",
+   "On-premises"
+  ],
+  "std": [
+   "ISO/IEC 27001",
+   "NIST CSF"
+  ],
+  "pre": [
+   "Log sources"
+  ],
+  "go": [
+   "Assess",
+   "Design",
+   "Deploy",
+   "Go live",
+   "Operate"
+  ]
+ },
+ "key-management": {
+  "intro": "Protect and manage cryptographic keys across applications, payments and clouds — hardware modules, key management and HSM as a service.",
+  "users": [
+   [
+    "Security admins",
+    "user"
+   ],
+   [
+    "Applications",
+    "server"
+   ]
+  ],
+  "ch": [
+   [
+    "Console",
+    "web"
+   ],
+   [
+    "API",
+    "api"
+   ]
+  ],
+  "core": [
+   [
+    "HSM",
+    "chip"
+   ],
+   [
+    "SAM Appliance",
+    "server"
+   ]
+  ],
+  "ent": [
+   [
+    "Databases",
+    "db"
+   ],
+   [
+    "Payment systems",
+    "card"
+   ]
+  ],
+  "int": [
+   "PKCS#11",
+   "KMIP",
+   "REST",
+   "JCE / CNG"
+  ],
+  "dep": [
+   "On-premises",
+   "HSM as a Service"
+  ],
+  "std": [
+   "FIPS 140-3",
+   "PCI PIN / PCI DSS",
+   "NIST SP 800-57"
+  ],
+  "pre": [
+   "Key inventory"
+  ],
+  "go": [
+   "Inventory keys",
+   "Design key hierarchy",
+   "Migrate first apps",
+   "Extend",
+   "Audit"
+  ]
+ },
+ "zero-trust": {
+  "intro": "Never trust, always verify: identity- and device-aware access to every application, from a gateway or the browser.",
+  "users": [
+   [
+    "Staff",
+    "users"
+   ],
+   [
+    "Contractors",
+    "user"
+   ]
+  ],
+  "ch": [
+   [
+    "Browser",
+    "web"
+   ],
+   [
+    "Laptop / mobile",
+    "phone"
+   ]
+  ],
+  "core": [
+   [
+    "Policy engine",
+    "shield"
+   ]
+  ],
+  "ent": [
+   [
+    "Internal & SaaS apps",
+    "server"
+   ],
+   [
+    "SIEM",
+    "soc"
+   ]
+  ],
+  "int": [
+   "SAML / OIDC",
+   "MDM / EDR"
+  ],
+  "dep": [
+   "Appliance",
+   "Cloud"
+  ],
+  "std": [
+   "NIST SP 800-207"
+  ],
+  "pre": [
+   "App inventory",
+   "IdP"
+  ],
+  "go": [
+   "Map apps",
+   "Policies",
+   "Pilot",
+   "Replace VPN",
+   "Tune"
+  ]
+ },
+ "quantum-safe": {
+  "intro": "Prepare for the quantum era: discover cryptography, migrate to NIST post-quantum algorithms and protect long-lived data, keys and links.",
+  "users": [
+   [
+    "CISO team",
+    "users"
+   ],
+   [
+    "Applications",
+    "server"
+   ]
+  ],
+  "ch": [
+   [
+    "Network",
+    "net"
+   ],
+   [
+    "APIs",
+    "api"
+   ]
+  ],
+  "core": [
+   [
+    "PQC keys",
+    "key"
+   ],
+   [
+    "HSM · TPM",
+    "chip"
+   ]
+  ],
+  "ent": [
+   [
+    "Data stores",
+    "db"
+   ],
+   [
+    "Partner links",
+    "globe"
+   ]
+  ],
+  "int": [
+   "Hybrid TLS / IPsec",
+   "PKCS#11",
+   "REST"
+  ],
+  "dep": [
+   "Appliance",
+   "Software",
+   "Lab"
+  ],
+  "std": [
+   "NIST FIPS 203 / 204 / 205",
+   "ETSI QSC"
+  ],
+  "pre": [
+   "Crypto inventory"
+  ],
+  "go": [
+   "Discover",
+   "Rank risk",
+   "Pilot in PQC Lab",
+   "Migrate in waves",
+   "Monitor"
+  ]
+ },
+ "data-security": {
+  "intro": "Encrypt and protect sensitive data at rest and in transit, with keys under your control.",
+  "users": [
+   [
+    "Data owners",
+    "users"
+   ]
+  ],
+  "ch": [
+   [
+    "Applications",
+    "server"
+   ]
+  ],
+  "core": [
+   [
+    "KMS · HSM",
+    "key"
+   ]
+  ],
+  "ent": [
+   [
+    "Databases",
+    "db"
+   ],
+   [
+    "File & cloud storage",
+    "cloud"
+   ]
+  ],
+  "int": [
+   "TDE",
+   "File / app encryption",
+   "Tokenisation API"
+  ],
+  "dep": [
+   "On-premises",
+   "Hybrid"
+  ],
+  "std": [
+   "PCI DSS",
+   "Law 91/2025 on personal data"
+  ],
+  "pre": [
+   "Data classification"
+  ],
+  "go": [
+   "Classify data",
+   "Design",
+   "Pilot",
+   "Roll out",
+   "Audit"
+  ]
+ },
+ "digital-government": {
+  "intro": "The platforms behind digital government: portals, one-stop processing, data sharing and the SAVIS SuperApp platform.",
+  "users": [
+   [
+    "Residents",
+    "users"
+   ],
+   [
+    "Businesses",
+    "bank"
+   ]
+  ],
+  "ch": [
+   [
+    "Portal",
+    "web"
+   ],
+   [
+    "SuperApp",
+    "phone"
+   ],
+   [
+    "Counter",
+    "kiosk"
+   ]
+  ],
+  "core": [
+   [
+    "National identity",
+    "key"
+   ],
+   [
+    "Signing & seals",
+    "doc"
+   ]
+  ],
+  "ent": [
+   [
+    "Digital Integration Platform",
+    "api"
+   ],
+   [
+    "Agency systems",
+    "gov"
+   ]
+  ],
+  "int": [
+   "National identity login",
+   "Digital Integration Platform (LGSP / NDXP)",
+   "Payment gateways"
+  ],
+  "dep": [
+   "Government cloud"
+  ],
+  "std": [
+   "E-government architecture framework",
+   "Decree 69/2024"
+  ],
+  "pre": [
+   "Procedure catalogue"
+  ],
+  "go": [
+   "Select procedures",
+   "Integrate identity and data",
+   "Launch",
+   "Expand",
+   "Operate"
+  ]
+ },
+ "citizen-services": {
+  "intro": "Self-service touchpoints that bring digital services to everyone, with identity verification built in.",
+  "users": [
+   [
+    "Residents",
+    "users"
+   ]
+  ],
+  "ch": [
+   [
+    "Smart Kiosk",
+    "kiosk"
+   ]
+  ],
+  "core": [
+   [
+    "Identity verification",
+    "shield"
+   ]
+  ],
+  "ent": [
+   [
+    "Public services",
+    "gov"
+   ]
+  ],
+  "int": [
+   "Chip ID reader",
+   "Face match",
+   "Printer, scanner"
+  ],
+  "dep": [
+   "Kiosk hardware + software"
+  ],
+  "std": [
+   "ICAO 9303"
+  ],
+  "pre": [
+   "Sites"
+  ],
+  "go": [
+   "Choose sites",
+   "Configure services",
+   "Pilot",
+   "Roll out",
+   "Operate"
+  ]
+ },
+ "smart-city": {
+  "intro": "City operations with AI video, sensors and connected services — secured from the device to the dashboard.",
+  "users": [
+   [
+    "Operators",
+    "users"
+   ]
+  ],
+  "ch": [
+   [
+    "Operations centre",
+    "chart"
+   ]
+  ],
+  "core": [
+   [
+    "Device PKI",
+    "key"
+   ]
+  ],
+  "ent": [
+   [
+    "Cameras & sensors",
+    "cam"
+   ]
+  ],
+  "int": [
+   "ONVIF / RTSP",
+   "IoT protocols"
+  ],
+  "dep": [
+   "On-premises",
+   "Cloud"
+  ],
+  "std": [
+   "IEC 62443",
+   "ETSI EN 303 645"
+  ],
+  "pre": [
+   "Device inventory"
+  ],
+  "go": [
+   "Assess",
+   "Design",
+   "Pilot",
+   "Scale",
+   "Operate"
+  ]
+ },
+ "iot": {
+  "intro": "Connected devices you can trust: gateways and sensors, device certificates, signed firmware and phone-as-key for vehicles.",
+  "users": [
+   [
+    "Operators",
+    "users"
+   ],
+   [
+    "Drivers",
+    "user"
+   ]
+  ],
+  "ch": [
+   [
+    "Devices & gateways",
+    "chip"
+   ],
+   [
+    "Mobile app",
+    "phone"
+   ]
+  ],
+  "core": [
+   [
+    "Device PKI",
+    "key"
+   ],
+   [
+    "Secure element",
+    "chip"
+   ]
+  ],
+  "ent": [
+   [
+    "IoT platform",
+    "cloud"
+   ],
+   [
+    "OEM back end",
+    "server"
+   ]
+  ],
+  "int": [
+   "MQTT / CoAP",
+   "EST / ACME for devices",
+   "BLE / NFC"
+  ],
+  "dep": [
+   "Cloud",
+   "On-premises"
+  ],
+  "std": [
+   "ETSI EN 303 645",
+   "IEC 62443",
+   "CCC Digital Key"
+  ],
+  "pre": [
+   "Device fleet"
+  ],
+  "go": [
+   "Inventory devices",
+   "Design identity and updates",
+   "Pilot",
+   "Fleet roll-out",
+   "Operate"
+  ]
+ },
+ "open-finance": {
+  "intro": "Open APIs with consent: API management, developer portal, consent and third-party provider onboarding for banks and financial institutions.",
+  "users": [
+   [
+    "Customers",
+    "users"
+   ],
+   [
+    "TPPs & fintech",
+    "api"
+   ]
+  ],
+  "ch": [
+   [
+    "TPP apps",
+    "phone"
+   ],
+   [
+    "Developer portal",
+    "web"
+   ]
+  ],
+  "core": [
+   [
+    "Consent & certificates",
+    "key"
+   ]
+  ],
+  "ent": [
+   [
+    "Core banking",
+    "bank"
+   ],
+   [
+    "Insurance / lending",
+    "doc"
+   ]
+  ],
+  "int": [
+   "OAuth 2 / FAPI 2.0",
+   "mTLS",
+   "REST"
+  ],
+  "dep": [
+   "On-premises",
+   "Private cloud"
+  ],
+  "std": [
+   "SBV Circular 64/2024",
+   "FAPI 2.0"
+  ],
+  "pre": [
+   "API catalogue",
+   "Consent policy"
+  ],
+  "go": [
+   "Define scope",
+   "Set up",
+   "Sandbox",
+   "Go live",
+   "Expand"
+  ]
+ },
+ "payment-security": {
+  "intro": "Secure every payment: 3-D Secure, tokenisation, payment HSMs, transaction signing and palm payments.",
+  "users": [
+   [
+    "Cardholders",
+    "users"
+   ],
+   [
+    "Merchants",
+    "web"
+   ]
+  ],
+  "ch": [
+   [
+    "E-commerce",
+    "web"
+   ],
+   [
+    "POS / kiosk",
+    "card"
+   ],
+   [
+    "Mobile",
+    "phone"
+   ]
+  ],
+  "core": [
+   [
+    "Payment HSM",
+    "chip"
+   ]
+  ],
+  "ent": [
+   [
+    "Issuer systems",
+    "bank"
+   ],
+   [
+    "Card schemes",
+    "globe"
+   ]
+  ],
+  "int": [
+   "EMV 3DS",
+   "ISO 8583",
+   "REST"
+  ],
+  "dep": [
+   "On-premises",
+   "Managed"
+  ],
+  "std": [
+   "PCI DSS",
+   "PCI PIN",
+   "EMVCo"
+  ],
+  "pre": [
+   "Payment flows"
+  ],
+  "go": [
+   "Map flows",
+   "Design",
+   "Certify",
+   "Go live",
+   "Operate"
+  ]
+ },
+ "digital-banking": {
+  "intro": "Digital banks and e-wallets that are fast to launch and hard to attack.",
+  "users": [
+   [
+    "Customers",
+    "users"
+   ]
+  ],
+  "ch": [
+   [
+    "Mobile app",
+    "phone"
+   ],
+   [
+    "Web",
+    "web"
+   ]
+  ],
+  "core": [
+   [
+    "SCA & signing",
+    "key"
+   ]
+  ],
+  "ent": [
+   [
+    "Core banking",
+    "bank"
+   ],
+   [
+    "NAPAS / VietQR",
+    "card"
+   ]
+  ],
+  "int": [
+   "Core banking APIs",
+   "NAPAS / VietQR"
+  ],
+  "dep": [
+   "On-premises",
+   "Private cloud"
+  ],
+  "std": [
+   "SBV Circulars"
+  ],
+  "pre": [
+   "Licences and core APIs"
+  ],
+  "go": [
+   "Define products",
+   "Integrate",
+   "Pilot",
+   "Launch",
+   "Iterate"
+  ]
+ },
+ "digital-agreements": {
+  "intro": "Contracts and invoices that are created, signed and stored digitally with legal validity.",
+  "users": [
+   [
+    "Businesses",
+    "bank"
+   ],
+   [
+    "Customers",
+    "users"
+   ]
+  ],
+  "ch": [
+   [
+    "Web",
+    "web"
+   ],
+   [
+    "Mobile",
+    "phone"
+   ]
+  ],
+  "core": [
+   [
+    "Signing & timestamps",
+    "key"
+   ]
+  ],
+  "ent": [
+   [
+    "ERP / CRM",
+    "server"
+   ],
+   [
+    "Tax authority",
+    "gov"
+   ]
+  ],
+  "int": [
+   "REST",
+   "ERP connectors"
+  ],
+  "dep": [
+   "Cloud",
+   "On-premises"
+  ],
+  "std": [
+   "Law on E-Transactions 2023",
+   "Decree 123/2020 e-invoices"
+  ],
+  "pre": [
+   "Templates"
+  ],
+  "go": [
+   "Map documents",
+   "Integrate",
+   "Pilot",
+   "Roll out",
+   "Operate"
+  ]
+ },
+ "digital-assets": {
+  "intro": "Regulated digital assets: permissioned ledgers, stablecoins, CBDC pilots, tokenised real-world assets and institutional custody.",
+  "users": [
+   [
+    "Institutions",
+    "bank"
+   ],
+   [
+    "Investors",
+    "users"
+   ]
+  ],
+  "ch": [
+   [
+    "Wallets",
+    "phone"
+   ],
+   [
+    "Portals",
+    "web"
+   ]
+  ],
+  "core": [
+   [
+    "HSM · MPC keys",
+    "key"
+   ]
+  ],
+  "ent": [
+   [
+    "Ledger nodes",
+    "net"
+   ],
+   [
+    "Core banking",
+    "bank"
+   ]
+  ],
+  "int": [
+   "REST",
+   "Ledger APIs"
+  ],
+  "dep": [
+   "Private network",
+   "On-premises"
+  ],
+  "std": [
+   "ISO 20022",
+   "Sandbox regulations"
+  ],
+  "pre": [
+   "Regulatory sandbox"
+  ],
+  "go": [
+   "Define use case",
+   "Design",
+   "Sandbox pilot",
+   "Production",
+   "Operate"
+  ]
+ },
+ "data-analytics": {
+  "intro": "Turn data into decisions: data lake, BI, AI-assisted KPIs, customer data and document management.",
+  "users": [
+   [
+    "Managers",
+    "users"
+   ],
+   [
+    "Analysts",
+    "user"
+   ]
+  ],
+  "ch": [
+   [
+    "Dashboards",
+    "chart"
+   ],
+   [
+    "Self-service BI",
+    "web"
+   ]
+  ],
+  "core": [
+   [
+    "Access control",
+    "lock"
+   ]
+  ],
+  "ent": [
+   [
+    "Source systems",
+    "db"
+   ]
+  ],
+  "int": [
+   "ETL / ELT",
+   "REST"
+  ],
+  "dep": [
+   "On-premises",
+   "Cloud"
+  ],
+  "std": [
+   "Data protection law"
+  ],
+  "pre": [
+   "Data sources"
+  ],
+  "go": [
+   "Assess data",
+   "Design model",
+   "Pilot dashboards",
+   "Scale",
+   "Operate"
+  ]
+ },
+ "records-archiving": {
+  "intro": "Keep electronic records legally valid for decades, on-premises or in an appliance.",
+  "users": [
+   [
+    "Records officers",
+    "users"
+   ]
+  ],
+  "ch": [
+   [
+    "Portal",
+    "web"
+   ]
+  ],
+  "core": [
+   [
+    "Timestamps · LTV",
+    "key"
+   ]
+  ],
+  "ent": [
+   [
+    "Document systems",
+    "doc"
+   ]
+  ],
+  "int": [
+   "REST",
+   "Document connectors"
+  ],
+  "dep": [
+   "Appliance",
+   "On-premises"
+  ],
+  "std": [
+   "ETSI",
+   "PDF/A"
+  ],
+  "pre": [
+   "Retention policy"
+  ],
+  "go": [
+   "Classify",
+   "Configure",
+   "Migrate",
+   "Operate",
+   "Audit"
+  ]
+ },
+ "intelligent-documents": {
+  "intro": "From paper to trusted digital records: OCR, digital forms, automated workflows and AI.",
+  "users": [
+   [
+    "Staff",
+    "users"
+   ],
+   [
+    "Citizens",
+    "user"
+   ]
+  ],
+  "ch": [
+   [
+    "Scanner",
+    "doc"
+   ],
+   [
+    "Web forms",
+    "web"
+   ]
+  ],
+  "core": [
+   [
+    "Signing",
+    "key"
+   ]
+  ],
+  "ent": [
+   [
+    "Back-office systems",
+    "server"
+   ],
+   [
+    "Archive",
+    "db"
+   ]
+  ],
+  "int": [
+   "REST",
+   "Connectors"
+  ],
+  "dep": [
+   "On-premises",
+   "Cloud"
+  ],
+  "std": [
+   "Law on E-Transactions 2023"
+  ],
+  "pre": [
+   "Document types"
+  ],
+  "go": [
+   "Map processes",
+   "Design",
+   "Pilot",
+   "Roll out",
+   "Optimise"
+  ]
+ },
+ "media-platforms": {
+  "intro": "AI-native media: plan, produce, manage, publish and protect content across TV, radio, web and social.",
+  "users": [
+   [
+    "Editors",
+    "users"
+   ],
+   [
+    "Viewers",
+    "user"
+   ]
+  ],
+  "ch": [
+   [
+    "Newsroom",
+    "media"
+   ],
+   [
+    "Apps & web",
+    "phone"
+   ]
+  ],
+  "core": [
+   [
+    "Media Hub",
+    "shield"
+   ],
+   [
+    "KMS",
+    "key"
+   ]
+  ],
+  "ent": [
+   [
+    "Archive / MAM",
+    "db"
+   ],
+   [
+    "Playout",
+    "server"
+   ]
+  ],
+  "int": [
+   "MOS",
+   "REST",
+   "Broadcast I/O"
+  ],
+  "dep": [
+   "On-premises",
+   "Cloud"
+  ],
+  "std": [
+   "Broadcast standards"
+  ],
+  "pre": [
+   "Content systems"
+  ],
+  "go": [
+   "Assess workflow",
+   "Design",
+   "Pilot one channel",
+   "Roll out",
+   "Operate"
+  ]
+ },
+ "healthcare-cloud": {
+  "intro": "Connected digital health with signed records and patient services.",
+  "users": [
+   [
+    "Patients",
+    "users"
+   ]
+  ],
+  "ch": [
+   [
+    "Patient app",
+    "phone"
+   ]
+  ],
+  "core": [
+   [
+    "Signing keys",
+    "key"
+   ]
+  ],
+  "ent": [
+   [
+    "HIS / EMR",
+    "health"
+   ]
+  ],
+  "int": [
+   "HL7 FHIR"
+  ],
+  "dep": [
+   "Cloud"
+  ],
+  "std": [
+   "HL7 FHIR"
+  ],
+  "pre": [
+   "Systems"
+  ],
+  "go": [
+   "Assess",
+   "Design",
+   "Pilot",
+   "Roll out",
+   "Operate"
+  ]
+ }
+}

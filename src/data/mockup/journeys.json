@@ -1,0 +1,275 @@
+{
+ "identity": {
+  "eyebrow": "The identity journey",
+  "title": "From enrolment to a trusted signature",
+  "steps": [
+   {
+    "href": "#p-enrollment-station",
+    "title": "Enrol",
+    "text": "Capture biometrics and documents once, at a station or online.",
+    "products": [
+     "SAVIS Enrollment Station",
+     "SAVIS ABIS"
+    ]
+   },
+   {
+    "href": "#p-trustonboard",
+    "title": "Verify",
+    "text": "Chip-verified ID, face match and deepfake-resistant liveness.",
+    "products": [
+     "SAVIS TrustOnboard",
+     "SAVIS Liveness & Deepfake Defense"
+    ]
+   },
+   {
+    "href": "#p-digital-id-wallet",
+    "title": "Issue",
+    "text": "Put the credential in a wallet, a token or a smart card.",
+    "products": [
+     "Digital ID Wallet",
+     "PKI Token"
+    ]
+   },
+   {
+    "href": "#p-passwordless",
+    "title": "Authenticate",
+    "text": "Passwordless login with FIDO2 passkeys and device keys.",
+    "products": [
+     "FIDO2 Passwordless Identity"
+    ]
+   },
+   {
+    "href": "#p-remote-signing",
+    "title": "Sign",
+    "text": "Remote qualified signatures, timestamped and verifiable.",
+    "products": [
+     "TrustCA Remote Signing"
+    ]
+   }
+  ]
+ },
+ "cyber": {
+  "eyebrow": "The protection journey",
+  "title": "From first assessment to quantum-safe operations",
+  "steps": [
+   {
+    "href": "#p-quantum-readiness",
+    "title": "Assess",
+    "text": "Understand risks, keys and crypto inventory.",
+    "products": [
+     "Quantum Readiness Program"
+    ]
+   },
+   {
+    "href": "#p-sam-appliance",
+    "title": "Protect keys",
+    "text": "Hardware-backed key management and signing.",
+    "products": [
+     "SAM Appliance"
+    ]
+   },
+   {
+    "href": "#p-zero-trust-gateway",
+    "title": "Control access",
+    "text": "Zero Trust: verify every user, device and request.",
+    "products": [
+     "Zero Trust Gateway Appliance"
+    ]
+   },
+   {
+    "href": "#p-savis-soc",
+    "title": "Monitor 24/7",
+    "text": "AI-powered detection and response from the SAVIS AI SOC.",
+    "products": [
+     "SAVIS AI SOC"
+    ]
+   },
+   {
+    "href": "#p-crypto-agility",
+    "title": "Go quantum-safe",
+    "text": "Crypto agility and post-quantum migration.",
+    "products": [
+     "Crypto Agility",
+     "Quantum Safe Gateway"
+    ]
+   }
+  ]
+ },
+ "gov": {
+  "eyebrow": "The citizen journey",
+  "title": "From a trusted identity to a smarter city",
+  "steps": [
+   {
+    "href": "#p-national-eid-trust",
+    "title": "Identify",
+    "text": "Citizens prove who they are with national eID.",
+    "products": [
+     "National eID Trust",
+     "VNeID Integration"
+    ]
+   },
+   {
+    "href": "#p-one-stop-shop",
+    "title": "Apply online",
+    "text": "One-stop public services, end to end.",
+    "products": [
+     "One-Stop-Shop"
+    ]
+   },
+   {
+    "href": "#p-lgsp",
+    "title": "Share data",
+    "text": "Agencies exchange data on an integration platform.",
+    "products": [
+     "SAVIS Digital Integration Platform"
+    ]
+   },
+   {
+    "href": "#p-superapp-mgov",
+    "title": "Everything in one app",
+    "text": "A super app for citizens and businesses.",
+    "products": [
+     "SAVIS SuperApp platform"
+    ]
+   },
+   {
+    "href": "#p-smart-city",
+    "title": "Run the city",
+    "text": "AI-powered operations and safety.",
+    "products": [
+     "Smart City Solution",
+     "AI Camera Security"
+    ]
+   }
+  ]
+ },
+ "finance": {
+  "eyebrow": "The customer journey",
+  "title": "From onboarding to a protected payment",
+  "steps": [
+   {
+    "href": "#p-trustonboard",
+    "title": "Onboard",
+    "text": "Open an account remotely with eKYC.",
+    "products": [
+     "SAVIS TrustOnboard"
+    ]
+   },
+   {
+    "href": "#p-open-banking-suite",
+    "title": "Consent & connect",
+    "text": "Open APIs with customer consent.",
+    "products": [
+     "Open Banking Suite"
+    ]
+   },
+   {
+    "href": "#p-api-security-transaction-signing",
+    "title": "Confirm",
+    "text": "Transaction signing and strong authentication.",
+    "products": [
+     "API Security & Transaction Signing"
+    ]
+   },
+   {
+    "href": "#p-3d-secure",
+    "title": "Pay",
+    "text": "3-D Secure and tokenised card payments.",
+    "products": [
+     "3D Secure 2.0",
+     "Tokenization"
+    ]
+   },
+   {
+    "href": "#p-fraud-prevention",
+    "title": "Stop fraud",
+    "text": "Device intelligence and risk scoring.",
+    "products": [
+     "Fraud Prevention & Risk Management"
+    ]
+   }
+  ]
+ },
+ "ai": {
+  "eyebrow": "The data journey",
+  "title": "From paper and raw data to decisions",
+  "steps": [
+   {
+    "href": "#p-smart-ocr",
+    "title": "Capture",
+    "text": "Turn documents into data with Smart OCR.",
+    "products": [
+     "Smart OCR"
+    ]
+   },
+   {
+    "href": "#p-data-lake-bi",
+    "title": "Organise",
+    "text": "A governed data lake for every source.",
+    "products": [
+     "SAVIS Data Lake & BI"
+    ]
+   },
+   {
+    "href": "#p-data-lake-bi",
+    "title": "Analyse",
+    "text": "Dashboards and BI for every team.",
+    "products": [
+     "SAVIS Data Lake & BI"
+    ]
+   },
+   {
+    "href": "#p-mrp-ai",
+    "title": "Automate",
+    "text": "AI for media and operations.",
+    "products": [
+     "SAVIS MRP AI"
+    ]
+   },
+   {
+    "href": "#p-trusted-archive",
+    "title": "Preserve",
+    "text": "Long-term trusted archive with proof.",
+    "products": [
+     "Trusted Archive 2.0"
+    ]
+   }
+  ]
+ },
+ "services": {
+  "eyebrow": "How a project runs",
+  "title": "One accountable team, from first advice to daily operation",
+  "steps": [
+   {
+    "href": "#services-advise",
+    "title": "Assess",
+    "text": "Regulation, risks and readiness, before you build.",
+    "products": []
+   },
+   {
+    "href": "#services-advise",
+    "title": "Design",
+    "text": "Architecture shaped around your systems and rules.",
+    "products": []
+   },
+   {
+    "href": "#services-build",
+    "title": "Build & integrate",
+    "text": "Engineering by the team that makes the technology.",
+    "products": []
+   },
+   {
+    "href": "#services-operate",
+    "title": "Operate 24/7",
+    "text": "Managed services, trust services and support.",
+    "products": []
+   },
+   {
+    "href": "#services-operate",
+    "title": "Improve",
+    "text": "Audits, upgrades and new capabilities over time.",
+    "products": []
+   }
+  ]
+ }
+}

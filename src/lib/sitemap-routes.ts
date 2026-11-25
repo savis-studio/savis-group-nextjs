@@ -19,7 +19,7 @@ const staticRoute = (path: string, ready: boolean, priority = 0.6): SitemapRoute
 export const STATIC_ROUTES: SitemapRoute[] = [
   staticRoute("/", true, 1),
   // Phase 3
-  staticRoute("/solutions", false, 0.9),
+  staticRoute("/solutions", true, 0.9),
   staticRoute("/industries", false, 0.8),
   staticRoute("/use-cases", false, 0.8),
   // Phase 4
@@ -50,7 +50,7 @@ export function dynamicRoutes(): SitemapRoute[] {
   const add = (ready: boolean, base: string, ids: string[], priority: number) => {
     for (const id of ids) out.push({ path: `${base}/${id}`, ready, priority });
   };
-  add(false, "/solutions", getPillars().map((p) => p.id), 0.8); // Phase 3
+  add(true, "/solutions", getPillars().map((p) => p.id), 0.8); // Phase 3a
   add(false, "/products", products.map((p) => p.slug), 0.7); // Phase 3
   add(false, "/industries", industries.items.map((i) => i.id), 0.7); // Phase 3
   add(false, "/use-cases", useCases.map((u) => u.id), 0.6); // Phase 3
