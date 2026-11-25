@@ -235,3 +235,4 @@
 @media (max-width:900px){.sv-diagram{display:none}}
 .sv-mosaic--one{grid-template-columns:1fr;width:400px}
 .sv-mosaic .uc-th,.sv-feat .uc-th{left:0;top:0;transform:none;translate:none}
+.sv-pdet__list{margin:0;padding-left:18px;display:grid;gap:6px;color:var(--muted);font-size:14px}

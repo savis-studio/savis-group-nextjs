@@ -91,19 +91,28 @@ export default async function ProductPage({ params }: Props) {
             <SmartLink href="/contact" className="sv-go">Request the technical datasheet →</SmartLink>
           </div>
         </div>
-        {story?.fit && <p style={{ margin: "var(--space-26) 0 0", maxWidth: 760, color: "var(--muted)" }}><b style={{ color: "var(--ink)" }}>Best fit: </b>{story.fit}</p>}
+
       </Section>
 
       {story?.blocks && story.blocks.length > 0 && (
         <Section tone="surface">
-          <SectionHead eyebrow="Scope" title={`What ${p.name} covers`} />
-          <div className="sv-grid">
-            {story.blocks.map(([title, items]) => <InfoCard key={title} label={title} items={items} />)}
+          <SectionHead eyebrow="Product details" title={story.lead} />
+          <div className="sv-cols3 sv-pdet">
+            {story.blocks.map(([title, items], i) => {
+              const base = productThumb(p);
+              const label = title.replace(/^\d+\s*·\s*/, "");
+              return (
+                <Card key={title} thumb={<Thumb spec={{ ...base, lbl: `${label}|pd-${p.slug}-${i}` }} />} title={title}>
+                  <ul className="sv-pdet__list">{items.map((it) => <li key={it}>{it}</li>)}</ul>
+                </Card>
+              );
+            })}
           </div>
           {story.specs && story.specs.length > 0 && <div style={{ marginTop: "var(--space-30)" }}><KeyValueList items={story.specs} /></div>}
-          {story.standards && story.standards.length > 0 && (
-            <div style={{ marginTop: "var(--space-30)" }}>
-              <InfoCard label="Standards" chips={story.standards} />
+          {((story.standards && story.standards.length > 0) || story.fit) && (
+            <div className="sv-grid" style={{ marginTop: "var(--space-30)" }}>
+              {story.standards && story.standards.length > 0 && <InfoCard label="Standards" chips={story.standards} />}
+              {story.fit && <div className="sv-card sv-info"><span className="sv-eyebrow">Best for</span><p style={{ margin: 0 }}>{story.fit}</p></div>}
             </div>
           )}
         </Section>
