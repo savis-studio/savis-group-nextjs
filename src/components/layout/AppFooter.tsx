@@ -1,4 +1,5 @@
-import { Logo, SmartLink } from "@/components/ui";
+import { Logo } from "@/components/ui";
+import { NavLink as SmartLink } from "./NavLink";
 import type { Catalog } from "@/lib/cms";
 import {
   certifications, footerCompany, footerOffices, footerRegions, footerSolutions, hotline, legalLinks,

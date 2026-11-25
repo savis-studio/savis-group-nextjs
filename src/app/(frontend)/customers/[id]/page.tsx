@@ -19,7 +19,7 @@ type Props = { params: Promise<{ id: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const c = getCaseDetail((await params).id);
   if (!c) return {};
-  return buildMetadata({ title: c.title, description: c.summary, path: `/customers/${c.id}` });
+  return buildMetadata({ title: `${c.client}: ${c.title}`, description: c.summary, path: `/customers/${c.id}` });
 }
 
 export default async function CasePage({ params }: Props) {

@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { Button, Logo, SmartLink } from "@/components/ui";
+import { Button, Logo } from "@/components/ui";
+import { NavLink as SmartLink } from "./NavLink";
 import type { Catalog } from "@/lib/cms";
 import {
   companyMenu, insightsMenu, mainNav, resourcesMenu, servicesMenu, solutionsMenu, utilityLinks,
@@ -37,7 +38,7 @@ function LinkList({ links, onNavigate }: { links: Link[]; onNavigate: () => void
 }
 
 /** Utility bar, sticky header, five mega-menus (desktop) and an accordion drawer (below 1100px). */
-export function AppHeader({ pillars, industries }: Catalog) {
+export function AppHeader({ pillars, industries, productHrefs }: Catalog & { productHrefs: Record<string, string> }) {
   const [open, setOpen] = useState<MenuId | null>(null);
   const [drawer, setDrawer] = useState(false);
   const [tab, setTab] = useState<"products" | "industry">("products");
@@ -78,11 +79,7 @@ export function AppHeader({ pillars, industries }: Catalog) {
             </ul>
           </nav>
           <div className="sv-header__actions">
-            <SmartLink href="#search" className="sv-search" aria-label="Search">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg>
-              <span className="sv-search__lbl">Search</span>
-            </SmartLink>
-            <Button href="#contact">Contact us</Button>
+            <Button href="/contact">Contact us</Button>
             <button type="button" className="sv-icon-btn" aria-label={drawer ? "Close menu" : "Open menu"} aria-expanded={drawer} aria-controls="sv-drawer" onClick={() => { setDrawer(!drawer); setOpen(null); }}>
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                 {drawer ? <path d="M6 6l12 12M18 6 6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
@@ -129,7 +126,7 @@ export function AppHeader({ pillars, industries }: Catalog) {
                         {pillar.groups.map((g) => (
                           <div key={g.name}>
                             <h4>{g.name}</h4>
-                            <ul>{g.items.map((it) => <li key={it}><SmartLink href="#" onClick={close}>{it}</SmartLink></li>)}</ul>
+                            <ul>{g.items.map((it) => <li key={it}><SmartLink href={productHrefs[it] ?? "/solutions"} onClick={close}>{it}</SmartLink></li>)}</ul>
                           </div>
                         ))}
                       </div>
@@ -217,7 +214,7 @@ export function AppHeader({ pillars, industries }: Catalog) {
                   <ul>{links.map((l) => <li key={l.label}><SmartLink href={l.href} onClick={close}>{l.label}</SmartLink></li>)}</ul>
                 </details>
               ))}
-              <div className="sv-drawer__cta"><Button href="#contact">Contact us</Button></div>
+              <div className="sv-drawer__cta"><Button href="/contact">Contact us</Button></div>
             </div>
           </div>
         )}

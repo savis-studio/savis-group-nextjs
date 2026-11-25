@@ -19,7 +19,7 @@ type Props = { params: Promise<{ id: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const u = getUseCase((await params).id);
   if (!u) return {};
-  return buildMetadata({ title: u.name, description: u.tagline, path: `/use-cases/${u.id}` });
+  return buildMetadata({ title: u.name, description: u.tagline.length < 110 ? `${u.tagline} ${u.problem}` : u.tagline, path: `/use-cases/${u.id}` });
 }
 
 export default async function UseCasePage({ params }: Props) {

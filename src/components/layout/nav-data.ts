@@ -130,5 +130,4 @@ export const legalLinks: Link[] = [
   { label: "Privacy", href: "#privacy" },
   { label: "Terms", href: "#terms" },
   { label: "Cookies", href: "#cookies" },
-  { label: "Cookie settings", href: "#cookie-settings" },
 ];

@@ -6,6 +6,7 @@ import "@/styles/layout.css";
 import "./globals.css";
 import { AppHeader } from "@/components/layout/AppHeader";
 import { AppFooter } from "@/components/layout/AppFooter";
+import { getProducts } from "@/lib/content";
 import { getCatalog } from "@/lib/cms";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_ORIGIN, SITE_TAGLINE } from "@/lib/site";
 
@@ -24,13 +25,16 @@ export const metadata: Metadata = {
   applicationName: SITE_NAME,
 };
 
+/** Product name → page, so the mega menu links each product to its own page. */
+const productHrefs = Object.fromEntries(getProducts().map((p) => [p.name, `/products/${p.slug}`]));
+
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const catalog = await getCatalog();
   return (
     <html lang="en" className={`${sora.variable} ${inter.variable}`}>
       <body style={{ margin: 0, background: "var(--bg)", color: "var(--text)", font: "400 16px/1.6 var(--font-body)" }}>
         <a href="#main" className="sr-only focus:not-sr-only">Skip to content</a>
-        <AppHeader {...catalog} />
+        <AppHeader {...catalog} productHrefs={productHrefs} />
         <div id="main">{children}</div>
         <AppFooter {...catalog} />
       </body>

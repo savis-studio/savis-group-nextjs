@@ -9,6 +9,11 @@ const ALIASES: Record<string, string> = {
   "ds-smart-ekyc": "ds-trustonboard",
   "ds-digital-id-mobile": "ds-national-eid-trust",
   "partner-portal": "partners",
+  // No /resources section yet: its entries land on the closest page that exists.
+  resources: "insights",
+  "tech-bulletins": "insights",
+  "insights-news": "insights",
+  "customers-stories": "customers",
 };
 
 /** Top-level pages that keep their name. */
@@ -22,6 +27,8 @@ const NESTED: Record<string, string> = {
   culture: "/about/culture",
   esg: "/about/esg",
   integrity: "/about/integrity",
+  "services-pro": "/services#professional",
+  "resources-datasheets": "/solutions",
 };
 
 const PREFIXES: Array<[prefix: string, base: string, suffix?: string]> = [
@@ -49,11 +56,10 @@ export function hashToPath(href: string): string {
   return family ?? "/";
 }
 
-/** `services-advise` → `/services#advise`, `resources-blog` → `/resources/blog`, etc. */
+/** `services-advise` → `/services#advise`, `resources-*` → `/insights` until a resources section exists, etc. */
 function anchorFamily(key: string): string | null {
   const m = /^(services|about|insights|customers|use-cases)-(.+)$/.exec(key);
   if (m) return `/${m[1]}#${m[2]}`;
-  const r = /^resources-(.+)$/.exec(key);
-  if (r) return `/resources/${r[1]}`;
+  if (/^(resources-|report-)/.test(key)) return "/insights";
   return null;
 }
