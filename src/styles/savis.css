@@ -175,14 +175,14 @@ select.sv-field__control{appearance:none;padding-right:40px;background-image:lin
 @media (max-width:560px){.sv-header__actions .sv-btn{display:none}.sv-logo__word{height:28px}.sv-logo__mark{width:40px;height:40px}}
 
 /* Footer */
-.sv-footer{background:linear-gradient(180deg,var(--footer-top) 0%,var(--footer-bottom) 100%);color:var(--on-band-muted);padding-top:var(--space-72);font-size:14.5px}
+.sv-footer{background:linear-gradient(180deg,var(--footer-top) 0%,var(--footer-bottom) 100%);color:var(--on-band-muted);padding-top:var(--space-48);font-size:12.5px}
 .sv-footer__top{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,3fr);gap:var(--space-48)}
 .sv-footer__brand p{margin:16px 0 0;max-width:320px;line-height:1.55}
 .sv-footer__cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:28px}
-.sv-footer h4,.sv-footer .sv-footer__h{margin:0 0 12px;font:600 12.5px var(--font-body);letter-spacing:.12em;text-transform:uppercase;color:var(--on-band)}
-.sv-footer ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.sv-footer h4,.sv-footer .sv-footer__h{margin:0 0 12px;font:700 12.5px var(--font-body);color:var(--on-band)}
+.sv-footer ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
 .sv-footer a{color:inherit;text-decoration:none}.sv-footer a:hover{color:var(--on-band)}
-.sv-footer__base{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;margin-top:var(--space-48);padding-block:22px;border-top:1px solid rgba(255,255,255,.15);font-size:13px}
+.sv-footer__base{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;margin-top:var(--space-30);padding-block:16px;border-top:1px solid rgba(255,255,255,.15);font-size:11.5px}
 @media (max-width:860px){.sv-footer__top{grid-template-columns:1fr}}
 
 @media (max-width:900px){.sv-media:not(.sv-media--diagram) .sv-media__cap{position:static;background:var(--surface-inverse);padding:14px 18px}.sv-kv li{grid-template-columns:120px minmax(0,1fr)}.sv-mega__in{grid-template-columns:1fr}}

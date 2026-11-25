@@ -120,7 +120,7 @@ export default async function Home() {
             <p>From a first workshop to 24/7 operation — in Vietnam and across ten offices worldwide.</p>
           </div>
           <div className="sv-home__cta-actions">
-            <Button href="/contact" onBand>Contact sales</Button>
+            <Button href="/contact">Contact sales</Button>
             <Button href="mailto:sales@savis-group.com" variant="ghost" onBand>sales@savis-group.com</Button>
           </div>
         </div>

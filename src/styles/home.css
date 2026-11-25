@@ -102,7 +102,8 @@
 /* ---------- Closing call to action ---------- */
 .sv-home__cta{background:linear-gradient(135deg,var(--surface-inverse),var(--brand));color:var(--on-band)}
 .sv-home__cta .sv-wrap{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap}
-.sv-home__cta h2{margin:6px 0;font:700 var(--fs-h2)/1.1 var(--font-display);color:var(--on-band)}
+.sv-home__cta{padding-block:44px}
+.sv-home__cta h2{margin:6px 0;font:700 22px/1.2 var(--font-display);color:var(--on-band)}
 .sv-home__cta p{margin:0;color:var(--on-band-muted);max-width:640px}
 .sv-home__cta .sv-eyebrow{color:var(--band-eyebrow)}
 .sv-home__cta-actions{display:flex;gap:12px;flex-wrap:wrap}

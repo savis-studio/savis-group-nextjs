@@ -56,7 +56,8 @@
 
 /* Footer: four link columns plus brand */
 .sv-footer__cols--5{grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr))}
-.sv-footer__top{grid-template-columns:minmax(0,1fr) minmax(0,4fr)}
+.sv-footer__top{grid-template-columns:minmax(0,1fr) minmax(0,5fr)}
+.sv-footer__base a{text-underline-offset:2px}
 @media (max-width:860px){.sv-footer__top{grid-template-columns:1fr}}
 .sv-footer__base a{text-decoration:underline;text-underline-offset:3px}
 
