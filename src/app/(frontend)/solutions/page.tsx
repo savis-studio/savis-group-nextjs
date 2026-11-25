@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import { PageShell } from "@/components/page/PageShell";
 import { NextSteps } from "@/components/solutions/Blocks";
 import { ChallengePicker, type ChallengePanel } from "@/components/solutions/ChallengePicker";
+import { Journey } from "@/components/solutions/Journey";
 import { Button, PillarCard, Section, SectionHead } from "@/components/ui";
+import { SmartLink } from "@/components/ui/SmartLink";
+import { Thumb } from "@/components/ui/Thumb";
 import { CHALLENGES } from "@/data/challenges";
 import {
   getPillars, getProduct, getProductDetail, getProducts, getUseCase, getUseCases, groupsOfPillar, productsOfGroup,
@@ -10,6 +13,22 @@ import {
 import { buildMetadata } from "@/lib/seo";
 
 const PATH = "/solutions";
+
+const PILLAR_ICON: Record<string, string> = { identity: "face", cyber: "shield", gov: "gov", finance: "root", ai: "chip" };
+
+/** One digital life end to end: which SAVIS products sit behind each step. */
+const LIFE = {
+  eyebrow: "One customer journey",
+  title: "Every step of a digital life, secured by SAVIS",
+  steps: [
+    { href: "/solutions/identity", title: "Enrol & verify", text: "Prove who you are remotely: chip ID, face match and liveness.", products: ["SAVIS TrustOnboard", "SAVIS Liveness & Deepfake Defense"] },
+    { href: "/solutions/identity", title: "Log in", text: "Passwordless, phishing-resistant authentication on any device.", products: ["FIDO2 Passwordless Identity", "SAM Appliance"] },
+    { href: "/solutions/identity", title: "Sign", text: "Legally binding remote signatures with keys kept in the HSM.", products: ["TrustCA Remote Signing", "Smart eContract"] },
+    { href: "/solutions/finance", title: "Pay & transact", text: "Open APIs, consent, 3-D Secure and transaction signing.", products: ["Open Banking Suite", "3D Secure 2.0"] },
+    { href: "/solutions/gov", title: "Use public services", text: "One-stop services and a super app for citizens.", products: ["SAVIS SuperApp platform", "One-Stop-Shop"] },
+    { href: "/solutions/cyber", title: "Protected 24/7", text: "Zero Trust, key protection and round-the-clock monitoring.", products: ["Zero Trust Gateway Appliance", "SAVIS AI SOC"] },
+  ],
+};
 
 export const metadata: Metadata = buildMetadata({
   title: "Solutions & Products",
@@ -64,10 +83,10 @@ export default function SolutionsPage() {
         </>
       }
       aside={
-        <ul className="sv-stats">
-          <li><b>{pillars.length}</b>pillars</li>
-          <li><b>{total}</b>products</li>
-          <li><b>{getUseCases().length}</b>use cases</li>
+        <ul className="sv-hero__list">
+          {pillars.map((p) => (
+            <li key={p.id}><SmartLink href={`/solutions/${p.id}`}><em>{p.n}</em>{p.name}<span aria-hidden="true">→</span></SmartLink></li>
+          ))}
         </ul>
       }
       cta={false}
@@ -77,22 +96,29 @@ export default function SolutionsPage() {
         <ChallengePicker panels={panels()} />
       </Section>
 
+      <Journey journey={LIFE as never} />
+
       <Section tone="surface" id="pillars">
         <SectionHead eyebrow="Five solution pillars" title="Explore by pillar" />
-        <div className="sv-pillars">
-          {pillars.map((p, i) => (
+        <div className="sv-pillars sv-pillars--5">
+          {pillars.map((p) => (
             <PillarCard
               key={p.id}
-              lead={i === 0}
+              art={<Thumb spec={{ cls: p.id, icon: PILLAR_ICON[p.id] ?? "shield", lbl: `~sol-${p.id}` }} />}
               number={p.n}
               title={p.name}
-              subtitle={`${products.filter((x) => x.pillar === p.slug).length} products`}
               href={`/solutions/${p.id}`}
-              tags={p.tags.slice(0, 6)}
             >
               {p.pitch}
             </PillarCard>
           ))}
+        </div>
+        <div className="sv-deliver">
+          <div>
+            <b>Need a team to deliver it?</b>
+            <span>Services · From assessment to 24/7 operations, by the team that makes the technology.</span>
+          </div>
+          <SmartLink href="/services">Explore services →</SmartLink>
         </div>
       </Section>
 
