@@ -5,6 +5,8 @@ import { PageShell } from "@/components/page/PageShell";
 import { JumpBar, LinkPills, NextSteps } from "@/components/solutions/Blocks";
 import { Button, Card, ProductCard, Section, SectionHead } from "@/components/ui";
 import { SmartLink } from "@/components/ui/SmartLink";
+import { Thumb } from "@/components/ui/Thumb";
+import { productThumb, useCaseThumb } from "@/lib/thumbs";
 import {
   casesOfIndustry, getCaseCategories, getIndustries, getIndustry, getProduct, pillarById, roleTags, useCasesOfIndustry,
 } from "@/lib/content";
@@ -60,7 +62,7 @@ export default async function IndustryPage({ params }: Props) {
         <SectionHead eyebrow="Recommended" title={`Products for ${ind.name}`} />
         <div className="sv-grid">
           {featured.map((p) => (
-            <ProductCard key={p.slug} name={p.name} description={p.desc} tags={roleTags(p)} href={`/products/${p.slug}`} />
+            <ProductCard key={p.slug} thumb={<Thumb spec={productThumb(p)} />} name={p.name} description={p.desc} tags={roleTags(p)} href={`/products/${p.slug}`} />
           ))}
         </div>
         {products.length > FEATURED && (
@@ -86,7 +88,7 @@ export default async function IndustryPage({ params }: Props) {
           <SectionHead eyebrow="Use cases" title={`How ${ind.name} teams apply it`} />
           <div className="sv-cols3">
             {ucs.map((u) => (
-              <Card key={u.id} title={u.name} href={`/use-cases/${u.id}`} cta="See how it works">{u.tagline}</Card>
+              <Card key={u.id} thumb={<Thumb spec={useCaseThumb(u)} />} title={u.name} href={`/use-cases/${u.id}`} cta="See how it works">{u.tagline}</Card>
             ))}
           </div>
         </Section>

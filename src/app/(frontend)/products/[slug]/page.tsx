@@ -7,6 +7,8 @@ import { Architecture } from "@/components/solutions/Architecture";
 import { Faq, FeatureGrid, InfoCard, JumpBar, LinkPills, Roadmap } from "@/components/solutions/Blocks";
 import { Button, Card, Chip, KeyValueList, ProductCard, Section, SectionHead } from "@/components/ui";
 import { SmartLink } from "@/components/ui/SmartLink";
+import { Thumb } from "@/components/ui/Thumb";
+import { productThumb, useCaseThumb } from "@/lib/thumbs";
 import {
   casesOfProduct, getCaseCategories, getGroup, getProduct, getProductArch, getProductDetail, getProducts, industriesOfProduct,
   pillarOfProduct, productFaq, productsOfGroup, roleTags, useCasesOfProduct,
@@ -157,7 +159,7 @@ export default async function ProductPage({ params }: Props) {
           <SectionHead eyebrow="Applied in" title="Use cases with this product" />
           <div className="sv-cols3">
             {ucs.map((u) => (
-              <Card key={u.id} title={u.name} href={`/use-cases/${u.id}`} cta="See how it works">{u.tagline}</Card>
+              <Card key={u.id} thumb={<Thumb spec={useCaseThumb(u)} />} title={u.name} href={`/use-cases/${u.id}`} cta="See how it works">{u.tagline}</Card>
             ))}
           </div>
         </Section>
@@ -184,7 +186,7 @@ export default async function ProductPage({ params }: Props) {
           <SectionHead eyebrow="Related products" title={group ? `More in ${group.name}` : "Related products"} />
           <div className="sv-grid">
             {related.map((x) => (
-              <ProductCard key={x.slug} name={x.name} description={x.desc} tags={roleTags(x)} href={`/products/${x.slug}`} />
+              <ProductCard key={x.slug} thumb={<Thumb spec={productThumb(x)} />} name={x.name} description={x.desc} tags={roleTags(x)} href={`/products/${x.slug}`} />
             ))}
           </div>
         </Section>

@@ -32,6 +32,6 @@ export function DeferredGlobe({ offices, label }: { offices: Office[]; label: st
   return ready ? (
     <Globe offices={offices} label={label} />
   ) : (
-    <div role="img" aria-label={label} style={{ width: "100%", maxWidth: 440, aspectRatio: "1 / 1" }} />
+    <div role="img" aria-label={label} style={{ width: "100%", maxWidth: 440, aspectRatio: "1 / 1", alignSelf: "flex-start" }} />
   );
 }

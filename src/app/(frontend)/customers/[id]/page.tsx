@@ -6,6 +6,8 @@ import { InfoCard, JumpBar, LinkPills, NextSteps } from "@/components/solutions/
 import { Layers } from "@/components/solutions/Layers";
 import { Button, Card, ProductCard, Section, SectionHead } from "@/components/ui";
 import { SmartLink } from "@/components/ui/SmartLink";
+import { Thumb } from "@/components/ui/Thumb";
+import { productThumb, useCaseThumb } from "@/lib/thumbs";
 import {
   getCaseCategories, getCaseDetail, getCases, getIndustry, getProduct, roleTags, useCasesOfCase,
 } from "@/lib/content";
@@ -97,7 +99,7 @@ export default async function CasePage({ params }: Props) {
           <SectionHead eyebrow="Products used" title="The SAVIS products behind this programme" />
           <div className="sv-grid">
             {products.map((p) => (
-              <ProductCard key={p.slug} name={p.name} description={p.desc} tags={roleTags(p)} href={`/products/${p.slug}`} />
+              <ProductCard key={p.slug} thumb={<Thumb spec={productThumb(p)} />} name={p.name} description={p.desc} tags={roleTags(p)} href={`/products/${p.slug}`} />
             ))}
           </div>
         </Section>
@@ -107,7 +109,7 @@ export default async function CasePage({ params }: Props) {
         <Section tone="surface">
           <SectionHead eyebrow="Use cases" title="See the journey" />
           <div className="sv-cols3">
-            {ucs.map((u) => <Card key={u.id} title={u.name} href={`/use-cases/${u.id}`} cta="See how it works">{u.tagline}</Card>)}
+            {ucs.map((u) => <Card key={u.id} thumb={<Thumb spec={useCaseThumb(u)} />} title={u.name} href={`/use-cases/${u.id}`} cta="See how it works">{u.tagline}</Card>)}
           </div>
         </Section>
       )}

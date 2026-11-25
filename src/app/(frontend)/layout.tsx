@@ -3,9 +3,11 @@ import { Sora, Inter } from "next/font/google";
 import "@/styles/generated/tokens.css";
 import "@/styles/savis.css";
 import "@/styles/layout.css";
+import "@/styles/vx.css";
 import "./globals.css";
 import { AppHeader } from "@/components/layout/AppHeader";
 import { AppFooter } from "@/components/layout/AppFooter";
+import { VxActivate } from "@/components/ui/VxActivate";
 import { getProducts } from "@/lib/content";
 import { getCatalog } from "@/lib/cms";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_ORIGIN, SITE_TAGLINE } from "@/lib/site";
@@ -38,6 +40,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <AppHeader {...catalog} productHrefs={productHrefs} />
         <div id="main">{children}</div>
         <AppFooter {...catalog} />
+        <VxActivate />
       </body>
     </html>
   );

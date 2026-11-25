@@ -4,6 +4,8 @@ import { JumpBar } from "@/components/solutions/Blocks";
 import { Button, Card, Section, SectionHead } from "@/components/ui";
 import { getPillars, getUseCases } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
+import { Thumb } from "@/components/ui/Thumb";
+import { useCaseThumb } from "@/lib/thumbs";
 
 const PATH = "/use-cases";
 
@@ -40,7 +42,7 @@ export default function UseCasesPage() {
             <SectionHead eyebrow={`Pillar ${p.n}`} title={p.name} />
             <div className="sv-cols3">
               {items.map((u) => (
-                <Card key={u.id} title={u.name} href={`/use-cases/${u.id}`} cta={`${u.flow.length} steps`}>
+                <Card key={u.id} thumb={<Thumb spec={useCaseThumb(u, `${u.flow.length} steps`)} />} title={u.name} href={`/use-cases/${u.id}`} cta={`${u.flow.length} steps`}>
                   {u.tagline}
                 </Card>
               ))}

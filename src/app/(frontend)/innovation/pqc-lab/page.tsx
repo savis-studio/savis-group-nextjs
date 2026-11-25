@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { productThumb } from "@/lib/thumbs";
+import { Thumb } from "@/components/ui/Thumb";
 import { PageShell } from "@/components/page/PageShell";
 import { InfoCard, LinkPills } from "@/components/solutions/Blocks";
 import { Steps } from "@/components/solutions/Layers";
@@ -72,7 +74,7 @@ export default function PqcLabPage() {
         <Section tone="surface">
           <SectionHead eyebrow="From lab to production" title="Related solutions" />
           <div className="sv-grid">
-            {related.map((p) => <ProductCard key={p.slug} name={p.name} description={p.desc} tags={roleTags(p)} href={`/products/${p.slug}`} />)}
+            {related.map((p) => <ProductCard key={p.slug} thumb={<Thumb spec={productThumb(p)} />} name={p.name} description={p.desc} tags={roleTags(p)} href={`/products/${p.slug}`} />)}
           </div>
         </Section>
       )}

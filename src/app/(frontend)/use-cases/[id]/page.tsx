@@ -6,6 +6,8 @@ import { InfoCard, JumpBar, LinkPills, NextSteps } from "@/components/solutions/
 import { Layers, Steps } from "@/components/solutions/Layers";
 import { Button, Card, ProductCard, Section, SectionHead } from "@/components/ui";
 import { SmartLink } from "@/components/ui/SmartLink";
+import { Thumb } from "@/components/ui/Thumb";
+import { productThumb, useCaseThumb } from "@/lib/thumbs";
 import {
   getCase, getCaseCategories, getIndustry, getProduct, getUseCase, getUseCases, pillarById, roleTags,
 } from "@/lib/content";
@@ -93,7 +95,7 @@ export default async function UseCasePage({ params }: Props) {
         <SectionHead eyebrow="Products behind it" title="What powers this use case" />
         <div className="sv-grid">
           {products.map((p) => (
-            <ProductCard key={p.slug} name={p.name} description={p.desc} tags={roleTags(p)} href={`/products/${p.slug}`} />
+            <ProductCard key={p.slug} thumb={<Thumb spec={productThumb(p)} />} name={p.name} description={p.desc} tags={roleTags(p)} href={`/products/${p.slug}`} />
           ))}
         </div>
       </Section>
@@ -111,7 +113,7 @@ export default async function UseCasePage({ params }: Props) {
         <Section tone="surface">
           <SectionHead eyebrow="Related" title="More in this pillar" />
           <div className="sv-cols3">
-            {related.map((x) => <Card key={x.id} title={x.name} href={`/use-cases/${x.id}`} cta="See how it works">{x.tagline}</Card>)}
+            {related.map((x) => <Card key={x.id} thumb={<Thumb spec={useCaseThumb(x)} />} title={x.name} href={`/use-cases/${x.id}`} cta="See how it works">{x.tagline}</Card>)}
           </div>
         </Section>
       )}

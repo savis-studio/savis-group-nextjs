@@ -32,6 +32,7 @@ const readAll = unstable_cache(
       type: d.type,
       date: d.dateLabel || (d.publishedAt ? label(d.publishedAt) : ""),
       iso: d.publishedAt ? d.publishedAt.slice(0, 10) : undefined,
+      scene: d.scene,
       title: d.title,
       sum: d.summary,
       tags: (d.tags ?? []).map((t) => t.tag),

@@ -3,6 +3,8 @@ import { PageShell } from "@/components/page/PageShell";
 import { Button, Card, Section, SectionHead } from "@/components/ui";
 import { INDUSTRY_GROUPS, getIndustry } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
+import { IndustryThumb } from "@/components/ui/Thumb";
+import { industryThumb } from "@/lib/thumbs";
 
 const PATH = "/industries";
 
@@ -32,11 +34,11 @@ export default function IndustriesPage() {
         <Section key={title} tone={i % 2 ? "surface" : "default"}>
           <SectionHead eyebrow="Sector" title={title} />
           <div className="sv-grid">
-            {ids.flatMap((id) => {
+            {ids.flatMap((id, i) => {
               const ind = getIndustry(id);
               if (!ind) return [];
               return [
-                <Card key={id} title={ind.name} href={`/industries/${id}`} cta="Explore">
+                <Card key={id} thumb={<IndustryThumb {...industryThumb(ind.name, i)} />} title={ind.name} href={`/industries/${id}`} cta="Explore">
                   {ind.pitch}
                 </Card>,
               ];

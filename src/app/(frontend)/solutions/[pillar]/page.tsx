@@ -7,6 +7,8 @@ import { Button, Card, Section, SectionHead } from "@/components/ui";
 import { SmartLink } from "@/components/ui/SmartLink";
 import { getJourney, getPillars, getUseCases, groupsOfPillar, pillarById, productsOfGroup } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
+import { Thumb } from "@/components/ui/Thumb";
+import { useCaseThumb } from "@/lib/thumbs";
 
 export const dynamicParams = false;
 export const generateStaticParams = () => getPillars().map((p) => ({ pillar: p.id }));
@@ -52,7 +54,7 @@ export default async function PillarPage({ params }: Props) {
           <SectionHead eyebrow="Challenges we solve" title={`Where ${p.name} makes the difference`} />
           <div className="sv-cols3">
             {ucs.map((u) => (
-              <Card key={u.id} title={u.name} href={`/use-cases/${u.id}`} cta="See how it works">
+              <Card key={u.id} thumb={<Thumb spec={useCaseThumb(u)} />} title={u.name} href={`/use-cases/${u.id}`} cta="See how it works">
                 {u.problem} <b style={{ color: "var(--ink)" }}>{u.tagline}</b>
               </Card>
             ))}

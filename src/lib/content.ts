@@ -10,7 +10,7 @@ import { hashToPath } from "./routes";
 export interface Pillar { id: string; n: string; name: string; vi: string; slug: string; pitch: string; tags: string[] }
 export interface CaseStudy { id: string; cat: string; featured?: boolean; client: string; country: string; title: string; summary: string }
 export interface CaseCategory { id: string; name: string }
-export interface NewsItem { id: string; cat: string; type: string; date: string; iso?: string; title: string; sum: string }
+export interface NewsItem { id: string; cat: string; type: string; date: string; iso?: string; title: string; sum: string; scene?: string | null }
 export interface AudienceLink { kind: string; label: string; href: string }
 export interface Audience {
   id: string; label: string; title: string; lead: string;
