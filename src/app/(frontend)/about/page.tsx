@@ -4,11 +4,13 @@ import { InfoCard, JumpBar, LinkPills, NextSteps } from "@/components/solutions/
 import { Button, Card, Section, SectionHead } from "@/components/ui";
 import { SmartLink } from "@/components/ui/SmartLink";
 import {
-  ABOUT_STATS, LEADERS, MEMBER_COMPANIES, MILESTONES, MISSION, NAME_MEANING, RESEARCH_LABS, SECTORS_SERVED, SIGNATURE,
+  LEADERS, MEMBER_COMPANIES, MILESTONES, MISSION, NAME_MEANING, RESEARCH_LABS, SECTORS_SERVED, SIGNATURE,
   STORY_ERAS, STORY_INTRO, STRATEGY_DIRECTIONS, TRACK_RECORD, VALUES,
 } from "@/data/company-pages";
 import company from "@/data/mockup/company.json";
 import { buildMetadata } from "@/lib/seo";
+import { DeferredGlobe } from "@/components/home/Deferred";
+import { getOffices } from "@/lib/content";
 
 const PATH = "/about";
 
@@ -36,7 +38,7 @@ export default function AboutPage() {
           <Button href="/careers" variant="ghost" onBand>Join us</Button>
         </>
       }
-      aside={<ul className="sv-stats">{ABOUT_STATS.map(([v, l]) => <li key={l}><b>{v}</b>{l}</li>)}</ul>}
+      aside={<DeferredGlobe offices={getOffices()} label="Globe showing SAVIS offices connected to Hanoi headquarters" />}
       cta={false}
     >
       <JumpBar
