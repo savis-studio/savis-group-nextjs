@@ -71,6 +71,7 @@ export interface Config {
     media: Media;
     pillars: Pillar;
     industries: Industry;
+    inquiries: Inquiry;
     'audit-logs': AuditLog;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
@@ -83,6 +84,7 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     pillars: PillarsSelect<false> | PillarsSelect<true>;
     industries: IndustriesSelect<false> | IndustriesSelect<true>;
+    inquiries: InquiriesSelect<false> | InquiriesSelect<true>;
     'audit-logs': AuditLogsSelect<false> | AuditLogsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
@@ -214,6 +216,33 @@ export interface Industry {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "inquiries".
+ */
+export interface Inquiry {
+  id: number;
+  name: string;
+  email: string;
+  organization?: string | null;
+  country?: string | null;
+  phone?: string | null;
+  topic:
+    | 'Request a demo'
+    | 'Get a quote'
+    | 'Datasheets & brochure'
+    | 'Talk to an expert'
+    | 'Customer support'
+    | 'Developer / sandbox access'
+    | 'Partnership';
+  pillar?: string | null;
+  timeline?: string | null;
+  message: string;
+  sourcePath?: string | null;
+  status?: ('new' | 'in-progress' | 'answered' | 'spam') | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "audit-logs".
  */
 export interface AuditLog {
@@ -265,6 +294,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'industries';
         value: number | Industry;
+      } | null)
+    | ({
+        relationTo: 'inquiries';
+        value: number | Inquiry;
       } | null)
     | ({
         relationTo: 'audit-logs';
@@ -386,6 +419,25 @@ export interface PillarsSelect<T extends boolean = true> {
 export interface IndustriesSelect<T extends boolean = true> {
   name?: T;
   slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "inquiries_select".
+ */
+export interface InquiriesSelect<T extends boolean = true> {
+  name?: T;
+  email?: T;
+  organization?: T;
+  country?: T;
+  phone?: T;
+  topic?: T;
+  pillar?: T;
+  timeline?: T;
+  message?: T;
+  sourcePath?: T;
+  status?: T;
   updatedAt?: T;
   createdAt?: T;
 }

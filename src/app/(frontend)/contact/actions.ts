@@ -1,0 +1,74 @@
+"use server";
+
+import config from "@payload-config";
+import { headers } from "next/headers";
+import { getPayload } from "payload";
+import { INQUIRY_TOPICS } from "@/collections/Inquiries";
+
+export interface ContactState {
+  status: "idle" | "ok" | "error";
+  message?: string;
+  /** Field-level errors keyed by field name. */
+  errors?: Partial<Record<"name" | "email" | "topic" | "message", string>>;
+}
+
+const WINDOW_MS = 10 * 60 * 1000;
+const MAX_PER_WINDOW = 5;
+const hits = new Map<string, number[]>();
+
+/** Best-effort per-IP limit. In memory, so it resets on restart and is per instance; Cloudflare is the real guard. */
+function limited(ip: string): boolean {
+  const now = Date.now();
+  const recent = (hits.get(ip) ?? []).filter((t) => now - t < WINDOW_MS);
+  recent.push(now);
+  hits.set(ip, recent);
+  if (hits.size > 5000) for (const [k, v] of hits) if (!v.some((t) => now - t < WINDOW_MS)) hits.delete(k);
+  return recent.length > MAX_PER_WINDOW;
+}
+
+const text = (f: FormData, k: string, max: number) => String(f.get(k) ?? "").trim().slice(0, max);
+const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+export async function submitInquiry(_prev: ContactState, form: FormData): Promise<ContactState> {
+  // Honeypot: real visitors never fill this hidden field. Pretend success so bots learn nothing.
+  if (text(form, "website", 200)) return { status: "ok" };
+
+  const name = text(form, "name", 120);
+  const email = text(form, "email", 200).toLowerCase();
+  const topic = text(form, "topic", 60);
+  const message = text(form, "message", 4000);
+
+  const errors: NonNullable<ContactState["errors"]> = {};
+  if (!name) errors.name = "Enter your name.";
+  if (!EMAIL.test(email)) errors.email = "Enter a valid work email.";
+  if (!(INQUIRY_TOPICS as readonly string[]).includes(topic)) errors.topic = "Choose what you need.";
+  if (message.length < 10) errors.message = "Tell us a little more (at least 10 characters).";
+  if (Object.keys(errors).length) return { status: "error", errors };
+
+  const h = await headers();
+  const ip = h.get("cf-connecting-ip") ?? h.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
+  if (limited(ip)) return { status: "error", message: "Too many messages from your network. Please try again in a few minutes." };
+
+  try {
+    const payload = await getPayload({ config });
+    await payload.create({
+      collection: "inquiries",
+      data: {
+        name,
+        email,
+        topic: topic as (typeof INQUIRY_TOPICS)[number],
+        message,
+        organization: text(form, "organization", 160),
+        country: text(form, "country", 80),
+        phone: text(form, "phone", 40),
+        pillar: text(form, "pillar", 120),
+        timeline: text(form, "timeline", 60),
+        sourcePath: text(form, "sourcePath", 200),
+      },
+    });
+    return { status: "ok" };
+  } catch (err) {
+    console.error("contact form: could not save inquiry", err);
+    return { status: "error", message: "We could not send your message. Please email sales@savis-group.com instead." };
+  }
+}

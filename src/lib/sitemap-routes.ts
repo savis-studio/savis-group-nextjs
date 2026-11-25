@@ -36,12 +36,12 @@ export const STATIC_ROUTES: SitemapRoute[] = [
   staticRoute("/about/integrity", true, 0.4),
   staticRoute("/partners", true, 0.6),
   staticRoute("/careers", true, 0.6),
-  staticRoute("/contact", false, 0.7),
+  staticRoute("/contact", true, 0.7),
   staticRoute("/investors", true, 0.5),
   staticRoute("/trust-center", true, 0.6),
-  staticRoute("/privacy", false, 0.2),
-  staticRoute("/terms", false, 0.2),
-  staticRoute("/cookies", false, 0.2),
+  staticRoute("/privacy", true, 0.2),
+  staticRoute("/terms", true, 0.2),
+  staticRoute("/cookies", true, 0.2),
 ];
 
 /** Dynamic collections: one entry per record. Flip `ready` with the phase that builds the detail page. */
