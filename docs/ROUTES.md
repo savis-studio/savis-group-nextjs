@@ -108,3 +108,22 @@ Hash URLs are never seen by the server, so no redirect is needed for them. The p
   existing CMS pillars use the short ids. Routes use the short id.
 - Other inline images may still exist in the mockup's HTML templates (the `*Scene` constants and hero art). Check in Phase 1.
 - `services-*`, `about-*`, `insights-*` are anchors or filters of one page, not separate pages.
+
+## Status after Phase 6 (2026-11-25)
+
+All routes above are built except `/resources` and `/resources/[kind]`, which were dropped (no reports or whitepaper data was
+extracted). Mockup links to it (`#resources-*`, `#report-*`, `#tech-bulletins`) resolve to `/insights`, and
+`#resources-datasheets` to `/solutions`; see `src/lib/routes.ts`. If `/resources` is built later, remove those mappings.
+
+Checks, run against a production build (for example `CF_ACCESS_ENFORCE=off npx next start -p 3150`):
+
+- `npm run check`: route mapper and SEO helpers (unit level).
+- `npm run audit [baseUrl]`: crawls every sitemap URL for status, title and description length, canonical, one `<h1>`, `lang`,
+  Open Graph, JSON-LD validity, image `alt`, duplicate ids, placeholder `href="#"`, and every internal link and `#anchor`.
+  Last run: 309 pages, 0 errors, 0 warnings.
+- Lighthouse 12 (local, default mobile settings): SEO 100 on all sampled pages; accessibility 98 to 100; best practices 96 to 100;
+  performance 84 to 95 (home is lowest: LCP about 3.4 s and about 400 ms blocking time from the hero canvases).
+
+Known gaps: no site search (the button was removed from the header); no cookie-consent UI (the "Cookie settings" footer link
+was removed, but the cookie policy text still describes analytics and marketing consent); contact messages are stored in Payload
+(`inquiries`) with no email notification.

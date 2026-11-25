@@ -28,7 +28,8 @@ export function HomeHero({ offices, stats }: HomeHeroProps) {
             <span className="sv-eyebrow sv-eyebrow--on-band sv-eyebrow--rule">Trusted Digital Infrastructure for a Smarter World</span>
             <h1>
               Identity, trust and secure platforms for{" "}
-              <span className="sv-home__rot" aria-label="nations, banks, smart cities and enterprises">
+              <span className="sv-home__rot">
+                <span className="sr-only">nations, banks, smart cities and enterprises</span>
                 {WORDS.map((w, i) => (
                   <b key={w} style={{ "--i": i } as CSSProperties} aria-hidden="true">{w}</b>
                 ))}

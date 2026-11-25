@@ -23,6 +23,7 @@ export const metadata: Metadata = {
   title: { default: `${SITE_NAME} — ${SITE_TAGLINE}`, template: `%s | ${SITE_NAME}` },
   description: SITE_DESCRIPTION,
   applicationName: SITE_NAME,
+  icons: { icon: "/brand/logo-mark.svg" },
 };
 
 /** Product name → page, so the mega menu links each product to its own page. */

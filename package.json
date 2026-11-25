@@ -13,6 +13,7 @@
     "payload": "payload",
     "generate:types": "payload generate:types",
     "generate:importmap": "payload generate:importmap",
+    "audit": "tsx scripts/audit-site.ts",
     "check": "tsx scripts/check-seo.ts"
   },
   "dependencies": {

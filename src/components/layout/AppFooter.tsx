@@ -21,22 +21,22 @@ export function AppFooter({ pillars, industries }: Catalog) {
           </div>
           <nav className="sv-footer__cols sv-footer__cols--5" aria-label="Footer">
             <div>
-              <h4>Solutions &amp; Products</h4>
+              <h2 className="sv-footer__h">Solutions &amp; Products</h2>
               <ul>
                 {pillars.map((p) => <li key={p.id}><SmartLink href={`#pillar-${p.id}`}>{p.name}</SmartLink></li>)}
                 {footerSolutions.map((l) => <li key={l.label}><SmartLink href={l.href}>{l.label}</SmartLink></li>)}
               </ul>
             </div>
             <div>
-              <h4>Industries</h4>
+              <h2 className="sv-footer__h">Industries</h2>
               <ul>{industries.map((i) => <li key={i.id}><SmartLink href={`#ind-${i.id}`}>{i.name.split(",")[0]}</SmartLink></li>)}</ul>
             </div>
             <div>
-              <h4>Global offices</h4>
+              <h2 className="sv-footer__h">Global offices</h2>
               <ul>{footerOffices.map((o) => <li key={o}><span>{o}</span></li>)}</ul>
             </div>
             <div>
-              <h4>Company</h4>
+              <h2 className="sv-footer__h">Company</h2>
               <ul>{footerCompany.map((l) => <li key={l.label}><SmartLink href={l.href}>{l.label}</SmartLink></li>)}</ul>
             </div>
           </nav>

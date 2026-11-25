@@ -19,7 +19,7 @@ export function Logo({ onDark, basePath = "/brand", sources, href = "/", classNa
   return (
     <a href={href} className={cn("sv-logo", className)} aria-label="SAVIS Group home">
       <img className="sv-logo__mark" src={s.mark} alt="" width={48} height={48} />
-      <img className="sv-logo__word" src={onDark ? s.wordWhite : s.word} alt="" height={34} />
+      <img className="sv-logo__word" src={onDark ? s.wordWhite : s.word} alt="" width={83} height={34} />
     </a>
   );
 }
