@@ -1,7 +1,7 @@
 /* Header and footer content, taken from the final savis.vn V3 mockup.
    Every href is a "#" placeholder until the real routes exist. */
 export interface Link { label: string; href: string }
-export interface FeatureCard { tag: string; title: string; cta: string; href: string; art?: { cls: string; icon: string; lbl?: string } }
+export interface FeatureCard { photo?: string; tag: string; title: string; cta: string; href: string; art?: { cls: string; icon: string; lbl?: string } }
 
 export const utilityLinks: Link[] = [
   { label: "Who are you?", href: "#who" },
@@ -74,7 +74,7 @@ export const resourcesMenu = {
   ] as Link[],
   all: { label: "Resource library →", href: "#resources" },
   cards: [
-    { tag: "Video", title: "Our history, vision, growth and global reach", cta: "Watch the film →", href: "#resources-videos", art: { cls: "identity", icon: "mega", lbl: "SAVIS · Brand film|mx-film-brand" } },
+    { photo: "/images/company/film-poster.jpg", tag: "Video", title: "Our history, vision, growth and global reach", cta: "Watch the film →", href: "#resources-videos", art: { cls: "identity", icon: "mega", lbl: "SAVIS · Brand film|mx-film-brand" } },
     { tag: "Datasheet", title: "SAVIS TrustOnboard", cta: "View datasheet →", href: "#ds-trustonboard", art: { cls: "identity", icon: "face", lbl: "~mx-ds-trustonboard" } },
     { tag: "Brochure", title: "Cybersecurity & Quantum-Safe Infrastructure", cta: "Read the brochure →", href: "#pillar-cyber", art: { cls: "cyber", icon: "shield", lbl: "~mx-br-cyber" } },
   ] as FeatureCard[],
@@ -92,9 +92,9 @@ export const companyMenu = {
   partner: { label: "Partner Portal →", href: "#partner-portal" },
   all: { label: "About SAVIS Group →", href: "#about" },
   cards: [
-    { tag: "About SAVIS", title: "22 years of digital trust, made in Vietnam and trusted worldwide.", cta: "Our story →", href: "#about", art: { cls: "identity", icon: "root", lbl: "~mx-about" } },
-    { tag: "Careers", title: "Join our team of engineers, experts and researchers.", cta: "See careers at SAVIS →", href: "#careers", art: { cls: "ai", icon: "chip", lbl: "~mx-careers" } },
-    { tag: "Events", title: "Find us at industry events around the world.", cta: "SAVIS at SICW 2026 →", href: "#news-sicw-2026", art: { cls: "gov", icon: "gov", lbl: "~mx-events" } },
+    { photo: "/images/company/anniversary.jpg", tag: "About SAVIS", title: "22 years of digital trust, made in Vietnam and trusted worldwide.", cta: "Our story →", href: "#about", art: { cls: "identity", icon: "root", lbl: "~mx-about" } },
+    { photo: "/images/company/team-meeting.jpg", tag: "Careers", title: "Join our team of engineers, experts and researchers.", cta: "See careers at SAVIS →", href: "#careers", art: { cls: "ai", icon: "chip", lbl: "~mx-careers" } },
+    { photo: "/images/company/sicw-2026.jpg", tag: "Events", title: "Find us at industry events around the world.", cta: "SAVIS at SICW 2026 →", href: "#news-sicw-2026", art: { cls: "gov", icon: "gov", lbl: "~mx-events" } },
   ] as FeatureCard[],
 };
 

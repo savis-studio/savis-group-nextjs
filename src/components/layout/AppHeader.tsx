@@ -20,7 +20,7 @@ function Cards({ cards, art, onNavigate }: { cards: FeatureCard[]; art: Record<s
     <div className="sv-mx__cards">
       {cards.map((c) => (
         <SmartLink key={c.title} href={c.href} className="sv-mx__card" onClick={onNavigate}>
-          <span className={`sv-mx__thumb${c.art ? ` uc-th-${c.art.cls}` : ""}`} aria-hidden="true">{art[c.title] && <span dangerouslySetInnerHTML={{ __html: art[c.title] }} />}</span>
+          <span className={`sv-mx__thumb${c.art ? ` uc-th-${c.art.cls}` : ""}`} aria-hidden="true">{c.photo ? <img src={c.photo} alt="" loading="lazy" className="sv-mx__photo" /> : art[c.title] && <span dangerouslySetInnerHTML={{ __html: art[c.title] }} />}</span>
           <span className="sv-mx__body">
             <em>{c.tag}</em>
             <b>{c.title}</b>

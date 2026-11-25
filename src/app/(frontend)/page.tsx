@@ -40,8 +40,8 @@ const FEATURED_NEWS: Array<[id: string, tone: string]> = [
   ["one-core-national-profiles", "teal"],
 ];
 
-/** Set to the video's URL (for example "/media/brand-film.mp4") to show the film section. The file is not in the repo yet. */
-const BRAND_FILM: { src: string; poster?: string; caption: string } | null = null;
+/** The SAVIS Group story film. Set to null to hide the film section. */
+const BRAND_FILM: { src: string; poster?: string; caption: string } | null = { src: "/video/savis-story.mp4", poster: "/images/company/film-poster.jpg", caption: "SAVIS Group: our history, vision, growth and global reach" };
 
 export default async function Home() {
   const articles = await getArticles();
