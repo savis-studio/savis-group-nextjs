@@ -32,21 +32,29 @@ export function ContactForm({ defaultTopic }: { defaultTopic?: string }) {
   }
 
   return (
-    <form action={action} noValidate className="sv-form" style={{ display: "grid", gap: 16 }}>
+    <form action={action} noValidate className="sv-form sv-card" style={{ display: "grid", gap: 16 }}>
       {state.status === "error" && state.message && <Alert tone="error" title="Message not sent">{state.message}</Alert>}
       <input type="hidden" name="sourcePath" value="/contact" />
       {/* Honeypot: hidden from people and assistive tech. */}
       <div aria-hidden="true" style={{ position: "absolute", left: -9999, width: 1, height: 1, overflow: "hidden" }}>
         <label>Website<input type="text" name="website" tabIndex={-1} autoComplete="off" /></label>
       </div>
-      <TextField as="select" name="topic" label="What do you need?" required options={opts(TOPICS)} placeholder="Choose…" defaultValue={defaultTopic} error={e.topic} />
-      <TextField name="name" label="Full name" required autoComplete="name" error={e.name} />
-      <TextField name="organization" label="Organization" autoComplete="organization" />
-      <TextField name="email" type="email" label="Work email" required autoComplete="email" error={e.email} />
-      <TextField name="country" label="Country" autoComplete="country-name" />
-      <TextField name="phone" type="tel" label="Phone" autoComplete="tel" />
-      <TextField as="select" name="pillar" label="Interested in" options={opts(INTERESTS)} placeholder="Choose…" />
-      <TextField as="select" name="timeline" label="Timeline" options={opts(TIMELINES)} placeholder="Choose…" />
+      <div className="sv-row2">
+        <TextField as="select" name="topic" label="What do you need?" required options={opts(TOPICS)} placeholder="Choose…" defaultValue={defaultTopic} error={e.topic} />
+        <TextField as="select" name="pillar" label="Interested in" options={opts(INTERESTS)} placeholder="Choose…" />
+      </div>
+      <div className="sv-row2">
+        <TextField name="name" label="Full name" required autoComplete="name" error={e.name} />
+        <TextField name="organization" label="Organization" autoComplete="organization" />
+      </div>
+      <div className="sv-row2">
+        <TextField name="email" type="email" label="Work email" required autoComplete="email" error={e.email} />
+        <TextField name="country" label="Country" autoComplete="country-name" />
+      </div>
+      <div className="sv-row2">
+        <TextField name="phone" type="tel" label="Phone" autoComplete="tel" />
+        <TextField as="select" name="timeline" label="Timeline" options={opts(TIMELINES)} placeholder="Choose…" />
+      </div>
       <TextField as="textarea" name="message" label="How can we help?" rows={5} required error={e.message} />
       <p style={{ margin: 0, color: "var(--muted)", fontSize: 14 }}>
         By sending this form you agree that SAVIS Group processes your details to answer your request, as described in our <a href="/privacy">Privacy Policy</a>.

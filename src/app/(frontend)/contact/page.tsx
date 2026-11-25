@@ -40,7 +40,7 @@ export default function ContactPage() {
       cta={false}
     >
       <Section>
-        <div className="sv-grid">
+        <div className="sv-contact">
           <div>
             <SectionHead eyebrow="Send a message" title="What do you need?" />
             <ContactForm />
