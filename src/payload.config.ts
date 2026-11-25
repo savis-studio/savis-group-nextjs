@@ -7,6 +7,7 @@ import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import sharp from "sharp";
 import { AuditLogs } from "./collections/AuditLogs";
 import { Industries } from "./collections/Industries";
+import { Insights } from "./collections/Insights";
 import { Inquiries } from "./collections/Inquiries";
 import { Media } from "./collections/Media";
 import { Pillars } from "./collections/Pillars";
@@ -26,7 +27,7 @@ const origins = [serverURL, ...(process.env.ALLOWED_ORIGINS ?? "").split(",").ma
 export default buildConfig({
   serverURL,
   admin: { user: Users.slug, importMap: { baseDir: path.resolve(dirname) } },
-  collections: [Users, Media, Pillars, Industries, Inquiries, AuditLogs],
+  collections: [Users, Media, Pillars, Industries, Insights, Inquiries, AuditLogs],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET ?? "",
   typescript: { outputFile: path.resolve(dirname, "payload-types.ts") },

@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 
 /**
- * Renders trusted article HTML. Diagrams (`.xd`) start hidden and animate in; this adds `xd-in` when each scrolls
+ * Wraps article content. Diagrams (`.xd`) start hidden and animate in; this adds `xd-in` when each scrolls
  * into view, or at once under reduced motion. Without JS the noscript rule shows them statically.
  */
-export function ArticleBody({ html }: { html: string }) {
+export function ArticleReveal({ children, html }: { children?: ReactNode; html?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const els = Array.from(ref.current?.querySelectorAll<HTMLElement>(".xd") ?? []);
@@ -20,13 +20,20 @@ export function ArticleBody({ html }: { html: string }) {
     }, { threshold: 0.15 });
     els.forEach((e) => io.observe(e));
     return () => io.disconnect();
-  }, [html]);
+  }, [html, children]);
   return (
     <>
       <noscript>
         <style>{".xd *{opacity:1!important;transform:none!important;translate:none!important}.xd-tl ol::before{transform:none!important}"}</style>
       </noscript>
-      <div ref={ref} className="article" style={{ maxWidth: 820, margin: "0 auto" }} dangerouslySetInnerHTML={{ __html: html }} />
+      {html !== undefined ? (
+        <div ref={ref} className="article" style={{ maxWidth: 820, margin: "0 auto" }} dangerouslySetInnerHTML={{ __html: html }} />
+      ) : (
+        <div ref={ref} className="article" style={{ maxWidth: 820, margin: "0 auto" }}>{children}</div>
+      )}
     </>
   );
 }
+
+/** Article from bundled HTML (used while the CMS is unreachable, e.g. during the Docker build). */
+export const ArticleBody = ({ html }: { html: string }) => <ArticleReveal html={html} />;

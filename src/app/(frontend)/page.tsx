@@ -11,8 +11,9 @@ import { NewsTile } from "@/components/home/NewsTile";
 import { StandardsMarquee } from "@/components/home/StandardsMarquee";
 import { Button, PillarCard, Section, SectionHead } from "@/components/ui";
 import { SmartLink } from "@/components/ui/SmartLink";
+import { getArticles } from "@/lib/insights";
 import {
-  getAudienceIcons, getAudiences, getCase, getCaseCategories, getNewsItem, getOffices, getPillars, getStandards,
+  getAudienceIcons, getAudiences, getCase, getCaseCategories, getOffices, getPillars, getStandards,
 } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -39,12 +40,13 @@ const FEATURED_NEWS: Array<[id: string, tone: string]> = [
 /** Set to the video's URL (for example "/media/brand-film.mp4") to show the film section. The file is not in the repo yet. */
 const BRAND_FILM: { src: string; poster?: string; caption: string } | null = null;
 
-export default function Home() {
+export default async function Home() {
+  const articles = await getArticles();
   const pillars = getPillars();
   const categories = new Map(getCaseCategories().map((c) => [c.id, c.name]));
   const cases = FEATURED_CASES.flatMap((id) => getCase(id) ?? []);
   const news = FEATURED_NEWS.flatMap(([id, tone]) => {
-    const item = getNewsItem(id);
+    const item = articles.find((a) => a.id === id);
     return item ? [{ item, tone }] : [];
   });
 

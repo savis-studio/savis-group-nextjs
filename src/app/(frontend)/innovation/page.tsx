@@ -5,7 +5,7 @@ import { InfoCard } from "@/components/solutions/Blocks";
 import { Button, Card, Section, SectionHead } from "@/components/ui";
 import { FOCUS_AREAS, INNOVATION_LABS, RND_PRINCIPLES } from "@/data/company-pages-2";
 import company from "@/data/mockup/company.json";
-import { getNewsItem } from "@/lib/content";
+import { getArticles } from "@/lib/insights";
 import { buildMetadata } from "@/lib/seo";
 
 const PATH = "/innovation";
@@ -18,8 +18,9 @@ export const metadata: Metadata = buildMetadata({
 
 const FEATURED = ["savis-research-2026-whitepaper-guide", "national-digital-id-lessons-nigeria-nin", "fapi-2-open-banking-baseline-singapore"];
 
-export default function InnovationPage() {
-  const articles = FEATURED.flatMap((id) => getNewsItem(id) ?? []);
+export default async function InnovationPage() {
+  const all = await getArticles();
+  const articles = FEATURED.flatMap((id) => all.find((a) => a.id === id) ?? []);
   return (
     <PageShell
       path={PATH}

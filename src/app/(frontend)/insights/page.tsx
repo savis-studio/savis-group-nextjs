@@ -3,7 +3,7 @@ import { NewsTile } from "@/components/home/NewsTile";
 import { PageShell } from "@/components/page/PageShell";
 import { JumpBar } from "@/components/solutions/Blocks";
 import { Section, SectionHead } from "@/components/ui";
-import { getNews } from "@/lib/content";
+import { getArticles } from "@/lib/insights";
 import { buildMetadata } from "@/lib/seo";
 
 const PATH = "/insights";
@@ -20,8 +20,8 @@ const SECTIONS: Array<[type: string, id: string, title: string, eyebrow: string]
   ["press", "press", "Press releases & company news", "Press"],
 ];
 
-export default function InsightsPage() {
-  const all = getNews();
+export default async function InsightsPage() {
+  const all = await getArticles();
   return (
     <PageShell
       path={PATH}

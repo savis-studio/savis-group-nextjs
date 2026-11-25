@@ -3,29 +3,30 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { NewsTile } from "@/components/home/NewsTile";
 import { ArticleBody } from "@/components/page/ArticleBody";
+import { ArticleRichText } from "@/components/page/ArticleRichText";
 import { PageShell } from "@/components/page/PageShell";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { NextSteps } from "@/components/solutions/Blocks";
 import { Button, Chip, Section, SectionHead } from "@/components/ui";
-import { articleHtml, getNews, getNewsDetail } from "@/lib/content";
+import { bundledArticleIds, getArticle, getArticles } from "@/lib/insights";
 import { articleLd, buildMetadata } from "@/lib/seo";
 
-export const dynamicParams = false;
-export const generateStaticParams = () => getNews().map((n) => ({ id: n.id }));
+// Articles from the build are prerendered; ones added in the CMS later render on first visit, then refresh with ISR.
+export const generateStaticParams = () => bundledArticleIds().map((id) => ({ id }));
 
 type Props = { params: Promise<{ id: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const n = getNewsDetail((await params).id);
+  const n = await getArticle((await params).id);
   if (!n) return {};
   return buildMetadata({ title: n.title, description: n.sum, path: `/insights/${n.id}`, type: "article", published: n.iso });
 }
 
 export default async function ArticlePage({ params }: Props) {
-  const n = getNewsDetail((await params).id);
+  const n = await getArticle((await params).id);
   if (!n) notFound();
   const path = `/insights/${n.id}`;
-  const related = getNews().filter((x) => x.cat === n.cat && x.id !== n.id).slice(0, 3);
+  const related = (await getArticles()).filter((x) => x.cat === n.cat && x.id !== n.id).slice(0, 3);
 
   return (
     <PageShell
@@ -39,8 +40,10 @@ export default async function ArticlePage({ params }: Props) {
     >
       <JsonLd data={articleLd({ title: n.title, description: n.sum, path, published: n.iso })} />
       <Section>
-        {n.body.length > 0 ? (
-          <ArticleBody html={articleHtml(n.body)} />
+        {n.body ? (
+          <ArticleRichText data={n.body} />
+        ) : n.html ? (
+          <ArticleBody html={n.html} />
         ) : (
           <p style={{ maxWidth: 820, margin: "0 auto" }}>{n.sum}</p>
         )}

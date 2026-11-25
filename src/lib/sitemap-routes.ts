@@ -1,4 +1,4 @@
-import { getCases, getNews, getPillars } from "./content";
+import { getCases, getNews, getPillars, type NewsItem } from "./content";
 import products from "@/data/mockup/products.json";
 import useCases from "@/data/mockup/use-cases.json";
 import industries from "@/data/mockup/industries.json";
@@ -45,7 +45,7 @@ export const STATIC_ROUTES: SitemapRoute[] = [
 ];
 
 /** Dynamic collections: one entry per record. Flip `ready` with the phase that builds the detail page. */
-export function dynamicRoutes(): SitemapRoute[] {
+export function dynamicRoutes(articles: NewsItem[] = getNews()): SitemapRoute[] {
   const out: SitemapRoute[] = [];
   const add = (ready: boolean, base: string, ids: string[], priority: number) => {
     for (const id of ids) out.push({ path: `${base}/${id}`, ready, priority });
@@ -55,10 +55,10 @@ export function dynamicRoutes(): SitemapRoute[] {
   add(true, "/industries", industries.items.map((i) => i.id), 0.7); // Phase 3
   add(true, "/use-cases", useCases.map((u) => u.id), 0.6); // Phase 3
   add(true, "/customers", getCases().map((c) => c.id), 0.6); // Phase 4
-  for (const n of getNews()) {
+  for (const n of articles) {
     out.push({ path: `/insights/${n.id}`, ready: true, lastModified: n.iso, priority: 0.5 }); // Phase 4
   }
   return out;
 }
 
-export const readyRoutes = (): SitemapRoute[] => [...STATIC_ROUTES, ...dynamicRoutes()].filter((r) => r.ready);
+export const readyRoutes = (articles?: NewsItem[]): SitemapRoute[] => [...STATIC_ROUTES, ...dynamicRoutes(articles)].filter((r) => r.ready);

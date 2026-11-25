@@ -71,6 +71,7 @@ export interface Config {
     media: Media;
     pillars: Pillar;
     industries: Industry;
+    insights: Insight;
     inquiries: Inquiry;
     'audit-logs': AuditLog;
     'payload-kv': PayloadKv;
@@ -84,6 +85,7 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     pillars: PillarsSelect<false> | PillarsSelect<true>;
     industries: IndustriesSelect<false> | IndustriesSelect<true>;
+    insights: InsightsSelect<false> | InsightsSelect<true>;
     inquiries: InquiriesSelect<false> | InquiriesSelect<true>;
     'audit-logs': AuditLogsSelect<false> | AuditLogsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
@@ -216,6 +218,67 @@ export interface Industry {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "insights".
+ */
+export interface Insight {
+  id: number;
+  title: string;
+  /**
+   * URL: /insights/<slug>. Changing it breaks existing links.
+   */
+  slug: string;
+  type: 'insight' | 'news' | 'press';
+  cat: string;
+  publishedAt?: string | null;
+  /**
+   * Shown on cards when no exact date is known, e.g. “Mar 2026”.
+   */
+  dateLabel?: string | null;
+  /**
+   * Card text and meta description (about 150 characters).
+   */
+  summary: string;
+  /**
+   * Lower numbers show first. Left empty, a new article goes to the top.
+   */
+  order?: number | null;
+  /**
+   * Illustration key from the design (optional).
+   */
+  scene?: string | null;
+  tags?:
+    | {
+        tag: string;
+        id?: string | null;
+      }[]
+    | null;
+  sources?:
+    | {
+        name: string;
+        url: string;
+        id?: string | null;
+      }[]
+    | null;
+  body?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "inquiries".
  */
 export interface Inquiry {
@@ -294,6 +357,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'industries';
         value: number | Industry;
+      } | null)
+    | ({
+        relationTo: 'insights';
+        value: number | Insight;
       } | null)
     | ({
         relationTo: 'inquiries';
@@ -419,6 +486,37 @@ export interface PillarsSelect<T extends boolean = true> {
 export interface IndustriesSelect<T extends boolean = true> {
   name?: T;
   slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "insights_select".
+ */
+export interface InsightsSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  type?: T;
+  cat?: T;
+  publishedAt?: T;
+  dateLabel?: T;
+  summary?: T;
+  order?: T;
+  scene?: T;
+  tags?:
+    | T
+    | {
+        tag?: T;
+        id?: T;
+      };
+  sources?:
+    | T
+    | {
+        name?: T;
+        url?: T;
+        id?: T;
+      };
+  body?: T;
   updatedAt?: T;
   createdAt?: T;
 }
