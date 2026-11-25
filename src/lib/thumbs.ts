@@ -77,3 +77,6 @@ export function industryThumb(name: string, index: number): { icon: string; tag:
   const m = IM.find((x) => x[0].test(name)) ?? [/./, "shield", "", "blue"];
   return { icon: m[1], tag: m[2], tone: m[3], seed: index * 7 + 3 };
 }
+
+/** Illustration for each solution pillar. */
+export const PILLAR_ICON: Record<string, string> = { identity: "face", cyber: "shield", gov: "gov", finance: "root", ai: "chip" };

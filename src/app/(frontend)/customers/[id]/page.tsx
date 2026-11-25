@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CaseCard } from "@/components/home/CaseCard";
+import { HeroCard } from "@/components/ui/HeroMosaic";
+import { caseThumb } from "@/lib/thumbs";
 import { PageShell } from "@/components/page/PageShell";
 import { InfoCard, JumpBar, LinkPills, NextSteps } from "@/components/solutions/Blocks";
 import { Layers } from "@/components/solutions/Layers";
@@ -39,8 +41,9 @@ export default async function CasePage({ params }: Props) {
       path={`/customers/${c.id}`}
       eyebrow={`${category} · ${c.country}${c.year ? ` · ${c.year}` : ""}`}
       title={c.title}
+      aside={<HeroCard spec={caseThumb(c as never)} />}
       lead={c.summary}
-      trail={[{ label: "Customers", href: "/customers" }, ...(category ? [{ label: category, href: `/customers#${c.cat}` }] : [])]}
+      trail={[{ label: "Insights", href: "/insights" }, { label: "Case studies", href: "/customers" }, ...(category ? [{ label: category, href: `/customers#${c.cat}` }] : [])]}
       actions={
         <>
           <Button href="/contact" onBand>Discuss a similar project</Button>

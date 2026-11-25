@@ -15,3 +15,12 @@ export function HeroMosaic({ items, bare }: { bare?: boolean; items: Array<{ key
     </div>
   );
 }
+
+/** One large illustrated card beside a hero title (detail pages). Decorative. */
+export function HeroCard({ spec }: { spec: ThumbSpec }) {
+  return (
+    <div className="sv-mosaic sv-mosaic--one" aria-hidden="true">
+      <div className="sv-mosaic__c"><Thumb spec={{ ...spec, left: undefined }} big /></div>
+    </div>
+  );
+}

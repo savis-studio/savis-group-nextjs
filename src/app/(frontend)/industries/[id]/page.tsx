@@ -6,7 +6,8 @@ import { JumpBar, LinkPills, NextSteps } from "@/components/solutions/Blocks";
 import { Button, Card, ProductCard, Section, SectionHead } from "@/components/ui";
 import { SmartLink } from "@/components/ui/SmartLink";
 import { Thumb } from "@/components/ui/Thumb";
-import { productThumb, useCaseThumb } from "@/lib/thumbs";
+import { HeroCard } from "@/components/ui/HeroMosaic";
+import { industryThumb, productThumb, useCaseThumb } from "@/lib/thumbs";
 import {
   casesOfIndustry, getCaseCategories, getIndustries, getIndustry, getProduct, pillarById, roleTags, useCasesOfIndustry,
 } from "@/lib/content";
@@ -46,6 +47,7 @@ export default async function IndustryPage({ params }: Props) {
       path={`/industries/${ind.id}`}
       eyebrow="Industry"
       title={ind.name}
+      aside={<HeroCard spec={{ cls: "gov", icon: industryThumb(ind.name, 0).icon, lbl: `~ind-${ind.id}` }} />}
       lead={ind.pitch}
       trail={[{ label: "Solutions & Products", href: "/solutions" }, { label: "Industries", href: "/industries" }]}
       actions={

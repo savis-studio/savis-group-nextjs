@@ -233,3 +233,5 @@
 .sv-jump a.sv-jump__a--on{color:var(--brand);box-shadow:inset 0 -2px 0 var(--brand)}
 .sv-diagram{display:block;width:min(100%,420px);height:auto}
 @media (max-width:900px){.sv-diagram{display:none}}
+.sv-mosaic--one{grid-template-columns:1fr;width:400px}
+.sv-mosaic .uc-th,.sv-feat .uc-th{left:0;top:0;transform:none;translate:none}

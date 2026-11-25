@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CaseCard } from "@/components/home/CaseCard";
+import { HeroCard } from "@/components/ui/HeroMosaic";
 import { PageShell } from "@/components/page/PageShell";
 import { InfoCard, JumpBar, LinkPills, NextSteps } from "@/components/solutions/Blocks";
 import { Layers, Steps } from "@/components/solutions/Layers";
@@ -39,6 +40,7 @@ export default async function UseCasePage({ params }: Props) {
       path={`/use-cases/${u.id}`}
       eyebrow={pillar ? `Use case · Pillar ${pillar.n}` : "Use case"}
       title={u.name}
+      aside={<HeroCard spec={useCaseThumb(u)} />}
       lead={u.tagline}
       trail={[
         { label: "Solutions & Products", href: "/solutions" },

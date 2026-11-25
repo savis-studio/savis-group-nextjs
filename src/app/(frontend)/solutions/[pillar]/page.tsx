@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { HeroCard } from "@/components/ui/HeroMosaic";
+import { PILLAR_ICON } from "@/lib/thumbs";
 import { PageShell } from "@/components/page/PageShell";
 import { JumpBar, LinkPills, NextSteps } from "@/components/solutions/Blocks";
 import { Journey } from "@/components/solutions/Journey";
@@ -37,6 +39,7 @@ export default async function PillarPage({ params }: Props) {
       path={`/solutions/${p.id}`}
       eyebrow={`Pillar ${p.n}`}
       title={p.name}
+      aside={<HeroCard spec={{ cls: p.id, icon: PILLAR_ICON[p.id] ?? "shield", lbl: `~pillar-${p.id}` }} />}
       lead={p.pitch}
       trail={[{ label: "Solutions & Products", href: "/solutions" }]}
       actions={
