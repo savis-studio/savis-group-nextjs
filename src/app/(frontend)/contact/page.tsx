@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import "@/styles/solutions.css";
 import { PageShell } from "@/components/page/PageShell";
 import { Card, Section, SectionHead } from "@/components/ui";
 import company from "@/data/mockup/company.json";
@@ -78,9 +79,13 @@ export default function ContactPage() {
 
       <Section tone="surface">
         <SectionHead eyebrow="What happens next" title="From first message to proposal" />
-        <ol className="sv-steps">
+        <ol className="sv-next">
           {NEXT.map(([t, d], i) => (
-            <li key={t}><span className="sv-steps__n" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span><div><b>{t}</b><p>{d}</p></div></li>
+            <li key={t}>
+              <span className="sv-next__n" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+              <b>{t}</b>
+              <p>{d}</p>
+            </li>
           ))}
         </ol>
       </Section>
