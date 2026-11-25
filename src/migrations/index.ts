@@ -1,6 +1,7 @@
 import * as migration_20261123_102548_initial from './20261123_102548_initial';
 import * as migration_20261125_041332_inquiries from './20261125_041332_inquiries';
 import * as migration_20261125_043957_insights from './20261125_043957_insights';
+import * as migration_20261125_080132_inquiry_hubspot from './20261125_080132_inquiry_hubspot';
 
 export const migrations = [
   {
@@ -16,6 +17,11 @@ export const migrations = [
   {
     up: migration_20261125_043957_insights.up,
     down: migration_20261125_043957_insights.down,
-    name: '20261125_043957_insights'
+    name: '20261125_043957_insights',
+  },
+  {
+    up: migration_20261125_080132_inquiry_hubspot.up,
+    down: migration_20261125_080132_inquiry_hubspot.down,
+    name: '20261125_080132_inquiry_hubspot'
   },
 ];

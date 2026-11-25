@@ -300,6 +300,10 @@ export interface Inquiry {
   timeline?: string | null;
   message: string;
   sourcePath?: string | null;
+  /**
+   * Whether the message reached HubSpot. Empty when HubSpot is not connected.
+   */
+  hubspot?: ('sent' | 'failed') | null;
   status?: ('new' | 'in-progress' | 'answered' | 'spam') | null;
   updatedAt: string;
   createdAt: string;
@@ -535,6 +539,7 @@ export interface InquiriesSelect<T extends boolean = true> {
   timeline?: T;
   message?: T;
   sourcePath?: T;
+  hubspot?: T;
   status?: T;
   updatedAt?: T;
   createdAt?: T;

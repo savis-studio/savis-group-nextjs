@@ -21,6 +21,7 @@ Mẫu ở `.env.example`. Không commit file này.
 | `INDEXABLE_HOST` | `savis-group.com`. Host khác (hostname tạm) tự nhận `X-Robots-Tag: noindex`. |
 | `CF_ACCESS_TEAM_DOMAIN`, `CF_ACCESS_AUD` | Của Access application. Thiếu thì production từ chối `/admin` và `/api` (503). |
 | `TUNNEL_TOKEN` | Từ Cloudflare Zero Trust → Tunnels. |
+| `HUBSPOT_PORTAL_ID`, `HUBSPOT_FORM_ID` | Tùy chọn. Có cả hai thì tin nhắn từ form liên hệ được gửi thêm sang form HubSpot (xem cột `hubspot` trong Leads → Inquiries: sent hoặc failed). Bỏ trống thì chỉ lưu trong Payload. |
 | `CLOUDFLARED_TAG` | Phiên bản `cloudflared` cố định, lấy ở trang releases của cloudflared. |
 | `SAVIS_IMAGE_TAG` | Do `deploy.sh` ghi. Không sửa tay. |
 

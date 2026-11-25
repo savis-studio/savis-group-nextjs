@@ -1,9 +1,12 @@
 "use server";
 
 import config from "@payload-config";
-import { headers } from "next/headers";
+import { cookies, headers } from "next/headers";
+import { after } from "next/server";
 import { getPayload } from "payload";
 import { INQUIRY_TOPICS } from "@/collections/Inquiries";
+import { hubspotEnabled, sendToHubSpot, type HubSpotLead } from "@/lib/hubspot";
+import { absoluteUrl } from "@/lib/site";
 
 export interface ContactState {
   status: "idle" | "ok" | "error";
@@ -51,21 +54,36 @@ export async function submitInquiry(_prev: ContactState, form: FormData): Promis
 
   try {
     const payload = await getPayload({ config });
-    await payload.create({
+    const lead: HubSpotLead = {
+      name,
+      email,
+      topic,
+      message,
+      organization: text(form, "organization", 160),
+      country: text(form, "country", 80),
+      phone: text(form, "phone", 40),
+      pillar: text(form, "pillar", 120),
+      timeline: text(form, "timeline", 60),
+      sourcePath: text(form, "sourcePath", 200),
+    };
+    const saved = await payload.create({
       collection: "inquiries",
-      data: {
-        name,
-        email,
-        topic: topic as (typeof INQUIRY_TOPICS)[number],
-        message,
-        organization: text(form, "organization", 160),
-        country: text(form, "country", 80),
-        phone: text(form, "phone", 40),
-        pillar: text(form, "pillar", 120),
-        timeline: text(form, "timeline", 60),
-        sourcePath: text(form, "sourcePath", 200),
-      },
+      data: { ...lead, topic: topic as (typeof INQUIRY_TOPICS)[number] },
     });
+    // Copy to HubSpot after the visitor already has their answer. The saved inquiry is the record; a failure here is logged and flagged.
+    if (hubspotEnabled()) {
+      const hutk = (await cookies()).get("hubspotutk")?.value;
+      after(async () => {
+        let hubspot: "sent" | "failed" = "sent";
+        try {
+          await sendToHubSpot(lead, { pageUri: absoluteUrl(lead.sourcePath || "/contact"), hutk, ip: ip === "unknown" ? undefined : ip });
+        } catch (err) {
+          hubspot = "failed";
+          console.error("contact form: HubSpot rejected the lead", err instanceof Error ? err.message : err);
+        }
+        await payload.update({ collection: "inquiries", id: saved.id, data: { hubspot }, overrideAccess: true }).catch(() => undefined);
+      });
+    }
     return { status: "ok" };
   } catch (err) {
     console.error("contact form: could not save inquiry", err);

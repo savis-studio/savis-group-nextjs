@@ -39,3 +39,12 @@ eq("search needs every word", siteSearch(idx, "root pki neac").map((e) => e.u), 
 eq("search no match", siteSearch(idx, "zzz"), []);
 eq("search empty query", siteSearch(idx, "  "), []);
 eq("title word beats summary", siteSearch(idx, "identity")[0]?.u, "/solutions/identity");
+
+// HubSpot payload
+import { buildPayload, splitName } from "../src/lib/hubspot";
+eq("split name", splitName("Nguyen Van An"), { firstname: "Nguyen Van", lastname: "An" });
+eq("split single name", splitName("Madonna"), { firstname: "Madonna", lastname: "" });
+const hs = buildPayload({ name: "Le Minh", email: "a@b.co", organization: "ACME", topic: "Get a quote", message: "Need PKI for 5 banks", sourcePath: "/contact" }, { pageUri: "https://savis-group.com/contact", hutk: "abc" });
+eq("hubspot fields", hs.fields.map((f) => f.name), ["email", "firstname", "lastname", "company", "message"]);
+eq("hubspot message keeps topic", hs.fields.at(-1)?.value.startsWith("Topic: Get a quote"), true);
+eq("hubspot context", hs.context, { pageUri: "https://savis-group.com/contact", pageName: "Contact | SAVIS Group", hutk: "abc" });

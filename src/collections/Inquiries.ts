@@ -32,6 +32,12 @@ export const Inquiries: CollectionConfig = {
     { name: "message", type: "textarea", required: true, maxLength: 4000 },
     { name: "sourcePath", type: "text", maxLength: 200 },
     {
+      name: "hubspot",
+      type: "select",
+      options: ["sent", "failed"],
+      admin: { position: "sidebar", readOnly: true, description: "Whether the message reached HubSpot. Empty when HubSpot is not connected." },
+    },
+    {
       name: "status",
       type: "select",
       defaultValue: "new",
