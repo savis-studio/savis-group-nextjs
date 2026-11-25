@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { TreeDiagram } from "@/components/ui/HeroDiagrams";
 import { PageShell } from "@/components/page/PageShell";
 import { InfoCard, JumpBar } from "@/components/solutions/Blocks";
 import { Button, Card, DataTable, KeyValueList, Section, SectionHead } from "@/components/ui";
@@ -20,6 +21,7 @@ export default function TrustCenterPage() {
   return (
     <PageShell
       path={PATH}
+      aside={<TreeDiagram />}
       eyebrow="Trust Center"
       title="Security, compliance and certifications."
       label="Trust Center"

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { HubDiagram } from "@/components/ui/HeroDiagrams";
 import { PageShell } from "@/components/page/PageShell";
 import { InfoCard } from "@/components/solutions/Blocks";
 import { Button, Card, CtaBanner, Section, SectionHead } from "@/components/ui";
@@ -26,6 +27,7 @@ export default function PartnersPage() {
   return (
     <PageShell
       path={PATH}
+      aside={<HubDiagram />}
       eyebrow="Partners"
       title="Grow with the SAVIS partner ecosystem."
       label="Partners"

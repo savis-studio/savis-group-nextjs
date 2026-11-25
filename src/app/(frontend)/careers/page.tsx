@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { OrbitDiagram } from "@/components/ui/HeroDiagrams";
 import { PageShell } from "@/components/page/PageShell";
 import { InfoCard } from "@/components/solutions/Blocks";
 import { Button, Card, CtaBanner, Section, SectionHead } from "@/components/ui";
@@ -17,6 +18,7 @@ export default function CareersPage() {
   return (
     <PageShell
       path={PATH}
+      aside={<OrbitDiagram />}
       eyebrow="Careers"
       title="Build the trust layer with the S-ers."
       label="Careers"

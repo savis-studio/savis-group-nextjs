@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Thumb } from "@/components/ui/Thumb";
 import { PageShell } from "@/components/page/PageShell";
 import { InfoCard } from "@/components/solutions/Blocks";
 import { Button, Card, CtaBanner, Section, SectionHead } from "@/components/ui";
@@ -19,6 +20,7 @@ export default function InvestorsPage() {
   return (
     <PageShell
       path={PATH}
+      aside={<div className="sv-mosaic" style={{ gridTemplateColumns: "1fr", width: 380 }}><div className="sv-mosaic__c"><Thumb spec={{ cls: "finance", icon: "growth", lbl: "~inv-growth", left: "Long-term growth" }} big /></div></div>}
       eyebrow="Investors"
       title="Investing in trusted digital infrastructure."
       label="Investors"
