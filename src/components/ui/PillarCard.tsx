@@ -12,14 +12,17 @@ export interface PillarCardProps {
   /** One lead card per grid: band fill. */
   lead?: boolean;
   href?: string;
+  /** Banner illustration at the top of the card. */
+  art?: ReactNode;
   className?: string;
   children?: ReactNode;
 }
 
-export function PillarCard({ number, title, subtitle, tags = [], lead, href, className, children }: PillarCardProps) {
+export function PillarCard({ number, title, subtitle, tags = [], lead, href, art, className, children }: PillarCardProps) {
   const cls = cn("sv-pillar", lead && "sv-pillar--lead", className);
   const body = (
     <>
+      {art}
       <span className="sv-pillar__num">{number}</span>
       <h3>{title}</h3>
       {subtitle && <span className="sv-pillar__sub">{subtitle}</span>}

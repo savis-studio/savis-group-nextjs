@@ -96,8 +96,8 @@ export const tokens = {
     "shadow-media": "0 24px 60px rgba(8,22,56,.18)"
   },
   "fluid": {
-    "fs-display-1": "clamp(36px,5vw,60px)",
-    "fs-h2": "clamp(28px,3.4vw,42px)",
+    "fs-display-1": "clamp(34px,3.2vw,46px)",
+    "fs-h2": "clamp(26px,2.3vw,34px)",
     "fs-stat": "clamp(32px,4vw,44px)",
     "fs-lead": "clamp(17px,1.6vw,20px)",
     "gutter": "clamp(16px,3vw,64px)"

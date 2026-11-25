@@ -12,7 +12,7 @@
 .sv-home__net{position:absolute;inset:0;width:100%;height:100%}
 .sv-home__hero-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-48)}
 .sv-home__hero-txt{flex:1 1 520px;min-width:0;display:flex;flex-direction:column;gap:20px}
-.sv-home__hero-txt h1{margin:0;letter-spacing:-.03em}
+.sv-home__hero-txt h1{margin:0;letter-spacing:-.03em;font-size:clamp(40px,4.6vw,72px);line-height:1.04;max-width:12ch}
 .sv-home__globe{flex:1 1 320px;display:flex;justify-content:center;min-width:0}
 .sv-home__rot{position:relative;display:inline-grid;vertical-align:bottom}
 .sv-home__rot b{grid-area:1/1;font-weight:inherit;background:linear-gradient(90deg,var(--cyan-400),var(--cyan-100) 40%,#B18CFF);-webkit-background-clip:text;background-clip:text;color:transparent;opacity:0;transform:translateY(.45em);animation:sv-rot 10s infinite;animation-delay:calc(var(--i)*2.5s - .5s)}
@@ -56,7 +56,10 @@
 
 /* ---------- Pillars row ---------- */
 .sv-home__pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-18)}
-.sv-home__pillars>.sv-pillar--lead{grid-column:span 2}
+.sv-home__pillars .sv-pillar{min-height:0;padding:14px 14px 22px}
+.sv-home__pillars .sv-pillar .uc-th{margin-bottom:6px;aspect-ratio:16/7}
+.sv-home__pillars .sv-pillar h3{font-size:21px}
+.sv-home__pillars .sv-pillar h3,.sv-home__pillars .sv-pillar p,.sv-home__pillars .sv-pillar__num,.sv-home__pillars .sv-pillar__tags{margin-inline:8px}
 .sv-home__more{font-weight:600;color:var(--brand);text-decoration:none}
 .sv-home__more:hover{text-decoration:underline}
 

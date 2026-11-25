@@ -11,10 +11,13 @@ import { NewsTile } from "@/components/home/NewsTile";
 import { StandardsMarquee } from "@/components/home/StandardsMarquee";
 import { Button, PillarCard, Section, SectionHead } from "@/components/ui";
 import { SmartLink } from "@/components/ui/SmartLink";
+import { Thumb } from "@/components/ui/Thumb";
 import { getArticles } from "@/lib/insights";
 import {
   getAudienceIcons, getAudiences, getCase, getCaseCategories, getOffices, getPillars, getStandards,
 } from "@/lib/content";
+
+const PILLAR_ICON: Record<string, string> = { identity: "face", cyber: "shield", gov: "gov", finance: "root", ai: "chip" };
 
 export const metadata: Metadata = {
   ...buildMetadata({ title: SITE_TAGLINE, description: SITE_DESCRIPTION, path: "/" }),
@@ -75,7 +78,7 @@ export default async function Home() {
         </SectionHead>
         <div className="sv-home__pillars">
           {pillars.map((p, i) => (
-            <PillarCard key={p.id} lead={i === 0} number={p.n} title={p.name} href={`/solutions/${p.id}`} tags={p.tags}>
+            <PillarCard key={p.id} art={<Thumb spec={{ cls: p.id, icon: PILLAR_ICON[p.id] ?? "shield", lbl: `~home-${p.id}` }} />} number={p.n} title={p.name} href={`/solutions/${p.id}`} tags={p.tags}>
               {p.pitch}
             </PillarCard>
           ))}
