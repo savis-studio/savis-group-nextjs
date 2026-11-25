@@ -27,6 +27,7 @@ ENV NODE_ENV=production
 COPY --from=deps /app/node_modules ./node_modules
 COPY package.json package-lock.json tsconfig.json ./
 COPY src ./src
+COPY scripts ./scripts
 USER node
 CMD ["npx", "payload", "migrate:status"]
 
