@@ -213,3 +213,15 @@
 .sv-acc ul{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px;padding:0;list-style:none}
 .sv-acc li{padding:6px 12px;border-radius:var(--radius-md);background:var(--surface);font-size:13.5px;line-height:1.45;color:var(--ink)}
 @media (max-width:900px){.sv-offer{grid-template-columns:1fr}.sv-offer__art{position:static}}
+
+/* Hero cards on /insights: latest article and a featured case study */
+.sv-feat{display:grid;gap:14px;width:min(100%,470px)}
+.sv-feat__c{position:relative;display:block;border-radius:var(--radius-lg);overflow:hidden;border:1px solid rgba(255,255,255,.2);box-shadow:0 18px 40px rgba(4,12,40,.35);text-decoration:none}
+.sv-feat .sv-feat__c>.uc-th{display:block;position:relative;width:100%;margin:0;border-radius:0;aspect-ratio:16/7}
+.sv-feat .sv-feat__c .uc-th>span{position:static;display:block}
+.sv-feat__c--s{width:88%;margin-left:auto}
+.sv-feat__c>span:last-child{position:absolute;inset:auto 0 0 0;padding:34px 16px 12px;background:linear-gradient(180deg,transparent,rgba(4,12,40,.85));color:#fff}
+.sv-feat__c em{display:block;font:700 10.5px var(--font-body);font-style:normal;letter-spacing:.1em;text-transform:uppercase;color:var(--band-eyebrow)}
+.sv-feat__c b{display:block;margin-top:3px;font:700 14.5px/1.25 var(--font-display)}
+@media (max-width:900px){.sv-feat{display:none}}
+.sv-feat .uc-steps{display:none}

@@ -2,7 +2,11 @@ import type { Metadata } from "next";
 import { NewsTile } from "@/components/home/NewsTile";
 import { PageShell } from "@/components/page/PageShell";
 import { JumpBar } from "@/components/solutions/Blocks";
-import { Section, SectionHead } from "@/components/ui";
+import { Button, Section, SectionHead } from "@/components/ui";
+import { SmartLink } from "@/components/ui/SmartLink";
+import { Thumb } from "@/components/ui/Thumb";
+import { getCases } from "@/lib/content";
+import { caseThumb, newsThumb } from "@/lib/thumbs";
 import { getArticles } from "@/lib/insights";
 import { buildMetadata } from "@/lib/seo";
 
@@ -22,15 +26,39 @@ const SECTIONS: Array<[type: string, id: string, title: string, eyebrow: string]
 
 export default async function InsightsPage() {
   const all = await getArticles();
+  const latest = [...all].filter((n) => n.type !== "insight").sort((a, b) => (b.iso ?? "").localeCompare(a.iso ?? ""))[0];
+  const featured = getCases()[0];
   return (
     <PageShell
       path={PATH}
       eyebrow="Insights & News"
-      title="What we are learning, building and announcing."
+      title="News, press releases, regulation and case studies."
       label="Insights"
-      lead="Research on digital trust, reference architectures, regulatory changes and company news."
+      lead="What is changing in digital trust, what SAVIS is announcing, the rules that shape the market, and projects running in production."
+      aside={
+        <div className="sv-feat">
+          {latest && (
+            <SmartLink href={`/insights/${latest.id}`} className="sv-feat__c">
+              <Thumb spec={newsThumb(latest)} big />
+              <span><em>Latest news</em><b>{latest.title}</b></span>
+            </SmartLink>
+          )}
+          {featured && (
+            <SmartLink href={`/customers/${featured.id}`} className="sv-feat__c sv-feat__c--s">
+              <Thumb spec={caseThumb(featured)} big />
+              <span><em>Featured case study</em><b>{featured.title}</b></span>
+            </SmartLink>
+          )}
+        </div>
+      }
+      actions={
+        <>
+          <Button href="#press" onBand>Read the news</Button>
+          <Button href="/customers" variant="ghost" onBand>Browse case studies</Button>
+        </>
+      }
     >
-      <JumpBar links={SECTIONS.map(([, id, title]) => ({ href: `#${id}`, label: title }))} />
+      <JumpBar links={[...SECTIONS.map(([, id, title]) => ({ href: `#${id}`, label: title })), { href: "/customers", label: "Case studies" }]} />
       {SECTIONS.map(([type, id, title, eyebrow], i) => {
         const items = all.filter((n) => n.type === type);
         if (!items.length) return null;
