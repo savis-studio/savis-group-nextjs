@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import "@/styles/solutions.css";
 import { PageShell } from "@/components/page/PageShell";
 import { Card, Section, SectionHead } from "@/components/ui";
 import company from "@/data/mockup/company.json";

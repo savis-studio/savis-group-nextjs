@@ -1,4 +1,3 @@
-import "@/styles/solutions.css";
 import { SmartLink } from "@/components/ui/SmartLink";
 import type { Journey as JourneyData } from "@/lib/content";
 import { hashToPath } from "@/lib/routes";

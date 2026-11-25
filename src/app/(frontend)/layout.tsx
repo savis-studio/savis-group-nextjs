@@ -4,6 +4,8 @@ import "@/styles/generated/tokens.css";
 import "@/styles/savis.css";
 import "@/styles/layout.css";
 import "@/styles/vx.css";
+// Shared page classes (.sv-grid, .sv-steps, ...). Global, so a page never depends on which components it happens to import.
+import "@/styles/solutions.css";
 import "./globals.css";
 import { vxArt } from "@/lib/thumbs";
 import { companyMenu, resourcesMenu, servicesMenu } from "@/components/layout/nav-data";

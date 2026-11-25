@@ -1,4 +1,3 @@
-import "@/styles/solutions.css";
 import type { ReactNode } from "react";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Chip } from "@/components/ui";

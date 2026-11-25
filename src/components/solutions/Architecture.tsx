@@ -1,4 +1,3 @@
-import "@/styles/solutions.css";
 import type { Arch } from "@/lib/content";
 
 /**

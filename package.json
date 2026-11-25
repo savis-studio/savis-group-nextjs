@@ -16,7 +16,8 @@
     "generate:types": "payload generate:types",
     "generate:importmap": "payload generate:importmap",
     "audit": "tsx scripts/audit-site.ts",
-    "check": "tsx scripts/check-seo.ts"
+    "check": "tsx scripts/check-seo.ts",
+    "check:styles": "tsx scripts/check-styles.ts"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "^3.94.1",
@@ -39,6 +40,7 @@
     "@types/react-dom": "^19.3.0",
     "esbuild": "^0.28.2",
     "jsdom": "^29.1.1",
+    "playwright-core": "1.49",
     "postcss": "^8.5.33",
     "tailwindcss": "^4.3.5",
     "tsx": "^4.23.15",

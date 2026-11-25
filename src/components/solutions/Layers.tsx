@@ -1,4 +1,3 @@
-import "@/styles/solutions.css";
 
 /** Stacked architecture layers, each a titled row of component chips. Plain HTML, reads in order. */
 export function Layers({ layers, label }: { layers: Array<[title: string, items: string[]]>; label: string }) {

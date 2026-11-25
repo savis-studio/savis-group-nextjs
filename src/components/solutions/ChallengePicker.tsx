@@ -1,6 +1,5 @@
 "use client";
 
-import "@/styles/solutions.css";
 import { useRef, useState } from "react";
 import { Button } from "@/components/ui";
 import { SmartLink } from "@/components/ui/SmartLink";
