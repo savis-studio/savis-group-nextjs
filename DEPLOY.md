@@ -68,3 +68,17 @@ DATABASE_URL=postgres://... npx payload migrate:create <tên>
 ## Kiểm thử cục bộ
 
 `next build` cần `PAYLOAD_SECRET` khi `NODE_ENV=production`. Dockerfile đặt giá trị giả chỉ cho bước build, không đưa vào image. Build không cần database vì trang `(frontend)` được render theo từng request.
+
+## Backup định kỳ
+
+`backup.sh` (chép lên `~/savis`) chạy bằng cron lúc 02:30 mỗi ngày: `pg_dump` database, nén volume `media`, sao `.env` và `docker-compose.yml` vào `backups/scheduled/<thời-gian>/`, kiểm tra dump đọc được, giữ 7 bản gần nhất. Log ở `backups/backup.log`. Chạy tay: `./backup.sh`.
+
+Bản sao ngoài VPS: tạo `~/savis/.backup.conf` với `BACKUP_REMOTE="<remote-rclone>:<thư-mục>"` (và `~/savis/.backup-pass` chứa mật khẩu mã hoá, chmod 600) rồi script sẽ đẩy lên remote và giữ 14 bản. `.env` chứa bí mật nên không bao giờ được tải lên dạng thô.
+
+Khôi phục thử (không đụng database thật):
+
+```
+docker compose exec -T postgres psql -U savis -d postgres -c "create database restore_test"
+docker compose exec -T postgres pg_restore -U savis -d restore_test --no-owner < backups/scheduled/<thời-gian>/db.dump
+docker compose exec -T postgres psql -U savis -d postgres -c "drop database restore_test"
+```
