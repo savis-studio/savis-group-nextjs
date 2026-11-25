@@ -21,8 +21,21 @@ export const PROJECT_STEPS: Pair[] = [
 ];
 
 export const PROFESSIONAL_SERVICES: Array<[name: string, text: string, bullets: string[]]> = [
-  ["Consulting & Advisory", "Strategy, architecture and regulation for digital trust programs.", ["Digital identity and trust strategy", "Regulatory compliance: eIDAS 2.0, NIS2, PCI DSS, data protection", "Security and PKI architecture review"]],
+  ["Consulting & Advisory", "Strategy, architecture and regulation for digital trust programs.", [
+    "Digital identity and trust strategy",
+    "Regulatory compliance: international standards (ISO/IEC 27001, PCI DSS, NIST, OWASP, FIDO2, ETSI) and the banking, cybersecurity, data protection and digital identity rules of each market we serve",
+    "Compliance assessment - Vietnam: Law on Electronic Transactions 2023, Decree 23/2025/ND-CP, Cybersecurity Law 116/2025/QH15, Personal Data Protection Law 91/2025/QH15, SBV Circulars 50/2024, 64/2024 and 77/2025/TT-NHNN",
+    "Compliance assessment - EU: eIDAS 2.0, NIS2, DORA, PSD2/PSD3, GDPR, AML Regulation 2024/1624",
+    "Compliance assessment - ASEAN: BSP Circulars 1213-1215 under AFASA, BSP Circular 1140 and Data Privacy Act 2012 (Philippines), MAS TRM Guidelines, Shared Responsibility Framework and PDPA (Singapore), BNM RMiT, e-KYC policy and PDPA (Malaysia)",
+    "Compliance assessment - Australia & New Zealand: APRA CPS 234 and CPS 230, Scams Prevention Framework Act 2025, Privacy Act 1988, Digital ID Act 2024 (Australia), Privacy Act 2020 and Digital Identity Services Trust Framework Act 2023 (New Zealand)",
+    "Compliance assessment - MENA: CBUAE Consumer Protection Regulation and Federal Decree-Laws 45/2021 and 46/2021 (UAE), SAMA Cyber Security Framework and PDPL (Saudi Arabia), CBE eKYC rules, Financial Cybersecurity Framework and Law 151/2020 (Egypt), Laws 18-07 and 15-04 (Algeria)",
+    "Compliance assessment - Africa: CBN Risk-Based Cybersecurity Framework (2024) and Nigeria Data Protection Act 2023",
+    "Compliance assessment - Latin America: CMN Resolution 4,893/2021, LGPD and ICP-Brasil (Brazil), SBS Resolution 504-2021 and Law 29733 (Peru), CMF RAN Chapter 20-10 and Law 21,719 (Chile)",
+    "Compliance assessment - North America: NIST SP 800-63-4, FFIEC authentication guidance, NYDFS 23 NYCRR Part 500, GLBA Safeguards Rule (United States)",
+    "Security and PKI architecture review",
+  ]],
   ["Readiness Programs", "Assess, close the gaps and pass the audit.", ["WebTrust Readiness for certification authorities", "eIDAS 2.0 Readiness for trust services and wallets", "Quantum Readiness for post-quantum migration"]],
+  ["Readiness by standard", "Programs that take you to a named audit or regulation: assess, close the gaps, pass.", ["WebTrust Readiness", "eIDAS 2.0 Readiness", "Quantum Readiness"]],
   ["System Integration", "Networks, security, systems and cloud, integrated with what you already run.", ["Network and security integration", "Core banking, government and ERP integration", "HSM, CA and signing infrastructure deployment", "Private and hybrid cloud"]],
   ["Software Engineering", "Platforms and apps built on SAVIS technology.", ["Mobile and web applications", "Cloud-native microservices and Open API", "Localization for national requirements"]],
   ["Digitization & Data Services", "Turn paper archives into searchable, trusted digital records.", ["Document digitization and data entry", "Data extraction and recognition", "Data conversion and migration", "Cloud storage", "Data security and encryption", "Scanner and equipment rental", "Certified data destruction"]],
