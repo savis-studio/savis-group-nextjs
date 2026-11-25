@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CaseCard } from "@/components/home/CaseCard";
+import { HeroCard } from "@/components/ui/HeroMosaic";
 import { PageShell } from "@/components/page/PageShell";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Architecture } from "@/components/solutions/Architecture";
@@ -53,6 +54,7 @@ export default async function ProductPage({ params }: Props) {
       path={path}
       eyebrow={pillar && group ? `${pillar.n} · ${group.name}` : undefined}
       title={p.name}
+      aside={<HeroCard spec={productThumb(p)} />}
       lead={p.desc}
       trail={[
         { label: "Solutions & Products", href: "/solutions" },

@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { NewsTile } from "@/components/home/NewsTile";
 import { ArticleBody } from "@/components/page/ArticleBody";
 import { ArticleRichText } from "@/components/page/ArticleRichText";
+import { OrbitDiagram } from "@/components/ui/HeroDiagrams";
+import { INSIGHT_GROUPS } from "@/lib/insight-groups";
 import { PageShell } from "@/components/page/PageShell";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { NextSteps } from "@/components/solutions/Blocks";
@@ -26,6 +28,7 @@ export default async function ArticlePage({ params }: Props) {
   const n = await getArticle((await params).id);
   if (!n) notFound();
   const path = `/insights/${n.id}`;
+  const group = INSIGHT_GROUPS.find((g) => g.pick(n));
   const related = (await getArticles()).filter((x) => x.cat === n.cat && x.id !== n.id).slice(0, 3);
 
   return (
@@ -34,7 +37,8 @@ export default async function ArticlePage({ params }: Props) {
       eyebrow={`${n.cat} · ${n.date}`}
       title={n.title}
       lead={n.sum}
-      trail={[{ label: "Insights & News", href: "/insights" }]}
+      aside={<OrbitDiagram />}
+      trail={[{ label: "Insights", href: "/insights" }, ...(group ? [{ label: group.label, href: `/insights#${group.id}` }] : [])]}
       actions={<Button href="/contact" onBand>Talk to our team</Button>}
       cta={false}
     >
