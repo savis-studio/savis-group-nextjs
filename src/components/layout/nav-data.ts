@@ -76,7 +76,7 @@ export const resourcesMenu = {
   cards: [
     { photo: "/images/company/film-poster.jpg", tag: "Video", title: "Our history, vision, growth and global reach", cta: "Watch the film →", href: "#resources-videos", art: { cls: "identity", icon: "mega", lbl: "SAVIS · Brand film|mx-film-brand" } },
     { tag: "Datasheet", title: "SAVIS TrustOnboard", cta: "View datasheet →", href: "#ds-trustonboard", art: { cls: "identity", icon: "face", lbl: "~mx-ds-trustonboard" } },
-    { tag: "Brochure", title: "Cybersecurity & Quantum-Safe Infrastructure", cta: "Read the brochure →", href: "#pillar-cyber", art: { cls: "cyber", icon: "shield", lbl: "~mx-br-cyber" } },
+    { photo: "/images/company/datacenter.jpg", tag: "Brochure", title: "Cybersecurity & Quantum-Safe Infrastructure", cta: "Read the brochure →", href: "#pillar-cyber", art: { cls: "cyber", icon: "shield", lbl: "~mx-br-cyber" } },
   ] as FeatureCard[],
 };
 
