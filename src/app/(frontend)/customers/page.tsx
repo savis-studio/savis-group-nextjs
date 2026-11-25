@@ -5,6 +5,8 @@ import { JumpBar } from "@/components/solutions/Blocks";
 import { Button, Section, SectionHead } from "@/components/ui";
 import { getCaseCategories, getCases, getClientGroups } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
+import { HeroMosaic } from "@/components/ui/HeroMosaic";
+import { caseThumb } from "@/lib/thumbs";
 
 const PATH = "/customers";
 
@@ -23,6 +25,7 @@ export default function CustomersPage() {
       eyebrow="Customers"
       title="Trusted by institutions that cannot afford to fail."
       label="Customers"
+      aside={<HeroMosaic bare items={cases.slice(0, 4).map((c) => ({ spec: caseThumb(c as never), title: (c as { client: string }).client }))} />}
       lead="Central banks, ministries, banks and telcos run their digital trust on SAVIS. Read how each programme was designed, delivered and operated."
       actions={
         <>

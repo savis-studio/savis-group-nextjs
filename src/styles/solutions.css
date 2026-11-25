@@ -176,3 +176,14 @@
 .sv-deliver a{font-weight:600;color:var(--brand);text-decoration:none}
 @media (max-width:1080px){.sv-pillars--5{grid-template-columns:repeat(2,minmax(0,1fr))}.sv-chal__tabs{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:640px){.sv-pillars--5,.sv-chal__tabs,.sv-chal__steps{grid-template-columns:1fr}}
+
+/* Illustrated cards in the hero (use cases, customers, industries) */
+.sv-mosaic{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;width:520px;max-width:100%}
+.sv-mosaic__c{position:relative;border-radius:var(--radius-md);overflow:hidden;box-shadow:0 18px 40px rgba(4,12,40,.35);border:1px solid rgba(255,255,255,.18)}
+.sv-mosaic .sv-mosaic__c>.uc-th{display:block;position:relative;width:100%;margin:0;border-radius:0;aspect-ratio:16/10}
+.sv-mosaic__c b{position:absolute;left:14px;right:14px;bottom:26px;font:700 15px/1.2 var(--font-display);color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.5)}
+.sv-mosaic__c span{position:absolute;left:14px;bottom:9px;font-size:11px;color:rgba(255,255,255,.85)}
+@media (max-width:900px){.sv-mosaic{display:none}}
+.sv-mosaic .uc-th>span{position:static;display:block;padding:0;margin:0}
+.sv-mosaic__c>span:not(.uc-th){padding:0;margin:0}
+.sv-mosaic__c .uc-steps{display:none}

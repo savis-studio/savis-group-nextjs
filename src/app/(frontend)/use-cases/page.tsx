@@ -5,6 +5,7 @@ import { Button, Card, Section, SectionHead } from "@/components/ui";
 import { getPillars, getUseCases } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
 import { Thumb } from "@/components/ui/Thumb";
+import { HeroMosaic } from "@/components/ui/HeroMosaic";
 import { useCaseThumb } from "@/lib/thumbs";
 
 const PATH = "/use-cases";
@@ -26,6 +27,7 @@ export default function UseCasesPage() {
       label="Use cases"
       lead="Real-world journeys, step by step — the problem, the flow, the products behind it."
       trail={[{ label: "Solutions & Products", href: "/solutions" }]}
+      aside={<HeroMosaic items={pillars.map((p) => all.find((u) => u.pillar === p.id)).flatMap((u) => (u ? [{ spec: useCaseThumb(u), title: u.name, note: `${u.flow.length} steps` }] : []))} />}
       actions={
         <>
           <Button href="/contact" onBand>Discuss Your Project</Button>
