@@ -1,38 +1,121 @@
-import { Button, CtaBanner, Hero, PillarCard, Section, SectionHead } from "@/components/ui";
+import type { Metadata } from "next";
+import "@/styles/home.css";
+import { AudienceTabs } from "@/components/home/AudienceTabs";
+import { CaseCard } from "@/components/home/CaseCard";
+import { FilmSection } from "@/components/home/FilmSection";
+import { HomeHero } from "@/components/home/HomeHero";
+import { NewsTile } from "@/components/home/NewsTile";
+import { StandardsMarquee } from "@/components/home/StandardsMarquee";
+import { Button, PillarCard, Section, SectionHead } from "@/components/ui";
+import { SmartLink } from "@/components/ui/SmartLink";
+import {
+  getAudienceIcons, getAudiences, getCase, getCaseCategories, getNewsItem, getOffices, getPillars, getStandards,
+} from "@/lib/content";
+
+export const metadata: Metadata = {
+  title: "SAVIS Group — Trusted Digital Infrastructure for a Smarter World",
+  description:
+    "Identity, trust and secure platforms for nations, banks, smart cities and enterprises. Five solution pillars, delivered end to end on core technology SAVIS designs and builds itself.",
+};
+
+const STATS = [
+  { value: "22+", label: "years of digital trust" },
+  { value: "200+", label: "international partners" },
+  { value: "5,000+", label: "customers" },
+];
+
+/** Curated for the home page, in display order. */
+const FEATURED_CASES = ["neac-national-pki", "neac-webtrust-ca", "sbv-rootca"];
+const FEATURED_NEWS: Array<[id: string, tone: string]> = [
+  ["trustca-eidas-certification-what-it-means", "amber"],
+  ["asocio-smart-city-2026", "indigo"],
+  ["auth-rules-2025-2028", "blue"],
+  ["one-core-national-profiles", "teal"],
+];
+
+/** Set to the video's URL (for example "/media/brand-film.mp4") to show the film section. The file is not in the repo yet. */
+const BRAND_FILM: { src: string; poster?: string; caption: string } | null = null;
 
 export default function Home() {
+  const pillars = getPillars();
+  const categories = new Map(getCaseCategories().map((c) => [c.id, c.name]));
+  const cases = FEATURED_CASES.flatMap((id) => getCase(id) ?? []);
+  const news = FEATURED_NEWS.flatMap(([id, tone]) => {
+    const item = getNewsItem(id);
+    return item ? [{ item, tone }] : [];
+  });
+
   return (
-    <>
-      <main>
-        <Hero
-          eyebrow="Trusted Digital Infrastructure for a Smarter World"
-          title="Identity, trust and secure platforms for"
-          accent="nations."
-          lead="SAVIS Group builds the digital infrastructure that governments, banks and enterprises rely on."
-        >
-          <Button href="/solutions" onBand>Explore Solutions</Button>
-          <Button href="/contact" variant="ghost" onBand>Contact us</Button>
-        </Hero>
-        <Section>
-          <SectionHead eyebrow="What we do" title="Three pillars of digital trust" />
-          <div style={{ display: "grid", gap: "var(--space-18)", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))" }}>
-            <PillarCard lead number="01" title="Digital identity" subtitle="Identity and trust services" href="/solutions">
-              Secure identity for citizens and organisations.
-            </PillarCard>
-            <PillarCard number="02" title="Secure platforms" subtitle="Cloud and data" href="/solutions">
-              Resilient platforms for critical workloads.
-            </PillarCard>
-            <PillarCard number="03" title="Cyber security" subtitle="Protect and respond" href="/solutions">
-              Continuous protection across the digital estate.
-            </PillarCard>
+    <main>
+      <HomeHero offices={getOffices()} stats={STATS} />
+      <StandardsMarquee items={getStandards()} />
+
+      <section className="sv-aud" id="audience" aria-labelledby="aud-h">
+        <div className="sv-wrap">
+          <div className="sv-aud__head">
+            <div>
+              <span className="sv-eyebrow sv-eyebrow--rule">Who are you?</span>
+              <h2 id="aud-h">Find what matters to you</h2>
+            </div>
+            <p>Choose your organisation to see the solutions, use cases and case studies that fit it best.</p>
           </div>
-        </Section>
-        <Section tone="surface">
-          <CtaBanner title="Talk to an Expert" action={<Button href="/contact" onBand>Contact us</Button>}>
-            Tell us about your organisation and we will get back to you.
-          </CtaBanner>
-        </Section>
-      </main>
-    </>
+          <AudienceTabs audiences={getAudiences()} icons={getAudienceIcons()} />
+        </div>
+      </section>
+
+      <Section>
+        <SectionHead eyebrow="Solutions & Products" title="Five pillars. One trust ecosystem.">
+          <SmartLink className="sv-home__more" href="/solutions">Product catalog →</SmartLink>
+        </SectionHead>
+        <div className="sv-home__pillars">
+          {pillars.map((p, i) => (
+            <PillarCard key={p.id} lead={i === 0} number={p.n} title={p.name} href={`/solutions/${p.id}`} tags={p.tags}>
+              {p.pitch}
+            </PillarCard>
+          ))}
+        </div>
+      </Section>
+
+      {BRAND_FILM && (
+        <section className="sv-section sv-home__film">
+          <div className="sv-wrap">
+            <SectionHead eyebrow="SAVIS in motion" title="Watch the SAVIS Group video" />
+            <FilmSection {...BRAND_FILM} />
+          </div>
+        </section>
+      )}
+
+      <Section tone="surface">
+        <SectionHead eyebrow="Customers" title="Trust, deployed in production.">
+          <SmartLink className="sv-home__more" href="/customers">View Success Stories →</SmartLink>
+        </SectionHead>
+        <div className="sv-home__grid3">
+          {cases.map((c) => <CaseCard key={c.id} item={c} category={categories.get(c.cat) ?? ""} />)}
+        </div>
+      </Section>
+
+      <Section>
+        <SectionHead eyebrow="Insights" title="News and press releases.">
+          <SmartLink className="sv-home__more" href="/insights">Read Insights →</SmartLink>
+        </SectionHead>
+        <div className="sv-home__grid4">
+          {news.map(({ item, tone }) => <NewsTile key={item.id} item={item} tone={tone} />)}
+        </div>
+      </Section>
+
+      <section className="sv-section sv-home__cta">
+        <div className="sv-wrap">
+          <div>
+            <span className="sv-eyebrow">Let’s build trust together</span>
+            <h2>Talk to a SAVIS solution expert</h2>
+            <p>From a first workshop to 24/7 operation — in Vietnam and across ten offices worldwide.</p>
+          </div>
+          <div className="sv-home__cta-actions">
+            <Button href="/contact" onBand>Contact sales</Button>
+            <Button href="mailto:sales@savis-group.com" variant="ghost" onBand>sales@savis-group.com</Button>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }

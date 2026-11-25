@@ -1,0 +1,237 @@
+{
+ "standards": [
+  "eIDAS 2.0",
+  "ETSI EN 319 4xx",
+  "FIDO2 · WebAuthn",
+  "WebTrust for CAs",
+  "ISO/IEC 27001:2022",
+  "PCI DSS",
+  "NIST FIPS 203 / 204",
+  "NIST SP 800-63-4",
+  "ICAO 9303",
+  "ISO/IEC 18013-5",
+  "OpenID4VC",
+  "W3C VC 2.0",
+  "CSC API",
+  "ISO/IEC 30107-3 PAD"
+ ],
+ "audiences": [
+  {
+   "id": "gov",
+   "label": "Government & public sector",
+   "title": "For governments and public agencies",
+   "lead": "National identity, roots of trust and digital public services — designed, delivered and operated at national scale since 2006.",
+   "page": [
+    "Government solutions",
+    "#ind-government"
+   ],
+   "links": [
+    [
+     "Product",
+     "National eID Trust",
+     "#p-national-eid-trust"
+    ],
+    [
+     "Product",
+     "National PKI",
+     "#p-national-pki"
+    ],
+    [
+     "Product",
+     "SAVIS SuperApp platform",
+     "#p-superapp-mgov"
+    ],
+    [
+     "Product",
+     "SAVIS Digital Integration Platform",
+     "#p-lgsp"
+    ],
+    [
+     "Case study",
+     "VietNam National Root CA",
+     "#case-neac-national-pki"
+    ],
+    [
+     "Use case",
+     "Public services in one app",
+     "#uc-public-services"
+    ]
+   ]
+  },
+  {
+   "id": "bank",
+   "label": "Banks & financial institutions",
+   "title": "For banks, payments and fintech",
+   "lead": "Onboarding, strong authentication, remote signing, open banking and secure payments — built for SBV regulation, PSD2 and eIDAS 2.0.",
+   "page": [
+    "Banking solutions",
+    "#ind-bfsi"
+   ],
+   "links": [
+    [
+     "Product",
+     "Digital Banking Platform",
+     "#p-digital-banking-platform"
+    ],
+    [
+     "Product",
+     "SAVIS TrustOnboard",
+     "#p-trustonboard"
+    ],
+    [
+     "Product",
+     "TrustCA Remote Signing",
+     "#p-remote-signing"
+    ],
+    [
+     "Product",
+     "Open Banking Suite",
+     "#p-open-banking-suite"
+    ],
+    [
+     "Product",
+     "FIDO2 Passwordless Identity",
+     "#p-passwordless"
+    ],
+    [
+     "Case study",
+     "Agribank CA",
+     "#case-agribank-ca"
+    ]
+   ]
+  },
+  {
+   "id": "ent",
+   "label": "Telcos & enterprises",
+   "title": "For telcos and enterprises",
+   "lead": "Zero Trust access, key management, paperless contracts and trusted archives — security that runs your business, not the other way round.",
+   "page": [
+    "Enterprise solutions",
+    "#ind-enterprise"
+   ],
+   "links": [
+    [
+     "Use case",
+     "Zero Trust access",
+     "#uc-zero-trust"
+    ],
+    [
+     "Product",
+     "SAM Appliance",
+     "#p-sam-appliance"
+    ],
+    [
+     "Product",
+     "Mobile Identity PKI",
+     "#p-mobile-pki-identity"
+    ],
+    [
+     "Product",
+     "Smart eContract",
+     "#p-econtract"
+    ],
+    [
+     "Product",
+     "Trusted Archive 2.0",
+     "#p-trusted-archive"
+    ],
+    [
+     "Use case",
+     "Post-quantum migration",
+     "#uc-pqc-migration"
+    ]
+   ]
+  },
+  {
+   "id": "tsp",
+   "label": "Trust service providers & CAs",
+   "title": "For CAs and trust service providers",
+   "lead": "Everything a CA or qualified trust service provider runs: PKI, signing, timestamping and the readiness programmes to pass WebTrust and eIDAS 2.0 audits.",
+   "page": [
+    "Trust provider solutions",
+    "#ind-trust-providers"
+   ],
+   "links": [
+    [
+     "Product",
+     "PKI in a Box",
+     "#p-pki-in-a-box"
+    ],
+    [
+     "Product",
+     "Signing Gateway",
+     "#p-signing-gateway"
+    ],
+    [
+     "Product",
+     "WebTrust Readiness",
+     "#p-webtrust-readiness"
+    ],
+    [
+     "Product",
+     "eIDAS 2.0 Readiness",
+     "#p-eidas-readiness"
+    ],
+    [
+     "Case study",
+     "Viettel-CA QTSP",
+     "#case-viettel-qtsp"
+    ],
+    [
+     "Use case",
+     "Remote signing",
+     "#uc-remote-signing"
+    ]
+   ]
+  },
+  {
+   "id": "partner",
+   "label": "Partners & developers",
+   "title": "For partners, integrators and developers",
+   "lead": "Resell, integrate or build on SAVIS: a partner programme, open APIs and a global ecosystem of more than 70 technology partners.",
+   "page": [
+    "Partner programme",
+    "#partners"
+   ],
+   "links": [
+    [
+     "Programme",
+     "Partner programme",
+     "#partners"
+    ],
+    [
+     "Use case",
+     "Open API ecosystem",
+     "#uc-bank-open-api-ecosystem"
+    ],
+    [
+     "Page",
+     "Trust Center",
+     "#trust-center"
+    ],
+    [
+     "Page",
+     "Quantum PQC Lab",
+     "#pqc-lab"
+    ],
+    [
+     "Page",
+     "Insights",
+     "#insights"
+    ],
+    [
+     "Contact",
+     "Talk to our partner team",
+     "#contact"
+    ]
+   ]
+  }
+ ],
+ "icons": {
+  "gov": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 10 12 4l9 6\"/><path d=\"M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 20h18\"/></svg>",
+  "bank": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\"><rect x=\"3\" y=\"6\" width=\"18\" height=\"13\" rx=\"2\"/><path d=\"M3 10h18M7 15h4\"/></svg>",
+  "ent": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linejoin=\"round\"><path d=\"M4 21V5l8-2v18M12 9h8v12M2 21h20\"/><path d=\"M7 8h2M7 12h2M7 16h2M15 13h2M15 17h2\"/></svg>",
+  "tsp": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 3 20 6v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z\"/><path d=\"m8.5 12 2.5 2.5 4.5-5\"/></svg>",
+  "partner": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"8\" cy=\"8\" r=\"3\"/><circle cx=\"16\" cy=\"8\" r=\"3\"/><path d=\"M2 20c0-3 2.7-5 6-5s6 2 6 5M14 15.3c.6-.2 1.3-.3 2-.3 3.3 0 6 2 6 5\"/></svg>"
+ }
+}
