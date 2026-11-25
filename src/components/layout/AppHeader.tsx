@@ -9,6 +9,8 @@ import {
 } from "./nav-data";
 import type { FeatureCard, Link, MenuId } from "./nav-data";
 
+const Chev = () => <svg className="sv-mx__chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="m9 6 6 6-6 6" /></svg>;
+const TAB_ICON: Record<string, string> = { products: "M12 3 4 7v10l8 4 8-4V7l-8-4Zm0 9v9m0-9 8-5M12 12 4 7", industry: "M4 21V8l6-3v16M10 21V11l7-3v13M3 21h18M7 11h.01M7 15h.01M13 14h.01M13 17h.01" };
 const Chevron = () => (
   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
 );
@@ -33,7 +35,7 @@ function Cards({ cards, art, onNavigate }: { cards: FeatureCard[]; art: Record<s
 function LinkList({ links, onNavigate }: { links: Link[]; onNavigate: () => void }) {
   return (
     <ul className="sv-mx__links">
-      {links.map((l) => <li key={l.label}><SmartLink href={l.href} onClick={onNavigate}>{l.label}</SmartLink></li>)}
+      {links.map((l) => <li key={l.label}><SmartLink href={l.href} onClick={onNavigate}>{l.label}<Chev /></SmartLink></li>)}
     </ul>
   );
 }
@@ -73,15 +75,15 @@ export function AppHeader({ pillars, industries, productHrefs, cardArt }: Catalo
           {utilityLinks.map((l) => <SmartLink key={l.label} href={l.href}>{l.label}</SmartLink>)}
         </div>
       </div>
-      <header className="sv-header" ref={ref}>
+      <header className="sv-header" ref={ref} onMouseLeave={() => setOpen(null)}>
         <div className="sv-wrap sv-header__bar">
           <Logo />
           <nav className="sv-nav" aria-label="Main">
             <ul>
               {mainNav.map((m) => (
                 <li key={m.id}>
-                  <button type="button" aria-expanded={open === m.id} aria-controls="sv-mx" onClick={() => setOpen(open === m.id ? null : m.id)}>
-                    {m.label}<Chevron />
+                  <button type="button" aria-expanded={open === m.id} aria-controls="sv-mx" onMouseEnter={() => setOpen(m.id)} onClick={() => setOpen(open === m.id ? null : m.id)}>
+                    {m.label}
                   </button>
                 </li>
               ))}
@@ -111,7 +113,7 @@ export function AppHeader({ pillars, industries, productHrefs, cardArt }: Catalo
                     {solutionsMenu.tabs.map((t) => (
                       <button key={t.id} type="button" className="sv-mx__tab" aria-pressed={tab === t.id}
                         onClick={() => { setTab(t.id as "products" | "industry"); setPillarId(null); }}>
-                        <b>{t.title}</b><span>{t.text}</span>
+                        <svg className="sv-mx__ico" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" aria-hidden="true"><path d={TAB_ICON[t.id]} /></svg><b>{t.title}<Chev /></b><span>{t.text}</span>
                       </button>
                     ))}
                     <SmartLink href={solutionsMenu.overview.href} className="sv-mx__more" onClick={close}>{solutionsMenu.overview.label}</SmartLink>
@@ -122,13 +124,13 @@ export function AppHeader({ pillars, industries, productHrefs, cardArt }: Catalo
                       <ul className="sv-mx__list">
                         {pillars.map((p) => (
                           <li key={p.id}>
-                            <button type="button" aria-current={pillarId === p.id} onClick={() => setPillarId(p.id)} onMouseEnter={() => setPillarId(p.id)}>{p.short}</button>
+                            <button type="button" aria-current={pillarId === p.id} onClick={() => setPillarId(p.id)} onMouseEnter={() => setPillarId(p.id)}>{p.short}<Chev /></button>
                           </li>
                         ))}
                       </ul>
                     ) : (
                       <ul className="sv-mx__list">
-                        {industries.map((i) => <li key={i.id}><SmartLink href={`#ind-${i.id}`} onClick={close}>{i.name}</SmartLink></li>)}
+                        {industries.map((i) => <li key={i.id}><SmartLink href={`#ind-${i.id}`} onClick={close}>{i.name}<Chev /></SmartLink></li>)}
                       </ul>
                     )}
                     <SmartLink href={solutionsMenu.all.href} className="sv-mx__more" onClick={close}>{solutionsMenu.all.label}</SmartLink>
@@ -163,7 +165,7 @@ export function AppHeader({ pillars, industries, productHrefs, cardArt }: Catalo
                     <SmartLink href={servicesMenu.all.href} className="sv-mx__more" onClick={close}>{servicesMenu.all.label}</SmartLink>
                     <SmartLink href={servicesMenu.talk.href} className="sv-mx__more" onClick={close}>{servicesMenu.talk.label}</SmartLink>
                   </div>
-                  <div><span className="sv-mx__k">Featured</span><Cards cards={servicesMenu.cards} art={cardArt} onNavigate={close} /></div>
+                  <div><div className="sv-mx__head"><span className="sv-mx__k">Featured</span><SmartLink href={servicesMenu.all.href} onClick={close}>{servicesMenu.all.label}</SmartLink></div><Cards cards={servicesMenu.cards} art={cardArt} onNavigate={close} /></div>
                 </div>
               )}
 
@@ -195,7 +197,7 @@ export function AppHeader({ pillars, industries, productHrefs, cardArt }: Catalo
                     <LinkList links={resourcesMenu.links} onNavigate={close} />
                     <SmartLink href={resourcesMenu.all.href} className="sv-mx__more" onClick={close}>{resourcesMenu.all.label}</SmartLink>
                   </div>
-                  <div><span className="sv-mx__k">Featured resources</span><Cards cards={resourcesMenu.cards} art={cardArt} onNavigate={close} /></div>
+                  <div><div className="sv-mx__head"><span className="sv-mx__k">Featured resources</span><SmartLink href={resourcesMenu.all.href} onClick={close}>{resourcesMenu.all.label}</SmartLink></div><Cards cards={resourcesMenu.cards} art={cardArt} onNavigate={close} /></div>
                 </div>
               )}
 
@@ -207,7 +209,7 @@ export function AppHeader({ pillars, industries, productHrefs, cardArt }: Catalo
                     <SmartLink href={companyMenu.contact.href} className="sv-mx__more" onClick={close}>{companyMenu.contact.label}</SmartLink>
                     <SmartLink href={companyMenu.partner.href} className="sv-mx__more" onClick={close}>{companyMenu.partner.label}</SmartLink>
                   </div>
-                  <div><span className="sv-mx__k">Featured</span><Cards cards={companyMenu.cards} art={cardArt} onNavigate={close} /></div>
+                  <div><div className="sv-mx__head"><span className="sv-mx__k">Featured</span><SmartLink href={companyMenu.all.href} onClick={close}>{companyMenu.all.label}</SmartLink></div><Cards cards={companyMenu.cards} art={cardArt} onNavigate={close} /></div>
                 </div>
               )}
             </div>

@@ -127,3 +127,35 @@
 .sv-next__n{font:600 13px var(--font-body);color:var(--brand);letter-spacing:.04em}
 .sv-next b{font:700 20px/1.3 var(--font-display);color:var(--ink)}
 .sv-next p{margin:0;color:var(--muted);font-size:14.5px}
+
+/* Mega menu, closer to the mockup: opens on hover, plain top-level labels, chevron lists, tinted side column */
+.sv-nav button svg{display:none}
+.sv-nav button[aria-expanded=true]{box-shadow:inset 0 -3px 0 var(--brand);border-radius:0}
+.sv-mega{overflow:hidden}
+.sv-mx__sol{grid-template-columns:260px 270px minmax(0,1fr);gap:var(--space-36)}
+.sv-mx__tab{flex-direction:row;flex-wrap:wrap;align-items:flex-start;column-gap:12px;border:0;background:none;padding:12px}
+.sv-mx__tab .sv-mx__ico{flex:none;color:var(--brand);margin-top:2px}
+.sv-mx__tab b{flex:1;display:flex;align-items:center;gap:4px;font:700 13px var(--font-body);letter-spacing:.1em;text-transform:uppercase;color:var(--brand)}
+.sv-mx__tab span{flex-basis:100%;padding-left:38px;margin-top:-18px}
+.sv-mx__tab[aria-pressed=true]{background:var(--chip);border:0}
+.sv-mx__col{padding-left:var(--space-30);border-left:1px solid var(--line)}
+.sv-mx__list button,.sv-mx__list a,.sv-mx__links a{justify-content:space-between}
+.sv-mx__list{gap:0}
+.sv-mx__list li{border-bottom:1px solid var(--line)}
+.sv-mx__list button,.sv-mx__list a{border-radius:0;padding:0 4px;font-weight:500}
+.sv-mx__chev{flex:none;color:var(--muted);transform:rotate(0)}
+.sv-mx__tab .sv-mx__chev{display:inline}
+.sv-mx__links li{border-bottom:1px solid var(--line)}
+.sv-mx__links a{font:500 15px var(--font-body);padding:0 4px}
+.sv-mx__promo{justify-self:center;max-width:236px}
+.sv-mx__head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:var(--space-10)}
+.sv-mx__head a{font-size:14px;font-weight:600;color:var(--brand);text-decoration:none}
+.sv-mx__split>.sv-mx__side:first-child{position:relative;background:var(--surface);margin-block:calc(var(--space-30) * -1) calc(var(--space-36) * -1);padding:var(--space-30) var(--space-18) var(--space-36)}
+.sv-mx__split>.sv-mx__side:first-child::before{content:"";position:absolute;top:0;bottom:0;right:100%;width:100vw;background:inherit}
+.sv-mx__split--insights>.sv-mx__side:first-child{background:none;margin:0;padding:0}
+.sv-mx__split--insights>.sv-mx__side:first-child::before{display:none}
+.sv-mx__split>.sv-mx__side:first-child{align-self:stretch}
+.sv-mx__sol{grid-template-columns:260px 310px minmax(0,1fr)}
+.sv-mx__list button,.sv-mx__list a{font-size:14.5px}
+.sv-mx__tab span{margin-top:0;padding-left:38px}
+.sv-mx__tab b{flex:1 1 calc(100% - 40px)}
