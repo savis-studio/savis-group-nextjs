@@ -211,3 +211,8 @@ export function productFaq(name: string, d: ProductDetail): Array<[string, strin
     ["What do we need to prepare?", `${d.pre.join(", ")}. SAVIS runs an assessment workshop to confirm scope, then a production-grade pilot before roll-out.`],
   ];
 }
+
+/* ---------- Relations for industry pages ---------- */
+export const useCasesOfIndustry = (id: string) => getUseCases().filter((u) => u.industries.includes(id));
+export const casesOfIndustry = (id: string) =>
+  (cases.items as unknown as Array<CaseStudy & { ind: string[] }>).filter((c) => c.ind?.includes(id));
