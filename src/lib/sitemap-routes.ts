@@ -23,8 +23,8 @@ export const STATIC_ROUTES: SitemapRoute[] = [
   staticRoute("/industries", true, 0.8),
   staticRoute("/use-cases", true, 0.8),
   // Phase 4
-  staticRoute("/customers", false, 0.8),
-  staticRoute("/insights", false, 0.8),
+  staticRoute("/customers", true, 0.8),
+  staticRoute("/insights", true, 0.8),
   staticRoute("/resources", false, 0.7),
   // Phase 5
   staticRoute("/services", false, 0.8),
@@ -54,9 +54,9 @@ export function dynamicRoutes(): SitemapRoute[] {
   add(true, "/products", products.map((p) => p.slug), 0.7); // Phase 3
   add(true, "/industries", industries.items.map((i) => i.id), 0.7); // Phase 3
   add(true, "/use-cases", useCases.map((u) => u.id), 0.6); // Phase 3
-  add(false, "/customers", getCases().map((c) => c.id), 0.6); // Phase 4
+  add(true, "/customers", getCases().map((c) => c.id), 0.6); // Phase 4
   for (const n of getNews()) {
-    out.push({ path: `/insights/${n.id}`, ready: false, lastModified: n.iso, priority: 0.5 }); // Phase 4
+    out.push({ path: `/insights/${n.id}`, ready: true, lastModified: n.iso, priority: 0.5 }); // Phase 4
   }
   return out;
 }

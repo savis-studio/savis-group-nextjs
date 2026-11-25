@@ -216,3 +216,41 @@ export function productFaq(name: string, d: ProductDetail): Array<[string, strin
 export const useCasesOfIndustry = (id: string) => getUseCases().filter((u) => u.industries.includes(id));
 export const casesOfIndustry = (id: string) =>
   (cases.items as unknown as Array<CaseStudy & { ind: string[] }>).filter((c) => c.ind?.includes(id));
+
+/* ---------- Customers and insights ---------- */
+export interface CaseDetail extends CaseStudy {
+  clientFull: string;
+  ind: string[];
+  challenge: string;
+  solution: string;
+  scope: string[];
+  standards: string[];
+  arch: Array<[string, string[]]>;
+  products: string[];
+  results: string[];
+  year: number | null;
+}
+export const getCaseDetail = (id: string) => (cases.items as unknown as CaseDetail[]).find((c) => c.id === id);
+export const getCaseCategory = (id: string) => (cases.categories as Array<CaseCategory & { lead: string }>).find((c) => c.id === id);
+export const getClientGroups = () => cases.clientGroups as Array<[string, string[]]>;
+export const useCasesOfCase = (id: string) => getUseCases().filter((u) => u.cases.includes(id));
+
+export interface NewsDetail extends NewsItem { tags: string[]; sources: Array<{ name: string; url: string }>; body: string[] }
+export const getNewsDetail = (id: string): NewsDetail | undefined => {
+  const n = (news as unknown as Array<Partial<NewsDetail> & NewsItem>).find((x) => x.id === id);
+  return n && { ...n, tags: n.tags ?? [], sources: n.sources ?? [], body: n.body ?? [] };
+};
+
+/**
+ * Article body HTML from the bundled mockup data (trusted, not user input). In-app `#hash` links become real paths;
+ * `#report-*` and `#resources-*` point at the whitepaper library, which has no pages yet, so they go to /insights.
+ */
+export function articleHtml(body: string[]): string {
+  return body
+    .join("")
+    .replace(/href="(#[^"]*)"/g, (_m, h: string) => {
+      const key = h.slice(1);
+      const to = /^(report-|resources)/.test(key) ? "/insights" : hashToPath(h);
+      return `href="${to}"`;
+    });
+}
