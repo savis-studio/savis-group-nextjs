@@ -7,6 +7,7 @@ export interface HubSpotLead {
   country?: string;
   topic: string;
   pillar?: string;
+  services?: string;
   timeline?: string;
   message: string;
   sourcePath?: string;
@@ -26,6 +27,7 @@ export function composeMessage(l: HubSpotLead): string {
   const meta = [
     ["Topic", l.topic],
     ["Interested in", l.pillar],
+    ["Services", l.services],
     ["Timeline", l.timeline],
     ["Page", l.sourcePath],
   ].filter(([, v]) => v);

@@ -41,25 +41,36 @@ export default function ContactPage() {
     >
       <Section>
         <div className="sv-contact">
-          <div>
-            <SectionHead eyebrow="Send a message" title="What do you need?" />
-            <ContactForm />
-          </div>
+          <ContactForm />
           <div style={{ display: "grid", gap: 16, alignContent: "start" }}>
             <div className="sv-card sv-info">
-              <span className="sv-eyebrow">Reach us directly</span>
-              <p style={{ margin: 0 }}>Hotline <a href="tel:1900636156">1900 636156</a></p>
-              <p style={{ margin: 0 }}>Sales <a href="mailto:sales@savis-group.com">sales@savis-group.com</a></p>
-              <p style={{ margin: 0 }}>General enquiries <a href="mailto:info@savis-group.com">info@savis-group.com</a></p>
+              <span className="sv-info__ico sv-info__ico--blue" aria-hidden="true">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.7" strokeLinejoin="round"><path d="M12 3 4 7.5v9L12 21l8-4.5v-9L12 3Z" /><path d="m4 7.5 8 4.5 8-4.5M12 12v9" /></svg>
+              </span>
+              <span className="sv-eyebrow">Hotline</span>
+              <a className="sv-info__big" href="tel:1900636156">1900 636156</a>
+              <span className="sv-eyebrow">Sales</span>
+              <a className="sv-info__link" href="mailto:sales@savis-group.com">sales@savis-group.com</a>
+              <span className="sv-eyebrow">General enquiries</span>
+              <a className="sv-info__plain" href="mailto:info@savis-group.com">info@savis-group.com</a>
             </div>
             <div className="sv-card sv-info">
+              <span className="sv-info__ico sv-info__ico--green" aria-hidden="true">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.7" strokeLinecap="round"><circle cx="12" cy="12" r="3.2" /><path d="M12 3.5v2.3M12 18.2v2.3M3.5 12h2.3M18.2 12h2.3M6 6l1.6 1.6M16.4 16.4 18 18M18 6l-1.6 1.6M7.6 16.4 6 18" /></svg>
+              </span>
               <span className="sv-eyebrow">Offices</span>
-              <p style={{ margin: 0 }}><b>Hanoi · HQ</b> Viet A Tower, 9 Duy Tan</p>
-              <p style={{ margin: 0 }}><b>Ho Chi Minh City</b> Winhome, 25 Dao Duy Anh</p>
-              {regions.map((r) => (
-                <p key={r.k} style={{ margin: 0 }}><b>{r.k}</b> {r.cities.map((c) => c[0]).join(" · ")}</p>
-              ))}
-              <p style={{ margin: 0, color: "var(--muted)" }}>ANZ: anz-sale@savis-group.com · +61 434 567 456</p>
+              <div className="sv-offices">
+                <div><b>Hanoi · HQ</b><span>Viet A Tower, 9 Duy Tan</span><a href="mailto:sales@savis-group.com">sales@savis-group.com</a></div>
+                <div><b>Ho Chi Minh City</b><span>Winhome, 25 Dao Duy Anh</span><a href="mailto:sales@savis-group.com">sales@savis-group.com</a></div>
+                {regions.map((r) => (
+                  <div key={r.k}>
+                    <b>{r.k}</b>
+                    <span>{r.cities.map((c) => c[0]).join(" · ")}</span>
+                    <a href="mailto:sales@savis-group.com">sales@savis-group.com</a>
+                    {r.k === "Asia-Pacific" && <a href="mailto:anz-sale@savis-group.com">ANZ: anz-sale@savis-group.com · +61 434 567 456</a>}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

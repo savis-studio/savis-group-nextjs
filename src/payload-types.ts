@@ -297,6 +297,10 @@ export interface Inquiry {
     | 'Developer / sandbox access'
     | 'Partnership';
   pillar?: string | null;
+  /**
+   * Services ticked on the form, comma separated.
+   */
+  services?: string | null;
   timeline?: string | null;
   message: string;
   sourcePath?: string | null;
@@ -536,6 +540,7 @@ export interface InquiriesSelect<T extends boolean = true> {
   phone?: T;
   topic?: T;
   pillar?: T;
+  services?: T;
   timeline?: T;
   message?: T;
   sourcePath?: T;

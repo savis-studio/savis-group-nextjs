@@ -1,15 +1,8 @@
 import type { CollectionConfig } from "payload";
 import { isAdmin, isStaff, nobody } from "../access";
+import { INQUIRY_SERVICES, INQUIRY_TOPICS } from "../lib/contact-options";
 
-export const INQUIRY_TOPICS = [
-  "Request a demo",
-  "Get a quote",
-  "Datasheets & brochure",
-  "Talk to an expert",
-  "Customer support",
-  "Developer / sandbox access",
-  "Partnership",
-] as const;
+export { INQUIRY_SERVICES, INQUIRY_TOPICS };
 
 /**
  * Messages sent through the public contact form. Created only by the site's server action (which runs with
@@ -28,6 +21,7 @@ export const Inquiries: CollectionConfig = {
     { name: "phone", type: "text", maxLength: 40 },
     { name: "topic", type: "select", options: [...INQUIRY_TOPICS], required: true },
     { name: "pillar", type: "text", maxLength: 120 },
+    { name: "services", type: "text", maxLength: 400, admin: { description: "Services ticked on the form, comma separated." } },
     { name: "timeline", type: "text", maxLength: 60 },
     { name: "message", type: "textarea", required: true, maxLength: 4000 },
     { name: "sourcePath", type: "text", maxLength: 200 },
