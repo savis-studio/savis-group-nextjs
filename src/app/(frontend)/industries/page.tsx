@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import "@/styles/solutions.css";
 import { PageShell } from "@/components/page/PageShell";
 import { Button, Card, Section, SectionHead } from "@/components/ui";
 import { INDUSTRY_GROUPS, getIndustry } from "@/lib/content";
