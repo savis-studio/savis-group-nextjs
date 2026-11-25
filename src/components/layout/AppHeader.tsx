@@ -43,6 +43,8 @@ export function AppHeader({ pillars, industries, productHrefs, cardArt }: Catalo
   const [open, setOpen] = useState<MenuId | null>(null);
   const [drawer, setDrawer] = useState(false);
   const [searching, setSearching] = useState(false);
+  const [mac, setMac] = useState(false);
+  useEffect(() => { setMac(/mac|iphone|ipad/i.test(navigator.platform || navigator.userAgent)); }, []);
   const [tab, setTab] = useState<"products" | "industry">("products");
   const [pillarId, setPillarId] = useState<string | null>(null);
   const ref = useRef<HTMLElement>(null);
@@ -86,9 +88,10 @@ export function AppHeader({ pillars, industries, productHrefs, cardArt }: Catalo
             </ul>
           </nav>
           <div className="sv-header__actions">
-            <button type="button" className="sv-search" aria-label="Search" aria-haspopup="dialog" onClick={() => { setSearching(true); setOpen(null); setDrawer(false); }}>
+            <button type="button" className="sv-search" aria-label="Search" aria-haspopup="dialog" aria-keyshortcuts="Control+K Meta+K" title={`Search (${mac ? "⌘" : "Ctrl"} K)`} onClick={() => { setSearching(true); setOpen(null); setDrawer(false); }}>
               <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" strokeWidth="1.6" /><path d="M11 11l3.5 3.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>
               <span className="sv-search__lbl">Search</span>
+              <kbd className="sv-kbd sv-search__lbl" aria-hidden="true">{mac ? "⌘ K" : "Ctrl K"}</kbd>
             </button>
             <Button href="/contact">Contact us</Button>
             <button type="button" className="sv-icon-btn" aria-label={drawer ? "Close menu" : "Open menu"} aria-expanded={drawer} aria-controls="sv-drawer" onClick={() => { setDrawer(!drawer); setOpen(null); }}>
@@ -230,7 +233,7 @@ export function AppHeader({ pillars, industries, productHrefs, cardArt }: Catalo
           </div>
         )}
       </header>
-      <SearchOverlay open={searching} onClose={closeSearch} />
+      <SearchOverlay open={searching} onClose={closeSearch} mac={mac} />
     </>
   );
 }

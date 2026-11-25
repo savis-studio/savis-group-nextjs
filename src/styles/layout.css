@@ -85,3 +85,8 @@
 .sv-sp__hit b{font:700 17px/1.35 var(--font-display)}
 .sv-sp__hit:hover b{color:var(--brand)}
 .sv-sp__hit span{color:var(--muted);font-size:15px}
+.sv-kbd{display:inline-block;padding:1px 6px;border:1px solid var(--line-strong);border-radius:6px;background:var(--raised);color:var(--muted);font:600 11.5px/1.5 var(--font-body);white-space:nowrap}
+.sv-search .sv-kbd{margin-left:2px}
+.sv-sr__foot{display:flex;flex-wrap:wrap;gap:var(--space-6) var(--space-14);padding:var(--space-10) var(--space-18);border-top:1px solid var(--line);font-size:12.5px;color:var(--muted)}
+.sv-sr__tip{margin-left:auto}
+@media (max-width:760px){.sv-sr__foot{display:none}}

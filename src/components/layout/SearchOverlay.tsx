@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { groupResults, search, type SearchEntry } from "@/lib/search";
 
 /** Full-screen search. Loads the index the first time it opens, then filters in the browser. */
-export function SearchOverlay({ open, onClose }: { open: boolean; onClose: () => void }) {
+export function SearchOverlay({ open, onClose, mac }: { open: boolean; onClose: () => void; mac: boolean }) {
   const router = useRouter();
   const [index, setIndex] = useState<SearchEntry[] | null>(null);
   const [failed, setFailed] = useState(false);
@@ -91,6 +91,12 @@ export function SearchOverlay({ open, onClose }: { open: boolean; onClose: () =>
           {flat.length > 0 && (
             <a className="sv-sr__all" href={all} onClick={(e) => { e.preventDefault(); go(all); }}>See all results →</a>
           )}
+        </div>
+        <div className="sv-sr__foot" aria-hidden="true">
+          <span><kbd className="sv-kbd">↑</kbd> <kbd className="sv-kbd">↓</kbd> to move</span>
+          <span><kbd className="sv-kbd">Enter</kbd> to open</span>
+          <span><kbd className="sv-kbd">Esc</kbd> to close</span>
+          <span className="sv-sr__tip">Open anywhere with <kbd className="sv-kbd">{mac ? "⌘ K" : "Ctrl K"}</kbd></span>
         </div>
       </div>
     </div>
