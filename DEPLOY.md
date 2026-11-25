@@ -16,7 +16,7 @@ Mẫu ở `.env.example`. Không commit file này.
 |---|---|
 | `PAYLOAD_SECRET` | `openssl rand -hex 32`. Mất thì mọi phiên đăng nhập hết hiệu lực. Backup riêng. |
 | `POSTGRES_PASSWORD` | Chỉ chữ và số (`openssl rand -hex 24`), vì được đặt trong URL. |
-| `SERVER_URL` | Địa chỉ công khai, ví dụ `https://dev.savis-group.com` rồi `https://savis-group.com`. Dùng cho CSRF và CORS. |
+| `SERVER_URL` | Địa chỉ công khai, hiện là `https://savis-group.com`. Dùng cho CSRF và CORS. |
 | `ALLOWED_ORIGINS` | Origin bổ sung, cách nhau bằng dấu phẩy. Thường để trống hoặc trùng `SERVER_URL`. |
 | `INDEXABLE_HOST` | `savis-group.com`. Host khác (hostname tạm) tự nhận `X-Robots-Tag: noindex`. |
 | `CF_ACCESS_TEAM_DOMAIN`, `CF_ACCESS_AUD` | Của Access application. Thiếu thì production từ chối `/admin` và `/api` (503). |
