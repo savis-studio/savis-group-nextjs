@@ -1,0 +1,91 @@
+[
+ {
+  "id": "identity",
+  "n": "01",
+  "name": "Digital Identity & Trust",
+  "vi": "Định danh số & Dịch vụ tin cậy",
+  "slug": "digital-identity-trust",
+  "pitch": "Verify people, authenticate access and sign with legal certainty — from onboarding to qualified signatures.",
+  "tags": [
+   "Digital ID",
+   "ID Verification",
+   "Liveness",
+   "ABIS",
+   "Biometrics",
+   "FIDO2",
+   "National PKI",
+   "TrustCA",
+   "eSignature",
+   "Fraud"
+  ]
+ },
+ {
+  "id": "cyber",
+  "n": "02",
+  "name": "Cybersecurity & Quantum-Safe Infrastructure",
+  "vi": "An ninh mạng & Hạ tầng an toàn lượng tử",
+  "slug": "cybersecurity-quantum-safe",
+  "pitch": "Monitor threats, protect keys and data, and prepare cryptography for the post-quantum era.",
+  "tags": [
+   "SOC",
+   "GP HSM",
+   "KMS",
+   "Zero Trust",
+   "Enterprise Browser",
+   "Quantum Safe Gateway",
+   "Crypto Agility",
+   "PQC"
+  ]
+ },
+ {
+  "id": "gov",
+  "n": "03",
+  "name": "Digital Government & Smart Infrastructure",
+  "vi": "Chính phủ số & Hạ tầng thông minh",
+  "slug": "digital-government-smart-infrastructure",
+  "pitch": "One-stop public services, citizen touchpoints and connected city infrastructure.",
+  "tags": [
+   "mGov SuperApp",
+   "eGate",
+   "Smart Kiosk",
+   "Smart City",
+   "AI Camera",
+   "IoT Security"
+  ]
+ },
+ {
+  "id": "finance",
+  "n": "04",
+  "name": "Open Finance & Secure Digital Transactions",
+  "vi": "Tài chính mở & Giao dịch số an toàn",
+  "slug": "open-finance-secure-transactions",
+  "pitch": "Open APIs, customer consent and payment security for banks and financial institutions.",
+  "tags": [
+   "Open Banking Suite",
+   "Digital Banking",
+   "eWallet",
+   "Transaction Signing",
+   "3DS",
+   "Tokenization",
+   "eContract"
+  ]
+ },
+ {
+  "id": "ai",
+  "n": "05",
+  "name": "AI, Data & Digital Platforms",
+  "vi": "AI, Dữ liệu & Nền tảng số",
+  "slug": "ai-data-platforms",
+  "pitch": "Data platforms, trusted archives, intelligent documents and AI-native media operations.",
+  "tags": [
+   "Data Lake",
+   "Archive",
+   "OCR",
+   "BPM",
+   "CMS AI",
+   "MAM",
+   "Healthcare",
+   "Cloud"
+  ]
+ }
+]

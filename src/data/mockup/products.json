@@ -1,0 +1,2257 @@
+[
+ {
+  "slug": "national-eid-trust",
+  "name": "National eID Trust",
+  "desc": "The full national identity lifecycle: biometric enrolment, IDMS and ABIS de-duplication, ICAO chip cards, Mobile ID, national PKI, eSign and the national wallet.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "digital-identity-trust",
+  "group": "digital-identity",
+  "tags": [
+   "ABIS",
+   "ICAO 9303",
+   "IDMS"
+  ],
+  "scene": null,
+  "detail": {
+   "lead": "The full national identity lifecycle, from biometric enrolment to digital signing and the national wallet.",
+   "blocks": [
+    [
+     "1 · Enrolment & identity",
+     [
+      "Point-of-registration and mobile enrolment",
+      "IDMS: identity records and lifecycle",
+      "ABIS biometric de-duplication",
+      "Civil registry and population database links"
+     ]
+    ],
+    [
+     "2 · Issuance",
+     [
+      "ICAO 9303 chip eID card",
+      "Mobile ID on the phone",
+      "PID for the national wallet",
+      "Card personalisation and key management"
+     ]
+    ],
+    [
+     "3 · National PKI",
+     [
+      "Offline Root CA, Sub-CAs",
+      "RA: approve, issue, revoke",
+      "VA: OCSP, CRL, validity checks",
+      "TSA timestamping in HSM"
+     ]
+    ],
+    [
+     "4 · Trust services",
+     [
+      "National eSign and remote signing",
+      "Strong authentication for public services",
+      "Biometric IDV for banks and relying parties",
+      "National wallet and verifier"
+     ]
+    ]
+   ],
+   "standards": [
+    "ICAO 9303",
+    "ISO/IEC 19794 · 39794",
+    "ISO/IEC 30107-3 PAD",
+    "X.509 · RFC 5280 · 6960",
+    "ETSI EN 319 411",
+    "ISO 18013-5 · SD-JWT VC",
+    "FIPS 140-3 · CC"
+   ],
+   "fit": "Identity agencies, ministries of interior, civil registries — direct or as a component in World Bank, IDB and ADB-funded programmes."
+  }
+ },
+ {
+  "slug": "savis-idms",
+  "name": "SAVIS IDMS",
+  "desc": "National identity management system: the identity register and lifecycle — create, update, suspend and mark deceased — linked to ABIS, CRVS, card, Mobile ID and wallet issuance, with tokenised IDs and full audit.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "digital-identity-trust",
+  "group": "digital-identity",
+  "tags": [
+   "Register",
+   "Lifecycle",
+   "ISO/IEC 24760"
+  ],
+  "scene": "abis",
+  "detail": null
+ },
+ {
+  "slug": "savis-idvs",
+  "name": "SAVIS IDVS",
+  "desc": "National identity verification service for banks, telcos and agencies: demographic and biometric 1:1 checks against the register, consent-based eKYC, partner management, tokenised identifiers and per-transaction billing.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "digital-identity-trust",
+  "group": "digital-identity",
+  "tags": [
+   "1:1 verify",
+   "Consent eKYC",
+   "Per-transaction"
+  ],
+  "scene": "kyc",
+  "detail": null
+ },
+ {
+  "slug": "id-verification",
+  "name": "ID Verification",
+  "desc": "Check that ID cards and passports are genuine: chip reading, security features and data validation.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "digital-identity-trust",
+  "group": "digital-identity",
+  "tags": [
+   "NFC chip",
+   "MRZ",
+   "Hologram"
+  ],
+  "scene": "kyc",
+  "detail": null
+ },
+ {
+  "slug": "trustonboard",
+  "name": "SAVIS TrustOnboard",
+  "desc": "One platform for remote onboarding and identity verification: ID document and NFC chip reading, face match, passive liveness and deepfake defense, and device intelligence — combined into a single Trust Score, with an orchestration console, mobile and web SDKs and APIs.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "digital-identity-trust",
+  "group": "digital-identity",
+  "tags": [
+   "Trust Score",
+   "NFC chip",
+   "Liveness"
+  ],
+  "scene": "kyc",
+  "detail": null
+ },
+ {
+  "slug": "vneid-integration",
+  "name": "VNeID Integration",
+  "desc": "Connect and verify customer identity through VNeID, VietNam’s national electronic identity, with consent, data minimisation and audit logs built in.",
+  "role": "S",
+  "isNew": true,
+  "pillar": "digital-identity-trust",
+  "group": "digital-identity",
+  "tags": [
+   "VNeID",
+   "Consent",
+   "Level 2"
+  ],
+  "scene": "kyc",
+  "detail": null
+ },
+ {
+  "slug": "digital-id-wallet",
+  "name": "Digital ID Wallet",
+  "desc": "Hold national ID, licences and certificates on the phone and present them securely.",
+  "role": "SY",
+  "isNew": false,
+  "pillar": "digital-identity-trust",
+  "group": "digital-identity",
+  "tags": [
+   "PID",
+   "mDL",
+   "OpenID4VP"
+  ],
+  "scene": "wallet",
+  "detail": {
+   "lead": "Credentials bound to the device, shared attribute by attribute, with signatures that can always be checked.",
+   "standards": [
+    "EUDI ARF 2.8",
+    "OpenID4VCI / VP",
+    "SD-JWT VC",
+    "ISO 18013-5 / -7",
+    "W3C VC 2.0"
+   ],
+   "fit": "National wallets, issuers (education, health, transport) and verifiers (banks, telcos)."
+  }
+ },
+ {
+  "slug": "decentralized-identity",
+  "name": "Decentralized Identity (DID)",
+  "desc": "Self-sovereign identifiers and verifiable credentials.",
+  "role": "SY",
+  "isNew": false,
+  "pillar": "digital-identity-trust",
+  "group": "digital-identity",
+  "tags": [
+   "DID",
+   "W3C VC 2.0",
+   "Verifier"
+  ],
+  "scene": "verify",
+  "detail": null
+ },
+ {
+  "slug": "mobile-pki-identity",
+  "name": "Mobile Identity PKI",
+  "desc": "PKI-based identity and signing keys protected on the user’s phone.",
+  "role": "SY",
+  "isNew": false,
+  "pillar": "digital-identity-trust",
+  "group": "digital-identity",
+  "tags": [
+   "Mobile PKI",
+   "Secure Element",
+   "X.509"
+  ],
+  "scene": null,
+  "detail": {
+   "lead": "The phone as an identity and authentication device up to LoA4 (ISO/IEC 29115).",
+   "blocks": [
+    [
+     "Secure activation",
+     [
+      "One-time code + QR with configurable expiry",
+      "Bound to one device, cannot be cloned",
+      "Re-activation with face check"
+     ]
+    ],
+    [
+     "Multi-factor",
+     [
+      "Know: PIN · Have: phone, token, card · Are: fingerprint, face",
+      "Smart token, PKI, FIDO2, OTP",
+      "Token locks after repeated wrong PINs"
+     ]
+    ],
+    [
+     "App protection",
+     [
+      "RASP: root / jailbreak, hooking, debugging, emulators, repackaging",
+      "Anti-keylogger, screenshot blocking",
+      "Certificate pinning"
+     ]
+    ]
+   ],
+   "standards": [
+    "ISO/IEC 29115 LoA4",
+    "eKYC PAD Level 2"
+   ],
+   "fit": "Mobile ID for public services, remote signing, bank push authentication and identity wallets."
+  }
+ },
+ {
+  "slug": "savis-abis",
+  "name": "SAVIS ABIS",
+  "desc": "Multimodal face and fingerprint identification for national ID, SIM registration and social programmes: real-time 1:N de-duplication and 1:1 verification, scale-out matcher nodes, REST API and a MOSIP-compatible queue interface (MOSIP compliance testing in progress), on COTS hardware or cloud.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "digital-identity-trust",
+  "group": "biometrics",
+  "tags": [
+   "Face + finger",
+   "1:N real-time",
+   "Scale-out"
+  ],
+  "scene": "abis",
+  "detail": null
+ },
+ {
+  "slug": "touchless-fingerprint",
+  "name": "SAVIS Touchless Fingerprint",
+  "desc": "Capture and match four fingerprints with any smartphone camera — no scanner, no contact. SDKs for Android, iOS and web; 1:1 and 1:N; on-device or server.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "digital-identity-trust",
+  "group": "biometrics",
+  "tags": [
+   "4 fingers",
+   "Phone camera",
+   "SDK"
+  ],
+  "scene": "finger",
+  "detail": null
+ },
+ {
+  "slug": "face-biometrics",
+  "name": "SAVIS Face Biometrics",
+  "desc": "Face capture with quality checks and fast matching for onboarding, login and identification, 1:1 and 1:N, with mobile and web SDKs.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "digital-identity-trust",
+  "group": "biometrics",
+  "tags": [
+   "Quality check",
+   "1:1 · 1:N",
+   "SDK"
+  ],
+  "scene": "identity",
+  "detail": null
+ },
+ {
+  "slug": "palm-biometrics",
+  "name": "SAVIS Palm Biometrics",
+  "desc": "Touchless palm recognition from a phone camera or kiosk for eGov services, border control and physical access.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "digital-identity-trust",
+  "group": "biometrics",
+  "tags": [
+   "Touchless palm",
+   "Kiosk",
+   "Border"
+  ],
+  "scene": "palm",
+  "detail": null
+ },
+ {
+  "slug": "enrollment-station",
+  "name": "SAVIS Enrollment Station",
+  "desc": "Fixed enrolment stations and rugged mobile kits: ICAO face, ten-print or touchless fingerprints, document and NFC chip reading, signature; offline-first with encrypted sync to ABIS. Devices OEM-sourced from certified third-party manufacturers.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "digital-identity-trust",
+  "group": "biometrics",
+  "tags": [
+   "ICAO face",
+   "10 fingers",
+   "Offline kit"
+  ],
+  "scene": "station",
+  "detail": null
+ },
+ {
+  "slug": "enrollment-suite",
+  "name": "SAVIS Enrollment Suite",
+  "desc": "Guided registration software for stations and mobile kits: quality and liveness checks, on-the-spot duplicate alerts, operator controls, reports and multi-device support.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "digital-identity-trust",
+  "group": "biometrics",
+  "tags": [
+   "Wizard",
+   "Quality",
+   "Duplicates"
+  ],
+  "scene": "station",
+  "detail": null
+ },
+ {
+  "slug": "mosip-integration",
+  "name": "SAVIS MOSIP Integration",
+  "desc": "Open-source national IDMS on MOSIP, delivered as a complementary solution: SAVIS ABIS via the MOSIP ABIS API, enrolment devices, eSignet authentication, Inji and CryptoID credentials, PKI support and system integration. MOSIP compliance testing in progress.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "digital-identity-trust",
+  "group": "biometrics",
+  "tags": [
+   "MOSIP",
+   "ABIS API",
+   "eSignet · Inji"
+  ],
+  "scene": "abis",
+  "detail": null
+ },
+ {
+  "slug": "liveness-deepfake",
+  "name": "SAVIS Liveness & Deepfake Defense",
+  "desc": "Passive liveness, deepfake and video-injection detection with on-device AI, designed for ISO/IEC 30107-3 presentation-attack detection.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "digital-identity-trust",
+  "group": "biometrics",
+  "tags": [
+   "Passive liveness",
+   "Deepfake",
+   "Injection"
+  ],
+  "scene": "deepfake",
+  "detail": null
+ },
+ {
+  "slug": "cryptoid",
+  "name": "SAVIS CryptoID",
+  "desc": "Identity in a digitally signed QR code: biometric and biographical data verified online or offline, unlocked by the holder's face or fingerprint, with selective sharing; also storable on a phone or smart card. Aligned with the ISO 22376 Visible Digital Seal standard (certification in progress).",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "digital-identity-trust",
+  "group": "biometrics",
+  "tags": [
+   "ISO 22376 VDS",
+   "Offline",
+   "Biometric"
+  ],
+  "scene": "cryptoid",
+  "detail": null
+ },
+ {
+  "slug": "passwordless",
+  "name": "FIDO2 Passwordless Identity",
+  "desc": "Passkeys and FIDO2 authentication that replace passwords and OTPs for citizens, customers and staff.",
+  "role": "SY",
+  "isNew": false,
+  "pillar": "digital-identity-trust",
+  "group": "authentication-access",
+  "tags": [
+   "FIDO2",
+   "Passkey",
+   "WebAuthn"
+  ],
+  "scene": null,
+  "detail": {
+   "lead": "An appliance combining server, HSM and FIDO2 + Identity Server software, designed for Zero Trust.",
+   "specs": [
+    [
+     "HSM",
+     "FIPS 140-3 Level 3 · CC EAL4+ AVA_VAN.5 or EN 419 221-5"
+    ],
+    [
+     "FIDO2",
+     "FIDO2 Server functional certification: conformance and interoperability"
+    ],
+    [
+     "Federation",
+     "OIDC · OAuth 2.0 · SAML 2.0 · SSO"
+    ],
+    [
+     "Directory",
+     "Active Directory · LDAP — keeps existing infrastructure"
+    ],
+    [
+     "Cryptography",
+     "Ready for NIST post-quantum standards"
+    ],
+    [
+     "Architecture",
+     "Zero Trust · risk-based access · on-premises and cloud"
+    ],
+    [
+     "Compliance",
+     "PSD2/PSD3 SCA · GDPR · Decree 13/2023 · PCI DSS · SOC 2 Type II"
+    ],
+    [
+     "Quality",
+     "ISO 9001:2015 · ISO 14001:2015 · ISO/IEC 27001:2022"
+    ]
+   ],
+   "blocks": [
+    [
+     "How it plugs in",
+     [
+      "Works with your existing IdP",
+      "Users sign in with TrustPass keys or their phone",
+      "Integrates AD/LDAP, ERP, CRM, HRM, core banking, card and e-wallet"
+     ]
+    ]
+   ],
+   "standards": [
+    "WebAuthn L3",
+    "CTAP 2.1–2.3",
+    "FIDO MDS3"
+   ],
+   "fit": "Passwordless sign-in for citizens, customers and staff."
+  }
+ },
+ {
+  "slug": "sam-auth-server",
+  "name": "SAM Auth Server",
+  "desc": "Six anti-fraud modules — SmartOTP, transaction signing and push, PKI token, Device Intelligence and Risk Engine — on one 1U appliance with a post-quantum HSM.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "digital-identity-trust",
+  "group": "authentication-access",
+  "tags": [
+   "SmartOTP",
+   "TXS",
+   "Risk engine"
+  ],
+  "scene": null,
+  "detail": {
+   "lead": "Six anti-fraud modules on one 1U appliance with a post-quantum HSM.",
+   "blocks": [
+    [
+     "Platform Core",
+     [
+      "Security gateway, App-ID, App-Crypto",
+      "OIDC, OAuth 2.0, FAPI"
+     ]
+    ],
+    [
+     "SmartOTP",
+     [
+      "TOTP, OCRA",
+      "SMS / email OTP as fallback"
+     ]
+    ],
+    [
+     "Transaction signing · Push",
+     [
+      "WYSIWYS — what you see is what you sign",
+      "Separate channel, end-to-end encryption"
+     ]
+    ],
+    [
+     "PKI token · HSM signing",
+     [
+      "ECDSA, Ed25519, RSA",
+      "Post-quantum signatures"
+     ]
+    ],
+    [
+     "Device Intelligence",
+     [
+      "Device identity and binding",
+      "Integrity checks"
+     ]
+    ],
+    [
+     "Risk Engine",
+     [
+      "Risk and behaviour scoring",
+      "Token lock, step-up"
+     ]
+    ]
+   ],
+   "specs": [
+    [
+     "Form factor",
+     "1U appliance with PCIe post-quantum HSM"
+    ],
+    [
+     "ML-DSA signatures",
+     "3,130 per second"
+    ],
+    [
+     "ECC signatures",
+     "23,890 per second"
+    ],
+    [
+     "Regulatory fit",
+     "SBV Circulars 50/2024 and 77/2025 · BSP 1213 · MAS TRM · BNM RMiT · PSD2/PSD3"
+    ]
+   ],
+   "standards": [
+    "OIDC · OAuth 2.0 · FAPI 2.0",
+    "TOTP · OCRA",
+    "FIPS 203 · 204"
+   ],
+   "fit": "Banks and e-wallets that must meet SBV Circulars 50/77 quickly and stop transaction fraud."
+  }
+ },
+ {
+  "slug": "trustsign-mobile",
+  "name": "TrustSign Mobile",
+  "desc": "Mobile authenticator that activates remote signatures and approves transactions, with keys in the Secure Element or Secure Enclave.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "digital-identity-trust",
+  "group": "authentication-access",
+  "tags": [
+   "Remote sign",
+   "Push",
+   "Secure Element"
+  ],
+  "scene": "a2a",
+  "detail": {
+   "lead": "The phone becomes the signing and approval device: keys in the Secure Element or Secure Enclave, unlocked by PIN, fingerprint or Face ID.",
+   "blocks": [
+    [
+     "Remote signing activation",
+     [
+      "Authorises signatures held in a remote QSCD",
+      "Builds the signature activation data (SAD)"
+     ]
+    ],
+    [
+     "Transaction approval",
+     [
+      "Shows amount and payee before signing",
+      "Push and decoupled approval for web, kiosk and POS"
+     ]
+    ],
+    [
+     "Mobile identity",
+     [
+      "Device-bound, non-clonable keys",
+      "Re-activation with face check"
+     ]
+    ]
+   ],
+   "standards": [
+    "ETSI EN 419 241",
+    "CSC API",
+    "FIDO2",
+    "ISO/IEC 29115 LoA4"
+   ],
+   "fit": "Trust service providers, banks and public services that need legally binding signatures on the phone."
+  }
+ },
+ {
+  "slug": "mobile-identity-sca",
+  "name": "Mobile Identity SCA",
+  "desc": "Strong customer authentication on the customer’s phone: device-bound keys plus biometrics to approve logins and payments.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "digital-identity-trust",
+  "group": "authentication-access",
+  "tags": [
+   "SCA",
+   "Biometric",
+   "Device key"
+  ],
+  "scene": "a2a",
+  "detail": null
+ },
+ {
+  "slug": "smartotp-plus",
+  "name": "SmartOTP+",
+  "desc": "Next-generation soft-token OTP with device binding, transaction details on screen and protection against SIM swap.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "digital-identity-trust",
+  "group": "authentication-access",
+  "tags": [
+   "Soft OTP",
+   "Device binding",
+   "Anti SIM-swap"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "iam-ciam",
+  "name": "IAM & CIAM",
+  "desc": "Workforce and customer identity, single sign-on and access policies.",
+  "role": "SY",
+  "isNew": false,
+  "pillar": "digital-identity-trust",
+  "group": "authentication-access",
+  "tags": [
+   "SSO",
+   "OIDC · SAML",
+   "MFA"
+  ],
+  "scene": "omni",
+  "detail": null
+ },
+ {
+  "slug": "credential-management",
+  "name": "Credential Management",
+  "desc": "Issue, activate, renew and revoke smart cards, tokens and certificates from one console.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "digital-identity-trust",
+  "group": "authentication-access",
+  "tags": [
+   "Issue",
+   "Renew",
+   "Revoke"
+  ],
+  "scene": "token",
+  "detail": null
+ },
+ {
+  "slug": "trustpass",
+  "name": "TrustPass Authentication",
+  "desc": "Hardware authenticators: TrustPass Key, Card, Sign Card and OTP / View Card.",
+  "role": "SY",
+  "isNew": false,
+  "pillar": "digital-identity-trust",
+  "group": "authentication-access",
+  "tags": null,
+  "scene": null,
+  "detail": {
+   "lead": "Ten hardware authenticators for customers who do not want — or are not allowed — to depend on a smartphone. Own FIDO AAGUID.",
+   "visual": "trustpass",
+   "fit": "Banks, enterprises and governments that need phishing-resistant authentication without a smartphone."
+  }
+ },
+ {
+  "slug": "pki-token",
+  "name": "PKI Token",
+  "desc": "USB cryptographic token that stores certificates and private keys for digital signing and secure login.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "digital-identity-trust",
+  "group": "secure-credentials",
+  "tags": [
+   "FIPS 140-3 Level 3",
+   "FIPS 140-2 Level 3",
+   "PKCS#11 · CSP"
+  ],
+  "scene": "usbtoken",
+  "detail": null
+ },
+ {
+  "slug": "smart-card-piv",
+  "name": "Smart Card PIV",
+  "desc": "PIV-compatible smart card for employee and citizen ID: physical access, secure login and digital signatures on one card.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "digital-identity-trust",
+  "group": "secure-credentials",
+  "tags": [
+   "PIV",
+   "Door access",
+   "Logon"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "crypto-bio-token",
+  "name": "Crypto Bio Token",
+  "desc": "Cryptographic token with a built-in fingerprint sensor: the private key is used only after the owner’s fingerprint matches on the device.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "digital-identity-trust",
+  "group": "secure-credentials",
+  "tags": [
+   "Fingerprint",
+   "Match-on-device",
+   "PKI"
+  ],
+  "scene": "usbtoken",
+  "detail": null
+ },
+ {
+  "slug": "smart-virtual-card",
+  "name": "Smart Virtual Card",
+  "desc": "A virtual smart card on the phone for identity, access, payments and signatures. Editions for Education, Citizen and Enterprise.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "digital-identity-trust",
+  "group": "secure-credentials",
+  "tags": [
+   "Virtual card",
+   "NFC",
+   "Campus"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "national-pki",
+  "name": "National PKI",
+  "desc": "Root and subordinate CA hierarchy for a country’s public-key infrastructure and its trust services.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "digital-identity-trust",
+  "group": "pki-infrastructure",
+  "tags": [
+   "Root CA",
+   "Sub-CA",
+   "CRL · OCSP"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "pki-in-a-box",
+  "name": "PKI in a Box",
+  "desc": "All-in-one public key infrastructure appliance: CA, RA, validation and HSM, ready in weeks.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "digital-identity-trust",
+  "group": "pki-infrastructure",
+  "tags": [
+   "CA · RA",
+   "VA",
+   "Key protection"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "timestamp-tsa",
+  "name": "Timestamp Authority (TSA)",
+  "desc": "On-premise time-stamping authority for enterprises and government systems.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "digital-identity-trust",
+  "group": "pki-infrastructure",
+  "tags": [
+   "RFC 3161",
+   "TSA",
+   "Time source"
+  ],
+  "scene": "sign",
+  "detail": null
+ },
+ {
+  "slug": "signing-gateway",
+  "name": "Signing Gateway",
+  "desc": "One gateway that routes every signing and verification request to the right HSM, CA and policy.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "digital-identity-trust",
+  "group": "pki-infrastructure",
+  "tags": [
+   "Routing",
+   "Policy",
+   "CSC API"
+  ],
+  "scene": "sign",
+  "detail": null
+ },
+ {
+  "slug": "signing-server",
+  "name": "SAVIS Signing Server",
+  "desc": "High-volume server-side signing for systems and organizational seals.",
+  "role": "SY",
+  "isNew": false,
+  "pillar": "digital-identity-trust",
+  "group": "pki-infrastructure",
+  "tags": [
+   "Bulk sign",
+   "e-Seal",
+   "PAdES"
+  ],
+  "scene": "sign",
+  "detail": null
+ },
+ {
+  "slug": "remote-signing",
+  "name": "TrustCA Remote Signing",
+  "desc": "Sign from any device while keys stay inside the HSM.",
+  "role": "SY",
+  "isNew": false,
+  "pillar": "digital-identity-trust",
+  "group": "trust-services",
+  "tags": [
+   "Remote QSCD",
+   "CSC API",
+   "QES"
+  ],
+  "scene": null,
+  "detail": {
+   "lead": "A QTSP platform for qualified remote signing on every channel — signing portal, Mobile ID app, enterprise APIs and national wallets.",
+   "blocks": [
+    [
+     "Identity proofing & biometrics",
+     [
+      "ETSI TS 119 461",
+      "NFC chip reading, face match",
+      "PAD, anti-deepfake"
+     ]
+    ],
+    [
+     "Remote signing (DSS)",
+     [
+      "CSC API 2.0 / 2.2",
+      "PAdES, XAdES, CAdES, JAdES",
+      "Validation and signature checks"
+     ]
+    ],
+    [
+     "Certificate & authorisation",
+     [
+      "Qualified certificate issuance",
+      "Key activation (SCAL2)",
+      "OTP, passkey, biometrics"
+     ]
+    ],
+    [
+     "Trust layer",
+     [
+      "Remote QSCD: HSM EN 419 221-5 + EN 419 241",
+      "Qualified CA",
+      "TSA · OCSP",
+      "Long-term preservation"
+     ]
+    ]
+   ],
+   "standards": [
+    "ETSI EN 419 241-1/-2",
+    "EN 419 221-5",
+    "CSC API",
+    "eIDAS QES",
+    "ETSI EN 319 401/411/421"
+   ],
+   "fit": "QTSPs, public CAs, banks and government agencies."
+  }
+ },
+ {
+  "slug": "trustca-timestamp",
+  "name": "TrustCA Timestamp",
+  "desc": "Trusted timestamp service that proves when a document was signed; combined with LTV for long-term validation.",
+  "role": "SY",
+  "isNew": false,
+  "pillar": "digital-identity-trust",
+  "group": "trust-services",
+  "tags": [
+   "Timestamp",
+   "LTV",
+   "RFC 3161"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "trustca-ekyc-biometric",
+  "name": "TrustCA eKYC Biometric",
+  "desc": "Biometric eKYC (face and fingerprint) that verifies the person and issues a TrustCA certificate in the same flow.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "digital-identity-trust",
+  "group": "trust-services",
+  "tags": [
+   "Face",
+   "Fingerprint",
+   "Instant cert"
+  ],
+  "scene": "identity",
+  "detail": null
+ },
+ {
+  "slug": "paperless",
+  "name": "SAVIS Paperless",
+  "desc": "Paperless workflows where every form and approval is signed, timestamped and archived with legal validity.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "digital-identity-trust",
+  "group": "trust-services",
+  "tags": [
+   "Workflow",
+   "Sign",
+   "Archive"
+  ],
+  "scene": "contract",
+  "detail": null
+ },
+ {
+  "slug": "trustca-va-ra",
+  "name": "TrustCA VA/RA",
+  "desc": "Certificate validation and registration authority services.",
+  "role": "SY",
+  "isNew": false,
+  "pillar": "digital-identity-trust",
+  "group": "trust-services",
+  "tags": [
+   "OCSP",
+   "CRL",
+   "RA"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "ecertify",
+  "name": "SAVIS eCertify",
+  "desc": "Tamper-evident digital certificates and diplomas.",
+  "role": "S",
+  "isNew": false,
+  "pillar": "digital-identity-trust",
+  "group": "trust-services",
+  "tags": [
+   "Diploma",
+   "Tamper-evident",
+   "QR verify"
+  ],
+  "scene": "edu",
+  "detail": null
+ },
+ {
+  "slug": "webtrust-readiness",
+  "name": "WebTrust Readiness",
+  "desc": "Gap assessment, controls and audit preparation for CAs seeking WebTrust for Certification Authorities.",
+  "role": "S",
+  "isNew": true,
+  "pillar": "digital-identity-trust",
+  "group": "trust-readiness",
+  "tags": [
+   "WebTrust",
+   "Gap analysis",
+   "Audit"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "eidas-readiness",
+  "name": "eIDAS 2.0 Readiness",
+  "desc": "Prepare trust services and wallets for eIDAS 2.0: gap analysis, ETSI-based policies and conformity assessment preparation.",
+  "role": "S",
+  "isNew": true,
+  "pillar": "digital-identity-trust",
+  "group": "trust-readiness",
+  "tags": [
+   "eIDAS 2.0",
+   "ETSI",
+   "Conformity"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "fraud-prevention",
+  "name": "Fraud Prevention & Risk Management",
+  "desc": "Detect identity fraud and risky sessions in real time.",
+  "role": "SY",
+  "isNew": false,
+  "pillar": "digital-identity-trust",
+  "group": "fraud-app-protection",
+  "tags": [
+   "Real-time",
+   "Rules + ML",
+   "Case mgmt"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "device-intelligence",
+  "name": "Device Intelligence",
+  "desc": "Score the risk of every device in real time — emulators, rooted phones, remote-access tools, SIM swaps and device farms — to stop fraud before login or payment.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "digital-identity-trust",
+  "group": "fraud-app-protection",
+  "tags": [
+   "Emulator",
+   "Root",
+   "Remote access"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "device-fingerprint-sdk",
+  "name": "Device Fingerprint SDK",
+  "desc": "Recognise each device behind a login or payment to spot emulators, bots and account takeover.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "digital-identity-trust",
+  "group": "fraud-app-protection",
+  "tags": [
+   "Device ID",
+   "Bot detect",
+   "ATO"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "rasp-plus",
+  "name": "RASP+",
+  "desc": "Runtime self-protection for mobile apps against tampering, hooking, rooting and overlay attacks.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "digital-identity-trust",
+  "group": "fraud-app-protection",
+  "tags": [
+   "Anti-hook",
+   "Anti-tamper",
+   "Overlay"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "trustshield",
+  "name": "TrustShield",
+  "desc": "TrustShield+ protects banking and wallet apps (RASP, anti-tampering) and feeds threat signals into the transaction decision.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "digital-identity-trust",
+  "group": "fraud-app-protection",
+  "tags": [
+   "RASP",
+   "App shield",
+   "Signals"
+  ],
+  "scene": null,
+  "detail": {
+   "lead": "TrustShield protects banking and wallet apps and feeds threat signals straight into the transaction decision.",
+   "blocks": [
+    [
+     "App protection",
+     [
+      "RASP: root / jailbreak, hooking, debugging, emulators, repackaging",
+      "Anti-keylogger, screenshot blocking",
+      "Certificate pinning"
+     ]
+    ],
+    [
+     "Into the decision",
+     [
+      "Threat signals sent to the Risk Engine",
+      "Step-up or block in real time"
+     ]
+    ]
+   ],
+   "standards": [
+    "SBV Circular 77/2025",
+    "OWASP MASVS"
+   ],
+   "fit": "Mobile banking and e-wallet apps."
+  }
+ },
+ {
+  "slug": "savis-soc",
+  "name": "SAVIS AI SOC",
+  "desc": "AI-powered monitoring, detection and incident response, around the clock.",
+  "role": "S",
+  "isNew": false,
+  "pillar": "cybersecurity-quantum-safe",
+  "group": "security-operations",
+  "tags": [
+   "24/7",
+   "SIEM",
+   "SOAR"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "cyber-security",
+  "name": "SAVIS Cyber Security",
+  "desc": "Network, application, endpoint and data security solutions designed, integrated and supported by SAVIS with global security partners.",
+  "role": "S",
+  "isNew": false,
+  "pillar": "cybersecurity-quantum-safe",
+  "group": "security-operations",
+  "tags": [
+   "Network",
+   "Endpoint",
+   "Data"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "sam-appliance",
+  "name": "SAM Appliance",
+  "desc": "Secure access module appliance that protects keys and signing operations.",
+  "role": "SY",
+  "isNew": false,
+  "pillar": "cybersecurity-quantum-safe",
+  "group": "key-management",
+  "tags": null,
+  "scene": null,
+  "detail": {
+   "visual": "sam",
+   "lead": "“Security in a box”: an HSM and nine trust services in one certified appliance.",
+   "blocks": [
+    [
+     "Signing & identity",
+     [
+      "Remote QSCD (EN 419 241-2)",
+      "Digital ID Wallet issuer and verifier",
+      "Mobile identity to LoA4 (ISO 29115)"
+     ]
+    ],
+    [
+     "Authentication & PKI",
+     [
+      "SCA: FIDO2, OTP, push",
+      "PKI: CA, VA, TSA",
+      "Tokenisation of card data and PII"
+     ]
+    ],
+    [
+     "Data & future-proofing",
+     [
+      "End-to-end encryption of data and channels",
+      "Electronic ledger",
+      "PQC: ML-DSA, ML-KEM"
+     ]
+    ]
+   ],
+   "specs": [
+    [
+     "HSM",
+     "General-purpose and payment HSM built in · FIPS 140-3 Level 3 / EN 419 221-5"
+    ],
+    [
+     "Role",
+     "Root of trust for every SAVIS product line"
+    ]
+   ],
+   "fit": "Banks, trust service providers and agencies that want trust services on-premises."
+  }
+ },
+ {
+  "slug": "gp-hsm",
+  "name": "GP HSM",
+  "desc": "General-purpose hardware security module for key generation, signing and encryption in PKI, databases and applications.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "cybersecurity-quantum-safe",
+  "group": "key-management",
+  "tags": [
+   "FIPS 140-3",
+   "PKCS#11",
+   "Keys"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "kms",
+  "name": "Key Management System (KMS)",
+  "desc": "Central lifecycle management for encryption keys across applications, databases and clouds: generate, rotate, back up and revoke under one policy.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "cybersecurity-quantum-safe",
+  "group": "key-management",
+  "tags": [
+   "Rotate",
+   "Cloud keys",
+   "Policy"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "hsm-as-a-service",
+  "name": "HSM as a Service",
+  "desc": "Dedicated hardware security modules operated by SAVIS, consumed as a cloud service with no hardware to buy or run.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "cybersecurity-quantum-safe",
+  "group": "key-management",
+  "tags": [
+   "Cloud HSM",
+   "Dedicated",
+   "Managed"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "zero-trust-gateway",
+  "name": "Zero Trust Gateway Appliance",
+  "desc": "Hardware gateway that checks identity, device health and policy on every request before granting access to applications — never trust, always verify.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "cybersecurity-quantum-safe",
+  "group": "zero-trust",
+  "tags": [
+   "ZTNA",
+   "Device posture",
+   "mTLS"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "secure-enterprise-browser",
+  "name": "Secure Enterprise Browser",
+  "desc": "Managed browser that enforces zero-trust policy where work happens: data-loss controls, isolation and audit for web and SaaS apps on managed and unmanaged devices.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "cybersecurity-quantum-safe",
+  "group": "zero-trust",
+  "tags": [
+   "DLP",
+   "Isolation",
+   "Audit"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "quantum-safe-gateway",
+  "name": "Quantum Safe Gateway",
+  "desc": "Network gateway that adds hybrid classical and post-quantum encryption (NIST ML-KEM, ML-DSA) to existing connections without changing applications.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "cybersecurity-quantum-safe",
+  "group": "quantum-safe",
+  "tags": [
+   "ML-KEM",
+   "ML-DSA",
+   "400 Gb/s"
+  ],
+  "scene": null,
+  "detail": {
+   "lead": "Brings Zero Trust and post-quantum cryptography into existing infrastructure — without replacing it.",
+   "blocks": [
+    [
+     "Identity-based Zero Trust",
+     [
+      "Users, devices and workloads all authenticate",
+      "Micro-segmentation"
+     ]
+    ],
+    [
+     "Overlay network",
+     [
+      "Connects data centres, branches, DR and cloud",
+      "No ports opened to the Internet"
+     ]
+    ],
+    [
+     "PKI & certificate lifecycle",
+     [
+      "Automatic issue, renewal and revocation via TrustCA"
+     ]
+    ],
+    [
+     "Strong authentication",
+     [
+      "FIDO2, adaptive MFA, device binding"
+     ]
+    ],
+    [
+     "Crypto agility",
+     [
+      "Hybrid TLS with ML-KEM, ML-DSA signatures",
+      "Change algorithms without changing infrastructure"
+     ]
+    ],
+    [
+     "API & service mesh",
+     [
+      "Kubernetes and service-mesh connectivity"
+     ]
+    ]
+   ],
+   "specs": [
+    [
+     "Form factor",
+     "2U, 19\" rack · 438 × 88.1 × 650 mm"
+    ],
+    [
+     "Data plane",
+     "400 Gb/s DPU · 4 × SFP+/SFP28 10/25 GbE · 2 × RJ45 1/10 GbE"
+    ],
+    [
+     "Management",
+     "1 × RJ45 GbE management · service USB for HSM only"
+    ],
+    [
+     "Trust anchors",
+     "TPM 2.0 · HSM · FIPS mode"
+    ],
+    [
+     "Power",
+     "2 × hot-swap Platinum PSUs, redundant"
+    ],
+    [
+     "Post-quantum",
+     "NIST FIPS 203 (ML-KEM) · FIPS 204 (ML-DSA)"
+    ]
+   ],
+   "visual": "qssg",
+   "fit": "Data centres, critical infrastructure and large enterprises."
+  }
+ },
+ {
+  "slug": "quantum-vault",
+  "name": "Quantum Vault",
+  "desc": "Post-quantum protected vault for keys, secrets and certificates that must stay confidential for decades.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "cybersecurity-quantum-safe",
+  "group": "quantum-safe",
+  "tags": [
+   "PQC vault",
+   "Secrets",
+   "Decades"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "quantum-safe-storage",
+  "name": "Quantum Safe Storage",
+  "desc": "Encrypted storage protected with post-quantum algorithms against harvest-now, decrypt-later attacks.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "cybersecurity-quantum-safe",
+  "group": "quantum-safe",
+  "tags": [
+   "PQC",
+   "At rest",
+   "HNDL"
+  ],
+  "scene": "crypt",
+  "detail": null
+ },
+ {
+  "slug": "crypto-agility",
+  "name": "Crypto Agility",
+  "desc": "Discover and inventory every algorithm, key and certificate, then switch them by policy without rewriting applications — the foundation for post-quantum migration.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "cybersecurity-quantum-safe",
+  "group": "quantum-safe",
+  "tags": [
+   "Inventory",
+   "CBOM",
+   "Policy switch"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "quantum-readiness",
+  "name": "Quantum Readiness Program",
+  "desc": "Crypto discovery, risk assessment and a phased roadmap to post-quantum cryptography.",
+  "role": "SY",
+  "isNew": false,
+  "pillar": "cybersecurity-quantum-safe",
+  "group": "quantum-safe",
+  "tags": [
+   "Discovery",
+   "Risk",
+   "Roadmap"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "pqc-suite",
+  "name": "PQC Suite",
+  "desc": "Post-quantum cryptography toolkit for migration and hybrid deployment.",
+  "role": "SY",
+  "isNew": false,
+  "pillar": "cybersecurity-quantum-safe",
+  "group": "quantum-safe",
+  "tags": [
+   "ML-KEM",
+   "ML-DSA",
+   "SLH-DSA"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "qkd",
+  "name": "QKD",
+  "desc": "Quantum key distribution delivered with technology partners.",
+  "role": "SP",
+  "isNew": false,
+  "pillar": "cybersecurity-quantum-safe",
+  "group": "quantum-safe",
+  "tags": [
+   "QKD",
+   "BB84",
+   "Partners"
+  ],
+  "scene": "qkd",
+  "detail": null
+ },
+ {
+  "slug": "quantum-communication",
+  "name": "Quantum Communication",
+  "desc": "Quantum-secured communication pilots and research.",
+  "role": "SP",
+  "isNew": false,
+  "pillar": "cybersecurity-quantum-safe",
+  "group": "quantum-safe",
+  "tags": [
+   "Quantum link",
+   "Pilot",
+   "Research"
+  ],
+  "scene": "qkd",
+  "detail": null
+ },
+ {
+  "slug": "data-encryption",
+  "name": "Data Encryption & Protection",
+  "desc": "Encryption and protection for data at rest and in transit.",
+  "role": "S",
+  "isNew": false,
+  "pillar": "cybersecurity-quantum-safe",
+  "group": "data-security",
+  "tags": [
+   "At rest",
+   "In transit",
+   "Tokenise"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "savis-crvs",
+  "name": "SAVIS CRVS",
+  "desc": "Digital civil registration and vital statistics built on OpenCRVS, the open-source Digital Public Good: birth and death registration offline and online, signed certificates, birth-to-ID with MOSIP, and real-time statistics — implemented, integrated and operated by SAVIS.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "digital-government-smart-infrastructure",
+  "group": "digital-government",
+  "tags": [
+   "Birth · death",
+   "Offline",
+   "Birth-to-ID"
+  ],
+  "scene": "kiosk",
+  "detail": null
+ },
+ {
+  "slug": "egate",
+  "name": "SAVIS eGate",
+  "desc": "Public service portal and integrated one-stop electronic system.",
+  "role": "S",
+  "isNew": false,
+  "pillar": "digital-government-smart-infrastructure",
+  "group": "digital-government",
+  "tags": [
+   "Portal",
+   "One-stop",
+   "Citizen ID"
+  ],
+  "scene": "transit",
+  "detail": null
+ },
+ {
+  "slug": "lgsp",
+  "name": "SAVIS Digital Integration Platform",
+  "desc": "Integrates applications and services from central to local government — ministries, provinces and communes — and secures every API with the FAPI 2.0 Security Profile.",
+  "role": "S",
+  "isNew": false,
+  "pillar": "digital-government-smart-infrastructure",
+  "group": "digital-government",
+  "tags": [
+   "FAPI 2.0",
+   "Central ↔ local",
+   "API catalogue"
+  ],
+  "scene": "dip",
+  "detail": null
+ },
+ {
+  "slug": "superapp-mgov",
+  "name": "SAVIS SuperApp platform",
+  "desc": "One mobile app for citizens to reach every public service, with digital ID and e-payments built in. One platform, many deployments: iBacNinh and other government apps run on the same SAVIS Digital Trust foundation. Winner of the ASOCIO Smart City Awards 2026 (awarded as SAVIS eGov SuperApp).",
+  "role": "S",
+  "isNew": true,
+  "pillar": "digital-government-smart-infrastructure",
+  "group": "digital-government",
+  "tags": [
+   "Super app",
+   "Digital ID",
+   "e-Pay"
+  ],
+  "scene": "wallet",
+  "detail": null
+ },
+ {
+  "slug": "one-stop-shop",
+  "name": "One-Stop-Shop",
+  "desc": "Single-window processing for administrative procedures.",
+  "role": "S",
+  "isNew": false,
+  "pillar": "digital-government-smart-infrastructure",
+  "group": "digital-government",
+  "tags": [
+   "Single window",
+   "Queue",
+   "Tracking"
+  ],
+  "scene": "kiosk",
+  "detail": null
+ },
+ {
+  "slug": "smart-kiosk",
+  "name": "Smart Kiosk",
+  "desc": "Self-service kiosk with identity verification and document services.",
+  "role": "S",
+  "isNew": false,
+  "pillar": "digital-government-smart-infrastructure",
+  "group": "citizen-services",
+  "tags": [
+   "Chip ID",
+   "Face",
+   "Print"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "smart-city",
+  "name": "Smart City Solution",
+  "desc": "City operations platform connecting sensors, services and data.",
+  "role": "SP",
+  "isNew": false,
+  "pillar": "digital-government-smart-infrastructure",
+  "group": "smart-city",
+  "tags": [
+   "IOC",
+   "Sensors",
+   "Dashboards"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "ai-camera",
+  "name": "AI Camera Security",
+  "desc": "AI video analytics that detects incidents, intrusions and safety risks in real time — on a SAVIS AI camera line with a hardware root of trust, designed for IEC 62443 and ETSI EN 303 645.",
+  "role": "S",
+  "isNew": false,
+  "pillar": "digital-government-smart-infrastructure",
+  "group": "smart-city",
+  "tags": [
+   "AI video",
+   "Edge",
+   "Alerts"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "iot-devices",
+  "name": "IoT Devices",
+  "desc": "Connected devices and gateways for city and enterprise deployments.",
+  "role": "SP",
+  "isNew": false,
+  "pillar": "digital-government-smart-infrastructure",
+  "group": "iot",
+  "tags": [
+   "Gateway",
+   "Sensors",
+   "LoRa · 4G"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "iot-device-security",
+  "name": "IoT Device Security",
+  "desc": "Device certificates, protected keys and signed firmware so every sensor and gateway can be trusted.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "digital-government-smart-infrastructure",
+  "group": "iot",
+  "tags": [
+   "Device certs",
+   "Secure boot",
+   "Signed OTA"
+  ],
+  "scene": "iot",
+  "detail": null
+ },
+ {
+  "slug": "digital-car-key",
+  "name": "Digital Car Key",
+  "desc": "Phone-as-key for vehicles: share, revoke and use car keys securely from a mobile wallet.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "digital-government-smart-infrastructure",
+  "group": "iot",
+  "tags": [
+   "CCC Digital Key",
+   "NFC · BLE · UWB",
+   "Share · Revoke"
+  ],
+  "scene": "iot",
+  "detail": null
+ },
+ {
+  "slug": "open-banking-suite",
+  "name": "Open Banking Suite",
+  "desc": "Everything a bank needs to open APIs safely: API management, developer portal, consent and TPP onboarding in one suite.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "open-finance-secure-transactions",
+  "group": "open-finance",
+  "tags": [
+   "API mgmt",
+   "Consent",
+   "TPP"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "open-api",
+  "name": "SAVIS Open API",
+  "desc": "API management for standardized banking and finance APIs.",
+  "role": "SY",
+  "isNew": false,
+  "pillar": "open-finance-secure-transactions",
+  "group": "open-finance",
+  "tags": [
+   "REST",
+   "OAuth 2",
+   "Rate limits"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "open-finance-api",
+  "name": "Open Finance API",
+  "desc": "Standardized APIs for accounts, payments, lending and insurance data beyond banking.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "open-finance-secure-transactions",
+  "group": "open-finance",
+  "tags": [
+   "Accounts",
+   "Lending",
+   "Insurance"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "open-banking-portal",
+  "name": "Open Banking Portal",
+  "desc": "Developer and partner portal for third-party providers.",
+  "role": "SY",
+  "isNew": false,
+  "pillar": "open-finance-secure-transactions",
+  "group": "open-finance",
+  "tags": [
+   "Developer",
+   "Sandbox",
+   "Docs"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "consent-management",
+  "name": "Consent Management",
+  "desc": "Collect, track and prove customer consent.",
+  "role": "SY",
+  "isNew": false,
+  "pillar": "open-finance-secure-transactions",
+  "group": "open-finance",
+  "tags": [
+   "Collect",
+   "Revoke",
+   "Prove"
+  ],
+  "scene": "consent",
+  "detail": null
+ },
+ {
+  "slug": "tpp-manager",
+  "name": "TPP Manager",
+  "desc": "Onboard, verify and monitor third-party providers and their certificates.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "open-finance-secure-transactions",
+  "group": "open-finance",
+  "tags": [
+   "Onboard",
+   "Certificates",
+   "Monitor"
+  ],
+  "scene": "consent",
+  "detail": null
+ },
+ {
+  "slug": "api-security-transaction-signing",
+  "name": "API Security & Transaction Signing",
+  "desc": "Protect banking APIs and bind every payment to the customer’s signature with dynamic linking for strong customer authentication.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "open-finance-secure-transactions",
+  "group": "payment-security",
+  "tags": [
+   "Dynamic linking",
+   "API security",
+   "SCA"
+  ],
+  "scene": "a2a",
+  "detail": null
+ },
+ {
+  "slug": "3d-secure",
+  "name": "3D Secure 2.0",
+  "desc": "Authentication for card-not-present payments.",
+  "role": "SY",
+  "isNew": false,
+  "pillar": "open-finance-secure-transactions",
+  "group": "payment-security",
+  "tags": [
+   "EMV 3DS",
+   "ACS",
+   "Frictionless"
+  ],
+  "scene": "spc",
+  "detail": {
+   "lead": "EMV 3-D Secure ACS with FIDO2 challenges instead of SMS OTP — on web, kiosk and mobile.",
+   "standards": [
+    "EMV 3DS 2.3.1",
+    "W3C SPC",
+    "PSD2 RTS Art. 5 dynamic linking"
+   ],
+   "fit": "Card issuers and processors."
+  }
+ },
+ {
+  "slug": "tokenization",
+  "name": "Tokenization",
+  "desc": "Replace card and account data with secure tokens.",
+  "role": "SY",
+  "isNew": false,
+  "pillar": "open-finance-secure-transactions",
+  "group": "payment-security",
+  "tags": [
+   "Network token",
+   "Vault",
+   "PCI"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "payment-hsm",
+  "name": "Payment HSM",
+  "desc": "Hardware security module for card and payment processing: PIN, card verification, EMV and key exchange.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "open-finance-secure-transactions",
+  "group": "payment-security",
+  "tags": [
+   "PIN",
+   "EMV",
+   "Key exchange"
+  ],
+  "scene": "cyber",
+  "detail": null
+ },
+ {
+  "slug": "palm-biometric-payment",
+  "name": "Palm Biometric Payment",
+  "desc": "Pay with the palm of the hand: contactless palm recognition linked to a card or account, for retail, transit and campuses.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "open-finance-secure-transactions",
+  "group": "payment-security",
+  "tags": [
+   "Palm",
+   "Contactless",
+   "Retail"
+  ],
+  "scene": "palm",
+  "detail": null
+ },
+ {
+  "slug": "digital-banking-platform",
+  "name": "Digital Banking Platform",
+  "desc": "Neo-bank and digital channels for retail and SME banking: onboarding, accounts, payments and lending on web and mobile.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "open-finance-secure-transactions",
+  "group": "digital-banking",
+  "tags": [
+   "Onboarding",
+   "Accounts",
+   "Lending"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "mobile-ewallet",
+  "name": "Mobile eWallet",
+  "desc": "White-label e-wallet with secure top-up, QR payments and transfers, hardened against fraud and tampering.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "open-finance-secure-transactions",
+  "group": "digital-banking",
+  "tags": [
+   "Top-up",
+   "QR pay",
+   "Transfers"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "econtract",
+  "name": "Smart eContract",
+  "desc": "Create, sign and manage electronic contracts end to end.",
+  "role": "SY",
+  "isNew": false,
+  "pillar": "open-finance-secure-transactions",
+  "group": "digital-agreements",
+  "tags": [
+   "Draft",
+   "Sign",
+   "Manage"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "go-invoice",
+  "name": "SAVIS eInvoice",
+  "desc": "Electronic invoicing: issue, sign, send and store e-invoices in line with Vietnamese tax regulations.",
+  "role": "S",
+  "isNew": false,
+  "pillar": "open-finance-secure-transactions",
+  "group": "digital-agreements",
+  "tags": [
+   "e-Invoice",
+   "Tax",
+   "Sign"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "blockchain-framework",
+  "name": "Blockchain Framework",
+  "desc": "Permissioned blockchain platform for banks and governments, with keys protected in HSMs.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "open-finance-secure-transactions",
+  "group": "digital-assets",
+  "tags": [
+   "Permissioned",
+   "Protected keys",
+   "Ledger"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "stablecoin",
+  "name": "Stablecoin Platform",
+  "desc": "Issue, manage and redeem fiat-backed digital tokens with reserve and compliance controls.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "open-finance-secure-transactions",
+  "group": "digital-assets",
+  "tags": [
+   "Fiat-backed",
+   "Reserves",
+   "Redeem"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "cbdc",
+  "name": "CBDC Platform",
+  "desc": "Central bank digital currency issuance and distribution for retail and wholesale pilots.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "open-finance-secure-transactions",
+  "group": "digital-assets",
+  "tags": [
+   "Retail",
+   "Wholesale",
+   "Pilot"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "rwa-tokenization",
+  "name": "RWA Tokenization",
+  "desc": "Turn real-world assets such as bonds, funds and property into regulated digital tokens.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "open-finance-secure-transactions",
+  "group": "digital-assets",
+  "tags": [
+   "Bonds",
+   "Funds",
+   "Property"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "crypto-custody",
+  "name": "Crypto Wallet & Custody",
+  "desc": "Institutional custody of digital assets with HSM and multi-party key protection.",
+  "role": "SY",
+  "isNew": true,
+  "pillar": "open-finance-secure-transactions",
+  "group": "digital-assets",
+  "tags": [
+   "MPC",
+   "Key vault",
+   "Cold store"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "data-lake-bi",
+  "name": "SAVIS Data Lake & BI",
+  "desc": "Central data lake with dashboards and reporting.",
+  "role": "S",
+  "isNew": false,
+  "pillar": "ai-data-platforms",
+  "group": "data-analytics",
+  "tags": [
+   "Data lake",
+   "Dashboards",
+   "Reports"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "ai-kpi",
+  "name": "SAVIS AI KPI",
+  "desc": "AI-assisted KPI tracking and performance dashboards for public agencies and enterprises.",
+  "role": "S",
+  "isNew": true,
+  "pillar": "ai-data-platforms",
+  "group": "data-analytics",
+  "tags": [
+   "KPI",
+   "AI insights",
+   "Agencies"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "cdp-360",
+  "name": "CDP 360 Big Data",
+  "desc": "Customer data platform for unified audience profiles.",
+  "role": "S",
+  "isNew": false,
+  "pillar": "ai-data-platforms",
+  "group": "data-analytics",
+  "tags": [
+   "Profiles",
+   "Segments",
+   "Real-time"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "savis-mdm",
+  "name": "SAVIS MDM",
+  "desc": "Digital document management: store, classify, search and share documents with access control and version history.",
+  "role": "S",
+  "isNew": false,
+  "pillar": "ai-data-platforms",
+  "group": "data-analytics",
+  "tags": [
+   "Documents",
+   "Versions",
+   "Access"
+  ],
+  "scene": "archive",
+  "detail": null
+ },
+ {
+  "slug": "trusted-archive",
+  "name": "Trusted Archive 2.0",
+  "desc": "Long-term archive that keeps electronic records legally valid.",
+  "role": "SY",
+  "isNew": false,
+  "pillar": "ai-data-platforms",
+  "group": "records-archiving",
+  "tags": [
+   "LTV",
+   "Legal validity",
+   "Audit"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "earchive-box",
+  "name": "eArchive Box",
+  "desc": "Archive appliance for on-premise electronic records.",
+  "role": "SY",
+  "isNew": false,
+  "pillar": "ai-data-platforms",
+  "group": "records-archiving",
+  "tags": [
+   "On-premise",
+   "Appliance",
+   "Records"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "smart-ocr",
+  "name": "Smart OCR",
+  "desc": "Extract data from scanned documents and forms.",
+  "role": "S",
+  "isNew": false,
+  "pillar": "ai-data-platforms",
+  "group": "intelligent-documents",
+  "tags": [
+   "OCR",
+   "Extraction",
+   "Forms"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "bpm-paperless",
+  "name": "SAVIS BPM Paperless",
+  "desc": "Business process management that automates approvals and workflows end to end, with digital signing built in.",
+  "role": "S",
+  "isNew": false,
+  "pillar": "ai-data-platforms",
+  "group": "intelligent-documents",
+  "tags": [
+   "BPM",
+   "Approvals",
+   "e-Sign"
+  ],
+  "scene": "contract",
+  "detail": null
+ },
+ {
+  "slug": "smart-eform",
+  "name": "Smart eForm",
+  "desc": "Digital forms with validation and e-signing.",
+  "role": "S",
+  "isNew": false,
+  "pillar": "ai-data-platforms",
+  "group": "intelligent-documents",
+  "tags": [
+   "eForm",
+   "Validation",
+   "e-Sign"
+  ],
+  "scene": "contract",
+  "detail": null
+ },
+ {
+  "slug": "ai-automation",
+  "name": "AI & Intelligent Automation",
+  "desc": "Product scope under definition.",
+  "role": "S",
+  "isNew": false,
+  "pillar": "ai-data-platforms",
+  "group": "intelligent-documents",
+  "tags": [
+   "AI",
+   "Automation",
+   "Agents"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "mrp-ai",
+  "name": "SAVIS MRP AI",
+  "desc": "AI platform for planning and producing content — Sao Khuê Award 2026.",
+  "role": "S",
+  "isNew": false,
+  "pillar": "ai-data-platforms",
+  "group": "media-platforms",
+  "tags": [
+   "Planning",
+   "AI",
+   "Production"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "cms-ai-hub",
+  "name": "CMS AI Hub",
+  "desc": "AI-powered content hub: create, tag, translate and publish to web, apps and social from one place.",
+  "role": "S",
+  "isNew": true,
+  "pillar": "ai-data-platforms",
+  "group": "media-platforms",
+  "tags": [
+   "CMS",
+   "Translate",
+   "Publish"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "mam-intelligent-automation",
+  "name": "MAM Intelligent Automation",
+  "desc": "Media asset management with AI that indexes, transcribes and tags footage automatically, so archives are searchable in seconds.",
+  "role": "S",
+  "isNew": true,
+  "pillar": "ai-data-platforms",
+  "group": "media-platforms",
+  "tags": [
+   "MAM",
+   "Transcribe",
+   "Tag"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "converged-newsroom",
+  "name": "Converged Newsroom",
+  "desc": "One newsroom for TV, web and social.",
+  "role": "S",
+  "isNew": false,
+  "pillar": "ai-data-platforms",
+  "group": "media-platforms",
+  "tags": [
+   "TV",
+   "Web",
+   "Social"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "playout-cg",
+  "name": "Playout & CG",
+  "desc": "Channel playout automation and real-time character graphics for broadcasters.",
+  "role": "S",
+  "isNew": false,
+  "pillar": "ai-data-platforms",
+  "group": "media-platforms",
+  "tags": [
+   "Playout",
+   "CG",
+   "Automation"
+  ],
+  "scene": null,
+  "detail": null
+ },
+ {
+  "slug": "media-trust-hub",
+  "name": "SAVIS Media Hub",
+  "desc": "Trust layer for broadcasters: identity, signing and secure access for content, staff and partners.",
+  "role": "S",
+  "isNew": true,
+  "pillar": "ai-data-platforms",
+  "group": "media-platforms",
+  "tags": [
+   "Identity",
+   "Signing",
+   "Access"
+  ],
+  "scene": "verify",
+  "detail": null
+ },
+ {
+  "slug": "forensic-watermarking",
+  "name": "Forensic Watermarking & Multi-DRM",
+  "desc": "Invisible forensic watermarks and multi-DRM licensing, with keys managed in KMS, to trace and stop content piracy.",
+  "role": "S",
+  "isNew": true,
+  "pillar": "ai-data-platforms",
+  "group": "media-platforms",
+  "tags": [
+   "Watermark",
+   "Multi-DRM",
+   "KMS"
+  ],
+  "scene": "crypt",
+  "detail": null
+ },
+ {
+  "slug": "dx-open-healthcare",
+  "name": "SAVIS OpenHealth Platform",
+  "desc": "Digital hospital platform that connects HIS, EMR and PACS through open APIs, with signed medical records and patient services.",
+  "role": "S",
+  "isNew": true,
+  "pillar": "ai-data-platforms",
+  "group": "healthcare-cloud",
+  "tags": [
+   "HIS · EMR",
+   "PACS",
+   "Signed records"
+  ],
+  "scene": null,
+  "detail": null
+ }
+]

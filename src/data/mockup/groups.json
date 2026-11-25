@@ -1,0 +1,1129 @@
+[
+ {
+  "name": "Digital Identity & Verification",
+  "vi": "Định danh & Xác minh danh tính",
+  "slug": "digital-identity",
+  "items": [
+   [
+    "National eID Trust",
+    "national-eid-trust",
+    "The full national identity lifecycle: biometric enrolment, IDMS and ABIS de-duplication, ICAO chip cards, Mobile ID, national PKI, eSign and the national wallet.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "SAVIS IDMS",
+    "savis-idms",
+    "National identity management system: the identity register and lifecycle — create, update, suspend and mark deceased — linked to ABIS, CRVS, card, Mobile ID and wallet issuance, with tokenised IDs and full audit.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "SAVIS IDVS",
+    "savis-idvs",
+    "National identity verification service for banks, telcos and agencies: demographic and biometric 1:1 checks against the register, consent-based eKYC, partner management, tokenised identifiers and per-transaction billing.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "ID Verification",
+    "id-verification",
+    "Check that ID cards and passports are genuine: chip reading, security features and data validation.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "SAVIS TrustOnboard",
+    "trustonboard",
+    "One platform for remote onboarding and identity verification: ID document and NFC chip reading, face match, passive liveness and deepfake defense, and device intelligence — combined into a single Trust Score, with an orchestration console, mobile and web SDKs and APIs.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "VNeID Integration",
+    "vneid-integration",
+    "Connect and verify customer identity through VNeID, VietNam’s national electronic identity, with consent, data minimisation and audit logs built in.",
+    "S",
+    {
+     "service": true,
+     "isnew": true
+    }
+   ],
+   [
+    "Digital ID Wallet",
+    "digital-id-wallet",
+    "Hold national ID, licences and certificates on the phone and present them securely.",
+    "SY"
+   ],
+   [
+    "Decentralized Identity (DID)",
+    "decentralized-identity",
+    "Self-sovereign identifiers and verifiable credentials.",
+    "SY"
+   ],
+   [
+    "Mobile Identity PKI",
+    "mobile-pki-identity",
+    "PKI-based identity and signing keys protected on the user’s phone.",
+    "SY"
+   ]
+  ],
+  "pillar": "digital-identity-trust"
+ },
+ {
+  "name": "Biometrics",
+  "vi": "Sinh trắc học",
+  "slug": "biometrics",
+  "items": [
+   [
+    "SAVIS ABIS",
+    "savis-abis",
+    "Multimodal face and fingerprint identification for national ID, SIM registration and social programmes: real-time 1:N de-duplication and 1:1 verification, scale-out matcher nodes, REST API and a MOSIP-compatible queue interface (MOSIP compliance testing in progress), on COTS hardware or cloud.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "SAVIS Touchless Fingerprint",
+    "touchless-fingerprint",
+    "Capture and match four fingerprints with any smartphone camera — no scanner, no contact. SDKs for Android, iOS and web; 1:1 and 1:N; on-device or server.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "SAVIS Face Biometrics",
+    "face-biometrics",
+    "Face capture with quality checks and fast matching for onboarding, login and identification, 1:1 and 1:N, with mobile and web SDKs.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "SAVIS Palm Biometrics",
+    "palm-biometrics",
+    "Touchless palm recognition from a phone camera or kiosk for eGov services, border control and physical access.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "SAVIS Enrollment Station",
+    "enrollment-station",
+    "Fixed enrolment stations and rugged mobile kits: ICAO face, ten-print or touchless fingerprints, document and NFC chip reading, signature; offline-first with encrypted sync to ABIS. Devices OEM-sourced from certified third-party manufacturers.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "SAVIS Enrollment Suite",
+    "enrollment-suite",
+    "Guided registration software for stations and mobile kits: quality and liveness checks, on-the-spot duplicate alerts, operator controls, reports and multi-device support.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "SAVIS MOSIP Integration",
+    "mosip-integration",
+    "Open-source national IDMS on MOSIP, delivered as a complementary solution: SAVIS ABIS via the MOSIP ABIS API, enrolment devices, eSignet authentication, Inji and CryptoID credentials, PKI support and system integration. MOSIP compliance testing in progress.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "SAVIS Liveness & Deepfake Defense",
+    "liveness-deepfake",
+    "Passive liveness, deepfake and video-injection detection with on-device AI, designed for ISO/IEC 30107-3 presentation-attack detection.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "SAVIS CryptoID",
+    "cryptoid",
+    "Identity in a digitally signed QR code: biometric and biographical data verified online or offline, unlocked by the holder's face or fingerprint, with selective sharing; also storable on a phone or smart card. Aligned with the ISO 22376 Visible Digital Seal standard (certification in progress).",
+    "SY",
+    {
+     "isnew": true
+    }
+   ]
+  ],
+  "pillar": "digital-identity-trust"
+ },
+ {
+  "name": "Authentication & Access",
+  "vi": "Xác thực & Quản lý truy cập",
+  "slug": "authentication-access",
+  "items": [
+   [
+    "FIDO2 Passwordless Identity",
+    "passwordless",
+    "Passkeys and FIDO2 authentication that replace passwords and OTPs for citizens, customers and staff.",
+    "SY"
+   ],
+   [
+    "SAM Auth Server",
+    "sam-auth-server",
+    "Six anti-fraud modules — SmartOTP, transaction signing and push, PKI token, Device Intelligence and Risk Engine — on one 1U appliance with a post-quantum HSM.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "TrustSign Mobile",
+    "trustsign-mobile",
+    "Mobile authenticator that activates remote signatures and approves transactions, with keys in the Secure Element or Secure Enclave.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "Mobile Identity SCA",
+    "mobile-identity-sca",
+    "Strong customer authentication on the customer’s phone: device-bound keys plus biometrics to approve logins and payments.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "SmartOTP+",
+    "smartotp-plus",
+    "Next-generation soft-token OTP with device binding, transaction details on screen and protection against SIM swap.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "IAM & CIAM",
+    "iam-ciam",
+    "Workforce and customer identity, single sign-on and access policies.",
+    "SY"
+   ],
+   [
+    "Credential Management",
+    "credential-management",
+    "Issue, activate, renew and revoke smart cards, tokens and certificates from one console.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "TrustPass Authentication",
+    "trustpass",
+    "Hardware authenticators: TrustPass Key, Card, Sign Card and OTP / View Card.",
+    "SY"
+   ]
+  ],
+  "pillar": "digital-identity-trust"
+ },
+ {
+  "name": "Secure Credentials & Tokens",
+  "vi": "Thiết bị & chứng thư bảo mật",
+  "slug": "secure-credentials",
+  "items": [
+   [
+    "PKI Token",
+    "pki-token",
+    "USB cryptographic token that stores certificates and private keys for digital signing and secure login.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "Smart Card PIV",
+    "smart-card-piv",
+    "PIV-compatible smart card for employee and citizen ID: physical access, secure login and digital signatures on one card.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "Crypto Bio Token",
+    "crypto-bio-token",
+    "Cryptographic token with a built-in fingerprint sensor: the private key is used only after the owner’s fingerprint matches on the device.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "Smart Virtual Card",
+    "smart-virtual-card",
+    "A virtual smart card on the phone for identity, access, payments and signatures. Editions for Education, Citizen and Enterprise.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ]
+  ],
+  "pillar": "digital-identity-trust"
+ },
+ {
+  "name": "PKI Infrastructure",
+  "vi": "Hạ tầng PKI",
+  "slug": "pki-infrastructure",
+  "items": [
+   [
+    "National PKI",
+    "national-pki",
+    "Root and subordinate CA hierarchy for a country’s public-key infrastructure and its trust services.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "PKI in a Box",
+    "pki-in-a-box",
+    "All-in-one public key infrastructure appliance: CA, RA, validation and HSM, ready in weeks.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "Timestamp Authority (TSA)",
+    "timestamp-tsa",
+    "On-premise time-stamping authority for enterprises and government systems.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "Signing Gateway",
+    "signing-gateway",
+    "One gateway that routes every signing and verification request to the right HSM, CA and policy.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "SAVIS Signing Server",
+    "signing-server",
+    "High-volume server-side signing for systems and organizational seals.",
+    "SY"
+   ]
+  ],
+  "pillar": "digital-identity-trust"
+ },
+ {
+  "name": "Trust Services · TrustCA QTSP eIDAS 2.0",
+  "vi": "Dịch vụ tin cậy · TrustCA QTSP eIDAS 2.0",
+  "slug": "trust-services",
+  "trustca": true,
+  "items": [
+   [
+    "TrustCA Remote Signing",
+    "remote-signing",
+    "Sign from any device while keys stay inside the HSM.",
+    "SY",
+    {
+     "compliance": true
+    }
+   ],
+   [
+    "TrustCA Timestamp",
+    "trustca-timestamp",
+    "Trusted timestamp service that proves when a document was signed; combined with LTV for long-term validation.",
+    "SY"
+   ],
+   [
+    "TrustCA eKYC Biometric",
+    "trustca-ekyc-biometric",
+    "Biometric eKYC (face and fingerprint) that verifies the person and issues a TrustCA certificate in the same flow.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "SAVIS Paperless",
+    "paperless",
+    "Paperless workflows where every form and approval is signed, timestamped and archived with legal validity.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "TrustCA VA/RA",
+    "trustca-va-ra",
+    "Certificate validation and registration authority services.",
+    "SY"
+   ],
+   [
+    "SAVIS eCertify",
+    "ecertify",
+    "Tamper-evident digital certificates and diplomas.",
+    "S"
+   ]
+  ],
+  "pillar": "digital-identity-trust"
+ },
+ {
+  "name": "Trust Compliance & Readiness",
+  "vi": "Sẵn sàng tuân thủ dịch vụ tin cậy",
+  "slug": "trust-readiness",
+  "items": [
+   [
+    "WebTrust Readiness",
+    "webtrust-readiness",
+    "Gap assessment, controls and audit preparation for CAs seeking WebTrust for Certification Authorities.",
+    "S",
+    {
+     "isnew": true,
+     "service": true
+    }
+   ],
+   [
+    "eIDAS 2.0 Readiness",
+    "eidas-readiness",
+    "Prepare trust services and wallets for eIDAS 2.0: gap analysis, ETSI-based policies and conformity assessment preparation.",
+    "S",
+    {
+     "isnew": true,
+     "service": true
+    }
+   ]
+  ],
+  "pillar": "digital-identity-trust"
+ },
+ {
+  "name": "Fraud & App Protection",
+  "vi": "Chống gian lận & Bảo vệ ứng dụng",
+  "slug": "fraud-app-protection",
+  "items": [
+   [
+    "Fraud Prevention & Risk Management",
+    "fraud-prevention",
+    "Detect identity fraud and risky sessions in real time.",
+    "SY"
+   ],
+   [
+    "Device Intelligence",
+    "device-intelligence",
+    "Score the risk of every device in real time — emulators, rooted phones, remote-access tools, SIM swaps and device farms — to stop fraud before login or payment.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "Device Fingerprint SDK",
+    "device-fingerprint-sdk",
+    "Recognise each device behind a login or payment to spot emulators, bots and account takeover.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "RASP+",
+    "rasp-plus",
+    "Runtime self-protection for mobile apps against tampering, hooking, rooting and overlay attacks.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "TrustShield",
+    "trustshield",
+    "TrustShield+ protects banking and wallet apps (RASP, anti-tampering) and feeds threat signals into the transaction decision.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ]
+  ],
+  "pillar": "digital-identity-trust"
+ },
+ {
+  "name": "Security Operations",
+  "vi": "Vận hành an ninh",
+  "slug": "security-operations",
+  "items": [
+   [
+    "SAVIS AI SOC",
+    "savis-soc",
+    "AI-powered monitoring, detection and incident response, around the clock.",
+    "S"
+   ],
+   [
+    "SAVIS Cyber Security",
+    "cyber-security",
+    "Network, application, endpoint and data security solutions designed, integrated and supported by SAVIS with global security partners.",
+    "S"
+   ]
+  ],
+  "pillar": "cybersecurity-quantum-safe"
+ },
+ {
+  "name": "Cryptography & Key Management",
+  "vi": "Mật mã & Quản lý khoá",
+  "slug": "key-management",
+  "items": [
+   [
+    "SAM Appliance",
+    "sam-appliance",
+    "Secure access module appliance that protects keys and signing operations.",
+    "SY"
+   ],
+   [
+    "GP HSM",
+    "gp-hsm",
+    "General-purpose hardware security module for key generation, signing and encryption in PKI, databases and applications.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "Key Management System (KMS)",
+    "kms",
+    "Central lifecycle management for encryption keys across applications, databases and clouds: generate, rotate, back up and revoke under one policy.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "HSM as a Service",
+    "hsm-as-a-service",
+    "Dedicated hardware security modules operated by SAVIS, consumed as a cloud service with no hardware to buy or run.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ]
+  ],
+  "pillar": "cybersecurity-quantum-safe"
+ },
+ {
+  "name": "Zero Trust & Network Security",
+  "vi": "Zero Trust & An ninh mạng",
+  "slug": "zero-trust",
+  "items": [
+   [
+    "Zero Trust Gateway Appliance",
+    "zero-trust-gateway",
+    "Hardware gateway that checks identity, device health and policy on every request before granting access to applications — never trust, always verify.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "Secure Enterprise Browser",
+    "secure-enterprise-browser",
+    "Managed browser that enforces zero-trust policy where work happens: data-loss controls, isolation and audit for web and SaaS apps on managed and unmanaged devices.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ]
+  ],
+  "pillar": "cybersecurity-quantum-safe"
+ },
+ {
+  "name": "Quantum-Safe Security",
+  "vi": "An toàn lượng tử",
+  "slug": "quantum-safe",
+  "lab": true,
+  "items": [
+   [
+    "Quantum Safe Gateway",
+    "quantum-safe-gateway",
+    "Network gateway that adds hybrid classical and post-quantum encryption (NIST ML-KEM, ML-DSA) to existing connections without changing applications.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "Quantum Vault",
+    "quantum-vault",
+    "Post-quantum protected vault for keys, secrets and certificates that must stay confidential for decades.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "Quantum Safe Storage",
+    "quantum-safe-storage",
+    "Encrypted storage protected with post-quantum algorithms against harvest-now, decrypt-later attacks.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "Crypto Agility",
+    "crypto-agility",
+    "Discover and inventory every algorithm, key and certificate, then switch them by policy without rewriting applications — the foundation for post-quantum migration.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "Quantum Readiness Program",
+    "quantum-readiness",
+    "Crypto discovery, risk assessment and a phased roadmap to post-quantum cryptography.",
+    "SY"
+   ],
+   [
+    "PQC Suite",
+    "pqc-suite",
+    "Post-quantum cryptography toolkit for migration and hybrid deployment.",
+    "SY"
+   ],
+   [
+    "QKD",
+    "qkd",
+    "Quantum key distribution delivered with technology partners.",
+    "SP",
+    {
+     "rnd": true
+    }
+   ],
+   [
+    "Quantum Communication",
+    "quantum-communication",
+    "Quantum-secured communication pilots and research.",
+    "SP",
+    {
+     "rnd": true
+    }
+   ]
+  ],
+  "pillar": "cybersecurity-quantum-safe"
+ },
+ {
+  "name": "Data Security",
+  "vi": "Bảo mật dữ liệu",
+  "slug": "data-security",
+  "items": [
+   [
+    "Data Encryption & Protection",
+    "data-encryption",
+    "Encryption and protection for data at rest and in transit.",
+    "S"
+   ]
+  ],
+  "pillar": "cybersecurity-quantum-safe"
+ },
+ {
+  "name": "Digital Government Platforms",
+  "vi": "Nền tảng chính phủ số",
+  "slug": "digital-government",
+  "items": [
+   [
+    "SAVIS CRVS",
+    "savis-crvs",
+    "Digital civil registration and vital statistics built on OpenCRVS, the open-source Digital Public Good: birth and death registration offline and online, signed certificates, birth-to-ID with MOSIP, and real-time statistics — implemented, integrated and operated by SAVIS.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "SAVIS eGate",
+    "egate",
+    "Public service portal and integrated one-stop electronic system.",
+    "S"
+   ],
+   [
+    "SAVIS Digital Integration Platform",
+    "lgsp",
+    "Integrates applications and services from central to local government — ministries, provinces and communes — and secures every API with the FAPI 2.0 Security Profile.",
+    "S"
+   ],
+   [
+    "SAVIS SuperApp platform",
+    "superapp-mgov",
+    "One mobile app for citizens to reach every public service, with digital ID and e-payments built in. One platform, many deployments: iBacNinh and other government apps run on the same SAVIS Digital Trust foundation. Winner of the ASOCIO Smart City Awards 2026 (awarded as SAVIS eGov SuperApp).",
+    "S",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "One-Stop-Shop",
+    "one-stop-shop",
+    "Single-window processing for administrative procedures.",
+    "S"
+   ]
+  ],
+  "pillar": "digital-government-smart-infrastructure"
+ },
+ {
+  "name": "Citizen Service Touchpoints",
+  "vi": "Điểm chạm dịch vụ công",
+  "slug": "citizen-services",
+  "items": [
+   [
+    "Smart Kiosk",
+    "smart-kiosk",
+    "Self-service kiosk with identity verification and document services.",
+    "S",
+    {
+     "also": "identity"
+    }
+   ]
+  ],
+  "pillar": "digital-government-smart-infrastructure"
+ },
+ {
+  "name": "Smart City",
+  "vi": "Thành phố thông minh",
+  "slug": "smart-city",
+  "items": [
+   [
+    "Smart City Solution",
+    "smart-city",
+    "City operations platform connecting sensors, services and data.",
+    "SP"
+   ],
+   [
+    "AI Camera Security",
+    "ai-camera",
+    "AI video analytics that detects incidents, intrusions and safety risks in real time — on a SAVIS AI camera line with a hardware root of trust, designed for IEC 62443 and ETSI EN 303 645.",
+    "S",
+    {
+     "rnd": true
+    }
+   ]
+  ],
+  "pillar": "digital-government-smart-infrastructure"
+ },
+ {
+  "name": "IoT, Mobility & Connected Devices",
+  "vi": "IoT, Di động & Thiết bị kết nối",
+  "slug": "iot",
+  "items": [
+   [
+    "IoT Devices",
+    "iot-devices",
+    "Connected devices and gateways for city and enterprise deployments.",
+    "SP"
+   ],
+   [
+    "IoT Device Security",
+    "iot-device-security",
+    "Device certificates, protected keys and signed firmware so every sensor and gateway can be trusted.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "Digital Car Key",
+    "digital-car-key",
+    "Phone-as-key for vehicles: share, revoke and use car keys securely from a mobile wallet.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ]
+  ],
+  "pillar": "digital-government-smart-infrastructure"
+ },
+ {
+  "name": "Open Banking Suite",
+  "vi": "Bộ giải pháp Ngân hàng mở",
+  "slug": "open-finance",
+  "items": [
+   [
+    "Open Banking Suite",
+    "open-banking-suite",
+    "Everything a bank needs to open APIs safely: API management, developer portal, consent and TPP onboarding in one suite.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "SAVIS Open API",
+    "open-api",
+    "API management for standardized banking and finance APIs.",
+    "SY"
+   ],
+   [
+    "Open Finance API",
+    "open-finance-api",
+    "Standardized APIs for accounts, payments, lending and insurance data beyond banking.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "Open Banking Portal",
+    "open-banking-portal",
+    "Developer and partner portal for third-party providers.",
+    "SY"
+   ],
+   [
+    "Consent Management",
+    "consent-management",
+    "Collect, track and prove customer consent.",
+    "SY"
+   ],
+   [
+    "TPP Manager",
+    "tpp-manager",
+    "Onboard, verify and monitor third-party providers and their certificates.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ]
+  ],
+  "pillar": "open-finance-secure-transactions"
+ },
+ {
+  "name": "Payment & Transaction Security",
+  "vi": "Bảo mật thanh toán & giao dịch",
+  "slug": "payment-security",
+  "items": [
+   [
+    "API Security & Transaction Signing",
+    "api-security-transaction-signing",
+    "Protect banking APIs and bind every payment to the customer’s signature with dynamic linking for strong customer authentication.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "3D Secure 2.0",
+    "3d-secure",
+    "Authentication for card-not-present payments.",
+    "SY"
+   ],
+   [
+    "Tokenization",
+    "tokenization",
+    "Replace card and account data with secure tokens.",
+    "SY"
+   ],
+   [
+    "Payment HSM",
+    "payment-hsm",
+    "Hardware security module for card and payment processing: PIN, card verification, EMV and key exchange.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "Palm Biometric Payment",
+    "palm-biometric-payment",
+    "Pay with the palm of the hand: contactless palm recognition linked to a card or account, for retail, transit and campuses.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ]
+  ],
+  "pillar": "open-finance-secure-transactions"
+ },
+ {
+  "name": "Digital Banking",
+  "vi": "Ngân hàng số",
+  "slug": "digital-banking",
+  "items": [
+   [
+    "Digital Banking Platform",
+    "digital-banking-platform",
+    "Neo-bank and digital channels for retail and SME banking: onboarding, accounts, payments and lending on web and mobile.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "Mobile eWallet",
+    "mobile-ewallet",
+    "White-label e-wallet with secure top-up, QR payments and transfers, hardened against fraud and tampering.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ]
+  ],
+  "pillar": "open-finance-secure-transactions"
+ },
+ {
+  "name": "Digital Agreements",
+  "vi": "Hợp đồng số",
+  "slug": "digital-agreements",
+  "items": [
+   [
+    "Smart eContract",
+    "econtract",
+    "Create, sign and manage electronic contracts end to end.",
+    "SY"
+   ],
+   [
+    "SAVIS eInvoice",
+    "go-invoice",
+    "Electronic invoicing: issue, sign, send and store e-invoices in line with Vietnamese tax regulations.",
+    "S"
+   ]
+  ],
+  "pillar": "open-finance-secure-transactions"
+ },
+ {
+  "name": "Digital Assets",
+  "vi": "Tài sản số",
+  "slug": "digital-assets",
+  "items": [
+   [
+    "Blockchain Framework",
+    "blockchain-framework",
+    "Permissioned blockchain platform for banks and governments, with keys protected in HSMs.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "Stablecoin Platform",
+    "stablecoin",
+    "Issue, manage and redeem fiat-backed digital tokens with reserve and compliance controls.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "CBDC Platform",
+    "cbdc",
+    "Central bank digital currency issuance and distribution for retail and wholesale pilots.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "RWA Tokenization",
+    "rwa-tokenization",
+    "Turn real-world assets such as bonds, funds and property into regulated digital tokens.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "Crypto Wallet & Custody",
+    "crypto-custody",
+    "Institutional custody of digital assets with HSM and multi-party key protection.",
+    "SY",
+    {
+     "isnew": true
+    }
+   ]
+  ],
+  "pillar": "open-finance-secure-transactions"
+ },
+ {
+  "name": "Data & Analytics",
+  "vi": "Dữ liệu & Phân tích",
+  "slug": "data-analytics",
+  "items": [
+   [
+    "SAVIS Data Lake & BI",
+    "data-lake-bi",
+    "Central data lake with dashboards and reporting.",
+    "S"
+   ],
+   [
+    "SAVIS AI KPI",
+    "ai-kpi",
+    "AI-assisted KPI tracking and performance dashboards for public agencies and enterprises.",
+    "S",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "CDP 360 Big Data",
+    "cdp-360",
+    "Customer data platform for unified audience profiles.",
+    "S"
+   ],
+   [
+    "SAVIS MDM",
+    "savis-mdm",
+    "Digital document management: store, classify, search and share documents with access control and version history.",
+    "S"
+   ]
+  ],
+  "pillar": "ai-data-platforms"
+ },
+ {
+  "name": "Records & Archiving",
+  "vi": "Lưu trữ hồ sơ",
+  "slug": "records-archiving",
+  "items": [
+   [
+    "Trusted Archive 2.0",
+    "trusted-archive",
+    "Long-term archive that keeps electronic records legally valid.",
+    "SY"
+   ],
+   [
+    "eArchive Box",
+    "earchive-box",
+    "Archive appliance for on-premise electronic records.",
+    "SY"
+   ]
+  ],
+  "pillar": "ai-data-platforms"
+ },
+ {
+  "name": "Intelligent Documents",
+  "vi": "Tài liệu thông minh",
+  "slug": "intelligent-documents",
+  "items": [
+   [
+    "Smart OCR",
+    "smart-ocr",
+    "Extract data from scanned documents and forms.",
+    "S"
+   ],
+   [
+    "SAVIS BPM Paperless",
+    "bpm-paperless",
+    "Business process management that automates approvals and workflows end to end, with digital signing built in.",
+    "S"
+   ],
+   [
+    "Smart eForm",
+    "smart-eform",
+    "Digital forms with validation and e-signing.",
+    "S"
+   ],
+   [
+    "AI & Intelligent Automation",
+    "ai-automation",
+    "Product scope under definition.",
+    "S",
+    {
+     "roadmap": true
+    }
+   ]
+  ],
+  "pillar": "ai-data-platforms"
+ },
+ {
+  "name": "Media Platforms",
+  "vi": "Nền tảng truyền thông",
+  "slug": "media-platforms",
+  "items": [
+   [
+    "SAVIS MRP AI",
+    "mrp-ai",
+    "AI platform for planning and producing content — Sao Khuê Award 2026.",
+    "S"
+   ],
+   [
+    "CMS AI Hub",
+    "cms-ai-hub",
+    "AI-powered content hub: create, tag, translate and publish to web, apps and social from one place.",
+    "S",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "MAM Intelligent Automation",
+    "mam-intelligent-automation",
+    "Media asset management with AI that indexes, transcribes and tags footage automatically, so archives are searchable in seconds.",
+    "S",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "Converged Newsroom",
+    "converged-newsroom",
+    "One newsroom for TV, web and social.",
+    "S"
+   ],
+   [
+    "Playout & CG",
+    "playout-cg",
+    "Channel playout automation and real-time character graphics for broadcasters.",
+    "S"
+   ],
+   [
+    "SAVIS Media Hub",
+    "media-trust-hub",
+    "Trust layer for broadcasters: identity, signing and secure access for content, staff and partners.",
+    "S",
+    {
+     "isnew": true
+    }
+   ],
+   [
+    "Forensic Watermarking & Multi-DRM",
+    "forensic-watermarking",
+    "Invisible forensic watermarks and multi-DRM licensing, with keys managed in KMS, to trace and stop content piracy.",
+    "S",
+    {
+     "isnew": true
+    }
+   ]
+  ],
+  "pillar": "ai-data-platforms"
+ },
+ {
+  "name": "Digital Health",
+  "vi": "Y tế số",
+  "slug": "healthcare-cloud",
+  "items": [
+   [
+    "SAVIS OpenHealth Platform",
+    "dx-open-healthcare",
+    "Digital hospital platform that connects HIS, EMR and PACS through open APIs, with signed medical records and patient services.",
+    "S",
+    {
+     "isnew": true
+    }
+   ]
+  ],
+  "pillar": "ai-data-platforms"
+ }
+]

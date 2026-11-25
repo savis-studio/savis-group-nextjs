@@ -1,0 +1,1529 @@
+{
+ "offices": [
+  [
+   "Hanoi",
+   "VietNam",
+   "Global headquarters",
+   "Viet A Tower, 9 Duy Tan"
+  ],
+  [
+   "Ho Chi Minh City",
+   "VietNam",
+   "Office",
+   "Winhome, 25 Dao Duy Anh"
+  ],
+  [
+   "Singapore",
+   "Singapore",
+   "Asia-Pacific",
+   "Marina Bay Financial Centre, Singapore"
+  ],
+  [
+   "Manila",
+   "Philippines",
+   "Asia-Pacific",
+   "Manila, Philippines"
+  ],
+  [
+   "Melbourne",
+   "Australia & New Zealand",
+   "Asia-Pacific",
+   "Melbourne Office, Melbourne, Australia",
+   "+61 434 567 456",
+   "anz-sale@savis-group.com"
+  ],
+  [
+   "Dubai",
+   "United Arab Emirates",
+   "Middle East",
+   "Dubai, UAE"
+  ],
+  [
+   "Abuja",
+   "Nigeria",
+   "Africa",
+   "Abuja, Nigeria"
+  ],
+  [
+   "Algiers",
+   "Algeria",
+   "Africa",
+   "Algiers, Algeria"
+  ],
+  [
+   "São Paulo",
+   "Brazil",
+   "Latin America",
+   "São Paulo, Brazil"
+  ],
+  [
+   "[City]",
+   "United States",
+   "North America",
+   "[Address]"
+  ]
+ ],
+ "regions": [
+  {
+   "k": "Asia-Pacific",
+   "hub": "Singapore",
+   "ic": "globe",
+   "cities": [
+    [
+     "Singapore",
+     "Marina Bay Financial Centre"
+    ],
+    [
+     "Manila",
+     "Philippines"
+    ],
+    [
+     "Melbourne",
+     "Australia & New Zealand",
+     "+61 434 567 456",
+     "anz-sale@savis-group.com"
+    ]
+   ],
+   "mk": "ASEAN · Australia & New Zealand"
+  },
+  {
+   "k": "Middle East",
+   "hub": "Dubai",
+   "ic": "globe",
+   "cities": [
+    [
+     "Dubai",
+     "United Arab Emirates"
+    ]
+   ],
+   "mk": "GCC"
+  },
+  {
+   "k": "Africa",
+   "hub": "Abuja",
+   "ic": "globe",
+   "cities": [
+    [
+     "Abuja",
+     "Nigeria"
+    ],
+    [
+     "Algiers",
+     "Algeria"
+    ]
+   ],
+   "mk": "West & North Africa"
+  },
+  {
+   "k": "Americas",
+   "hub": "São Paulo",
+   "ic": "globe",
+   "cities": [
+    [
+     "São Paulo",
+     "Brazil"
+    ],
+    [
+     "United States",
+     "North America"
+    ]
+   ],
+   "mk": "Latin & North America"
+  }
+ ],
+ "simple": {
+  "services": {
+   "label": "Services",
+   "eyebrow": "SERVICES",
+   "title": "From strategy to 24/7 operations.",
+   "cta": "Talk to an Expert",
+   "items": [
+    [
+     "Consulting",
+     "Regulation, architecture and digital trust roadmaps."
+    ],
+    [
+     "Readiness Programs",
+     "WebTrust, eIDAS 2.0 and Quantum readiness: assess, close the gaps, pass the audit.",
+     "pillar-identity"
+    ],
+    [
+     "System Integration",
+     "Integrate identity, PKI and platforms with your core systems."
+    ],
+    [
+     "Software Engineering",
+     "Custom platforms built on SAVIS technology."
+    ],
+    [
+     "Cloud Transformation & Infrastructure",
+     "Plan, migrate, build and operate cloud and hybrid infrastructure."
+    ],
+    [
+     "Digitisation & Data",
+     "Digitise archives; extract, convert and protect data."
+    ],
+    [
+     "Managed Services",
+     "Operate, monitor and support critical services around the clock."
+    ]
+   ]
+  },
+  "innovation": {
+   "label": "Innovation",
+   "eyebrow": "INNOVATION",
+   "title": "Building the trust layer for the next decade.",
+   "cta": "Explore Innovation",
+   "items": [
+    [
+     "Quantum PQC Lab",
+     "Test post-quantum algorithms, hybrid certificates and migrations in our lab.",
+     "pqc-lab"
+    ],
+    [
+     "Quantum Readiness",
+     "Assess your cryptography and plan the move to post-quantum.",
+     "p-quantum-readiness"
+    ],
+    [
+     "Digital Trust",
+     "Identity, signatures and evidence that hold up across borders."
+    ],
+    [
+     "AI",
+     "AI in fraud prevention, documents and media operations."
+    ],
+    [
+     "R&D",
+     "Research programmes with our engineering teams."
+    ],
+    [
+     "Technology Partnerships",
+     "Alliances with global technology vendors."
+    ]
+   ]
+  },
+  "customers": {
+   "label": "Customers",
+   "eyebrow": "USE CASES",
+   "title": "Proven in production. Explained step by step.",
+   "cta": "Overview",
+   "items": [
+    [
+     "Overview",
+     "Case studies and use cases in one place.",
+     "customers"
+    ],
+    [
+     "Case studies",
+     "Case studies across national PKI, banking, government and security.",
+     "customers-stories"
+    ],
+    [
+     "All use cases",
+     "Step-by-step journeys with logical and system architecture.",
+     "use-cases"
+    ],
+    [
+     "Proven at customers",
+     "Use cases already running in customer projects.",
+     "use-cases-proven"
+    ],
+    [
+     "Trusted by",
+     "Government, banks and enterprises we serve.",
+     "customers-trusted"
+    ]
+   ]
+  },
+  "insights": {
+   "label": "Insights",
+   "eyebrow": "INSIGHTS",
+   "title": "News, press releases, regulation and case studies.",
+   "cta": "Read Insights",
+   "items": [
+    [
+     "News",
+     "Industry and project news from VietNam and around the world.",
+     "insights-news"
+    ],
+    [
+     "Press Releases",
+     "Announcements, awards, partnerships and events from SAVIS Group.",
+     "insights-press"
+    ],
+    [
+     "Regulation & Policy",
+     "Laws and standards shaping identity, trust and payments.",
+     "insights-regulation"
+    ],
+    [
+     "Case Study",
+     "Real projects at governments, banks and enterprises.",
+     "customers-stories"
+    ]
+   ]
+  },
+  "about": {
+   "label": "About SAVIS",
+   "eyebrow": "ABOUT SAVIS GROUP",
+   "title": "Make in VietNam. Trusted worldwide.",
+   "cta": "Contact SAVIS",
+   "items": [
+    [
+     "About SAVIS",
+     "22+ years building digital trust infrastructure.",
+     "about"
+    ],
+    [
+     "Our Story",
+     "From the nation’s root of trust to ten offices on four continents.",
+     "about-story"
+    ],
+    [
+     "Vision 2030",
+     "From the nation’s root of trust to the quantum era.",
+     "about-vision"
+    ],
+    [
+     "Culture",
+     "Life at SAVIS: how the S-ers work, learn and celebrate.",
+     "culture"
+    ],
+    [
+     "Leadership",
+     "Our management team.",
+     "about-leadership"
+    ],
+    [
+     "Global Presence",
+     "Ten offices across Asia-Pacific, the Middle East, Africa and the Americas.",
+     "about-presence"
+    ],
+    [
+     "ESG & Sustainability",
+     "Digital trust that serves people and the planet.",
+     "esg"
+    ],
+    [
+     "Integrity & Compliance",
+     "How we do business: ethics, privacy and compliance.",
+     "integrity"
+    ],
+    [
+     "Partners",
+     "Resellers, integrators and technology alliances.",
+     "partners"
+    ],
+    [
+     "Contact",
+     "Talk to a solution expert near you.",
+     "contact"
+    ],
+    [
+     "Careers",
+     "Join the S-ers.",
+     "careers"
+    ]
+   ]
+  },
+  "company": {
+   "label": "Company",
+   "eyebrow": "SAVIS GROUP",
+   "title": "Make in VietNam. Trusted worldwide.",
+   "cta": "About SAVIS",
+   "items": [
+    [
+     "About SAVIS",
+     "22+ years, 200+ international partners, 5,000+ customers",
+     "about"
+    ],
+    [
+     "Investors",
+     "Strategy, advisers and investor relations",
+     "investors"
+    ],
+    [
+     "Innovation & R&D",
+     "AI & Semiconductor, AIoT Lab, Quantum Lab",
+     "innovation"
+    ],
+    [
+     "Quantum PQC Lab",
+     "Test post-quantum algorithms",
+     "pqc-lab"
+    ],
+    [
+     "Quantum Readiness",
+     "Plan your PQC migration",
+     "p-quantum-readiness"
+    ],
+    [
+     "ESG & Sustainability",
+     "People and planet",
+     "esg"
+    ],
+    [
+     "Integrity & Compliance",
+     "How we do business",
+     "integrity"
+    ],
+    [
+     "Trust Center",
+     "Certifications and security",
+     "trust-center"
+    ],
+    [
+     "Culture",
+     "Life at SAVIS",
+     "culture"
+    ],
+    [
+     "Careers",
+     "Join the S-ers",
+     "careers"
+    ],
+    [
+     "Partners",
+     "Partner programme and alliances",
+     "partners"
+    ]
+   ]
+  }
+ },
+ "legal": {
+  "privacy": {
+   "t": "Privacy Policy",
+   "lead": "How SAVIS Group collects, uses and protects personal data on this website.",
+   "s": [
+    [
+     "Who we are",
+     "This website is operated by SAVIS Group (SAVIS Technology Joint Stock Company), headquartered in Hanoi, VietNam. For privacy questions contact info@savis-group.com."
+    ],
+    [
+     "Data we collect",
+     "Information you give us through our forms: the contact form (name, organisation, work email, country, phone and message) and the report and whitepaper download forms (first and last name, business email, company, job title, phone, country, the title you requested and your consent choices); technical data such as IP address, browser and pages visited; and cookie data as described in our Cookie Policy."
+    ],
+    [
+     "Why we use it",
+     "To answer enquiries and provide information you request, including sending the report or whitepaper you download and following up on that request; with your separate opt-in, to send you news, research and event invitations; to operate, secure and improve the website; and, with your consent, to measure website use. We do not sell personal data."
+    ],
+    [
+     "Legal basis",
+     "Your consent, our legitimate interest in responding to business enquiries and securing the site, and compliance with legal obligations — under VietNam's personal data protection law and, where applicable, the EU GDPR and other local laws."
+    ],
+    [
+     "Sharing",
+     "With SAVIS Group companies and offices that handle your enquiry, and with service providers bound by contract, including HubSpot (our CRM and form service, which receives the data you submit in our forms), hosting, email and analytics providers. Transfers outside your country are protected by appropriate safeguards."
+    ],
+    [
+     "Retention",
+     "Enquiry data is kept for as long as needed to handle the enquiry and our business relationship, then deleted or anonymised. You can unsubscribe from follow-up emails at any time through the link in each email or by contacting info@savis-group.com."
+    ],
+    [
+     "Your rights",
+     "Depending on your location, you may request access, correction, deletion, restriction or portability of your data, withdraw consent and object to processing. Contact info@savis-group.com. You may also complain to your data protection authority."
+    ],
+    [
+     "Security",
+     "We apply technical and organisational measures aligned with ISO/IEC 27001."
+    ],
+    [
+     "Changes",
+     "We may update this policy; the date below shows the latest version."
+    ]
+   ]
+  },
+  "terms": {
+   "t": "Terms of Use",
+   "lead": "The terms that apply when you use the SAVIS Group website.",
+   "s": [
+    [
+     "Acceptance",
+     "By using this website you agree to these terms. If you do not agree, please do not use the website."
+    ],
+    [
+     "Information only",
+     "Content is provided for general information about SAVIS Group, its products and services. It is not an offer or a contract. Product specifications, certifications and availability may change and are confirmed in writing for each project."
+    ],
+    [
+     "Intellectual property",
+     "The SAVIS name, logo, product names, text, graphics and software on this website belong to SAVIS Group or its licensors. Third-party names and trademarks belong to their owners. You may not copy or reuse content without written permission, except for personal, non-commercial reference."
+    ],
+    [
+     "Acceptable use",
+     "Do not attempt to disrupt, probe or gain unauthorised access to the website. To report a security issue, see the Trust Center."
+    ],
+    [
+     "Links",
+     "Links to third-party websites are provided for convenience; SAVIS is not responsible for their content."
+    ],
+    [
+     "Liability",
+     "To the extent permitted by law, SAVIS Group is not liable for loss arising from use of this website or reliance on its content."
+    ],
+    [
+     "Governing law",
+     "These terms are governed by the laws of VietNam, unless mandatory local law provides otherwise."
+    ]
+   ]
+  },
+  "cookies": {
+   "t": "Cookie Policy",
+   "lead": "Which cookies this website uses and how you can control them.",
+   "s": [
+    [
+     "What cookies are",
+     "Cookies and similar technologies are small files stored on your device that help a website work and understand how it is used."
+    ],
+    [
+     "Strictly necessary",
+     "Required for the website to work and to remember your cookie choice. These are always on."
+    ],
+    [
+     "Analytics",
+     "Help us understand how visitors use the website so we can improve it. Used only if you accept analytics cookies."
+    ],
+    [
+     "Marketing",
+     "Used to measure campaigns and show relevant content on other platforms. Used only if you accept marketing cookies."
+    ],
+    [
+     "Your choices",
+     "You can accept all, reject non-essential cookies, or choose by category. Change your choice at any time with the “Cookie settings” link in the footer, or through your browser settings."
+    ]
+   ]
+  }
+ },
+ "services": [
+  [
+   "Consulting & Advisory",
+   "Strategy, architecture and regulation for digital trust programmes.",
+   [
+    "Digital identity and trust strategy",
+    "Regulatory compliance: eIDAS 2.0, NIS2, PCI DSS, data protection",
+    "Security and PKI architecture review"
+   ]
+  ],
+  [
+   "Readiness Programs",
+   "Assess, close the gaps and pass the audit.",
+   [
+    "WebTrust Readiness for certification authorities",
+    "eIDAS 2.0 Readiness for trust services and wallets",
+    "Quantum Readiness for post-quantum migration"
+   ],
+   "pillar-identity"
+  ],
+  [
+   "System Integration",
+   "Networks, security, systems and cloud, integrated with what you already run.",
+   [
+    "Network and security integration",
+    "Core banking, government and ERP integration",
+    "HSM, CA and signing infrastructure deployment",
+    "Private and hybrid cloud"
+   ]
+  ],
+  [
+   "Software Engineering",
+   "Platforms and apps built on SAVIS technology.",
+   [
+    "Mobile and web applications",
+    "Cloud-native microservices and Open API",
+    "Localisation for national requirements"
+   ]
+  ],
+  [
+   "Cloud Transformation & Infrastructure",
+   "From cloud strategy to daily operation of your infrastructure.",
+   [
+    "Cloud and data centre consulting and design",
+    "Cloud migration and modernisation",
+    "Hybrid and private cloud build",
+    "Infrastructure operation",
+    "Network infrastructure and integration",
+    "Information system transformation",
+    "Warranty and technical support"
+   ]
+  ],
+  [
+   "Digitisation & Data Services",
+   "Turn paper archives into searchable, trusted digital records.",
+   [
+    "Document digitisation and data entry",
+    "Data extraction and recognition",
+    "Data conversion and migration",
+    "Cloud storage",
+    "Data security and encryption",
+    "Scanner and equipment rental",
+    "Certified data destruction"
+   ]
+  ],
+  [
+   "Trust Services",
+   "Signing and timestamping operated by TrustCA.",
+   [
+    "TrustCA Timestamp Signing",
+    "TrustCA Remote Signing as a service",
+    "HSM as a Service"
+   ],
+   "pillar-identity"
+  ],
+  [
+   "Managed Services",
+   "Operate critical trust services around the clock.",
+   [
+    "24/7 SOC monitoring and incident response",
+    "PKI, HSM and key management operations",
+    "Application management under agreed SLAs"
+   ]
+  ]
+ ],
+ "memberships": [
+  [
+   "FIDO Alliance",
+   "Passwordless authentication standards"
+  ],
+  [
+   "Cloud Signature Consortium (CSC)",
+   "Remote signing API standard"
+  ],
+  [
+   "GO.eIDAS",
+   "eIDAS ecosystem association"
+  ],
+  [
+   "International Council on Archives (ICA)",
+   "First and only Vietnamese member"
+  ],
+  [
+   "AMWA",
+   "Advanced Media Workflow Association"
+  ],
+  [
+   "VINASA",
+   "VietNam Software and IT Services Association"
+  ],
+  [
+   "NCA",
+   "National Cybersecurity Association of VietNam"
+  ],
+  [
+   "PKI Consortium",
+   "Global PKI community"
+  ],
+  [
+   "IDPro",
+   "Professional association for digital identity"
+  ],
+  [
+   "OpenID Foundation",
+   "Open identity standards: OpenID Connect, FAPI, OpenID4VC"
+  ],
+  [
+   "BIAN",
+   "Banking Industry Architecture Network"
+  ],
+  [
+   "Open Timestamp Standard Association",
+   "Timestamping standards"
+  ]
+ ],
+ "techPartners": [
+  [
+   "Identity, PKI & trust services",
+   [
+    "DigiCert",
+    "Entrust",
+    "SAVYINT",
+    "Keyfactor",
+    "Kryptus",
+    "Sefira",
+    "Ping Identity",
+    "ForgeRock",
+    "Curity",
+    "Yubico",
+    "IDEX Biometrics",
+    "Soliton"
+   ]
+  ],
+  [
+   "Cybersecurity & networking",
+   [
+    "Palo Alto Networks",
+    "Check Point",
+    "Cisco",
+    "F5",
+    "Akamai",
+    "Cloudflare",
+    "Imperva",
+    "Forescout",
+    "SAVYINT",
+    "Juniper",
+    "McAfee",
+    "Citrix",
+    "CDNetworks",
+    "Talsec"
+   ]
+  ],
+  [
+   "Open banking & fintech",
+   [
+    "SAVYINT",
+    "BIAN",
+    "OpenLegacy",
+    "Salt Edge",
+    "TESOBE",
+    "Fiorano"
+   ]
+  ],
+  [
+   "Cloud, data & infrastructure",
+   [
+    "Microsoft",
+    "Google Cloud",
+    "Oracle",
+    "IBM",
+    "Red Hat",
+    "VMware",
+    "NVIDIA",
+    "Dell Technologies",
+    "HPE",
+    "HP",
+    "NetApp",
+    "Gigabyte",
+    "MongoDB",
+    "Elastic",
+    "Micro Focus"
+   ]
+  ],
+  [
+   "Assessment & certification",
+   [
+    "ControlCase",
+    "TÜViT",
+    "TAYLLORCOX",
+    "CCLab"
+   ]
+  ]
+ ],
+ "partnerTiers": [
+  [
+   "Referral Partner",
+   "Introduce opportunities and earn a referral fee."
+  ],
+  [
+   "Reseller",
+   "Sell SAVIS products in your market with sales and pre-sales support."
+  ],
+  [
+   "System Integrator",
+   "Deliver SAVIS solutions as part of your projects, with technical certification."
+  ],
+  [
+   "Technology Alliance",
+   "Integrate your product with SAVIS platforms and go to market together."
+  ],
+  [
+   "OEM & White-label",
+   "Products under your brand: private-label devices, apps and SDKs with your own interface."
+  ],
+  [
+   "Project Consortium",
+   "Bid together for national identity, PKI and banking projects, including internationally funded ones."
+  ]
+ ],
+ "bizLines": [
+  [
+   "01",
+   "Digital Trust as a Service",
+   "Trust services consumed by API or subscription: remote qualified signing, timestamping, certificates, biometric eKYC and credential issuance — operated by SAVIS and TrustCA.",
+   "As a service · On-premise",
+   "identity",
+   [
+    "remote-signing",
+    "trustca-timestamp",
+    "trustca-ekyc-biometric",
+    "digital-id-wallet",
+    "sam-appliance"
+   ]
+  ],
+  [
+   "02",
+   "Secure Identity, Biometrics & Authentication",
+   "National eID, multimodal biometrics and ABIS, deepfake-resistant liveness, digital ID wallets and phishing-resistant authentication with FIDO2 passkeys and TrustPass hardware.",
+   "Platform · Hardware · SDK",
+   "identity",
+   [
+    "national-eid-trust",
+    "savis-idms",
+    "trustonboard",
+    "savis-abis",
+    "touchless-fingerprint",
+    "liveness-deepfake",
+    "passwordless",
+    "trustpass"
+   ]
+  ],
+  [
+   "03",
+   "Cybersecurity & Quantum-Safe Infrastructure",
+   "Appliances, Zero Trust and 24/7 operations that protect keys, networks and data today and after the quantum transition.",
+   "Appliance · Managed service",
+   "cyber",
+   [
+    "sam-appliance",
+    "quantum-safe-gateway",
+    "zero-trust-gateway",
+    "crypto-agility",
+    "savis-soc"
+   ]
+  ],
+  [
+   "04",
+   "Digital Government & Smart Cities",
+   "The SAVIS SuperApp platform, government data sharing, one-stop public services and AI-powered city operations.",
+   "Platform · Integration",
+   "gov",
+   [
+    "superapp-mgov",
+    "lgsp",
+    "one-stop-shop",
+    "smart-city",
+    "ai-camera"
+   ]
+  ],
+  [
+   "05",
+   "Open Finance & Secure Transactions",
+   "Open APIs with consent, transaction signing, 3-D Secure, tokenisation and digital banking for banks, payments and fintech.",
+   "Platform · As a service",
+   "finance",
+   [
+    "open-banking-suite",
+    "api-security-transaction-signing",
+    "3d-secure",
+    "tokenization",
+    "digital-banking-platform"
+   ]
+  ],
+  [
+   "06",
+   "AI, Data & Digital Platforms",
+   "AI for media and operations, trusted data, archives and documents, and SAVIS OpenHealth Platform for digital health.",
+   "Platform · Software",
+   "ai",
+   [
+    "mrp-ai",
+    "data-lake-bi",
+    "trusted-archive",
+    "smart-ocr",
+    "dx-open-healthcare"
+   ]
+  ]
+ ],
+ "bizDeliver": [
+  [
+   "Products & platforms",
+   "SAVIS-owned software, appliances and authenticators, built to international standards."
+  ],
+  [
+   "Integration & engineering",
+   "System integration and software development that connect SAVIS technology with core banking, government and enterprise systems."
+  ],
+  [
+   "Managed & IT services",
+   "Consulting, deployment, operation and 24/7 support — on-premise, hosted or as a service."
+  ]
+ ],
+ "bizDir": [
+  [
+   "Product-led",
+   "Grow SAVIS-owned IP — SAM Appliance, Quantum Security Appliance, TrustPass and the SAVIS SuperApp platform — certified to international standards."
+  ],
+  [
+   "As a service",
+   "Offer Digital Trust as a Service alongside on-premise delivery, so customers can start small and scale."
+  ],
+  [
+   "One core, national profiles",
+   "Build once on ISO, ETSI, FIDO, W3C and NIST standards; configure profiles for eIDAS, NIST SP 800-63-4, Australia's Digital ID Act and national frameworks."
+  ],
+  [
+   "Quantum-safe by design",
+   "Crypto-agility and NIST post-quantum algorithms across products and services."
+  ],
+  [
+   "Global with partners",
+   "Serve customers from ten offices on four continents, with technology and channel partners in each region."
+  ]
+ ],
+ "solutionPacks": [
+  [
+   "SmartOTP Compliance",
+   "Banks that must meet SBV Circulars 50/77 quickly",
+   "2 appliances, PQC HSM, Platform Core, SmartOTP, transaction signing, Device Intelligence",
+   [
+    "sam-auth-server",
+    "smartotp-plus",
+    "device-intelligence"
+   ]
+  ],
+  [
+   "Passkey Banking",
+   "Banks moving to passwordless",
+   "2 FIDO2 appliances, HSM, FIDO2 Server, Identity Server, Device Intelligence, TrustSign Mobile",
+   [
+    "passwordless",
+    "trustsign-mobile",
+    "trustpass"
+   ]
+  ],
+  [
+   "Fraud-Ready",
+   "Banks and wallets with high fraud risk",
+   "Transaction signing, FIDO2, Device Intelligence, Risk Engine, TrustShield, TrustSign Mobile",
+   [
+    "fraud-prevention",
+    "trustshield",
+    "device-intelligence"
+   ]
+  ],
+  [
+   "Digital Gov ID",
+   "Government agencies and public services",
+   "Identity Server, FIDO2, PKI token, TrustPass, PKI and FIDO2",
+   [
+    "national-eid-trust",
+    "passwordless",
+    "trustpass"
+   ]
+  ],
+  [
+   "Trust Services (QTSP)",
+   "Digital signature providers and QTSPs",
+   "PKI and HSM signing, network HSM, remote QSCD, QTSP consulting",
+   [
+    "remote-signing",
+    "sam-appliance",
+    "trustsign-mobile"
+   ]
+  ],
+  [
+   "Quantum-Safe Data Center",
+   "Data centres and large enterprises",
+   "2 Quantum Safe Gateways, Zero Trust identity, certificate management, PQC assessment",
+   [
+    "quantum-safe-gateway",
+    "crypto-agility",
+    "quantum-readiness"
+   ]
+  ]
+ ],
+ "deckCerts": [
+  [
+   "FIDO2 Certified Server",
+   "SAM FIDO2 Identity Server — full FIDO Server Certification from the FIDO Alliance, covering conformance and interoperability.<span class=\"cert-meta\"><span><b>Program</b>FIDO Server Certification</span><span><b>Class</b>FIDO2 · Full Certification</span><span><b>Specification</b>FIDO2 CTAP v2.1 PS · policy 1.3.9</span><span><b>Certificate No.</b>FA001202600030</span><span><b>Issued</b>2 October 2026</span></span><a class=\"cert-req\" href=\"#contact\">Request the certificate →</a>",
+   "Certified · 2026"
+  ],
+  [
+   "eKYC PAD Level 2",
+   "Biometric eKYC presentation-attack detection certified by FIME (ISO/IEC 30107-3).",
+   "Certified"
+  ]
+ ],
+ "pillarArch": {
+  "identity": {
+   "top": [
+    [
+     "Citizens",
+     "users"
+    ],
+    [
+     "Customers",
+     "user"
+    ],
+    [
+     "Staff",
+     "users"
+    ],
+    [
+     "Relying parties",
+     "bank"
+    ]
+   ],
+   "ch": [
+    "Mobile apps",
+    "Web",
+    "Kiosks",
+    "Wallets",
+    "Agents"
+   ],
+   "core": [
+    "National PKI · Root CA",
+    "SAM Appliance",
+    "Remote QSCD",
+    "Trusted Lists"
+   ],
+   "ent": [
+    "Civil register",
+    "Core banking",
+    "Telco BSS",
+    "Public services"
+   ]
+  },
+  "cyber": {
+   "top": [
+    [
+     "Users",
+     "users"
+    ],
+    [
+     "Applications",
+     "server"
+    ],
+    [
+     "Partners",
+     "globe"
+    ]
+   ],
+   "ch": [
+    "Networks",
+    "Endpoints",
+    "Cloud",
+    "Data centres"
+   ],
+   "core": [
+    "GP HSM · Payment HSM",
+    "SAM Appliance",
+    "Quantum Security Appliance",
+    "PKI"
+   ],
+   "ent": [
+    "SIEM",
+    "ITSM",
+    "Cloud KMS",
+    "Business apps"
+   ]
+  },
+  "gov": {
+   "top": [
+    [
+     "Residents",
+     "users"
+    ],
+    [
+     "Businesses",
+     "bank"
+    ],
+    [
+     "Agencies",
+     "gov"
+    ]
+   ],
+   "ch": [
+    "SuperApp",
+    "Portals",
+    "Kiosks",
+    "Sensors & cameras"
+   ],
+   "core": [
+    "National identity",
+    "Signing & seals",
+    "Device PKI"
+   ],
+   "ent": [
+    "National databases",
+    "Digital Integration Platform",
+    "Agency back offices"
+   ]
+  },
+  "finance": {
+   "top": [
+    [
+     "Customers",
+     "users"
+    ],
+    [
+     "Merchants",
+     "web"
+    ],
+    [
+     "TPPs & fintech",
+     "api"
+    ]
+   ],
+   "ch": [
+    "Mobile banking",
+    "Internet banking",
+    "Cards & 3DS",
+    "Open APIs"
+   ],
+   "core": [
+    "Payment HSM",
+    "SAM Auth Server",
+    "Token vault"
+   ],
+   "ent": [
+    "Core banking",
+    "Switch · NAPAS",
+    "Card schemes",
+    "Fraud management"
+   ]
+  },
+  "ai": {
+   "top": [
+    [
+     "Editors",
+     "users"
+    ],
+    [
+     "Clinicians",
+     "user"
+    ],
+    [
+     "Analysts",
+     "users"
+    ]
+   ],
+   "ch": [
+    "Web workspaces",
+    "Mobile apps",
+    "APIs"
+   ],
+   "core": [
+    "Signing & timestamps",
+    "Access control"
+   ],
+   "ent": [
+    "Data sources",
+    "MAM / CMS",
+    "HIS / EMR",
+    "Document systems"
+   ]
+  }
+ },
+ "pxa": {
+  "national-eid-trust": {
+   "users": [
+    [
+     "Citizens",
+     "users"
+    ],
+    [
+     "Officers",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Enrolment centres",
+     "kiosk"
+    ],
+    [
+     "Mobile ID app",
+     "phone"
+    ],
+    [
+     "Service portals",
+     "web"
+    ]
+   ],
+   "mods": [
+    "Enrolment & ABIS",
+    "Card & Mobile ID issuance",
+    "Authentication (FIDO2)",
+    "Lifecycle (CLM)",
+    "Risk & monitoring"
+   ],
+   "core": [
+    [
+     "National PKI · HSM",
+     "key"
+    ],
+    [
+     "PID signing",
+     "chip"
+    ]
+   ],
+   "ent": [
+    [
+     "Civil register",
+     "gov"
+    ],
+    [
+     "Card personalisation",
+     "card"
+    ],
+    [
+     "Public services",
+     "globe"
+    ]
+   ],
+   "steps": [
+    "Citizens enrol at centres or on mobile.",
+    "Data flows to enrolment, ABIS and issuance.",
+    "Credentials are signed by the national PKI.",
+    "Public services authenticate and verify citizens."
+   ]
+  },
+  "digital-id-wallet": {
+   "users": [
+    [
+     "Citizens",
+     "users"
+    ]
+   ],
+   "ch": [
+    [
+     "Wallet app",
+     "phone"
+    ],
+    [
+     "Verifier apps",
+     "phone"
+    ]
+   ],
+   "mods": [
+    "PID & EAA issuance",
+    "Wallet backend",
+    "Verifier network",
+    "Selective disclosure"
+   ],
+   "core": [
+    [
+     "Issuer keys",
+     "key"
+    ],
+    [
+     "Trusted Lists",
+     "doc"
+    ]
+   ],
+   "ent": [
+    [
+     "Registries",
+     "gov"
+    ],
+    [
+     "Banks & telcos",
+     "bank"
+    ]
+   ],
+   "steps": [
+    "Citizens hold credentials in the wallet.",
+    "They present via OpenID4VP or ISO 18013-5.",
+    "Issuer signatures are checked against Trusted Lists.",
+    "Banks, telcos and agencies accept the credential."
+   ]
+  },
+  "passwordless": {
+   "users": [
+    [
+     "Customers",
+     "users"
+    ],
+    [
+     "Staff",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "Mobile app",
+     "phone"
+    ],
+    [
+     "Web",
+     "web"
+    ],
+    [
+     "TrustPass key",
+     "key"
+    ]
+   ],
+   "mods": [
+    "FIDO2 server",
+    "Passkey registration",
+    "Policy & risk",
+    "Credential lifecycle"
+   ],
+   "core": [
+    [
+     "SAM Appliance",
+     "server"
+    ]
+   ],
+   "ent": [
+    [
+     "IAM / IdP",
+     "api"
+    ],
+    [
+     "Core applications",
+     "bank"
+    ]
+   ],
+   "steps": [
+    "Users sign in without a password.",
+    "The authenticator answers a FIDO2 challenge.",
+    "Keys are verified; policy is enforced.",
+    "Applications receive a signed assertion."
+   ]
+  },
+  "sam-auth-server": {
+   "users": [
+    [
+     "Customers",
+     "users"
+    ]
+   ],
+   "ch": [
+    [
+     "Internet banking",
+     "web"
+    ],
+    [
+     "Mobile banking",
+     "phone"
+    ],
+    [
+     "Branch",
+     "kiosk"
+    ]
+   ],
+   "mods": [
+    "FIDO2 · passkey",
+    "Push · transaction signing",
+    "Smart OTP",
+    "Risk engine",
+    "Key manager"
+   ],
+   "core": [
+    [
+     "HSM cluster",
+     "chip"
+    ]
+   ],
+   "ent": [
+    [
+     "Core banking",
+     "bank"
+    ],
+    [
+     "Card ACS · 3DS",
+     "card"
+    ],
+    [
+     "SIEM · SOC",
+     "soc"
+    ]
+   ],
+   "steps": [
+    "Customers transact on any channel.",
+    "Channels call SAM Auth Server.",
+    "Keys and evidence are protected in hardware.",
+    "Core banking, ACS and SOC receive verified results."
+   ]
+  },
+  "trustpass": {
+   "users": [
+    [
+     "VIP customers",
+     "user"
+    ],
+    [
+     "Corporate approvers",
+     "users"
+    ]
+   ],
+   "ch": [
+    [
+     "TrustPass Card / Key",
+     "card"
+    ],
+    [
+     "Mobile app (NFC)",
+     "phone"
+    ],
+    [
+     "eBanking (USB)",
+     "web"
+    ]
+   ],
+   "mods": [
+    "FIDO2 / CTAP",
+    "OCRA signing",
+    "AAGUID registry"
+   ],
+   "core": [
+    [
+     "Secure element",
+     "chip"
+    ]
+   ],
+   "ent": [
+    [
+     "SAM Auth Server",
+     "server"
+    ],
+    [
+     "Core banking",
+     "bank"
+    ]
+   ],
+   "steps": [
+    "The user taps or inserts TrustPass.",
+    "The channel relays the challenge.",
+    "The key signs inside the secure element.",
+    "The bank verifies before executing."
+   ]
+  },
+  "remote-signing": {
+   "users": [
+    [
+     "Signers",
+     "users"
+    ]
+   ],
+   "ch": [
+    [
+     "Signing app",
+     "phone"
+    ],
+    [
+     "Business apps",
+     "web"
+    ]
+   ],
+   "mods": [
+    "Signature activation",
+    "CSC API",
+    "Signing gateway"
+   ],
+   "core": [
+    [
+     "Remote QSCD",
+     "chip"
+    ],
+    [
+     "TrustCA certificates",
+     "key"
+    ]
+   ],
+   "ent": [
+    [
+     "Document systems",
+     "doc"
+    ],
+    [
+     "Timestamp / archive",
+     "db"
+    ]
+   ],
+   "steps": [
+    "The signer approves on the phone.",
+    "Apps call the CSC API.",
+    "Keys sign inside the remote QSCD.",
+    "Signed documents are timestamped and archived."
+   ]
+  },
+  "quantum-safe-gateway": {
+   "users": [
+    [
+     "Users & sites",
+     "users"
+    ]
+   ],
+   "ch": [
+    [
+     "Branch networks",
+     "net"
+    ],
+    [
+     "Data centre links",
+     "server"
+    ]
+   ],
+   "mods": [
+    "Hybrid TLS / IPsec",
+    "ML-KEM key exchange",
+    "ML-DSA signatures",
+    "Zero Trust policy"
+   ],
+   "core": [
+    [
+     "TPM · HSM",
+     "chip"
+    ]
+   ],
+   "ent": [
+    [
+     "Applications",
+     "server"
+    ],
+    [
+     "Partner networks",
+     "globe"
+    ]
+   ],
+   "steps": [
+    "Traffic leaves sites and data centres.",
+    "It enters the gateway.",
+    "Keys are exchanged with hybrid PQC.",
+    "Applications and partners receive protected traffic."
+   ]
+  },
+  "sam-appliance": {
+   "users": [
+    [
+     "Applications",
+     "server"
+    ],
+    [
+     "Admins",
+     "user"
+    ]
+   ],
+   "ch": [
+    [
+     "REST / PKCS#11",
+     "api"
+    ],
+    [
+     "Admin console",
+     "web"
+    ]
+   ],
+   "mods": [
+    "PKI & signing",
+    "Remote QSCD",
+    "SCA · FIDO2",
+    "Wallet & tokenisation"
+   ],
+   "core": [
+    [
+     "HSM inside",
+     "chip"
+    ]
+   ],
+   "ent": [
+    [
+     "Core banking",
+     "bank"
+    ],
+    [
+     "Government systems",
+     "gov"
+    ]
+   ],
+   "steps": [
+    "Applications request trust services.",
+    "Calls arrive by API.",
+    "Keys stay inside the appliance's HSM.",
+    "Results return to bank and government systems."
+   ]
+  }
+ }
+}

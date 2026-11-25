@@ -1,0 +1,515 @@
+{
+ "items": [
+  {
+   "id": "government",
+   "name": "Government & Public Sector",
+   "pitch": "National PKI, citizen identity, digital public services and trusted records for ministries and provinces.",
+   "pillars": [
+    "gov",
+    "identity",
+    "cyber",
+    "ai"
+   ],
+   "picks": [
+    "national-eid-trust",
+    "national-pki",
+    "digital-id-wallet",
+    "id-verification",
+    "smart-card-piv",
+    "smart-virtual-card",
+    "egate",
+    "superapp-mgov",
+    "lgsp",
+    "smart-kiosk",
+    "paperless",
+    "trusted-archive",
+    "remote-signing",
+    "crypto-agility",
+    "savis-soc",
+    "savis-abis",
+    "cryptoid",
+    "touchless-fingerprint",
+    "face-biometrics",
+    "savis-idms",
+    "savis-idvs",
+    "decentralized-identity",
+    "enrollment-station",
+    "enrollment-suite",
+    "mosip-integration",
+    "quantum-vault",
+    "quantum-readiness",
+    "pqc-suite",
+    "qkd",
+    "quantum-communication",
+    "savis-crvs",
+    "one-stop-shop",
+    "smart-city",
+    "data-lake-bi",
+    "ai-kpi",
+    "savis-mdm",
+    "earchive-box",
+    "ai-automation"
+   ]
+  },
+  {
+   "id": "bfsi",
+   "name": "Banking, Financial Services & Insurance",
+   "pitch": "Bank CAs, onboarding, authentication, open APIs and payment security for regulated institutions.",
+   "pillars": [
+    "identity",
+    "finance",
+    "cyber"
+   ],
+   "picks": [
+    "digital-banking-platform",
+    "signing-gateway",
+    "remote-signing",
+    "trustonboard",
+    "vneid-integration",
+    "trustca-ekyc-biometric",
+    "mobile-identity-sca",
+    "smartotp-plus",
+    "passwordless",
+    "sam-auth-server",
+    "trustsign-mobile",
+    "device-intelligence",
+    "rasp-plus",
+    "open-banking-suite",
+    "consent-management",
+    "tpp-manager",
+    "pki-in-a-box",
+    "mobile-ewallet",
+    "api-security-transaction-signing",
+    "3d-secure",
+    "tokenization",
+    "payment-hsm",
+    "palm-biometric-payment",
+    "touchless-fingerprint",
+    "liveness-deepfake",
+    "face-biometrics",
+    "savis-idms",
+    "savis-idvs",
+    "decentralized-identity",
+    "enrollment-station",
+    "enrollment-suite",
+    "mosip-integration",
+    "credential-management",
+    "trustpass",
+    "trustca-timestamp",
+    "trustshield",
+    "hsm-as-a-service",
+    "quantum-vault",
+    "quantum-readiness",
+    "pqc-suite",
+    "qkd",
+    "quantum-communication",
+    "open-finance-api",
+    "open-banking-portal",
+    "blockchain-framework",
+    "rwa-tokenization",
+    "crypto-custody"
+   ]
+  },
+  {
+   "id": "trust-providers",
+   "name": "Trust Service Providers & CAs",
+   "pitch": "Everything a CA or qualified trust service provider runs: CA, RA, VA, TSA, remote signing, HSMs and audit readiness.",
+   "pillars": [
+    "identity",
+    "cyber"
+   ],
+   "picks": [
+    "trustonboard",
+    "national-pki",
+    "pki-in-a-box",
+    "timestamp-tsa",
+    "trustca-va-ra",
+    "remote-signing",
+    "signing-server",
+    "gp-hsm",
+    "sam-appliance",
+    "pki-token",
+    "crypto-bio-token",
+    "webtrust-readiness",
+    "eidas-readiness",
+    "liveness-deepfake",
+    "trustca-timestamp"
+   ]
+  },
+  {
+   "id": "payments",
+   "name": "Payments & Fintech",
+   "pitch": "Payment switches, wallets and fintechs: open banking hubs, tokenization, payment HSMs and new ways to pay.",
+   "pillars": [
+    "finance",
+    "identity",
+    "cyber"
+   ],
+   "picks": [
+    "trustonboard",
+    "open-banking-suite",
+    "open-api",
+    "payment-hsm",
+    "tokenization",
+    "3d-secure",
+    "mobile-ewallet",
+    "palm-biometric-payment",
+    "fraud-prevention",
+    "device-fingerprint-sdk",
+    "stablecoin",
+    "cbdc",
+    "liveness-deepfake",
+    "palm-biometrics",
+    "credential-management",
+    "trustpass",
+    "trustshield",
+    "hsm-as-a-service",
+    "open-finance-api",
+    "open-banking-portal",
+    "blockchain-framework",
+    "rwa-tokenization",
+    "crypto-custody",
+    "savis-idvs"
+   ]
+  },
+  {
+   "id": "telco",
+   "name": "Telecommunications",
+   "pitch": "Mobile PKI, remote signing for subscribers, SIM-swap protection and SOC for network operators.",
+   "pillars": [
+    "identity",
+    "cyber"
+   ],
+   "picks": [
+    "mobile-pki-identity",
+    "remote-signing",
+    "trustonboard",
+    "smartotp-plus",
+    "fraud-prevention",
+    "savis-soc",
+    "zero-trust-gateway",
+    "savis-abis",
+    "face-biometrics",
+    "liveness-deepfake",
+    "savis-idms",
+    "savis-idvs",
+    "decentralized-identity",
+    "enrollment-station",
+    "enrollment-suite",
+    "mosip-integration",
+    "trustshield",
+    "quantum-vault",
+    "quantum-readiness",
+    "pqc-suite",
+    "qkd",
+    "quantum-communication"
+   ]
+  },
+  {
+   "id": "enterprise",
+   "name": "Enterprise",
+   "pitch": "Zero-trust access, secure browsing, signing, e-contracts and security operations for large organisations.",
+   "pillars": [
+    "cyber",
+    "identity",
+    "finance",
+    "ai"
+   ],
+   "picks": [
+    "secure-enterprise-browser",
+    "zero-trust-gateway",
+    "iam-ciam",
+    "smart-card-piv",
+    "pki-token",
+    "smart-virtual-card",
+    "kms",
+    "signing-server",
+    "econtract",
+    "go-invoice",
+    "bpm-paperless",
+    "savis-soc",
+    "cyber-security",
+    "smart-ocr",
+    "face-biometrics",
+    "palm-biometrics",
+    "credential-management",
+    "trustpass",
+    "trustca-timestamp",
+    "hsm-as-a-service",
+    "data-lake-bi",
+    "ai-kpi",
+    "savis-mdm",
+    "earchive-box",
+    "ai-automation"
+   ]
+  },
+  {
+   "id": "energy-utilities",
+   "name": "Energy & Utilities",
+   "pitch": "Power, water and gas operators: secure smart meters and OT networks, zero-trust access and quantum-safe links for critical infrastructure.",
+   "pillars": [
+    "cyber",
+    "gov"
+   ],
+   "picks": [
+    "iot-device-security",
+    "zero-trust-gateway",
+    "quantum-safe-gateway",
+    "gp-hsm",
+    "kms",
+    "pki-in-a-box",
+    "savis-soc",
+    "smart-card-piv",
+    "econtract"
+   ]
+  },
+  {
+   "id": "automotive",
+   "name": "Automotive & Mobility",
+   "pitch": "Connected vehicles and EV charging: digital car keys, vehicle PKI, secure over-the-air updates and crypto agility.",
+   "pillars": [
+    "gov",
+    "cyber"
+   ],
+   "picks": [
+    "digital-car-key",
+    "iot-device-security",
+    "iot-devices",
+    "pki-in-a-box",
+    "gp-hsm",
+    "kms",
+    "crypto-agility",
+    "palm-biometric-payment"
+   ]
+  },
+  {
+   "id": "transport",
+   "name": "Transport & Logistics",
+   "pitch": "Airports, ports, transit and logistics: identity at checkpoints, AI cameras, e-documents and contactless payment.",
+   "pillars": [
+    "gov",
+    "ai",
+    "finance"
+   ],
+   "picks": [
+    "ai-camera",
+    "id-verification",
+    "iot-devices",
+    "iot-device-security",
+    "smart-ocr",
+    "econtract",
+    "palm-biometric-payment",
+    "tokenization",
+    "face-biometrics",
+    "palm-biometrics",
+    "cryptoid",
+    "smart-city"
+   ]
+  },
+  {
+   "id": "retail",
+   "name": "Retail & eCommerce",
+   "pitch": "Fraud-resistant checkout, wallets, customer data and biometric payment for merchants and marketplaces.",
+   "pillars": [
+    "finance",
+    "identity",
+    "ai"
+   ],
+   "picks": [
+    "palm-biometric-payment",
+    "3d-secure",
+    "tokenization",
+    "fraud-prevention",
+    "device-intelligence",
+    "mobile-ewallet",
+    "trustonboard",
+    "cdp-360",
+    "data-lake-bi",
+    "ai-kpi",
+    "savis-mdm"
+   ]
+  },
+  {
+   "id": "education",
+   "name": "Education",
+   "pitch": "Universities and schools: student identity, digital diplomas, campus access and payments, and secure records.",
+   "pillars": [
+    "identity",
+    "ai",
+    "finance"
+   ],
+   "picks": [
+    "smart-virtual-card",
+    "passwordless",
+    "iam-ciam",
+    "ecertify",
+    "paperless",
+    "trusted-archive",
+    "smart-eform",
+    "palm-biometric-payment",
+    "ai-camera",
+    "cryptoid"
+   ]
+  },
+  {
+   "id": "healthcare",
+   "name": "Healthcare",
+   "pitch": "Signed medical records, protected patient data and secure staff access.",
+   "pillars": [
+    "identity",
+    "ai",
+    "cyber"
+   ],
+   "picks": [
+    "dx-open-healthcare",
+    "remote-signing",
+    "smart-card-piv",
+    "trusted-archive",
+    "iam-ciam",
+    "data-encryption",
+    "quantum-safe-storage",
+    "face-biometrics",
+    "enrollment-station",
+    "savis-crvs"
+   ]
+  },
+  {
+   "id": "media",
+   "name": "Media & Broadcasting",
+   "pitch": "AI-native newsrooms, production planning and broadcast platforms.",
+   "pillars": [
+    "ai"
+   ],
+   "picks": [
+    "mrp-ai",
+    "converged-newsroom",
+    "cms-ai-hub",
+    "mam-intelligent-automation",
+    "playout-cg",
+    "media-trust-hub",
+    "forensic-watermarking"
+   ]
+  }
+ ],
+ "groupIndustries": {
+  "digital-identity": [
+   "government",
+   "bfsi",
+   "telco"
+  ],
+  "biometrics": [
+   "government",
+   "bfsi",
+   "telco"
+  ],
+  "authentication-access": [
+   "bfsi",
+   "payments",
+   "enterprise"
+  ],
+  "secure-credentials": [
+   "government",
+   "enterprise",
+   "education"
+  ],
+  "pki-infrastructure": [
+   "government",
+   "trust-providers",
+   "enterprise"
+  ],
+  "trust-services": [
+   "trust-providers",
+   "bfsi",
+   "enterprise"
+  ],
+  "trust-readiness": [
+   "trust-providers"
+  ],
+  "fraud-app-protection": [
+   "bfsi",
+   "payments",
+   "telco"
+  ],
+  "security-operations": [
+   "enterprise",
+   "bfsi",
+   "government"
+  ],
+  "key-management": [
+   "bfsi",
+   "payments",
+   "enterprise"
+  ],
+  "zero-trust": [
+   "enterprise",
+   "government",
+   "bfsi"
+  ],
+  "quantum-safe": [
+   "government",
+   "bfsi",
+   "telco"
+  ],
+  "data-security": [
+   "enterprise",
+   "healthcare",
+   "bfsi"
+  ],
+  "digital-government": [
+   "government"
+  ],
+  "citizen-services": [
+   "government"
+  ],
+  "smart-city": [
+   "government",
+   "transport"
+  ],
+  "iot": [
+   "automotive",
+   "energy-utilities",
+   "transport"
+  ],
+  "open-finance": [
+   "bfsi",
+   "payments"
+  ],
+  "payment-security": [
+   "payments",
+   "bfsi",
+   "retail"
+  ],
+  "digital-banking": [
+   "bfsi",
+   "payments"
+  ],
+  "digital-agreements": [
+   "enterprise",
+   "bfsi",
+   "retail"
+  ],
+  "digital-assets": [
+   "bfsi",
+   "payments"
+  ],
+  "data-analytics": [
+   "enterprise",
+   "government",
+   "retail"
+  ],
+  "records-archiving": [
+   "government",
+   "enterprise"
+  ],
+  "intelligent-documents": [
+   "government",
+   "enterprise"
+  ],
+  "media-platforms": [
+   "media"
+  ],
+  "healthcare-cloud": [
+   "healthcare"
+  ]
+ }
+}

@@ -1,0 +1,6065 @@
+[
+ {
+  "id": "passkey-payments",
+  "pillar": "finance",
+  "name": "Passkey payments with Secure Payment Confirmation",
+  "tagline": "Strong customer authentication and dynamic linking right on the merchant page — no redirect.",
+  "problem": "SMS OTP is slow and can be phished; redirects to the bank page lose customers at checkout. Regulation requires the amount and payee to be bound to the authentication.",
+  "industries": [
+   "bfsi",
+   "payments",
+   "retail"
+  ],
+  "cases": [],
+  "products": [
+   "3d-secure",
+   "passwordless",
+   "api-security-transaction-signing",
+   "sam-auth-server",
+   "trustsign-mobile"
+  ],
+  "ui": "mobile",
+  "flow": [
+   [
+    "push",
+    "First time: 3DS challenge",
+    "The card is challenged once by the ACS; the customer is invited to create a passkey."
+   ],
+   [
+    "cart",
+    "Checkout",
+    "Next time, the merchant calls SPC with the card’s credential ID."
+   ],
+   [
+    "approve",
+    "The browser shows the details",
+    [
+     "1,250,000 VND",
+     "Merchant · TechStore",
+     "Card •••• 1234"
+    ]
+   ],
+   [
+    "bio",
+    "Touch to confirm",
+    "The passkey signs merchant and amount — the proof for dynamic linking."
+   ],
+   [
+    "success",
+    "Approved",
+    "The signed assertion travels through 3DS to the ACS, which verifies and approves."
+   ]
+  ],
+  "logical": [
+   [
+    "Channels",
+    [
+     "Merchant checkout",
+     "Browser (SPC)",
+     "Banking app"
+    ]
+   ],
+   [
+    "Access & API",
+    [
+     "3DS server / ACS",
+     "FIDO2 server"
+    ]
+   ],
+   [
+    "SAVIS services",
+    [
+     "3D Secure 2.0",
+     "Transaction signing (dynamic linking)",
+     "Passkey registry"
+    ]
+   ],
+   [
+    "Trust & crypto core",
+    [
+     "HSM-signed evidence",
+     "Device-bound passkeys"
+    ]
+   ],
+   [
+    "Enterprise systems",
+    [
+     "Card management",
+     "Card schemes",
+     "Core banking"
+    ]
+   ]
+  ],
+  "system": [
+   [
+    "Users & Internet",
+    [
+     "Shoppers",
+     "Merchants"
+    ]
+   ],
+   [
+    "DMZ",
+    [
+     "ACS",
+     "FIDO2 endpoint"
+    ]
+   ],
+   [
+    "Application zone",
+    [
+     "3DS engine",
+     "Risk engine"
+    ]
+   ],
+   [
+    "Secure zone",
+    [
+     "HSM"
+    ]
+   ],
+   [
+    "Core & integration",
+    [
+     "Card system",
+     "Scheme directory"
+    ]
+   ]
+  ],
+  "benefits": [
+   "Payment in one touch at the merchant",
+   "Merchant and amount signed into every approval",
+   "Automatic fallback to app push where SPC is not supported"
+  ],
+  "scene": "spc"
+ },
+ {
+  "id": "national-wallet",
+  "pillar": "identity",
+  "name": "National digital ID wallet",
+  "tagline": "From activation to signing and travelling abroad, in four phases.",
+  "problem": "Citizens carry plastic documents and photocopies; services cannot verify them remotely. A national wallet needs a trusted PID, many issuers, a network of verifiers and qualified signatures.",
+  "industries": [
+   "government",
+   "bfsi",
+   "telco",
+   "education",
+   "transport"
+  ],
+  "cases": [],
+  "products": [
+   "digital-id-wallet",
+   "national-eid-trust",
+   "remote-signing",
+   "sam-appliance",
+   "trustsign-mobile",
+   "decentralized-identity"
+  ],
+  "ui": "mobile",
+  "flow": [
+   [
+    "face",
+    "Activate the wallet",
+    "Scan the chip ID card and pass a face check with PAD Level 2."
+   ],
+   [
+    "wallet",
+    "Receive the PID",
+    "The person identification data arrives with a high assurance level."
+   ],
+   [
+    "list",
+    "Add documents",
+    [
+     "Driving licence",
+     "Health insurance card",
+     "University diploma"
+    ]
+   ],
+   [
+    "consent",
+    "Open a bank account",
+    [
+     "Full name, date of birth",
+     "ID number",
+     "Face photo"
+    ]
+   ],
+   [
+    "sign",
+    "Sign and travel",
+    "Sign with a qualified signature through a QTSP; present documents abroad by NFC or QR."
+   ]
+  ],
+  "logical": [
+   [
+    "Channels",
+    [
+     "Wallet app",
+     "Verifier apps",
+     "Public portals"
+    ]
+   ],
+   [
+    "Access & API",
+    [
+     "OpenID4VCI / VP",
+     "ISO 18013-5 / -7"
+    ]
+   ],
+   [
+    "SAVIS services",
+    [
+     "PID & attestation issuance",
+     "Verifier network",
+     "QTSP signing"
+    ]
+   ],
+   [
+    "Trust & crypto core",
+    [
+     "PID keys anchored in HSM",
+     "Remote QSCD",
+     "Trusted Lists"
+    ]
+   ],
+   [
+    "Enterprise systems",
+    [
+     "Population register",
+     "Licensing, health, education registries"
+    ]
+   ]
+  ],
+  "system": [
+   [
+    "Users & Internet",
+    [
+     "Citizens",
+     "Verifiers"
+    ]
+   ],
+   [
+    "DMZ",
+    [
+     "Issuer & status endpoints"
+    ]
+   ],
+   [
+    "Application zone",
+    [
+     "Wallet backend",
+     "Issuance service"
+    ]
+   ],
+   [
+    "Secure zone",
+    [
+     "HSM",
+     "QSCD"
+    ]
+   ],
+   [
+    "Core & integration",
+    [
+     "National registries"
+    ]
+   ]
+  ],
+  "benefits": [
+   "One wallet for every document",
+   "Selective disclosure protects privacy",
+   "Qualified signatures as an everyday service"
+  ],
+  "scene": "wallet"
+ },
+ {
+  "id": "remote-onboarding",
+  "pillar": "identity",
+  "name": "Remote customer onboarding",
+  "tagline": "Open an account in minutes with a chip-verified ID and a live selfie.",
+  "problem": "Branch visits and paper forms slow onboarding and invite identity fraud. Regulators also require that the person is real, present and matches a genuine ID.",
+  "industries": [
+   "bfsi",
+   "telco",
+   "payments",
+   "retail"
+  ],
+  "cases": [
+   "vietcredit",
+   "remote-signing-vneid",
+   "homecredit-ekyc",
+   "homecredit-vneid-data",
+   "vnpt-vneid-data"
+  ],
+  "products": [
+   "id-verification",
+   "trustonboard",
+   "vneid-integration",
+   "trustca-ekyc-biometric",
+   "national-eid-trust",
+   "device-intelligence",
+   "smart-kiosk"
+  ],
+  "ui": "mobile",
+  "flow": [
+   [
+    "scan",
+    "Scan ID",
+    "Capture the front of the chip ID card or passport."
+   ],
+   [
+    "nfc",
+    "Read the chip",
+    "Tap the card to the phone; the chip signature proves the data is genuine."
+   ],
+   [
+    "face",
+    "Live selfie",
+    "Liveness check and face match against the chip photo."
+   ],
+   [
+    "review",
+    "Confirm details",
+    "Data pre-filled from the chip.",
+    [
+     [
+      "Name",
+      "NGUYEN VAN A"
+     ],
+     [
+      "ID no.",
+      "0010•••••789"
+     ],
+     [
+      "Match",
+      "98% · Live"
+     ]
+    ]
+   ],
+   [
+    "success",
+    "Account ready",
+    "Account opened and a signing certificate issued."
+   ]
+  ],
+  "logical": [
+   [
+    "Channels",
+    [
+     "Mobile app (SDK)",
+     "Web onboarding",
+     "Smart Kiosk"
+    ]
+   ],
+   [
+    "Access & API",
+    [
+     "API gateway",
+     "Device intelligence"
+    ]
+   ],
+   [
+    "SAVIS services",
+    [
+     "ID Verification",
+     "SAVIS TrustOnboard (OCR, NFC, liveness)",
+     "Face match",
+     "Case review"
+    ]
+   ],
+   [
+    "Trust & crypto core",
+    [
+     "TrustCA certificate issuance",
+     "HSM"
+    ]
+   ],
+   [
+    "Enterprise systems",
+    [
+     "Core banking / CRM",
+     "National ID (C06 / VNeID)",
+     "AML screening"
+    ]
+   ]
+  ],
+  "system": [
+   [
+    "Users & Internet",
+    [
+     "Customer phone",
+     "Kiosk"
+    ]
+   ],
+   [
+    "DMZ",
+    [
+     "WAF",
+     "API gateway"
+    ]
+   ],
+   [
+    "Application zone",
+    [
+     "eKYC engine",
+     "Liveness & face match",
+     "Review console"
+    ]
+   ],
+   [
+    "Secure zone",
+    [
+     "HSM",
+     "CA / RA"
+    ]
+   ],
+   [
+    "Core & integration",
+    [
+     "Core banking",
+     "National ID gateway"
+    ]
+   ]
+  ],
+  "benefits": [
+   "Onboarding without a branch visit",
+   "Chip-level proof that the ID is genuine",
+   "Audit trail for every check"
+  ],
+  "scene": "identity"
+ },
+ {
+  "id": "passwordless-sca",
+  "pillar": "identity",
+  "name": "Passwordless login and strong customer authentication",
+  "tagline": "Replace passwords and SMS OTP with device-bound keys and biometrics.",
+  "problem": "Passwords get phished and SMS OTPs get intercepted through SIM swap. Banks need strong customer authentication that customers actually like using.",
+  "industries": [
+   "bfsi",
+   "enterprise",
+   "government",
+   "education",
+   "payments"
+  ],
+  "cases": [
+   "lpbank-sca",
+   "baca-sca"
+  ],
+  "products": [
+   "passwordless",
+   "sam-auth-server",
+   "trustsign-mobile",
+   "mobile-identity-sca",
+   "smartotp-plus",
+   "iam-ciam",
+   "credential-management",
+   "trustpass",
+   "device-fingerprint-sdk"
+  ],
+  "ui": "mobile",
+  "flow": [
+   [
+    "login",
+    "Sign in",
+    "Customer enters a username only — no password."
+   ],
+   [
+    "push",
+    "Approval request",
+    "A push notification arrives on the registered device."
+   ],
+   [
+    "approve",
+    "See what you approve",
+    "Login or payment details shown on a trusted screen.",
+    [
+     "Login request",
+     "Web · Hanoi · 09:12",
+     "Chrome on Windows"
+    ]
+   ],
+   [
+    "bio",
+    "Confirm with biometrics",
+    "The private key never leaves the device."
+   ],
+   [
+    "success",
+    "Signed in",
+    "Session created with a signed, auditable assertion."
+   ]
+  ],
+  "logical": [
+   [
+    "Channels",
+    [
+     "Mobile app",
+     "Web",
+     "Contact centre"
+    ]
+   ],
+   [
+    "Access & API",
+    [
+     "IAM / CIAM",
+     "FIDO2 server",
+     "Risk engine"
+    ]
+   ],
+   [
+    "SAVIS services",
+    [
+     "Mobile Identity SCA",
+     "SmartOTP+",
+     "Credential lifecycle"
+    ]
+   ],
+   [
+    "Trust & crypto core",
+    [
+     "Device-bound keys",
+     "HSM attestation"
+    ]
+   ],
+   [
+    "Enterprise systems",
+    [
+     "Core banking",
+     "Card systems",
+     "Directory (AD/LDAP)"
+    ]
+   ]
+  ],
+  "system": [
+   [
+    "Users & Internet",
+    [
+     "Customer phone",
+     "Browser"
+    ]
+   ],
+   [
+    "DMZ",
+    [
+     "WAF",
+     "IdP endpoint"
+    ]
+   ],
+   [
+    "Application zone",
+    [
+     "FIDO2 / SCA server",
+     "Risk engine",
+     "Admin console"
+    ]
+   ],
+   [
+    "Secure zone",
+    [
+     "HSM",
+     "Key store"
+    ]
+   ],
+   [
+    "Core & integration",
+    [
+     "Core banking",
+     "Directory"
+    ]
+   ]
+  ],
+  "benefits": [
+   "No passwords to phish",
+   "Protection against SIM swap",
+   "Dynamic linking for payment approvals"
+  ],
+  "scene": "auth"
+ },
+ {
+  "id": "remote-signing",
+  "pillar": "identity",
+  "name": "Sign a contract remotely",
+  "tagline": "Legally binding signatures from any phone, with keys kept in a QSCD.",
+  "problem": "Loan, account and service contracts still require wet ink or USB tokens. Customers drop out and back offices drown in paper.",
+  "industries": [
+   "bfsi",
+   "government",
+   "enterprise",
+   "healthcare",
+   "trust-providers"
+  ],
+  "cases": [
+   "remote-signing-vneid",
+   "viettel-qtsp",
+   "vib-signing-hub",
+   "vietcredit",
+   "bidv-remote-signing",
+   "baca-remote-signing",
+   "hong-leong-bank-econtract",
+   "bank-sinopac-esign",
+   "hdsaison-remote-signing",
+   "fecredit-remote-signing",
+   "vpbank-remote-signing"
+  ],
+  "products": [
+   "remote-signing",
+   "trustca-timestamp",
+   "trustca-va-ra",
+   "signing-gateway",
+   "signing-server",
+   "econtract",
+   "paperless"
+  ],
+  "ui": "mobile",
+  "flow": [
+   [
+    "sign",
+    "Review the contract",
+    "The customer reads the loan agreement in the app."
+   ],
+   [
+    "review",
+    "Confirm identity",
+    "Identity linked to VNeID and the eKYC record.",
+    [
+     [
+      "Signer",
+      "NGUYEN VAN A"
+     ],
+     [
+      "Certificate",
+      "TrustCA · Qualified"
+     ],
+     [
+      "Document",
+      "Loan_2026.pdf"
+     ]
+    ]
+   ],
+   [
+    "otp",
+    "Activate the signature",
+    "One-time code or biometric unlocks the key in the QSCD."
+   ],
+   [
+    "success",
+    "Signed & timestamped",
+    "PAdES signature with trusted timestamp."
+   ],
+   [
+    "verify",
+    "Anyone can verify",
+    "Validation report confirms the signature and certificate."
+   ]
+  ],
+  "logical": [
+   [
+    "Channels",
+    [
+     "Bank app",
+     "Web portal",
+     "LOS / back office"
+    ]
+   ],
+   [
+    "Access & API",
+    [
+     "Signing Gateway",
+     "CSC API 2.0 / 2.2"
+    ]
+   ],
+   [
+    "SAVIS services",
+    [
+     "TrustCA Remote Signing",
+     "Signature activation",
+     "Smart eContract"
+    ]
+   ],
+   [
+    "Trust & crypto core",
+    [
+     "Remote QSCD + HSM",
+     "CA / RA",
+     "TSA",
+     "VA"
+    ]
+   ],
+   [
+    "Enterprise systems",
+    [
+     "Document management",
+     "Archive",
+     "VNeID"
+    ]
+   ]
+  ],
+  "system": [
+   [
+    "Users & Internet",
+    [
+     "Signer phone",
+     "Bank staff"
+    ]
+   ],
+   [
+    "DMZ",
+    [
+     "WAF",
+     "Signing Gateway"
+    ]
+   ],
+   [
+    "Application zone",
+    [
+     "Remote Signing service",
+     "eContract",
+     "Validation"
+    ]
+   ],
+   [
+    "Secure zone",
+    [
+     "QSCD / HSM",
+     "CA, TSA"
+    ]
+   ],
+   [
+    "Core & integration",
+    [
+     "LOS / DMS",
+     "Archive"
+    ]
+   ]
+  ],
+  "benefits": [
+   "No tokens, no branch visit",
+   "Keys never leave certified hardware",
+   "Long-term proof with timestamps"
+  ],
+  "scene": "sign"
+ },
+ {
+  "id": "national-root-ca",
+  "pillar": "identity",
+  "name": "National root of trust and CA operations",
+  "tagline": "Run a country’s or a bank’s certificate authority with ceremony-grade controls.",
+  "problem": "A root CA anchors every certificate beneath it. It has to be secure, auditable to WebTrust or national rules, and operated without mistakes for decades.",
+  "industries": [
+   "government",
+   "trust-providers",
+   "bfsi",
+   "telco"
+  ],
+  "cases": [
+   "neac-national-pki",
+   "neac-mobile-pki",
+   "neac-webtrust-ca",
+   "neac-tsa-va",
+   "sbv-rootca",
+   "agribank-ca",
+   "sacombank-ca",
+   "coopbank-ca"
+  ],
+  "products": [
+   "national-pki",
+   "national-eid-trust",
+   "pki-in-a-box",
+   "timestamp-tsa",
+   "trustca-va-ra",
+   "webtrust-readiness",
+   "eidas-readiness",
+   "gp-hsm",
+   "sam-appliance"
+  ],
+  "ui": "console",
+  "flow": [
+   [
+    "form",
+    "Certificate request",
+    "A subordinate CA or organisation submits a request.",
+    [
+     "Organisation",
+     "Profile",
+     "Public key (CSR)"
+    ]
+   ],
+   [
+    "list",
+    "RA approval",
+    "Registration officers verify and approve with dual control.",
+    [
+     "Sacombank CA — pending",
+     "Telco CA — approved",
+     "Gov Sub-CA — approved"
+    ]
+   ],
+   [
+    "key",
+    "Key ceremony",
+    "Root key operations under M-of-N quorum in the HSM."
+   ],
+   [
+    "dash",
+    "Publish & monitor",
+    "Certificates, CRL and OCSP published; health monitored."
+   ],
+   [
+    "success",
+    "Audit evidence",
+    "Signed logs and reports ready for WebTrust or national audit."
+   ]
+  ],
+  "logical": [
+   [
+    "Channels",
+    [
+     "CA admin console",
+     "RA portal",
+     "Relying parties"
+    ]
+   ],
+   [
+    "Access & API",
+    [
+     "Enrolment API (EST/CMP)",
+     "OCSP / CRL endpoints"
+    ]
+   ],
+   [
+    "SAVIS services",
+    [
+     "Root & issuing CAs",
+     "RA",
+     "VA",
+     "TSA"
+    ]
+   ],
+   [
+    "Trust & crypto core",
+    [
+     "GP HSM / SAM Appliance",
+     "Key ceremony controls"
+    ]
+   ],
+   [
+    "Enterprise systems",
+    [
+     "Audit & logging (SIEM)",
+     "Policy authority"
+    ]
+   ]
+  ],
+  "system": [
+   [
+    "Users & Internet",
+    [
+     "Relying parties",
+     "Subscribers"
+    ]
+   ],
+   [
+    "DMZ",
+    [
+     "OCSP / CRL / TSA publishers"
+    ]
+   ],
+   [
+    "Application zone",
+    [
+     "Issuing CAs",
+     "RA",
+     "VA"
+    ]
+   ],
+   [
+    "Secure zone",
+    [
+     "Offline Root CA",
+     "HSM cluster"
+    ]
+   ],
+   [
+    "Core & integration",
+    [
+     "SIEM",
+     "Backup & DR site"
+    ]
+   ]
+  ],
+  "benefits": [
+   "Root keys protected by quorum and hardware",
+   "Built for WebTrust and national audits",
+   "Validation and timestamping for every relying party"
+  ],
+  "scene": "pki"
+ },
+ {
+  "id": "digital-id-wallet",
+  "pillar": "identity",
+  "name": "Present a mobile ID",
+  "tagline": "Show only what is needed — verified, on the phone.",
+  "problem": "Photocopies of ID cards spread personal data everywhere and are easy to fake. Citizens need a secure way to prove who they are, or just their age, from the phone.",
+  "industries": [
+   "government",
+   "bfsi",
+   "transport",
+   "education"
+  ],
+  "cases": [],
+  "products": [
+   "digital-id-wallet",
+   "decentralized-identity",
+   "mobile-pki-identity",
+   "national-eid-trust"
+  ],
+  "ui": "mobile",
+  "flow": [
+   [
+    "wallet",
+    "Open the wallet",
+    "National ID, driving licence and diplomas held as credentials."
+   ],
+   [
+    "consent",
+    "Choose what to share",
+    "Share only the attributes the verifier asks for.",
+    [
+     "Full name",
+     "Over 18",
+     "Photo"
+    ]
+   ],
+   [
+    "qr",
+    "Present",
+    "QR or NFC presentation to the verifier."
+   ],
+   [
+    "bio",
+    "Approve",
+    "Biometric approval signs the presentation."
+   ],
+   [
+    "success",
+    "Verified",
+    "The verifier checks the issuer signature offline or online."
+   ]
+  ],
+  "logical": [
+   [
+    "Channels",
+    [
+     "Wallet app",
+     "Verifier app",
+     "Kiosk"
+    ]
+   ],
+   [
+    "Access & API",
+    [
+     "OpenID4VP / ISO 18013-5",
+     "Issuer API"
+    ]
+   ],
+   [
+    "SAVIS services",
+    [
+     "Digital ID Wallet",
+     "Credential issuance",
+     "DID resolver"
+    ]
+   ],
+   [
+    "Trust & crypto core",
+    [
+     "Mobile Identity PKI",
+     "Issuer keys in HSM"
+    ]
+   ],
+   [
+    "Enterprise systems",
+    [
+     "Population database",
+     "Licensing systems"
+    ]
+   ]
+  ],
+  "system": [
+   [
+    "Users & Internet",
+    [
+     "Citizen phone",
+     "Verifier device"
+    ]
+   ],
+   [
+    "DMZ",
+    [
+     "Issuer API",
+     "Status list"
+    ]
+   ],
+   [
+    "Application zone",
+    [
+     "Issuance service",
+     "Wallet backend"
+    ]
+   ],
+   [
+    "Secure zone",
+    [
+     "Issuer HSM"
+    ]
+   ],
+   [
+    "Core & integration",
+    [
+     "Registries"
+    ]
+   ]
+  ],
+  "benefits": [
+   "Selective disclosure protects privacy",
+   "Credentials that cannot be forged",
+   "Works across public and private services"
+  ],
+  "scene": "verify"
+ },
+ {
+  "id": "secure-credentials",
+  "pillar": "identity",
+  "name": "Smart cards, tokens and virtual cards",
+  "tagline": "One credential for doors, PCs, signatures and payments.",
+  "problem": "Staff, students and officials carry separate badges, passwords and tokens. Lost credentials are hard to revoke and easy to share.",
+  "industries": [
+   "enterprise",
+   "government",
+   "education",
+   "healthcare",
+   "energy-utilities"
+  ],
+  "cases": [
+   "vib-signing-hub"
+  ],
+  "products": [
+   "smart-card-piv",
+   "smart-virtual-card",
+   "pki-token",
+   "crypto-bio-token",
+   "credential-management",
+   "trustpass"
+  ],
+  "ui": "mobile",
+  "flow": [
+   [
+    "form",
+    "Enrol",
+    "Identity verified once by HR, registrar or authority.",
+    [
+     "Employee ID",
+     "Department",
+     "Photo"
+    ]
+   ],
+   [
+    "card",
+    "Issue the credential",
+    "PIV smart card, PKI token or Smart Virtual Card on the phone."
+   ],
+   [
+    "nfc",
+    "Tap to enter",
+    "Physical access with the card or phone."
+   ],
+   [
+    "fingerprint",
+    "Sign with a fingerprint",
+    "Crypto Bio Token releases the key only after a match."
+   ],
+   [
+    "success",
+    "Revoke in one click",
+    "Lost credentials are revoked everywhere at once."
+   ]
+  ],
+  "logical": [
+   [
+    "Channels",
+    [
+     "Doors & turnstiles",
+     "PC login",
+     "Signing apps",
+     "Campus POS"
+    ]
+   ],
+   [
+    "Access & API",
+    [
+     "Credential management",
+     "PACS integration"
+    ]
+   ],
+   [
+    "SAVIS services",
+    [
+     "Card & token issuance",
+     "Smart Virtual Card",
+     "Lifecycle & revocation"
+    ]
+   ],
+   [
+    "Trust & crypto core",
+    [
+     "PKI (CA)",
+     "Secure element / token"
+    ]
+   ],
+   [
+    "Enterprise systems",
+    [
+     "HR / student system",
+     "Directory",
+     "Access control"
+    ]
+   ]
+  ],
+  "system": [
+   [
+    "Users & Internet",
+    [
+     "Cards",
+     "Tokens",
+     "Phones"
+    ]
+   ],
+   [
+    "DMZ",
+    [
+     "Provisioning service"
+    ]
+   ],
+   [
+    "Application zone",
+    [
+     "Credential management",
+     "Issuance stations"
+    ]
+   ],
+   [
+    "Secure zone",
+    [
+     "CA",
+     "HSM"
+    ]
+   ],
+   [
+    "Core & integration",
+    [
+     "HR / SIS",
+     "Directory"
+    ]
+   ]
+  ],
+  "benefits": [
+   "One credential for physical and digital access",
+   "Biometric-protected signing keys",
+   "Instant, central revocation"
+  ],
+  "scene": "token"
+ },
+ {
+  "id": "fraud-prevention",
+  "pillar": "identity",
+  "name": "Stop account takeover and app fraud",
+  "tagline": "Score every session, harden every app, step up only when risk is real.",
+  "problem": "Fraudsters use stolen credentials, malware, emulators and social engineering. Blocking everyone hurts good customers; blocking no one costs money.",
+  "industries": [
+   "bfsi",
+   "payments",
+   "retail",
+   "telco"
+  ],
+  "cases": [],
+  "products": [
+   "fraud-prevention",
+   "device-intelligence",
+   "device-fingerprint-sdk",
+   "rasp-plus",
+   "trustshield"
+  ],
+  "ui": "mobile",
+  "flow": [
+   [
+    "login",
+    "Login from a new device",
+    "Device fingerprint and behaviour collected silently."
+   ],
+   [
+    "chart",
+    "Risk scored",
+    "Device, location, malware and behaviour combined into one score."
+   ],
+   [
+    "alert",
+    "Step-up",
+    "Unusual transfer triggers biometric re-authentication.",
+    [
+     "High-risk transfer",
+     "New payee · 50,000,000 VND"
+    ]
+   ],
+   [
+    "shield",
+    "App protected",
+    "RASP+ blocks hooking, overlays and screen capture."
+   ],
+   [
+    "success",
+    "Fraud stopped",
+    "Case created for the fraud team with full evidence."
+   ]
+  ],
+  "logical": [
+   [
+    "Channels",
+    [
+     "Mobile app (SDK + RASP)",
+     "Web"
+    ]
+   ],
+   [
+    "Access & API",
+    [
+     "Event API",
+     "Decision API"
+    ]
+   ],
+   [
+    "SAVIS services",
+    [
+     "Device Intelligence",
+     "Fraud rules & ML",
+     "Case management"
+    ]
+   ],
+   [
+    "Trust & crypto core",
+    [
+     "App attestation",
+     "Signed device IDs"
+    ]
+   ],
+   [
+    "Enterprise systems",
+    [
+     "Core banking",
+     "Payment switch",
+     "SOC / SIEM"
+    ]
+   ]
+  ],
+  "system": [
+   [
+    "Users & Internet",
+    [
+     "Customer devices"
+    ]
+   ],
+   [
+    "DMZ",
+    [
+     "Collector endpoints"
+    ]
+   ],
+   [
+    "Application zone",
+    [
+     "Risk engine",
+     "Case console"
+    ]
+   ],
+   [
+    "Secure zone",
+    [
+     "Model & rule store"
+    ]
+   ],
+   [
+    "Core & integration",
+    [
+     "Payments",
+     "SIEM"
+    ]
+   ]
+  ],
+  "benefits": [
+   "Real-time decisions on every session",
+   "Protection inside the app itself",
+   "Less friction for genuine customers"
+  ],
+  "scene": "fraud"
+ },
+ {
+  "id": "soc",
+  "pillar": "cyber",
+  "name": "24/7 detection and response",
+  "tagline": "A security operations centre that watches, triages and contains around the clock.",
+  "problem": "Most organisations cannot staff analysts 24/7. Alerts pile up and real incidents are found too late.",
+  "industries": [
+   "bfsi",
+   "government",
+   "enterprise",
+   "energy-utilities",
+   "telco"
+  ],
+  "cases": [
+   "vpbank-pci"
+  ],
+  "products": [
+   "savis-soc",
+   "cyber-security",
+   "data-encryption"
+  ],
+  "ui": "console",
+  "flow": [
+   [
+    "dash",
+    "Collect",
+    "Logs from network, endpoints, cloud and applications."
+   ],
+   [
+    "alert",
+    "Detect",
+    "Correlation rules and threat intel raise an alert.",
+    [
+     "Suspicious admin login",
+     "Core banking · 02:14"
+    ]
+   ],
+   [
+    "list",
+    "Triage",
+    "Analysts enrich, prioritise and escalate.",
+    [
+     "P1 — Admin login anomaly",
+     "P3 — Port scan",
+     "P4 — Policy violation"
+    ]
+   ],
+   [
+    "shield",
+    "Contain",
+    "Playbooks isolate hosts and block accounts."
+   ],
+   [
+    "success",
+    "Report",
+    "Incident report and lessons learned."
+   ]
+  ],
+  "logical": [
+   [
+    "Channels",
+    [
+     "SOC portal",
+     "Reports"
+    ]
+   ],
+   [
+    "Access & API",
+    [
+     "Log collectors",
+     "Threat intel feeds"
+    ]
+   ],
+   [
+    "SAVIS services",
+    [
+     "SIEM",
+     "SOAR playbooks",
+     "24/7 analysts"
+    ]
+   ],
+   [
+    "Trust & crypto core",
+    [
+     "Encrypted log storage"
+    ]
+   ],
+   [
+    "Enterprise systems",
+    [
+     "Endpoints",
+     "Firewalls",
+     "Applications"
+    ]
+   ]
+  ],
+  "system": [
+   [
+    "Users & Internet",
+    [
+     "Threat intel"
+    ]
+   ],
+   [
+    "DMZ",
+    [
+     "Log forwarders"
+    ]
+   ],
+   [
+    "Application zone",
+    [
+     "SIEM",
+     "SOAR"
+    ]
+   ],
+   [
+    "Secure zone",
+    [
+     "Evidence store"
+    ]
+   ],
+   [
+    "Core & integration",
+    [
+     "Customer network"
+    ]
+   ]
+  ],
+  "benefits": [
+   "Round-the-clock coverage",
+   "Faster containment",
+   "Evidence for regulators and auditors"
+  ],
+  "scene": "soc"
+ },
+ {
+  "id": "key-management",
+  "pillar": "cyber",
+  "name": "Central key management and HSM",
+  "tagline": "Every key generated, stored and rotated in hardware, under one policy.",
+  "problem": "Keys live in config files, scripts and many separate HSMs. Nobody can answer where a key is, who used it or when it was rotated.",
+  "industries": [
+   "bfsi",
+   "government",
+   "enterprise",
+   "trust-providers",
+   "energy-utilities",
+   "automotive"
+  ],
+  "cases": [
+   "sbv-rootca",
+   "sacombank-ca",
+   "vcb-open-banking",
+   "baca-citad"
+  ],
+  "products": [
+   "gp-hsm",
+   "kms",
+   "hsm-as-a-service",
+   "sam-appliance",
+   "payment-hsm",
+   "data-encryption"
+  ],
+  "ui": "console",
+  "flow": [
+   [
+    "form",
+    "Define policy",
+    "Algorithms, rotation periods and owners per application.",
+    [
+     "Application",
+     "Algorithm",
+     "Rotation"
+    ]
+   ],
+   [
+    "key",
+    "Generate in hardware",
+    "Keys created inside GP HSM, Payment HSM or HSM as a Service."
+   ],
+   [
+    "list",
+    "Distribute & use",
+    "Applications call the KMS API; keys never leave in clear.",
+    [
+     "Core DB — AES-256",
+     "API gateway — RSA-3072",
+     "Card system — 3DES→AES"
+    ]
+   ],
+   [
+    "dash",
+    "Rotate & audit",
+    "Rotation, usage and access logged."
+   ],
+   [
+    "success",
+    "Prove compliance",
+    "Reports for PCI DSS, SBV and ISO 27001."
+   ]
+  ],
+  "logical": [
+   [
+    "Channels",
+    [
+     "KMS console",
+     "Applications"
+    ]
+   ],
+   [
+    "Access & API",
+    [
+     "KMS API (KMIP / REST / PKCS#11)"
+    ]
+   ],
+   [
+    "SAVIS services",
+    [
+     "Key Management System",
+     "Policy engine"
+    ]
+   ],
+   [
+    "Trust & crypto core",
+    [
+     "GP HSM",
+     "Payment HSM",
+     "SAM Appliance",
+     "HSM as a Service"
+    ]
+   ],
+   [
+    "Enterprise systems",
+    [
+     "Databases",
+     "Payment systems",
+     "Cloud KMS"
+    ]
+   ]
+  ],
+  "system": [
+   [
+    "Users & Internet",
+    [
+     "Cloud workloads"
+    ]
+   ],
+   [
+    "DMZ",
+    [
+     "KMS proxy"
+    ]
+   ],
+   [
+    "Application zone",
+    [
+     "KMS cluster"
+    ]
+   ],
+   [
+    "Secure zone",
+    [
+     "HSM cluster (on-prem / service)"
+    ]
+   ],
+   [
+    "Core & integration",
+    [
+     "Databases",
+     "Core systems"
+    ]
+   ]
+  ],
+  "benefits": [
+   "One inventory of every key",
+   "Hardware protection by default",
+   "Audit-ready rotation and usage logs"
+  ],
+  "scene": "cyber"
+ },
+ {
+  "id": "zero-trust",
+  "pillar": "cyber",
+  "name": "Zero-trust access for staff and contractors",
+  "tagline": "Verify the user, the device and the policy on every request.",
+  "problem": "VPNs give broad network access once someone is in. Contractors on unmanaged laptops can copy sensitive data out of web apps.",
+  "industries": [
+   "enterprise",
+   "bfsi",
+   "government",
+   "energy-utilities",
+   "telco",
+   "healthcare"
+  ],
+  "cases": [],
+  "products": [
+   "zero-trust-gateway",
+   "secure-enterprise-browser",
+   "iam-ciam",
+   "passwordless"
+  ],
+  "ui": "web",
+  "flow": [
+   [
+    "login",
+    "Open the app",
+    "User opens an internal app in the Secure Enterprise Browser."
+   ],
+   [
+    "shield",
+    "Check device",
+    "Device posture and location checked against policy."
+   ],
+   [
+    "bio",
+    "Verify user",
+    "Passwordless sign-in with FIDO2."
+   ],
+   [
+    "alert",
+    "Protect data",
+    "Copy, download and screenshot blocked for sensitive pages.",
+    [
+     "Download blocked",
+     "Customer list · Confidential"
+    ]
+   ],
+   [
+    "success",
+    "Granted, least privilege",
+    "Access to this app only, recorded for audit."
+   ]
+  ],
+  "logical": [
+   [
+    "Channels",
+    [
+     "Secure Enterprise Browser",
+     "Managed & unmanaged devices"
+    ]
+   ],
+   [
+    "Access & API",
+    [
+     "Zero Trust Gateway",
+     "Policy decision point"
+    ]
+   ],
+   [
+    "SAVIS services",
+    [
+     "Device posture",
+     "DLP & isolation",
+     "Session audit"
+    ]
+   ],
+   [
+    "Trust & crypto core",
+    [
+     "Device certificates",
+     "mTLS"
+    ]
+   ],
+   [
+    "Enterprise systems",
+    [
+     "Internal apps",
+     "SaaS",
+     "OT networks"
+    ]
+   ]
+  ],
+  "system": [
+   [
+    "Users & Internet",
+    [
+     "Staff",
+     "Contractors"
+    ]
+   ],
+   [
+    "DMZ",
+    [
+     "Zero Trust Gateway Appliance"
+    ]
+   ],
+   [
+    "Application zone",
+    [
+     "Policy engine",
+     "Browser management"
+    ]
+   ],
+   [
+    "Secure zone",
+    [
+     "CA for device certs"
+    ]
+   ],
+   [
+    "Core & integration",
+    [
+     "Internal apps",
+     "SaaS"
+    ]
+   ]
+  ],
+  "benefits": [
+   "No flat network access",
+   "Data protected on unmanaged devices",
+   "Every session verified and logged"
+  ],
+  "scene": "zt"
+ },
+ {
+  "id": "pqc-migration",
+  "pillar": "cyber",
+  "name": "Post-quantum migration",
+  "tagline": "Find your cryptography, rank the risk, and move to hybrid PQC without breaking things.",
+  "problem": "Data recorded today can be decrypted once quantum computers mature. Cryptography is buried in thousands of systems, so migration must start with visibility.",
+  "industries": [
+   "government",
+   "bfsi",
+   "energy-utilities",
+   "telco",
+   "automotive"
+  ],
+  "cases": [],
+  "products": [
+   "crypto-agility",
+   "quantum-readiness",
+   "pqc-suite",
+   "quantum-safe-gateway",
+   "quantum-vault",
+   "quantum-safe-storage",
+   "qkd",
+   "quantum-communication"
+  ],
+  "ui": "console",
+  "flow": [
+   [
+    "dash",
+    "Discover",
+    "Crypto Agility scans code, certificates, network traffic and HSMs."
+   ],
+   [
+    "chart",
+    "Rank the risk",
+    "Heat map by data lifetime and exposure."
+   ],
+   [
+    "list",
+    "Plan",
+    "Phased roadmap from the Quantum Readiness Program.",
+    [
+     "Phase 1 — External links",
+     "Phase 2 — PKI & signing",
+     "Phase 3 — Data at rest"
+    ]
+   ],
+   [
+    "shield",
+    "Protect now",
+    "Quantum Safe Gateway adds hybrid ML-KEM to existing links."
+   ],
+   [
+    "success",
+    "Monitor",
+    "Policy switches algorithms without code changes."
+   ]
+  ],
+  "logical": [
+   [
+    "Channels",
+    [
+     "Crypto inventory dashboard"
+    ]
+   ],
+   [
+    "Access & API",
+    [
+     "Discovery agents",
+     "Policy API"
+    ]
+   ],
+   [
+    "SAVIS services",
+    [
+     "Crypto Agility",
+     "PQC Suite",
+     "Quantum Vault & Storage"
+    ]
+   ],
+   [
+    "Trust & crypto core",
+    [
+     "Hybrid PKI (ML-DSA)",
+     "Quantum Safe Gateway (ML-KEM)",
+     "QKD links"
+    ]
+   ],
+   [
+    "Enterprise systems",
+    [
+     "Applications",
+     "Networks",
+     "Archives"
+    ]
+   ]
+  ],
+  "system": [
+   [
+    "Users & Internet",
+    [
+     "Partner links"
+    ]
+   ],
+   [
+    "DMZ",
+    [
+     "Quantum Safe Gateway"
+    ]
+   ],
+   [
+    "Application zone",
+    [
+     "Crypto Agility platform"
+    ]
+   ],
+   [
+    "Secure zone",
+    [
+     "PQC-capable HSM",
+     "Quantum Vault"
+    ]
+   ],
+   [
+    "Core & integration",
+    [
+     "Data stores",
+     "Legacy apps"
+    ]
+   ]
+  ],
+  "benefits": [
+   "Full cryptographic inventory",
+   "Protection against harvest-now, decrypt-later",
+   "Migration without rewriting applications"
+  ],
+  "scene": "quantum"
+ },
+ {
+  "id": "public-services",
+  "pillar": "gov",
+  "name": "Apply for a public service on mobile",
+  "tagline": "From login to a signed decision, without visiting an office.",
+  "problem": "Citizens queue at offices for services that could be handled online. Agencies re-enter the same data and cannot prove the integrity of decisions.",
+  "industries": [
+   "government",
+   "education"
+  ],
+  "cases": [
+   "bacninh-ibacninh"
+  ],
+  "products": [
+   "superapp-mgov",
+   "egate",
+   "lgsp",
+   "one-stop-shop",
+   "smart-kiosk",
+   "paperless",
+   "ecertify"
+  ],
+  "ui": "mobile",
+  "flow": [
+   [
+    "login",
+    "Log in with digital ID",
+    "Citizen signs in with national digital identity."
+   ],
+   [
+    "list",
+    "Choose a service",
+    "Searchable catalogue across agencies.",
+    [
+     "Business registration",
+     "Birth certificate",
+     "Building permit"
+    ]
+   ],
+   [
+    "form",
+    "Fill a smart form",
+    "Data pre-filled from registries.",
+    [
+     "Applicant",
+     "Address",
+     "Attachments"
+    ]
+   ],
+   [
+    "approve",
+    "Pay the fee",
+    "Online payment within the app.",
+    [
+     "50,000 VND",
+     "Fee · Business registration",
+     "Pay with bank app"
+    ]
+   ],
+   [
+    "success",
+    "Signed result",
+    "Decision issued with a digital seal; verifiable by QR."
+   ]
+  ],
+  "logical": [
+   [
+    "Channels",
+    [
+     "SAVIS SuperApp platform",
+     "Web portal",
+     "Smart Kiosk"
+    ]
+   ],
+   [
+    "Access & API",
+    [
+     "National identity login",
+     "API gateway"
+    ]
+   ],
+   [
+    "SAVIS services",
+    [
+     "One-Stop-Shop workflow",
+     "eGate portal",
+     "Paperless & eCertify"
+    ]
+   ],
+   [
+    "Trust & crypto core",
+    [
+     "Organisational seals",
+     "Timestamp"
+    ]
+   ],
+   [
+    "Enterprise systems",
+    [
+     "Population & business registries",
+     "Payment gateway",
+     "Archive"
+    ]
+   ]
+  ],
+  "system": [
+   [
+    "Users & Internet",
+    [
+     "Citizens",
+     "Kiosks"
+    ]
+   ],
+   [
+    "DMZ",
+    [
+     "Portal",
+     "API gateway"
+    ]
+   ],
+   [
+    "Application zone",
+    [
+     "Workflow engine",
+     "Case management"
+    ]
+   ],
+   [
+    "Secure zone",
+    [
+     "Signing server",
+     "HSM"
+    ]
+   ],
+   [
+    "Core & integration",
+    [
+     "National databases",
+     "Payment"
+    ]
+   ]
+  ],
+  "benefits": [
+   "Services available 24/7",
+   "Data entered once",
+   "Tamper-proof, verifiable decisions"
+  ],
+  "scene": "gov"
+ },
+ {
+  "id": "smart-city",
+  "pillar": "gov",
+  "name": "Smart city operations",
+  "tagline": "One operations centre for cameras, sensors and incidents.",
+  "problem": "City data sits in separate systems for traffic, security and utilities. Operators react late, and connected devices are an easy target for attackers.",
+  "industries": [
+   "government",
+   "transport",
+   "energy-utilities"
+  ],
+  "cases": [],
+  "products": [
+   "smart-city",
+   "ai-camera",
+   "iot-devices",
+   "iot-device-security"
+  ],
+  "ui": "console",
+  "flow": [
+   [
+    "dash",
+    "See the city",
+    "Live map of cameras, sensors and incidents."
+   ],
+   [
+    "alert",
+    "AI detects",
+    "AI Camera flags an accident or crowding.",
+    [
+     "Traffic incident",
+     "Intersection 14 · 08:42"
+    ]
+   ],
+   [
+    "list",
+    "Dispatch",
+    "Assign teams and notify citizens.",
+    [
+     "Traffic police — en route",
+     "Ambulance — dispatched"
+    ]
+   ],
+   [
+    "shield",
+    "Devices protected",
+    "Every camera and sensor authenticated with certificates."
+   ],
+   [
+    "success",
+    "Report",
+    "Response times and trends for planners."
+   ]
+  ],
+  "logical": [
+   [
+    "Channels",
+    [
+     "Operations centre",
+     "Citizen app"
+    ]
+   ],
+   [
+    "Access & API",
+    [
+     "IoT gateway",
+     "Video management"
+    ]
+   ],
+   [
+    "SAVIS services",
+    [
+     "Smart City platform",
+     "AI Camera analytics"
+    ]
+   ],
+   [
+    "Trust & crypto core",
+    [
+     "Device PKI",
+     "Secure boot & updates"
+    ]
+   ],
+   [
+    "Enterprise systems",
+    [
+     "Traffic, utility & emergency systems"
+    ]
+   ]
+  ],
+  "system": [
+   [
+    "Users & Internet",
+    [
+     "Cameras",
+     "Sensors"
+    ]
+   ],
+   [
+    "DMZ",
+    [
+     "IoT / video gateway"
+    ]
+   ],
+   [
+    "Application zone",
+    [
+     "City platform",
+     "AI analytics"
+    ]
+   ],
+   [
+    "Secure zone",
+    [
+     "Device CA"
+    ]
+   ],
+   [
+    "Core & integration",
+    [
+     "Agency systems"
+    ]
+   ]
+  ],
+  "benefits": [
+   "Faster incident response",
+   "One view across agencies",
+   "Connected devices that cannot be spoofed"
+  ],
+  "scene": "city"
+ },
+ {
+  "id": "connected-car",
+  "pillar": "gov",
+  "name": "Digital car key and vehicle security",
+  "tagline": "Unlock, start and share a car from the phone — securely.",
+  "problem": "Physical keys get lost and cannot be shared remotely. Connected vehicles also need strong identity for over-the-air updates and charging.",
+  "industries": [
+   "automotive",
+   "transport"
+  ],
+  "cases": [],
+  "products": [
+   "digital-car-key",
+   "iot-device-security",
+   "pki-in-a-box",
+   "kms"
+  ],
+  "ui": "mobile",
+  "flow": [
+   [
+    "key",
+    "Key in the wallet",
+    "Digital key provisioned to the owner’s phone."
+   ],
+   [
+    "consent",
+    "Share a key",
+    "Grant a family member time-limited access.",
+    [
+     "Unlock",
+     "Drive",
+     "Valid until Sunday"
+    ]
+   ],
+   [
+    "nfc",
+    "Tap to unlock",
+    "NFC or UWB proves the key to the vehicle."
+   ],
+   [
+    "shield",
+    "Secure updates",
+    "Over-the-air updates signed and verified with vehicle PKI."
+   ],
+   [
+    "success",
+    "Revoke anytime",
+    "Shared keys revoked instantly from the app."
+   ]
+  ],
+  "logical": [
+   [
+    "Channels",
+    [
+     "Owner app",
+     "Vehicle"
+    ]
+   ],
+   [
+    "Access & API",
+    [
+     "Key-sharing API",
+     "OTA service"
+    ]
+   ],
+   [
+    "SAVIS services",
+    [
+     "Digital Car Key",
+     "IoT Device Security"
+    ]
+   ],
+   [
+    "Trust & crypto core",
+    [
+     "Vehicle PKI",
+     "KMS & HSM"
+    ]
+   ],
+   [
+    "Enterprise systems",
+    [
+     "OEM backend",
+     "Dealer systems"
+    ]
+   ]
+  ],
+  "system": [
+   [
+    "Users & Internet",
+    [
+     "Phones",
+     "Vehicles"
+    ]
+   ],
+   [
+    "DMZ",
+    [
+     "Key & OTA gateway"
+    ]
+   ],
+   [
+    "Application zone",
+    [
+     "Key management service"
+    ]
+   ],
+   [
+    "Secure zone",
+    [
+     "Vehicle CA",
+     "HSM"
+    ]
+   ],
+   [
+    "Core & integration",
+    [
+     "OEM cloud"
+    ]
+   ]
+  ],
+  "benefits": [
+   "Keys that cannot be cloned",
+   "Remote, time-limited sharing",
+   "Signed updates for every vehicle"
+  ],
+  "scene": "iot"
+ },
+ {
+  "id": "open-banking",
+  "pillar": "finance",
+  "name": "Third-party access with customer consent",
+  "tagline": "Let licensed fintechs access accounts — only with the customer’s say-so.",
+  "problem": "SBV Circular 64 and PSD2 require banks to open APIs safely. That means onboarding third parties, capturing consent and authenticating customers strongly.",
+  "industries": [
+   "bfsi",
+   "payments",
+   "retail"
+  ],
+  "cases": [
+   "vcb-open-banking",
+   "napas-open-banking-hub",
+   "vpbank-open-banking"
+  ],
+  "products": [
+   "open-banking-suite",
+   "open-api",
+   "open-finance-api",
+   "open-banking-portal",
+   "consent-management",
+   "tpp-manager",
+   "mobile-identity-sca"
+  ],
+  "ui": "mobile",
+  "flow": [
+   [
+    "list",
+    "Connect your bank",
+    "In a budgeting app, the customer picks their bank.",
+    [
+     "Vietcombank",
+     "VPBank",
+     "Sacombank"
+    ]
+   ],
+   [
+    "login",
+    "Redirect to the bank",
+    "The bank app opens — credentials never go to the fintech."
+   ],
+   [
+    "consent",
+    "Give consent",
+    "Choose accounts, data and duration.",
+    [
+     "Account balance",
+     "Transactions (90 days)",
+     "Valid for 90 days"
+    ]
+   ],
+   [
+    "bio",
+    "Strong authentication",
+    "Decoupled SCA approves on the bank app."
+   ],
+   [
+    "success",
+    "Connected",
+    "Consent can be viewed and revoked anytime."
+   ]
+  ],
+  "logical": [
+   [
+    "Channels",
+    [
+     "Fintech apps",
+     "Bank app",
+     "Developer portal"
+    ]
+   ],
+   [
+    "Access & API",
+    [
+     "API gateway (FAPI)",
+     "OAuth 2.0 / mTLS"
+    ]
+   ],
+   [
+    "SAVIS services",
+    [
+     "Consent Management",
+     "TPP Manager",
+     "Open Banking CMS"
+    ]
+   ],
+   [
+    "Trust & crypto core",
+    [
+     "KMS",
+     "Certificates for TPPs",
+     "Decoupled SCA"
+    ]
+   ],
+   [
+    "Enterprise systems",
+    [
+     "Core banking",
+     "Master data",
+     "Payments"
+    ]
+   ]
+  ],
+  "system": [
+   [
+    "Users & Internet",
+    [
+     "Fintechs",
+     "Customers"
+    ]
+   ],
+   [
+    "DMZ",
+    [
+     "API gateway",
+     "Developer portal"
+    ]
+   ],
+   [
+    "Application zone",
+    [
+     "Consent & TPP services",
+     "SCA server"
+    ]
+   ],
+   [
+    "Secure zone",
+    [
+     "KMS / HSM"
+    ]
+   ],
+   [
+    "Core & integration",
+    [
+     "Core banking",
+     "Data hub"
+    ]
+   ]
+  ],
+  "benefits": [
+   "Built for SBV Circular 64 and PSD2",
+   "Customers stay in control",
+   "Third parties monitored continuously"
+  ],
+  "scene": "consent"
+ },
+ {
+  "id": "secure-payment",
+  "pillar": "finance",
+  "name": "Secure online payment",
+  "tagline": "Approve exactly what you pay — amount and payee bound to your signature.",
+  "problem": "Card-not-present fraud and payment redirection attacks target the moment of approval. Regulations require dynamic linking of amount and payee.",
+  "industries": [
+   "bfsi",
+   "payments",
+   "retail"
+  ],
+  "cases": [
+   "vpbank-pci",
+   "baca-sca",
+   "lpbank-sca",
+   "baca-citad"
+  ],
+  "products": [
+   "api-security-transaction-signing",
+   "3d-secure",
+   "tokenization",
+   "payment-hsm",
+   "mobile-ewallet"
+  ],
+  "ui": "mobile",
+  "flow": [
+   [
+    "cart",
+    "Checkout",
+    "The customer pays on a merchant site with a tokenised card."
+   ],
+   [
+    "push",
+    "3-D Secure challenge",
+    "The bank requests authentication."
+   ],
+   [
+    "approve",
+    "See the real details",
+    "Amount and merchant signed into the approval.",
+    [
+     "2,450,000 VND",
+     "Merchant · TechStore",
+     "Card •••• 4821"
+    ]
+   ],
+   [
+    "bio",
+    "Sign the transaction",
+    "Key on the device signs amount + payee."
+   ],
+   [
+    "success",
+    "Paid",
+    "The issuer verifies the signature before authorising."
+   ]
+  ],
+  "logical": [
+   [
+    "Channels",
+    [
+     "Merchant checkout",
+     "Bank app",
+     "eWallet"
+    ]
+   ],
+   [
+    "Access & API",
+    [
+     "3DS server / ACS",
+     "Payment API"
+    ]
+   ],
+   [
+    "SAVIS services",
+    [
+     "Transaction signing",
+     "Tokenization",
+     "3D Secure 2.0"
+    ]
+   ],
+   [
+    "Trust & crypto core",
+    [
+     "Payment HSM",
+     "Device keys"
+    ]
+   ],
+   [
+    "Enterprise systems",
+    [
+     "Card management",
+     "Payment switch"
+    ]
+   ]
+  ],
+  "system": [
+   [
+    "Users & Internet",
+    [
+     "Shoppers",
+     "Merchants"
+    ]
+   ],
+   [
+    "DMZ",
+    [
+     "ACS",
+     "API gateway"
+    ]
+   ],
+   [
+    "Application zone",
+    [
+     "Token vault",
+     "Signing verification"
+    ]
+   ],
+   [
+    "Secure zone",
+    [
+     "Payment HSM"
+    ]
+   ],
+   [
+    "Core & integration",
+    [
+     "Card system",
+     "Switch"
+    ]
+   ]
+  ],
+  "benefits": [
+   "What you see is what you sign",
+   "Card data replaced by tokens",
+   "PCI DSS-aligned key protection"
+  ],
+  "scene": "pay"
+ },
+ {
+  "id": "digital-banking",
+  "pillar": "finance",
+  "name": "Digital bank and e-wallet",
+  "tagline": "Open, fund and use an account entirely on the phone.",
+  "problem": "Customers expect to do everything in one app. Banks need a platform that ships features fast without compromising security.",
+  "industries": [
+   "bfsi",
+   "payments",
+   "retail",
+   "telco"
+  ],
+  "cases": [
+   "agribank-ca",
+   "sacombank-ca",
+   "bidv-paperless",
+   "agribank-paperless",
+   "baca-remote-signing",
+   "bidv-remote-signing",
+   "vpbank-remote-signing",
+   "baca-sca",
+   "lpbank-sca"
+  ],
+  "products": [
+   "digital-banking-platform",
+   "mobile-ewallet",
+   "econtract"
+  ],
+  "ui": "mobile",
+  "flow": [
+   [
+    "scan",
+    "Open an account",
+    "eKYC onboarding in the app."
+   ],
+   [
+    "wallet",
+    "Account home",
+    "Balances, cards and goals in one view."
+   ],
+   [
+    "qr",
+    "Pay by QR",
+    "Scan a VietQR code to pay."
+   ],
+   [
+    "approve",
+    "Confirm",
+    "Device-bound approval.",
+    [
+     "180,000 VND",
+     "Coffee House · QR",
+     "From •••• 1123"
+    ]
+   ],
+   [
+    "success",
+    "Done",
+    "Receipt and loyalty points."
+   ]
+  ],
+  "logical": [
+   [
+    "Channels",
+    [
+     "Mobile app",
+     "Web banking"
+    ]
+   ],
+   [
+    "Access & API",
+    [
+     "API gateway",
+     "IAM"
+    ]
+   ],
+   [
+    "SAVIS services",
+    [
+     "Digital Banking Platform",
+     "Mobile eWallet",
+     "Smart eContract"
+    ]
+   ],
+   [
+    "Trust & crypto core",
+    [
+     "Signing & SCA",
+     "HSM"
+    ]
+   ],
+   [
+    "Enterprise systems",
+    [
+     "Core banking",
+     "NAPAS / VietQR",
+     "CRM"
+    ]
+   ]
+  ],
+  "system": [
+   [
+    "Users & Internet",
+    [
+     "Customers"
+    ]
+   ],
+   [
+    "DMZ",
+    [
+     "WAF",
+     "API gateway"
+    ]
+   ],
+   [
+    "Application zone",
+    [
+     "Digital banking services"
+    ]
+   ],
+   [
+    "Secure zone",
+    [
+     "HSM",
+     "Signing"
+    ]
+   ],
+   [
+    "Core & integration",
+    [
+     "Core banking",
+     "Switch"
+    ]
+   ]
+  ],
+  "benefits": [
+   "Launch new features faster",
+   "Security built into every journey",
+   "One platform for bank and wallet"
+  ],
+  "scene": "bank"
+ },
+ {
+  "id": "palm-payment",
+  "pillar": "finance",
+  "name": "Pay with the palm of the hand",
+  "tagline": "No card, no phone — hover your palm to pay.",
+  "problem": "Queues at canteens, transit gates and stores slow down when people search for cards or phones. Cards get lost; phones run out of battery.",
+  "industries": [
+   "retail",
+   "education",
+   "transport",
+   "payments"
+  ],
+  "cases": [],
+  "products": [
+   "palm-biometric-payment",
+   "tokenization"
+  ],
+  "ui": "mobile",
+  "flow": [
+   [
+    "palm",
+    "Enrol your palm",
+    "Palm template captured once at a kiosk or counter."
+   ],
+   [
+    "card",
+    "Link a card or account",
+    "Payment credential tokenised and linked."
+   ],
+   [
+    "palm",
+    "Hover to pay",
+    "Palm recognised at the terminal in about a second."
+   ],
+   [
+    "approve",
+    "Charged",
+    "Token sent to the issuer for authorisation.",
+    [
+     "35,000 VND",
+     "Campus canteen",
+     "Token •••• 9034"
+    ]
+   ],
+   [
+    "success",
+    "Receipt",
+    "Notification sent to the customer’s app."
+   ]
+  ],
+  "logical": [
+   [
+    "Channels",
+    [
+     "Palm terminals",
+     "Enrolment kiosks",
+     "Customer app"
+    ]
+   ],
+   [
+    "Access & API",
+    [
+     "Terminal API"
+    ]
+   ],
+   [
+    "SAVIS services",
+    [
+     "Palm matching",
+     "Palm Biometric Payment"
+    ]
+   ],
+   [
+    "Trust & crypto core",
+    [
+     "Template encryption",
+     "Tokenization",
+     "HSM"
+    ]
+   ],
+   [
+    "Enterprise systems",
+    [
+     "Acquirer / issuer",
+     "Campus or transit systems"
+    ]
+   ]
+  ],
+  "system": [
+   [
+    "Users & Internet",
+    [
+     "Terminals"
+    ]
+   ],
+   [
+    "DMZ",
+    [
+     "Terminal gateway"
+    ]
+   ],
+   [
+    "Application zone",
+    [
+     "Matching service"
+    ]
+   ],
+   [
+    "Secure zone",
+    [
+     "Template & token vault"
+    ]
+   ],
+   [
+    "Core & integration",
+    [
+     "Payment network"
+    ]
+   ]
+  ],
+  "benefits": [
+   "Faster queues",
+   "Nothing to carry or lose",
+   "Biometric templates encrypted and tokenised"
+  ],
+  "scene": "palm"
+ },
+ {
+  "id": "digital-assets",
+  "pillar": "finance",
+  "name": "Tokenised assets and digital currency",
+  "tagline": "Issue, hold and transfer regulated digital assets with bank-grade key protection.",
+  "problem": "Central banks and institutions are piloting CBDC, stablecoins and tokenised bonds. Each needs a ledger, wallets, compliance and custody that regulators can trust.",
+  "industries": [
+   "bfsi",
+   "payments",
+   "government"
+  ],
+  "cases": [],
+  "products": [
+   "blockchain-framework",
+   "stablecoin",
+   "cbdc",
+   "rwa-tokenization",
+   "crypto-custody"
+  ],
+  "ui": "console",
+  "flow": [
+   [
+    "form",
+    "Issue",
+    "Define the asset: currency, bond or fund units.",
+    [
+     "Asset",
+     "Supply",
+     "Rules"
+    ]
+   ],
+   [
+    "wallet",
+    "Distribute",
+    "Tokens credited to institutional and retail wallets."
+   ],
+   [
+    "approve",
+    "Transfer",
+    "Policy checks and multi-party approval.",
+    [
+     "1,000,000 vVND",
+     "To · Bank B",
+     "2 of 3 approvers"
+    ]
+   ],
+   [
+    "key",
+    "Custody",
+    "Keys held in HSM and MPC."
+   ],
+   [
+    "success",
+    "Settle & report",
+    "Final settlement with audit trail for the regulator."
+   ]
+  ],
+  "logical": [
+   [
+    "Channels",
+    [
+     "Issuer console",
+     "Wallets",
+     "Regulator view"
+    ]
+   ],
+   [
+    "Access & API",
+    [
+     "Token API",
+     "Compliance API"
+    ]
+   ],
+   [
+    "SAVIS services",
+    [
+     "Blockchain Framework",
+     "CBDC / Stablecoin",
+     "RWA Tokenization"
+    ]
+   ],
+   [
+    "Trust & crypto core",
+    [
+     "Crypto Custody (HSM + MPC)"
+    ]
+   ],
+   [
+    "Enterprise systems",
+    [
+     "RTGS / core banking",
+     "AML"
+    ]
+   ]
+  ],
+  "system": [
+   [
+    "Users & Internet",
+    [
+     "Participants"
+    ]
+   ],
+   [
+    "DMZ",
+    [
+     "API gateway"
+    ]
+   ],
+   [
+    "Application zone",
+    [
+     "Ledger nodes",
+     "Token services"
+    ]
+   ],
+   [
+    "Secure zone",
+    [
+     "Custody HSM / MPC"
+    ]
+   ],
+   [
+    "Core & integration",
+    [
+     "RTGS",
+     "AML"
+    ]
+   ]
+  ],
+  "benefits": [
+   "Regulated issuance and settlement",
+   "Keys protected by hardware and quorum",
+   "Full transparency for supervisors"
+  ],
+  "scene": "chain"
+ },
+ {
+  "id": "customer-360",
+  "pillar": "ai",
+  "name": "Customer 360 and analytics",
+  "tagline": "One trusted view of every customer, ready for dashboards and AI.",
+  "problem": "Customer data is duplicated across many systems. Reports disagree and personalisation is guesswork.",
+  "industries": [
+   "bfsi",
+   "retail",
+   "telco",
+   "media"
+  ],
+  "cases": [],
+  "products": [
+   "data-lake-bi",
+   "cdp-360",
+   "savis-mdm",
+   "ai-kpi"
+  ],
+  "ui": "console",
+  "flow": [
+   [
+    "dash",
+    "Ingest",
+    "Data from core, channels and partners into the lake."
+   ],
+   [
+    "list",
+    "Match & merge",
+    "Master data rules build golden records.",
+    [
+     "Duplicate merged — 3 records",
+     "Address standardised",
+     "Consent flag applied"
+    ]
+   ],
+   [
+    "chart",
+    "Segment",
+    "Audiences and propensity scores."
+   ],
+   [
+    "dash",
+    "Report",
+    "Self-service dashboards."
+   ],
+   [
+    "success",
+    "Activate",
+    "Segments pushed to marketing and service channels."
+   ]
+  ],
+  "logical": [
+   [
+    "Channels",
+    [
+     "BI dashboards",
+     "Marketing tools"
+    ]
+   ],
+   [
+    "Access & API",
+    [
+     "Data APIs",
+     "Ingestion pipelines"
+    ]
+   ],
+   [
+    "SAVIS services",
+    [
+     "Data Lake & BI",
+     "CDP 360",
+     "MDM"
+    ]
+   ],
+   [
+    "Trust & crypto core",
+    [
+     "Data encryption",
+     "Consent flags"
+    ]
+   ],
+   [
+    "Enterprise systems",
+    [
+     "Core systems",
+     "CRM",
+     "Web & app events"
+    ]
+   ]
+  ],
+  "system": [
+   [
+    "Users & Internet",
+    [
+     "Analysts"
+    ]
+   ],
+   [
+    "DMZ",
+    [
+     "BI portal"
+    ]
+   ],
+   [
+    "Application zone",
+    [
+     "Lake & CDP"
+    ]
+   ],
+   [
+    "Secure zone",
+    [
+     "Encrypted stores"
+    ]
+   ],
+   [
+    "Core & integration",
+    [
+     "Source systems"
+    ]
+   ]
+  ],
+  "benefits": [
+   "One version of the truth",
+   "Faster, self-service reporting",
+   "Privacy controls built in"
+  ],
+  "scene": "data"
+ },
+ {
+  "id": "intelligent-documents",
+  "pillar": "ai",
+  "name": "From paper to trusted digital records",
+  "tagline": "Capture, understand, sign and archive documents with legal validity.",
+  "problem": "Paper archives are slow to search and costly to store. Scanned images alone are not trusted records.",
+  "industries": [
+   "government",
+   "bfsi",
+   "healthcare",
+   "education",
+   "enterprise",
+   "transport"
+  ],
+  "cases": [
+   "agribank-ca",
+   "bidv-paperless",
+   "agribank-paperless"
+  ],
+  "products": [
+   "smart-ocr",
+   "smart-eform",
+   "bpm-paperless",
+   "ai-automation",
+   "go-invoice",
+   "trusted-archive",
+   "earchive-box"
+  ],
+  "ui": "web",
+  "flow": [
+   [
+    "scan",
+    "Capture",
+    "Scan or upload documents and forms."
+   ],
+   [
+    "review",
+    "Extract with AI",
+    "Smart OCR reads fields and tables.",
+    [
+     [
+      "Doc type",
+      "Loan application"
+     ],
+     [
+      "Customer",
+      "TRAN THI B"
+     ],
+     [
+      "Amount",
+      "300,000,000"
+     ]
+    ]
+   ],
+   [
+    "list",
+    "Route",
+    "AI automation sends the case to the right team.",
+    [
+     "Credit review",
+     "Legal check",
+     "Approved"
+    ]
+   ],
+   [
+    "sign",
+    "Sign & seal",
+    "Organisational seal and timestamp."
+   ],
+   [
+    "success",
+    "Archive",
+    "Stored in Trusted Archive with long-term validation."
+   ]
+  ],
+  "logical": [
+   [
+    "Channels",
+    [
+     "Scanners",
+     "Web upload",
+     "Smart eForm"
+    ]
+   ],
+   [
+    "Access & API",
+    [
+     "Capture API"
+    ]
+   ],
+   [
+    "SAVIS services",
+    [
+     "Smart OCR",
+     "AI & Intelligent Automation",
+     "Trusted Archive"
+    ]
+   ],
+   [
+    "Trust & crypto core",
+    [
+     "Signing server",
+     "Timestamp",
+     "Long-term validation"
+    ]
+   ],
+   [
+    "Enterprise systems",
+    [
+     "DMS / ECM",
+     "Core systems"
+    ]
+   ]
+  ],
+  "system": [
+   [
+    "Users & Internet",
+    [
+     "Branches",
+     "Citizens"
+    ]
+   ],
+   [
+    "DMZ",
+    [
+     "Upload portal"
+    ]
+   ],
+   [
+    "Application zone",
+    [
+     "OCR & workflow"
+    ]
+   ],
+   [
+    "Secure zone",
+    [
+     "Signing & archive store"
+    ]
+   ],
+   [
+    "Core & integration",
+    [
+     "ECM",
+     "Core systems"
+    ]
+   ]
+  ],
+  "benefits": [
+   "Data extracted automatically",
+   "Records with legal validity",
+   "Search in seconds, not days"
+  ],
+  "scene": "ai"
+ },
+ {
+  "id": "ai-newsroom",
+  "pillar": "ai",
+  "name": "AI-native newsroom and production",
+  "tagline": "Plan, produce and publish across TV, web and social from one platform.",
+  "problem": "Newsrooms juggle separate tools for planning, assets, editing and publishing. Footage is hard to find and repetitive tasks eat creative time.",
+  "industries": [
+   "media"
+  ],
+  "cases": [],
+  "products": [
+   "mrp-ai",
+   "cms-ai-hub",
+   "mam-intelligent-automation",
+   "converged-newsroom",
+   "playout-cg",
+   "media-trust-hub",
+   "forensic-watermarking"
+  ],
+  "ui": "web",
+  "flow": [
+   [
+    "list",
+    "Plan",
+    "Programmes and resources planned in MRP AI.",
+    [
+     "Evening news — 19:00",
+     "Sport live — 20:30",
+     "Documentary — Sat"
+    ]
+   ],
+   [
+    "dash",
+    "Find footage",
+    "MAM Intelligent Automation indexes and transcribes every clip."
+   ],
+   [
+    "form",
+    "Write once",
+    "Converged Newsroom story for TV, web and social.",
+    [
+     "Headline",
+     "Script",
+     "Channels"
+    ]
+   ],
+   [
+    "shield",
+    "Produce",
+    "Playout & CG adds graphics and branding for air."
+   ],
+   [
+    "success",
+    "Publish",
+    "CMS AI Hub publishes and measures across channels."
+   ]
+  ],
+  "logical": [
+   [
+    "Channels",
+    [
+     "TV",
+     "Web & app",
+     "Social"
+    ]
+   ],
+   [
+    "Access & API",
+    [
+     "Publishing APIs"
+    ]
+   ],
+   [
+    "SAVIS services",
+    [
+     "MRP AI",
+     "Converged Newsroom",
+     "CMS AI Hub",
+     "MAM Intelligent Automation"
+    ]
+   ],
+   [
+    "Trust & crypto core",
+    [
+     "Rights & access control"
+    ]
+   ],
+   [
+    "Enterprise systems",
+    [
+     "Playout",
+     "Archive",
+     "Ad systems"
+    ]
+   ]
+  ],
+  "system": [
+   [
+    "Users & Internet",
+    [
+     "Audiences"
+    ]
+   ],
+   [
+    "DMZ",
+    [
+     "CDN",
+     "CMS front end"
+    ]
+   ],
+   [
+    "Application zone",
+    [
+     "Newsroom & MAM"
+    ]
+   ],
+   [
+    "Secure zone",
+    [
+     "Media archive"
+    ]
+   ],
+   [
+    "Core & integration",
+    [
+     "Playout"
+    ]
+   ]
+  ],
+  "benefits": [
+   "One workflow for every channel",
+   "Footage found in seconds",
+   "AI takes over repetitive tasks"
+  ],
+  "scene": "media"
+ },
+ {
+  "id": "connected-hospital",
+  "pillar": "ai",
+  "name": "Connected digital hospital",
+  "tagline": "Signed medical records, connected imaging and patient services on one platform.",
+  "problem": "Hospital information, records and imaging live in separate systems, and paper records still need wet signatures. Patients wait and data cannot be shared safely.",
+  "industries": [
+   "healthcare"
+  ],
+  "cases": [],
+  "products": [
+   "dx-open-healthcare",
+   "remote-signing",
+   "smart-card-piv",
+   "trusted-archive"
+  ],
+  "ui": "web",
+  "flow": [
+   [
+    "login",
+    "Doctor signs in",
+    "Smart card or passwordless login to the EMR."
+   ],
+   [
+    "review",
+    "Review the record",
+    "HIS, lab and imaging data in one view.",
+    [
+     [
+      "Patient",
+      "LE VAN C"
+     ],
+     [
+      "Imaging",
+      "CT · 2 series"
+     ],
+     [
+      "Lab",
+      "12 results"
+     ]
+    ]
+   ],
+   [
+    "sign",
+    "Sign the record",
+    "Medical record signed digitally by the doctor."
+   ],
+   [
+    "qr",
+    "Share with the patient",
+    "Patient app receives results and prescriptions."
+   ],
+   [
+    "success",
+    "Archive",
+    "Signed record stored with long-term validity."
+   ]
+  ],
+  "logical": [
+   [
+    "Channels",
+    [
+     "Clinician workstation",
+     "Patient app"
+    ]
+   ],
+   [
+    "Access & API",
+    [
+     "Open API gateway",
+     "IAM"
+    ]
+   ],
+   [
+    "SAVIS services",
+    [
+     "SAVIS OpenHealth Platform",
+     "EMR signing",
+     "Patient services"
+    ]
+   ],
+   [
+    "Trust & crypto core",
+    [
+     "Remote signing",
+     "Timestamp",
+     "Archive"
+    ]
+   ],
+   [
+    "Enterprise systems",
+    [
+     "HIS",
+     "LIS",
+     "PACS",
+     "Insurance portal"
+    ]
+   ]
+  ],
+  "system": [
+   [
+    "Users & Internet",
+    [
+     "Patients",
+     "Clinicians"
+    ]
+   ],
+   [
+    "DMZ",
+    [
+     "API gateway",
+     "Patient portal"
+    ]
+   ],
+   [
+    "Application zone",
+    [
+     "Healthcare platform"
+    ]
+   ],
+   [
+    "Secure zone",
+    [
+     "Signing & archive"
+    ]
+   ],
+   [
+    "Core & integration",
+    [
+     "HIS / LIS / PACS"
+    ]
+   ]
+  ],
+  "benefits": [
+   "One view of the patient",
+   "Legally valid electronic medical records",
+   "Safe data sharing with patients and insurers"
+  ],
+  "scene": "health"
+ },
+ {
+  "id": "wallet-bank-onboarding",
+  "pillar": "identity",
+  "name": "Open a bank account from a national ID wallet",
+  "tagline": "Verified identity in, passkey out — in a single session.",
+  "problem": "Banks re-verify identities the state has already verified, then hand new customers a password and an SMS OTP. National wallets and data exchange let a bank reuse a verified identity — if it can check the issuer, the person and the device in one flow.",
+  "industries": [
+   "bfsi",
+   "payments",
+   "telco"
+  ],
+  "cases": [],
+  "products": [
+   "trustonboard",
+   "digital-id-wallet",
+   "trustonboard",
+   "id-verification",
+   "vneid-integration",
+   "passwordless",
+   "sam-auth-server",
+   "consent-management",
+   "savis-idvs"
+  ],
+  "ui": "mobile",
+  "flow": [
+   [
+    "qr",
+    "Start in the bank app",
+    "The bank requests identity data over OpenID4VP; the wallet opens."
+   ],
+   [
+    "consent",
+    "Choose what to share",
+    "Only the attributes the bank needs, for a stated purpose.",
+    [
+     "Full name, date of birth",
+     "ID number",
+     "Face photo",
+     "Permanent address"
+    ]
+   ],
+   [
+    "face",
+    "Liveness and face match",
+    "A live selfie is matched to the PID photo with PAD Level 2."
+   ],
+   [
+    "key",
+    "Bind a passkey",
+    "A device-bound passkey is created for the new customer in the same session."
+   ],
+   [
+    "success",
+    "Account open",
+    "Risk-scored, CDD level assigned, evidence logged for audit."
+   ]
+  ],
+  "logical": [
+   [
+    "Identity sources",
+    [
+     "National wallet: PID, selective disclosure",
+     "Data-exchange layer: consented API to registers",
+     "Chip eID card or mDL read by NFC"
+    ]
+   ],
+   [
+    "Access & API",
+    [
+     "OpenID4VP / ISO 18013-7",
+     "Consent API",
+     "FIDO2 server"
+    ]
+   ],
+   [
+    "SAVIS services",
+    [
+     "Issuer signature and Trusted List check",
+     "Face match, liveness PAD L2",
+     "Evidence log and customer risk score"
+    ]
+   ],
+   [
+    "Trust & crypto core",
+    [
+     "HSM",
+     "Device-bound passkeys",
+     "Trusted Lists"
+    ]
+   ],
+   [
+    "Customer due diligence",
+    [
+     "Simple CDD",
+     "Standard CDD",
+     "Enhanced CDD",
+     "Ongoing CDD"
+    ]
+   ]
+  ],
+  "system": [
+   [
+    "Users & Internet",
+    [
+     "Customers",
+     "Wallets"
+    ]
+   ],
+   [
+    "DMZ",
+    [
+     "WAF",
+     "API gateway",
+     "Verifier endpoint"
+    ]
+   ],
+   [
+    "Application zone",
+    [
+     "eKYC engine",
+     "Onboarding orchestration"
+    ]
+   ],
+   [
+    "Secure zone",
+    [
+     "HSM",
+     "FIDO2 keys"
+    ]
+   ],
+   [
+    "Core & integration",
+    [
+     "Core banking",
+     "AML / CDD",
+     "Data-exchange layer"
+    ]
+   ]
+  ],
+  "benefits": [
+   "Onboarding in one session, without a branch visit",
+   "Data minimisation: only the attributes needed",
+   "Simple, standard, enhanced and ongoing CDD from the same evidence",
+   "A phishing-resistant credential from day one"
+  ],
+  "scene": "kyc"
+ },
+ {
+  "id": "omnichannel-bank-authentication",
+  "pillar": "identity",
+  "name": "One authentication layer for every banking channel",
+  "tagline": "Internet, mobile, corporate, branch, cards and staff — on one active-active platform.",
+  "problem": "Large banks run a different authenticator for each channel: OTP for internet banking, a token for corporates, SMS for 3-D Secure, passwords for staff. Fraudsters target the weakest one, and every new regulation has to be implemented many times.",
+  "industries": [
+   "bfsi",
+   "payments"
+  ],
+  "cases": [],
+  "products": [
+   "sam-auth-server",
+   "passwordless",
+   "trustpass",
+   "smartotp-plus",
+   "iam-ciam",
+   "device-intelligence",
+   "trustshield",
+   "3d-secure",
+   "sam-appliance",
+   "savis-soc"
+  ],
+  "ui": "desktop",
+  "flow": [
+   [
+    "login",
+    "Sign in on any channel",
+    "Internet or corporate banking with a passkey or TrustPass key."
+   ],
+   [
+    "push",
+    "Approve on the phone",
+    "A push with transaction signing and dynamic linking."
+   ],
+   [
+    "approve",
+    "See exactly what you sign",
+    "Amount and payee are part of the challenge.",
+    [
+     "150,000,000 VND",
+     "To · NGUYEN VAN A",
+     "Account ****3456"
+    ]
+   ],
+   [
+    "bio",
+    "Confirm with FIDO2",
+    "Biometrics unlock the device key, which signs amount and payee."
+   ],
+   [
+    "dash",
+    "One audit trail",
+    "Every channel feeds the same risk engine, SIEM and SOC."
+   ]
+  ],
+  "logical": [
+   [
+    "Channels",
+    [
+     "Internet banking",
+     "Mobile banking",
+     "Corporate eBanking",
+     "Branch",
+     "Cards and e-commerce",
+     "Staff: VPN, PAM, Windows logon"
+    ]
+   ],
+   [
+    "Access & API",
+    [
+     "API gateway · WAF",
+     "IdP / SSO (OIDC, SAML)"
+    ]
+   ],
+   [
+    "SAVIS services",
+    [
+     "FIDO2 · passkey (MDS3)",
+     "Push · transaction signing",
+     "Smart OTP (OCRA)",
+     "Risk engine",
+     "Identity lifecycle",
+     "Key manager (TrustPass, AAGUID)"
+    ]
+   ],
+   [
+    "Trust & crypto core",
+    [
+     "HSM cluster · FIPS 140-3 Level 3",
+     "RP keys, transaction evidence, OTP keys"
+    ]
+   ],
+   [
+    "Enterprise systems",
+    [
+     "Core banking",
+     "Card ACS · EMV 3DS",
+     "Switch · NAPAS",
+     "eKYC · chip ID",
+     "Fraud management",
+     "SIEM · SOC"
+    ]
+   ]
+  ],
+  "system": [
+   [
+    "Users & Internet",
+    [
+     "Customers",
+     "Corporate users",
+     "Staff"
+    ]
+   ],
+   [
+    "DMZ",
+    [
+     "WAF",
+     "API gateway"
+    ]
+   ],
+   [
+    "Application zone",
+    [
+     "SAM Auth Server · DC + DR active-active"
+    ]
+   ],
+   [
+    "Secure zone",
+    [
+     "HSM cluster"
+    ]
+   ],
+   [
+    "Core & integration",
+    [
+     "Core banking",
+     "ACS",
+     "SIEM"
+    ]
+   ]
+  ],
+  "benefits": [
+   "SBV Circular 50/2024: FIDO and transaction signing for type C and D",
+   "SBV Circular 77/2025: PAD Level 2, root and jailbreak blocking",
+   "PSD2 RTS Article 5: dynamic linking",
+   "One platform to change instead of one per channel"
+  ],
+  "scene": "omni"
+ },
+ {
+  "id": "wallet-pay-by-bank",
+  "pillar": "finance",
+  "name": "Pay from a wallet with a bank account",
+  "tagline": "Web redirect, app-to-app or decoupled approval — the bank keeps control of SCA.",
+  "problem": "Wallets want to debit bank accounts directly, but every bank authenticates differently and SMS OTP is easy to phish. Customers also fall for ‘just approve this for me’ scams when approval is detached from the channel that started it.",
+  "industries": [
+   "payments",
+   "bfsi",
+   "retail"
+  ],
+  "cases": [],
+  "products": [
+   "api-security-transaction-signing",
+   "open-banking-suite",
+   "consent-management",
+   "passwordless",
+   "trustpass",
+   "mobile-ewallet",
+   "sam-auth-server"
+  ],
+  "ui": "mobile",
+  "flow": [
+   [
+    "cart",
+    "Pay in the wallet",
+    "The wallet asks the customer's bank to debit the account."
+   ],
+   [
+    "push",
+    "Hand over to the bank",
+    "Web redirect, a universal link to the bank app, or a CIBA push to another device."
+   ],
+   [
+    "approve",
+    "The bank shows the details",
+    "Merchant, amount and source account.",
+    [
+     "1,250,000 VND",
+     "Wallet X · Store ABC",
+     "Account ****3456"
+    ]
+   ],
+   [
+    "bio",
+    "Confirm with a passkey",
+    "Bound to the bank's domain, so it cannot be phished."
+   ],
+   [
+    "success",
+    "Back in the wallet",
+    "The wallet receives a one-time authorisation through its back end."
+   ]
+  ],
+  "logical": [
+   [
+    "Channels",
+    [
+     "Wallet on the web",
+     "Wallet app",
+     "Bank app",
+     "Second device"
+    ]
+   ],
+   [
+    "Access & API",
+    [
+     "OAuth 2 / OpenID CIBA",
+     "Universal links",
+     "Open banking API"
+    ]
+   ],
+   [
+    "SAVIS services",
+    [
+     "Transaction signing",
+     "FIDO2 device token",
+     "Consent management"
+    ]
+   ],
+   [
+    "Trust & crypto core",
+    [
+     "HSM",
+     "Device keys",
+     "TrustPass Key on the web"
+    ]
+   ],
+   [
+    "Enterprise systems",
+    [
+     "Core banking",
+     "Payment switch",
+     "Fraud management"
+    ]
+   ]
+  ],
+  "system": [
+   [
+    "Users & Internet",
+    [
+     "Customers",
+     "Wallet providers"
+    ]
+   ],
+   [
+    "DMZ",
+    [
+     "API gateway",
+     "Authorisation server"
+    ]
+   ],
+   [
+    "Application zone",
+    [
+     "SCA service",
+     "Consent service"
+    ]
+   ],
+   [
+    "Secure zone",
+    [
+     "HSM"
+    ]
+   ],
+   [
+    "Core & integration",
+    [
+     "Core banking",
+     "Switch"
+    ]
+   ]
+  ],
+  "benefits": [
+   "One SCA for web, app-to-app and decoupled journeys",
+   "Requests expire after 5 minutes and show the originating channel",
+   "Type B, C and D classification by amount; eKYC face check added for C and D",
+   "No card data shared with the wallet"
+  ],
+  "scene": "finance"
+ },
+ {
+  "id": "tickets-transit-wallet",
+  "pillar": "gov",
+  "name": "Tickets, boarding passes and tap-to-pay in one wallet",
+  "tagline": "Event tickets, flights, transit passes and payment cards — all on the phone.",
+  "problem": "Paper and screenshot tickets are easy to copy, transit cards are yet another card to carry, and boarding still needs a document check at every step.",
+  "industries": [
+   "transport",
+   "retail",
+   "payments",
+   "government"
+  ],
+  "cases": [],
+  "products": [
+   "digital-id-wallet",
+   "smart-virtual-card",
+   "tokenization",
+   "payment-hsm",
+   "mobile-ewallet",
+   "smart-city"
+  ],
+  "ui": "mobile",
+  "flow": [
+   [
+    "list",
+    "Open the wallet",
+    "Every pass in one place.",
+    [
+     "Concert · 20/12 · Zone A",
+     "Flight HAN → SGN · 07:40",
+     "Metro monthly pass",
+     "Credit card · token"
+    ]
+   ],
+   [
+    "qr",
+    "Event ticket",
+    "A dynamic QR refreshes every 30 seconds, so screenshots are useless; tickets can be transferred securely."
+   ],
+   [
+    "nfc",
+    "Tap at the gate",
+    "Transit passes work by NFC without unlocking or opening the app."
+   ],
+   [
+    "face",
+    "Board with your face",
+    "The boarding pass is linked to the PID or passport; security lanes and gates match the face."
+   ],
+   [
+    "bio",
+    "Tap and pay",
+    "A tokenised card at the POS — the real number never leaves the bank; a passkey online."
+   ]
+  ],
+  "logical": [
+   [
+    "Channels",
+    [
+     "Wallet app",
+     "Gates and validators",
+     "POS terminals"
+    ]
+   ],
+   [
+    "Access & API",
+    [
+     "ISO/IEC 14443 NFC",
+     "IATA BCBP",
+     "EMV contactless"
+    ]
+   ],
+   [
+    "SAVIS services",
+    [
+     "Ticket credential issuance",
+     "Tokenization",
+     "Face match"
+    ]
+   ],
+   [
+    "Trust & crypto core",
+    [
+     "Issuer keys in HSM",
+     "Device keys"
+    ]
+   ],
+   [
+    "Enterprise systems",
+    [
+     "Ticketing",
+     "Airline departure control",
+     "Card schemes"
+    ]
+   ]
+  ],
+  "system": [
+   [
+    "Users & Internet",
+    [
+     "Passengers",
+     "Fans",
+     "Shoppers"
+    ]
+   ],
+   [
+    "DMZ",
+    [
+     "Issuance API",
+     "Validator gateway"
+    ]
+   ],
+   [
+    "Application zone",
+    [
+     "Wallet backend",
+     "Ticket service"
+    ]
+   ],
+   [
+    "Secure zone",
+    [
+     "HSM",
+     "Token vault"
+    ]
+   ],
+   [
+    "Core & integration",
+    [
+     "Ticketing",
+     "Card schemes"
+    ]
+   ]
+  ],
+  "benefits": [
+   "Tickets that cannot be copied",
+   "Transit without opening the app",
+   "Boarding linked to a verified identity",
+   "Card numbers replaced by tokens"
+  ],
+  "scene": "transit"
+ },
+ {
+  "id": "education-credentials-wallet",
+  "pillar": "identity",
+  "name": "International student cards and verifiable diplomas",
+  "tagline": "Verified by any employer or university abroad, in seconds.",
+  "problem": "Verifying a diploma still means emailing a university and waiting days. Student cards are plastic, hard to revoke and useless outside the campus.",
+  "industries": [
+   "education",
+   "government",
+   "enterprise"
+  ],
+  "cases": [],
+  "products": [
+   "ecertify",
+   "smart-virtual-card",
+   "digital-id-wallet",
+   "decentralized-identity",
+   "remote-signing"
+  ],
+  "ui": "mobile",
+  "flow": [
+   [
+    "card",
+    "International student card",
+    "Campus, transport and discount benefits; renews each semester and is revoked when the student leaves."
+   ],
+   [
+    "nfc",
+    "Tap to enter",
+    "Library, dorm and campus doors by NFC."
+   ],
+   [
+    "list",
+    "Diplomas and transcripts",
+    "Signed by the university and held in the wallet.",
+    [
+     "Bachelor of Engineering",
+     "Bilingual transcript, 12 modules",
+     "Language certificate C1"
+    ]
+   ],
+   [
+    "qr",
+    "Share a verification link",
+    "A time-limited link for an employer abroad — expires after 7 days, one view."
+   ],
+   [
+    "verify",
+    "Verified abroad",
+    "Issuer on the ministry's trusted list, signature valid, not revoked — download a PDF proof."
+   ]
+  ],
+  "logical": [
+   [
+    "Channels",
+    [
+     "Wallet app",
+     "University portal",
+     "Employer verifier"
+    ]
+   ],
+   [
+    "Access & API",
+    [
+     "W3C VC 2.0",
+     "Open Badges 3.0",
+     "OpenID4VCI / VP"
+    ]
+   ],
+   [
+    "SAVIS services",
+    [
+     "Credential issuance",
+     "Revocation status lists",
+     "Verifier"
+    ]
+   ],
+   [
+    "Trust & crypto core",
+    [
+     "University keys in HSM",
+     "Trusted list"
+    ]
+   ],
+   [
+    "Enterprise systems",
+    [
+     "Student information system",
+     "Ministry registry"
+    ]
+   ]
+  ],
+  "system": [
+   [
+    "Users & Internet",
+    [
+     "Students",
+     "Employers",
+     "Universities abroad"
+    ]
+   ],
+   [
+    "DMZ",
+    [
+     "Issuer API",
+     "Verification portal"
+    ]
+   ],
+   [
+    "Application zone",
+    [
+     "Credential service"
+    ]
+   ],
+   [
+    "Secure zone",
+    [
+     "HSM"
+    ]
+   ],
+   [
+    "Core & integration",
+    [
+     "Student information system"
+    ]
+   ]
+  ],
+  "benefits": [
+   "Diplomas verified in seconds, not days",
+   "Selective sharing of grades and transcripts",
+   "Student cards that expire and revoke automatically",
+   "Aligned with W3C VC 2.0, Open Badges 3.0 and European Digital Credentials for Learning"
+  ],
+  "scene": "edu"
+ },
+ {
+  "id": "app-to-app-payment-confirmation",
+  "pillar": "finance",
+  "name": "Confirm a payment in the banking app with one touch",
+  "tagline": "Checkout in another app or website; approve in the bank app with a biometric.",
+  "problem": "Payments that start in a store or wallet app are usually confirmed by SMS OTP, which can be intercepted or socially engineered — and the customer never sees what the code actually authorises.",
+  "industries": [
+   "bfsi",
+   "payments",
+   "retail"
+  ],
+  "cases": [],
+  "products": [
+   "mobile-identity-sca",
+   "trustsign-mobile",
+   "sam-auth-server",
+   "3d-secure",
+   "api-security-transaction-signing",
+   "trustshield"
+  ],
+  "ui": "mobile",
+  "flow": [
+   [
+    "cart",
+    "Checkout in another app",
+    "The store or wallet hands over to the bank app (app-to-app, 3DS2 out-of-band)."
+   ],
+   [
+    "approve",
+    "The bank app shows the details",
+    "What you see is what you sign.",
+    [
+     "1,250,000 VND",
+     "Store ABC",
+     "Visa ****1234"
+    ]
+   ],
+   [
+    "bio",
+    "Touch to sign",
+    "Fingerprint or Face ID unlocks the FIDO2 device token in TEE or Secure Enclave."
+   ],
+   [
+    "success",
+    "Back to the store",
+    "The result returns to the original app."
+   ]
+  ],
+  "logical": [
+   [
+    "Channels",
+    [
+     "Merchant app",
+     "Web checkout",
+     "Bank app"
+    ]
+   ],
+   [
+    "Access & API",
+    [
+     "3DS2 app / OOB",
+     "Universal links"
+    ]
+   ],
+   [
+    "SAVIS services",
+    [
+     "FIDO2 client SDK",
+     "Push and transaction signing",
+     "Risk engine"
+    ]
+   ],
+   [
+    "Trust & crypto core",
+    [
+     "Keys in TEE / Secure Enclave",
+     "HSM"
+    ]
+   ],
+   [
+    "Enterprise systems",
+    [
+     "Card ACS",
+     "Core banking"
+    ]
+   ]
+  ],
+  "system": [
+   [
+    "Users & Internet",
+    [
+     "Customers",
+     "Merchants"
+    ]
+   ],
+   [
+    "DMZ",
+    [
+     "ACS endpoint",
+     "API gateway"
+    ]
+   ],
+   [
+    "Application zone",
+    [
+     "FIDO2 server"
+    ]
+   ],
+   [
+    "Secure zone",
+    [
+     "HSM"
+    ]
+   ],
+   [
+    "Core & integration",
+    [
+     "Core banking"
+    ]
+   ]
+  ],
+  "benefits": [
+   "The displayed content is recomputed into the challenge — any mismatch rejects the signature",
+   "Keys never leave the TEE or Secure Enclave",
+   "Transaction profiles with integrity checks",
+   "Works for card, account and wallet payments"
+  ],
+  "scene": "a2a"
+ },
+ {
+  "id": "counter-kiosk-qr-approval",
+  "pillar": "finance",
+  "name": "Approve at the counter, kiosk or POS from your own phone",
+  "tagline": "Scan a QR and approve in your app — type nothing on a public machine.",
+  "problem": "PIN pads and signature tablets at counters and kiosks expose customers to shoulder surfing, skimming and impersonation. High-value counter transactions also need a strong, auditable proof that the account holder approved them.",
+  "industries": [
+   "bfsi",
+   "government",
+   "retail"
+  ],
+  "cases": [],
+  "products": [
+   "smart-kiosk",
+   "sam-auth-server",
+   "mobile-identity-sca",
+   "trustpass",
+   "trustonboard"
+  ],
+  "ui": "mobile",
+  "flow": [
+   [
+    "qr",
+    "The teller creates a request",
+    "Cash withdrawal at the counter — or the customer starts at a kiosk or POS — shows a one-time QR."
+   ],
+   [
+    "shield",
+    "Scan with the bank app",
+    "The QR holds only a random session ID, valid for 2 minutes, single use; details are fetched from the bank."
+   ],
+   [
+    "approve",
+    "Check the details",
+    "Amount, type, branch and teller.",
+    [
+     "300,000,000 VND",
+     "Cash withdrawal · Branch Q3",
+     "Teller GDV-0412"
+    ]
+   ],
+   [
+    "face",
+    "Face match and FIDO2 signature",
+    "Or tap a TrustPass card on the counter's NFC reader."
+   ],
+   [
+    "success",
+    "The counter sees the result",
+    "The teller receives the verified approval."
+   ]
+  ],
+  "logical": [
+   [
+    "Channels",
+    [
+     "Teller screen",
+     "Kiosk",
+     "POS",
+     "Bank app"
+    ]
+   ],
+   [
+    "Access & API",
+    [
+     "Session QR service",
+     "Authenticated app channel"
+    ]
+   ],
+   [
+    "SAVIS services",
+    [
+     "Push and transaction signing",
+     "Face match",
+     "TrustPass verification"
+    ]
+   ],
+   [
+    "Trust & crypto core",
+    [
+     "HSM",
+     "Device keys"
+    ]
+   ],
+   [
+    "Enterprise systems",
+    [
+     "Core banking",
+     "Teller system"
+    ]
+   ]
+  ],
+  "system": [
+   [
+    "Users & Internet",
+    [
+     "Customers"
+    ]
+   ],
+   [
+    "Branch network",
+    [
+     "Teller PCs",
+     "Kiosks",
+     "POS"
+    ]
+   ],
+   [
+    "Application zone",
+    [
+     "SAM Auth Server"
+    ]
+   ],
+   [
+    "Secure zone",
+    [
+     "HSM"
+    ]
+   ],
+   [
+    "Core & integration",
+    [
+     "Core banking"
+    ]
+   ]
+  ],
+  "benefits": [
+   "Nothing typed on a shared device",
+   "QR without transaction data: replay and phishing resistant",
+   "No app? Tap a TrustPass card or use push to a registered app",
+   "Card-present EMV payments keep their own CVM; QR or pay-by-link at the POS follows 3DS2"
+  ],
+  "scene": "kiosk"
+ },
+ {
+  "id": "high-value-hardware-authenticators",
+  "pillar": "identity",
+  "name": "High-value transactions without a smartphone",
+  "tagline": "Possession and the owner's fingerprint — both inside one card.",
+  "problem": "Phones get infected, swapped or shared, and some customers do not use one. For the largest transactions regulators expect two independent factors bound to the amount and payee — and a method that does not depend on a smartphone.",
+  "industries": [
+   "bfsi",
+   "payments",
+   "enterprise"
+  ],
+  "cases": [],
+  "products": [
+   "trustpass",
+   "sam-auth-server",
+   "passwordless",
+   "api-security-transaction-signing",
+   "credential-management"
+  ],
+  "ui": "mobile",
+  "side": [
+   [
+    "cb1",
+    "sc"
+   ],
+   "TrustPass Card Bio · Sign Card"
+  ],
+  "flow": [
+   [
+    "review",
+    "Review the transfer",
+    "Amount and payee on the app or web.",
+    [
+     [
+      "To",
+      "NGUYEN VAN A"
+     ],
+     [
+      "Account",
+      "****3456"
+     ],
+     [
+      "Amount",
+      "15,000,000 VND"
+     ]
+    ]
+   ],
+   [
+    "nfc",
+    "Tap TrustPass Card Bio",
+    "Finger on the card's sensor — the match happens on the card; the phone is only the NFC channel."
+   ],
+   [
+    "otp",
+    "No phone? Use the Sign Card",
+    "Type the challenge and the last 4 digits of the payee account; the card's display shows an OCRA code bound to the transaction."
+   ],
+   [
+    "key",
+    "Corporate batches by USB key",
+    "Approve a batch in corporate eBanking with a TrustPass Key and fingerprint."
+   ],
+   [
+    "success",
+    "Signed",
+    "The bank verifies the FIDO2 or OCRA signature before executing."
+   ]
+  ],
+  "logical": [
+   [
+    "Channels",
+    [
+     "Mobile app",
+     "Web banking",
+     "Corporate eBanking",
+     "Counter and kiosk"
+    ]
+   ],
+   [
+    "Access & API",
+    [
+     "CTAP 2.1 over NFC / USB",
+     "OCRA (RFC 6287)"
+    ]
+   ],
+   [
+    "SAVIS services",
+    [
+     "Authenticator registry (AAGUID)",
+     "OCRA verification",
+     "Transaction signing"
+    ]
+   ],
+   [
+    "Trust & crypto core",
+    [
+     "Keys in the card's secure element",
+     "HSM"
+    ]
+   ],
+   [
+    "Enterprise systems",
+    [
+     "Core banking",
+     "Corporate eBanking"
+    ]
+   ]
+  ],
+  "system": [
+   [
+    "Users & Internet",
+    [
+     "VIP customers",
+     "Corporate approvers"
+    ]
+   ],
+   [
+    "DMZ",
+    [
+     "API gateway"
+    ]
+   ],
+   [
+    "Application zone",
+    [
+     "SAM Auth Server"
+    ]
+   ],
+   [
+    "Secure zone",
+    [
+     "HSM"
+    ]
+   ],
+   [
+    "Core & integration",
+    [
+     "Core banking"
+    ]
+   ]
+  ],
+  "benefits": [
+   "SBV type D: above VND 500 million per transaction or VND 1.5 billion per day",
+   "PSD2 RTS Articles 4–9: two independent factors and dynamic linking",
+   "PSR: always a method that does not need a smartphone",
+   "Fingerprints are never stored in the app or at the bank"
+  ],
+  "scene": null
+ },
+ {
+  "id": "authenticator-self-service",
+  "pillar": "identity",
+  "name": "Manage passkeys, cards and keys in the app",
+  "tagline": "Customers change PINs, enrol fingerprints and report losses themselves.",
+  "problem": "Every lost token, forgotten PIN or new fingerprint becomes a branch visit or a call-centre ticket — and suspended devices stay active elsewhere until someone updates every system.",
+  "industries": [
+   "bfsi",
+   "enterprise"
+  ],
+  "cases": [],
+  "products": [
+   "credential-management",
+   "trustpass",
+   "sam-auth-server",
+   "passwordless",
+   "mobile-identity-sca"
+  ],
+  "ui": "mobile",
+  "side": [
+   [
+    "kb",
+    "kn"
+   ],
+   "TrustPass Key family"
+  ],
+  "flow": [
+   [
+    "list",
+    "My devices",
+    "Device token, cards and keys with their status.",
+    [
+     "Device token · Android · Active",
+     "TrustPass Card ****4821 · Active",
+     "TrustPass Key ****0917 · Suspended"
+    ]
+   ],
+   [
+    "key",
+    "Change PIN, enrol fingerprints",
+    "CTAP clientPIN and bioEnrollment commands go straight to the key."
+   ],
+   [
+    "list",
+    "Registered services",
+    "See where each authenticator is used.",
+    [
+     "Mobile banking",
+     "Corporate eBanking",
+     "Card payments (3DS)"
+    ]
+   ],
+   [
+    "alert",
+    "Suspend or report lost",
+    "Suspension is synchronised to the bank in seconds.",
+    [
+     "Card reported lost",
+     "Suspended across all services"
+    ]
+   ],
+   [
+    "success",
+    "Reset or replace",
+    "Reset the key or enrol a new one."
+   ]
+  ],
+  "logical": [
+   [
+    "Channels",
+    [
+     "Mobile app (iOS, Android)"
+    ]
+   ],
+   [
+    "Access & API",
+    [
+     "CTAP clientPIN",
+     "bioEnrollment",
+     "credentialManagement",
+     "SAM lifecycle API"
+    ]
+   ],
+   [
+    "SAVIS services",
+    [
+     "Key manager",
+     "Credential lifecycle",
+     "Authenticator registry"
+    ]
+   ],
+   [
+    "Trust & crypto core",
+    [
+     "Keys in secure elements",
+     "HSM"
+    ]
+   ],
+   [
+    "Enterprise systems",
+    [
+     "Contact centre",
+     "Card management"
+    ]
+   ]
+  ],
+  "system": [
+   [
+    "Users & Internet",
+    [
+     "Customers"
+    ]
+   ],
+   [
+    "DMZ",
+    [
+     "API gateway"
+    ]
+   ],
+   [
+    "Application zone",
+    [
+     "Key manager"
+    ]
+   ],
+   [
+    "Secure zone",
+    [
+     "HSM"
+    ]
+   ],
+   [
+    "Core & integration",
+    [
+     "Contact centre"
+    ]
+   ]
+  ],
+  "benefits": [
+   "Fewer branch visits and support calls",
+   "Lost cards suspended everywhere at once",
+   "PIN and fingerprint changes without exposing secrets",
+   "One view of every authenticator a customer holds"
+  ],
+  "scene": null
+ },
+ {
+  "id": "national-abis-deduplication",
+  "pillar": "identity",
+  "name": "One person, one identity: national enrolment with ABIS",
+  "tagline": "Face and fingerprint de-duplication at national scale — before any card or credential is issued.",
+  "problem": "Duplicate and fraudulent identities leak into civil registers, voter rolls, SIM databases and social programmes. Every credential issued later inherits that weakness unless each person is enrolled once and checked against everyone already registered.",
+  "industries": [
+   "government",
+   "telco",
+   "bfsi"
+  ],
+  "cases": [],
+  "products": [
+   "savis-idms",
+   "savis-abis",
+   "touchless-fingerprint",
+   "face-biometrics",
+   "liveness-deepfake",
+   "national-eid-trust",
+   "cryptoid"
+  ],
+  "ui": "desktop",
+  "flow": [
+   [
+    "form",
+    "Enrol at a service point",
+    "Demographics captured by an operator or pre-registered online.",
+    [
+     "Full name",
+     "Date of birth",
+     "Place of birth"
+    ]
+   ],
+   [
+    "face",
+    "Capture the face",
+    "Quality-checked photo with passive liveness."
+   ],
+   [
+    "fingerprint",
+    "Capture fingerprints",
+    "Four fingers by smartphone camera or scanner — no contact needed."
+   ],
+   [
+    "chart",
+    "1:N de-duplication",
+    "SAVIS ABIS compares the new record with every enrolled identity."
+   ],
+   [
+    "success",
+    "Unique ID issued",
+    "Only a unique person receives an identity number, card, mobile ID or CryptoID."
+   ]
+  ],
+  "logical": [
+   [
+    "Channels",
+    [
+     "Enrolment stations",
+     "Mobile enrolment kits",
+     "Online pre-registration"
+    ]
+   ],
+   [
+    "Access & API",
+    [
+     "Enrolment API",
+     "ABIS REST API"
+    ]
+   ],
+   [
+    "SAVIS services",
+    [
+     "Face, finger and palm capture",
+     "Liveness & Deepfake Defense",
+     "SAVIS ABIS 1:N and 1:1"
+    ]
+   ],
+   [
+    "Trust & crypto core",
+    [
+     "Encrypted templates",
+     "PKI signing of identity records"
+    ]
+   ],
+   [
+    "Enterprise systems",
+    [
+     "Civil register",
+     "ID card and credential issuance",
+     "Voter, SIM and benefit registers"
+    ]
+   ]
+  ],
+  "system": [
+   [
+    "Users & Internet",
+    [
+     "Citizens",
+     "Registration officers"
+    ]
+   ],
+   [
+    "DMZ",
+    [
+     "Enrolment gateway"
+    ]
+   ],
+   [
+    "Application zone",
+    [
+     "Identity management",
+     "ABIS matcher nodes (scale-out)"
+    ]
+   ],
+   [
+    "Secure zone",
+    [
+     "Template store, encrypted",
+     "Signing keys"
+    ]
+   ],
+   [
+    "Core & integration",
+    [
+     "Civil register",
+     "Issuance systems"
+    ]
+   ]
+  ],
+  "benefits": [
+   "One person, one identity across registers",
+   "Touchless capture speeds up enrolment in the field",
+   "Scale out matcher nodes as the population grows",
+   "Feeds the eID lifecycle: enrol, de-duplicate, issue"
+  ],
+  "scene": "abis"
+ },
+ {
+  "id": "touchless-fingerprint-onboarding",
+  "pillar": "identity",
+  "name": "Open an account with four fingers and a phone camera",
+  "tagline": "Fingerprint-grade assurance without a scanner — for banks, telcos and agents in the field.",
+  "problem": "Face-only onboarding is under pressure from deepfakes, while fingerprint scanners are expensive to deploy across branches, agents and remote areas. Regulators increasingly expect biometrics that are both strong and spoof-resistant.",
+  "industries": [
+   "bfsi",
+   "telco",
+   "payments"
+  ],
+  "cases": [],
+  "products": [
+   "trustonboard",
+   "touchless-fingerprint",
+   "face-biometrics",
+   "liveness-deepfake",
+   "trustonboard",
+   "id-verification",
+   "savis-abis"
+  ],
+  "ui": "mobile",
+  "flow": [
+   [
+    "scan",
+    "Scan the ID",
+    "Capture the ID card or passport and read the chip."
+   ],
+   [
+    "face",
+    "Selfie with liveness",
+    "Passive liveness and deepfake detection on the device."
+   ],
+   [
+    "fingerprint",
+    "Show four fingers",
+    "The phone camera captures four fingerprints — no contact."
+   ],
+   [
+    "review",
+    "Match and check",
+    "Face, fingerprints and the register are checked together.",
+    [
+     [
+      "Face vs chip photo",
+      "Match"
+     ],
+     [
+      "Fingerprints vs register",
+      "Match"
+     ],
+     [
+      "Duplicate check",
+      "None found"
+     ]
+    ]
+   ],
+   [
+    "success",
+    "Account open",
+    "Biometric evidence logged; fingerprints available for future high-value approvals."
+   ]
+  ],
+  "logical": [
+   [
+    "Channels",
+    [
+     "Banking app",
+     "Agent app",
+     "Branch tablet"
+    ]
+   ],
+   [
+    "Access & API",
+    [
+     "Onboarding API",
+     "ABIS API"
+    ]
+   ],
+   [
+    "SAVIS services",
+    [
+     "Touchless fingerprint capture",
+     "Face match",
+     "Liveness & Deepfake Defense",
+     "ID document and chip check"
+    ]
+   ],
+   [
+    "Trust & crypto core",
+    [
+     "On-device processing",
+     "Encrypted templates"
+    ]
+   ],
+   [
+    "Enterprise systems",
+    [
+     "Core banking / BSS",
+     "AML / KYC",
+     "National register"
+    ]
+   ]
+  ],
+  "system": [
+   [
+    "Users & Internet",
+    [
+     "Customers",
+     "Agents"
+    ]
+   ],
+   [
+    "DMZ",
+    [
+     "API gateway"
+    ]
+   ],
+   [
+    "Application zone",
+    [
+     "eKYC engine",
+     "Matcher"
+    ]
+   ],
+   [
+    "Secure zone",
+    [
+     "Template store"
+    ]
+   ],
+   [
+    "Core & integration",
+    [
+     "Core banking",
+     "National register"
+    ]
+   ]
+  ],
+  "benefits": [
+   "No fingerprint scanners to buy or maintain",
+   "Two biometrics make deepfake attacks much harder",
+   "Works for agents and remote areas",
+   "Reusable for high-value transaction approval"
+  ],
+  "scene": "finger"
+ },
+ {
+  "id": "cryptoid-offline-identity",
+  "pillar": "identity",
+  "name": "Identity that works offline: CryptoID",
+  "tagline": "A signed QR code that carries identity and biometrics — verified without a network.",
+  "problem": "Hundreds of millions of people have no smartphone or live where connectivity is unreliable. Paper documents are easy to forge, and online-only verification fails exactly where inclusion matters most.",
+  "industries": [
+   "government",
+   "transport",
+   "education",
+   "bfsi"
+  ],
+  "cases": [],
+  "products": [
+   "cryptoid",
+   "face-biometrics",
+   "touchless-fingerprint",
+   "savis-abis",
+   "digital-id-wallet"
+  ],
+  "ui": "mobile",
+  "flow": [
+   [
+    "qr",
+    "Present the CryptoID",
+    "Printed on a card or paper, or held on the phone."
+   ],
+   [
+    "fingerprint",
+    "Unlock with a biometric",
+    "The holder's face or fingerprint unlocks the code."
+   ],
+   [
+    "consent",
+    "Share only what is needed",
+    "Choose the attributes for this check.",
+    [
+     "Over 18",
+     "Full name",
+     "Credential type"
+    ]
+   ],
+   [
+    "verify",
+    "Verified offline",
+    "Issuer signature and biometric match checked locally, no network needed."
+   ]
+  ],
+  "logical": [
+   [
+    "Channels",
+    [
+     "Printed card or paper",
+     "Mobile app",
+     "Verifier app"
+    ]
+   ],
+   [
+    "Access & API",
+    [
+     "Issuance API",
+     "Offline verifier SDK"
+    ]
+   ],
+   [
+    "SAVIS services",
+    [
+     "CryptoID issuance",
+     "Face and fingerprint match",
+     "Selective sharing"
+    ]
+   ],
+   [
+    "Trust & crypto core",
+    [
+     "Issuer signature (PKI)",
+     "Encrypted data stream"
+    ]
+   ],
+   [
+    "Enterprise systems",
+    [
+     "Civil register",
+     "Programme databases"
+    ]
+   ]
+  ],
+  "system": [
+   [
+    "Users & Internet",
+    [
+     "Holders",
+     "Verifiers in the field"
+    ]
+   ],
+   [
+    "DMZ",
+    [
+     "Issuance portal"
+    ]
+   ],
+   [
+    "Application zone",
+    [
+     "CryptoID issuer"
+    ]
+   ],
+   [
+    "Secure zone",
+    [
+     "Issuer signing keys"
+    ]
+   ],
+   [
+    "Core & integration",
+    [
+     "Identity register"
+    ]
+   ]
+  ],
+  "benefits": [
+   "Inclusion for people without a smartphone",
+   "Verification where there is no network",
+   "Tamper-evident: signed by the issuing authority",
+   "Can also be stored on a phone or a smart card by NFC"
+  ],
+  "scene": "cryptoid"
+ },
+ {
+  "id": "field-registration-offline",
+  "pillar": "identity",
+  "name": "Register people where there is no network",
+  "tagline": "Mobile enrolment kits, offline de-duplication sync and CryptoID issued on the spot.",
+  "problem": "Remote villages, islands and camps are where people most often lack an identity — and where connectivity is weakest. Registration teams need to capture high-quality biometrics offline, avoid duplicates, and leave each person with a credential that works without a network.",
+  "industries": [
+   "government",
+   "healthcare",
+   "telco"
+  ],
+  "cases": [],
+  "products": [
+   "enrollment-station",
+   "enrollment-suite",
+   "touchless-fingerprint",
+   "savis-abis",
+   "cryptoid",
+   "mosip-integration"
+  ],
+  "ui": "mobile",
+  "flow": [
+   [
+    "form",
+    "Arrive with a mobile kit",
+    "Battery-powered kit: camera, fingerprint scanner, document reader, printer."
+   ],
+   [
+    "face",
+    "Capture face and fingerprints",
+    "Quality, liveness and local duplicate checks, all offline."
+   ],
+   [
+    "db",
+    "Store encrypted",
+    "Packets are signed by device and operator and kept encrypted."
+   ],
+   [
+    "chart",
+    "Sync and de-duplicate",
+    "When the team reaches coverage, SAVIS ABIS runs 1:N de-duplication."
+   ],
+   [
+    "qr",
+    "Issue CryptoID",
+    "A signed QR credential is printed for the person and verifiable offline."
+   ]
+  ],
+  "logical": [
+   [
+    "Channels",
+    [
+     "Mobile enrolment kit",
+     "Fixed station",
+     "Verifier app"
+    ]
+   ],
+   [
+    "Access & API",
+    [
+     "Encrypted packet upload",
+     "ABIS API (MOSIP-compatible)"
+    ]
+   ],
+   [
+    "SAVIS services",
+    [
+     "Enrollment Suite",
+     "SAVIS ABIS",
+     "CryptoID issuance"
+    ]
+   ],
+   [
+    "Trust & crypto core",
+    [
+     "Device and operator keys",
+     "Issuer signing keys"
+    ]
+   ],
+   [
+    "Enterprise systems",
+    [
+     "Civil register / MOSIP",
+     "Programme databases"
+    ]
+   ]
+  ],
+  "system": [
+   [
+    "Field",
+    [
+     "Mobile kits",
+     "Offline store"
+    ]
+   ],
+   [
+    "DMZ",
+    [
+     "Sync gateway"
+    ]
+   ],
+   [
+    "Application zone",
+    [
+     "Enrollment server",
+     "CryptoID issuer"
+    ]
+   ],
+   [
+    "Secure zone",
+    [
+     "ABIS matchers",
+     "Signing keys"
+    ]
+   ],
+   [
+    "Core & integration",
+    [
+     "Civil register",
+     "MOSIP"
+    ]
+   ]
+  ],
+  "benefits": [
+   "Reach people without connectivity",
+   "Fewer duplicate registrations",
+   "A credential that works offline from day one",
+   "Devices sourced from certified third-party manufacturers"
+  ],
+  "scene": "station"
+ },
+ {
+  "id": "birth-to-id-crvs-mosip",
+  "pillar": "gov",
+  "name": "From birth registration to a national ID",
+  "tagline": "OpenCRVS and MOSIP working as one lifecycle — delivered and secured by SAVIS.",
+  "problem": "Civil registration and national ID are often separate systems. Births go unregistered, IDs are issued without a link to the birth record, and deaths are never removed from registers — creating gaps, duplicates and fraud in benefits and voter rolls.",
+  "industries": [
+   "government",
+   "healthcare"
+  ],
+  "cases": [],
+  "products": [
+   "savis-crvs",
+   "savis-idms",
+   "mosip-integration",
+   "savis-abis",
+   "enrollment-station",
+   "cryptoid",
+   "national-pki"
+  ],
+  "ui": "desktop",
+  "flow": [
+   [
+    "form",
+    "Declare the birth",
+    "A health worker or parent declares the birth, online or offline.",
+    [
+     "Child's name",
+     "Date and place of birth",
+     "Mother's ID (eSignet check)"
+    ]
+   ],
+   [
+    "review",
+    "Validate and register",
+    "Registration agent validates; the registrar registers the event."
+   ],
+   [
+    "key",
+    "Create the identity",
+    "A packet goes to MOSIP; a UIN is created and a VID issued."
+   ],
+   [
+    "qr",
+    "Issue signed certificates",
+    "Birth certificate signed with PKI; optional credential in Inji or CryptoID."
+   ],
+   [
+    "alert",
+    "Close the loop at death",
+    "Death registration flags the ID as deceased in MOSIP."
+   ]
+  ],
+  "logical": [
+   [
+    "Channels",
+    [
+     "Field app (offline)",
+     "Registration office",
+     "Health facility"
+    ]
+   ],
+   [
+    "Access & API",
+    [
+     "MOSIP Packet Manager",
+     "eSignet (OIDC)",
+     "FHIR notifications"
+    ]
+   ],
+   [
+    "SAVIS services",
+    [
+     "SAVIS CRVS (OpenCRVS)",
+     "SAVIS MOSIP Integration",
+     "SAVIS ABIS"
+    ]
+   ],
+   [
+    "Trust & crypto core",
+    [
+     "PKI certificate signing",
+     "MOSIP key manager"
+    ]
+   ],
+   [
+    "Enterprise systems",
+    [
+     "MOSIP ID repository",
+     "Health information systems",
+     "Statistics office"
+    ]
+   ]
+  ],
+  "system": [
+   [
+    "Users & Internet",
+    [
+     "Informants",
+     "Field agents"
+    ]
+   ],
+   [
+    "DMZ",
+    [
+     "CRVS gateway",
+     "eSignet"
+    ]
+   ],
+   [
+    "Application zone",
+    [
+     "OpenCRVS services",
+     "MOSIP registration processor"
+    ]
+   ],
+   [
+    "Secure zone",
+    [
+     "Key manager · PKI",
+     "ABIS"
+    ]
+   ],
+   [
+    "Core & integration",
+    [
+     "ID repository",
+     "Health & statistics"
+    ]
+   ]
+  ],
+  "benefits": [
+   "Every child linked to an identity from birth",
+   "Deceased people removed from ID and benefit registers",
+   "Fewer duplicates and less benefit fraud",
+   "Open-source core with SAVIS integration, security and 24/7 support"
+  ],
+  "scene": null
+ },
+ {
+  "id": "national-id-verification-service",
+  "pillar": "identity",
+  "name": "National ID verification for banks and telcos",
+  "tagline": "One trusted service to check identities against the national register — with consent, per transaction.",
+  "problem": "Banks and mobile operators must verify identities for KYC and SIM registration, but cannot copy the national register. Without a shared verification service, each builds its own checks, fraud slips through, and citizens' data is spread across many databases.",
+  "industries": [
+   "bfsi",
+   "telco",
+   "government",
+   "payments"
+  ],
+  "cases": [],
+  "products": [
+   "savis-idvs",
+   "savis-idms",
+   "savis-abis",
+   "trustonboard",
+   "face-biometrics",
+   "consent-management"
+  ],
+  "ui": "mobile",
+  "flow": [
+   [
+    "form",
+    "Start KYC at the bank or telco",
+    "The customer enters an ID number or scans the ID card."
+   ],
+   [
+    "consent",
+    "Give consent",
+    "Choose which attributes the bank may receive.",
+    [
+     "Full name",
+     "Date of birth",
+     "Photo",
+     "Address"
+    ]
+   ],
+   [
+    "face",
+    "Biometric check",
+    "A live selfie is verified 1:1 against the national record by IDVS."
+   ],
+   [
+    "review",
+    "Match result",
+    [
+     [
+      "Identity",
+      "Match"
+     ],
+     [
+      "Face",
+      "Match · 0.98"
+     ],
+     [
+      "Status",
+      "Active"
+     ]
+    ]
+   ],
+   [
+    "success",
+    "Account or SIM activated",
+    "Consented attributes returned; the transaction is metered and logged."
+   ]
+  ],
+  "logical": [
+   [
+    "Channels",
+    [
+     "Bank app",
+     "Telco app",
+     "Agent tablet"
+    ]
+   ],
+   [
+    "Access & API",
+    [
+     "IDVS API (REST / OIDC)",
+     "mTLS, signed requests"
+    ]
+   ],
+   [
+    "SAVIS services",
+    [
+     "SAVIS IDVS",
+     "Biometric 1:1",
+     "Consent & attribute release"
+    ]
+   ],
+   [
+    "Trust & crypto core",
+    [
+     "Request signing",
+     "Audit log"
+    ]
+   ],
+   [
+    "Enterprise systems",
+    [
+     "SAVIS IDMS",
+     "SAVIS ABIS",
+     "Partner billing"
+    ]
+   ]
+  ],
+  "system": [
+   [
+    "Relying parties",
+    [
+     "Banks",
+     "Telcos",
+     "Agencies"
+    ]
+   ],
+   [
+    "DMZ",
+    [
+     "API gateway",
+     "Partner auth"
+    ]
+   ],
+   [
+    "Application zone",
+    [
+     "IDVS services"
+    ]
+   ],
+   [
+    "Secure zone",
+    [
+     "IDMS register",
+     "ABIS matchers"
+    ]
+   ],
+   [
+    "Core & integration",
+    [
+     "Billing",
+     "Audit / SOC"
+    ]
+   ]
+  ],
+  "benefits": [
+   "One trusted check instead of many copies of the register",
+   "Consent-based data minimisation",
+   "Biometric verification stops impersonation",
+   "Per-transaction revenue model for the identity authority"
+  ],
+  "scene": null
+ },
+ {
+  "id": "bank-open-api-ecosystem",
+  "pillar": "finance",
+  "name": "Open API ecosystem for a retail bank: VPBank",
+  "tagline": "Partners embed payments, wallet linking, savings and bonds — every call consented, authenticated and monitored.",
+  "problem": "A bank that opens its services to e-wallets, fintechs and securities firms has to onboard partners safely, capture consent for every link, authenticate customers strongly and meet SBV Circular 64/2024 — without slowing partners down.",
+  "industries": [
+   "bfsi",
+   "payments",
+   "retail"
+  ],
+  "cases": [
+   "vpbank-open-banking"
+  ],
+  "products": [
+   "open-banking-suite",
+   "open-banking-portal",
+   "tpp-manager",
+   "consent-management",
+   "mobile-identity-sca",
+   "kms",
+   "api-security-transaction-signing"
+  ],
+  "ui": "mobile",
+  "flow": [
+   [
+    "list",
+    "Link in a partner app",
+    "In a partner e-wallet, the customer chooses to link a bank account or card.",
+    [
+     "VPBank payment account",
+     "VPBank card"
+    ]
+   ],
+   [
+    "login",
+    "Open the bank app",
+    "The partner redirects to the bank; credentials never reach the partner."
+   ],
+   [
+    "consent",
+    "Approve what is shared",
+    "The customer sees exactly what the partner may do.",
+    [
+     "Link account to e-wallet",
+     "Show available balance",
+     "Recurring bill payments"
+    ]
+   ],
+   [
+    "bio",
+    "Strong authentication",
+    "Biometrics in the bank app; the partner receives FAPI-protected, sender-constrained tokens."
+   ],
+   [
+    "success",
+    "Linked and in control",
+    "Top-ups, bill payments, savings and bond orders run through consented APIs; links can be revoked at any time."
+   ]
+  ],
+  "logical": [
+   [
+    "Channels",
+    [
+     "Partner apps (e-wallets, fintechs, securities firms)",
+     "Bank app",
+     "Developer portal"
+    ]
+   ],
+   [
+    "Access & API",
+    [
+     "API gateway (FAPI · OAuth 2.0 · mTLS)",
+     "Partner sandbox"
+    ]
+   ],
+   [
+    "SAVIS services",
+    [
+     "TPP Manager",
+     "Consent Management",
+     "Open Banking portal & CMS"
+    ]
+   ],
+   [
+    "Trust & crypto core",
+    [
+     "KMS & partner certificates",
+     "Decoupled SCA"
+    ]
+   ],
+   [
+    "Enterprise systems",
+    [
+     "Core banking",
+     "Cards",
+     "Payments",
+     "Securities"
+    ]
+   ]
+  ],
+  "system": [
+   [
+    "Users & Internet",
+    [
+     "Customers",
+     "Partners & fintechs"
+    ]
+   ],
+   [
+    "DMZ",
+    [
+     "API gateway",
+     "Developer portal"
+    ]
+   ],
+   [
+    "Application zone",
+    [
+     "TPP & consent services",
+     "SCA server"
+    ]
+   ],
+   [
+    "Secure zone",
+    [
+     "KMS / HSM"
+    ]
+   ],
+   [
+    "Core & integration",
+    [
+     "Core banking",
+     "Card & payment systems"
+    ]
+   ]
+  ],
+  "benefits": [
+   "One platform for VPBank Open API service families: online payments, e-wallet linking, balance sharing, savings, payment authorisation and bond trading",
+   "Partner onboarding, certificates and monitoring built in",
+   "Consent and strong authentication consistent across every API",
+   "Built for SBV Circular 64/2024"
+  ],
+  "scene": null
+ },
+ {
+  "id": "vneid-trustsign-remote-signing",
+  "pillar": "identity",
+  "name": "From VNeID to a remote signature on mobile with TrustSign",
+  "tagline": "Prove identity with VNeID and the chip ID card, receive a certificate and sign a contract — all on the phone.",
+  "problem": "Signing a loan, insurance or service contract remotely needs three things at once: identity proofing to a high level, a certificate issued to the right person, and a signature only that person can activate. Separate apps and paper checks lose customers — and leave gaps for document fraud and deepfakes.",
+  "industries": [
+   "bfsi",
+   "telco",
+   "government",
+   "retail"
+  ],
+  "cases": [
+   "remote-signing-vneid",
+   "hdsaison-remote-signing",
+   "fecredit-remote-signing"
+  ],
+  "products": [
+   "vneid-integration",
+   "id-verification",
+   "trustca-ekyc-biometric",
+   "remote-signing",
+   "trustsign-mobile",
+   "signing-gateway",
+   "econtract",
+   "trustca-timestamp"
+  ],
+  "ui": "mobile",
+  "flow": [
+   [
+    "login",
+    "Sign in with VNeID",
+    "The customer authorises the national identity app to share identity data.",
+    [
+     "Full name, date of birth",
+     "ID number",
+     "Consent recorded"
+    ]
+   ],
+   [
+    "nfc",
+    "Tap the chip ID card",
+    "NFC reads the chip and checks its government signature, so the data cannot be forged."
+   ],
+   [
+    "face",
+    "Face match and liveness",
+    "The live face is matched to the chip photo, with deepfake and injection-attack detection."
+   ],
+   [
+    "key",
+    "Certificate issued",
+    "TrustCA issues the signing certificate; the key stays in the HSM and is bound to TrustSign on this phone."
+   ],
+   [
+    "sign",
+    "Review and sign",
+    "The contract opens in the app; PIN or biometrics in TrustSign activates the remote signature."
+   ],
+   [
+    "success",
+    "Signed and verifiable",
+    "A PAdES signature with timestamp and validation data goes to the bank and to the customer."
+   ]
+  ],
+  "logical": [
+   [
+    "Channels",
+    [
+     "Bank or partner app",
+     "TrustSign Mobile",
+     "VNeID"
+    ]
+   ],
+   [
+    "Access & API",
+    [
+     "Signing gateway (CSC API)",
+     "VNeID connector with consent"
+    ]
+   ],
+   [
+    "SAVIS services",
+    [
+     "Identity proofing: NFC · face · liveness",
+     "TrustCA certificate issuance",
+     "Remote signing · e-contract"
+    ]
+   ],
+   [
+    "Trust & crypto core",
+    [
+     "HSM · remote QSCD",
+     "Timestamp & validation (TSA · OCSP)"
+    ]
+   ],
+   [
+    "Enterprise systems",
+    [
+     "Loan origination",
+     "Core banking",
+     "Document archive"
+    ]
+   ]
+  ],
+  "system": [
+   [
+    "Users & Internet",
+    [
+     "Customers",
+     "VNeID platform"
+    ]
+   ],
+   [
+    "DMZ",
+    [
+     "API gateway",
+     "Signing gateway"
+    ]
+   ],
+   [
+    "Application zone",
+    [
+     "eKYC & proofing engine",
+     "CA / RA",
+     "Signature activation"
+    ]
+   ],
+   [
+    "Secure zone",
+    [
+     "HSM (remote QSCD)",
+     "TSA"
+    ]
+   ],
+   [
+    "Core & integration",
+    [
+     "LOS & core banking",
+     "Archive"
+    ]
+   ]
+  ],
+  "benefits": [
+   "Identity proofing, certificate and signature in one mobile journey",
+   "Chip data and face checked against the national ID — resistant to forged documents and deepfakes",
+   "Signing keys never leave the HSM; only the customer can activate them through TrustSign",
+   "Timestamps and long-term validation for every signed contract"
+  ],
+  "scene": null
+ },
+ {
+  "id": "palm-identity",
+  "pillar": "identity",
+  "name": "Touchless palm check-in for services and access",
+  "tagline": "Hover your palm to prove who you are — at a counter, kiosk or gate.",
+  "problem": "Cards and PINs are forgotten, shared or lost, and contact scanners slow down queues at service counters, border points and building entrances.",
+  "industries": [
+   "government",
+   "transport",
+   "enterprise",
+   "healthcare"
+  ],
+  "cases": [],
+  "products": [
+   "palm-biometrics",
+   "enrollment-station"
+  ],
+  "ui": "mobile",
+  "flow": [
+   [
+    "palm",
+    "Enrol your palm",
+    "Palm captured once with a phone camera or kiosk, with a liveness check."
+   ],
+   [
+    "consent",
+    "Give consent",
+    "The person agrees to use palm recognition for this service.",
+    [
+     "Purpose: service check-in",
+     "Stored: encrypted template",
+     "Withdraw at any time"
+    ]
+   ],
+   [
+    "palm",
+    "Hover to check in",
+    "Palm recognised at the counter, kiosk or gate in about a second."
+   ],
+   [
+    "review",
+    "Identity confirmed",
+    "1:1 or 1:N match returns the verified identity to the service.",
+    [
+     [
+      "Match",
+      "1:1 · verified"
+     ],
+     [
+      "Liveness",
+      "Passed"
+     ],
+     [
+      "Service",
+      "Counter 04"
+     ]
+    ]
+   ],
+   [
+    "success",
+    "Served",
+    "Ticket issued, door opened or service started — no card needed."
+   ]
+  ],
+  "logical": [
+   [
+    "Channels",
+    [
+     "Phone app",
+     "Kiosks",
+     "Gates & counters"
+    ]
+   ],
+   [
+    "Access & API",
+    [
+     "Capture SDK",
+     "Matching API"
+    ]
+   ],
+   [
+    "SAVIS services",
+    [
+     "Palm Biometrics",
+     "Liveness",
+     "Matching"
+    ]
+   ],
+   [
+    "Trust & crypto core",
+    [
+     "Template encryption",
+     "Audit log"
+    ]
+   ],
+   [
+    "Enterprise systems",
+    [
+     "Service & queue systems",
+     "Access control"
+    ]
+   ]
+  ],
+  "system": [
+   [
+    "Users & Internet",
+    [
+     "Phones",
+     "Kiosks"
+    ]
+   ],
+   [
+    "DMZ",
+    [
+     "API gateway"
+    ]
+   ],
+   [
+    "Application zone",
+    [
+     "Matching service"
+    ]
+   ],
+   [
+    "Secure zone",
+    [
+     "Encrypted template store"
+    ]
+   ],
+   [
+    "Core & integration",
+    [
+     "Service, border and access systems"
+    ]
+   ]
+  ],
+  "benefits": [
+   "Touchless and hygienic",
+   "Nothing to carry or forget",
+   "Templates, not images, are stored"
+  ],
+  "scene": null
+ }
+]
