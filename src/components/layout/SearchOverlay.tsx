@@ -24,7 +24,8 @@ export function SearchOverlay({ open, onClose, mac }: { open: boolean; onClose: 
     return () => { document.body.style.overflow = prevOverflow; };
   }, [open, index, failed]);
 
-  const results = useMemo(() => (index ? search(index, q, 24) : []), [index, q]);
+  // With nothing typed yet, offer the solutions as a starting point instead of an empty box.
+  const results = useMemo(() => (!index ? [] : q.trim() ? search(index, q, 24) : index.filter((e) => e.k === "Solution")), [index, q]);
   const groups = useMemo(() => groupResults(results), [results]);
   const flat = useMemo(() => groups.flatMap(([, items]) => items), [groups]);
 
@@ -68,8 +69,7 @@ export function SearchOverlay({ open, onClose, mac }: { open: boolean; onClose: 
         <div className="sv-sr__body" ref={list} id="sv-sr-list" role="listbox" aria-label="Results">
           {failed && <p className="sv-sr__msg">Search is unavailable right now. Try again in a moment.</p>}
           {!failed && !index && <p className="sv-sr__msg">Loading…</p>}
-          {index && !q.trim() && <p className="sv-sr__msg">Type to search {index.length} pages: solutions, products, use cases, customer stories and articles.</p>}
-          {index && q.trim() && flat.length === 0 && (
+                    {index && q.trim() && flat.length === 0 && (
             <p className="sv-sr__msg">No results for “{q.trim()}”. Try fewer words, or <button type="button" onClick={() => go("/contact")}>ask an expert</button>.</p>
           )}
           {groups.map(([kind, items]) => (
@@ -88,7 +88,7 @@ export function SearchOverlay({ open, onClose, mac }: { open: boolean; onClose: 
               })}
             </div>
           ))}
-          {flat.length > 0 && (
+          {q.trim() && flat.length > 0 && (
             <a className="sv-sr__all" href={all} onClick={(e) => { e.preventDefault(); go(all); }}>See all results →</a>
           )}
         </div>
