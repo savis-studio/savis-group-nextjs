@@ -55,11 +55,14 @@
 .sv-aud__links b{font-size:15px;line-height:1.3}
 
 /* ---------- Pillars row ---------- */
-.sv-home__pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-18)}
+.sv-home__pillars{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--space-12,12px)}
 .sv-home__pillars .sv-pillar{min-height:0;padding:14px 14px 22px}
 .sv-home__pillars .sv-pillar .uc-th{margin-bottom:6px;aspect-ratio:16/7}
-.sv-home__pillars .sv-pillar h3{font-size:21px}
+.sv-home__pillars .sv-pillar h3{font-size:16px;line-height:1.25}
 .sv-home__pillars .sv-pillar h3,.sv-home__pillars .sv-pillar p,.sv-home__pillars .sv-pillar__num,.sv-home__pillars .sv-pillar__tags{margin-inline:8px}
+.sv-home__pillars .sv-pillar p{font-size:13.5px}
+.sv-home__pillars .sv-pillar .sv-chip:nth-child(n+4){display:none}
+.sv-home__pillars .sv-pillar .uc-th{aspect-ratio:16/9}
 .sv-home__more{font-weight:600;color:var(--brand);text-decoration:none}
 .sv-home__more:hover{text-decoration:underline}
 
@@ -124,7 +127,8 @@
   .sv-aud__tabs{grid-template-columns:repeat(3,minmax(0,1fr))}
   .sv-aud__pane{grid-template-columns:1fr}
   .sv-home__grid4{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .sv-home__pillars,.sv-home__grid3{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .sv-home__pillars{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .sv-home__grid3{grid-template-columns:repeat(2,minmax(0,1fr))}
   .sv-home__pillars>.sv-pillar--lead{grid-column:1/-1}
 }
 @media (max-width:760px){
