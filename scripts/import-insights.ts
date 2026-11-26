@@ -14,6 +14,7 @@ const rows = (news as unknown as Raw[]).map((n, index) => ({
   data: {
     title: n.title,
     slug: n.id,
+    _status: "published" as const,
     order: index,
     type: (["insight", "news", "press"].includes(n.type) ? n.type : "insight") as "insight" | "news" | "press",
     cat: n.cat,

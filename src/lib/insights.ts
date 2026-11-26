@@ -20,12 +20,20 @@ const label = (iso: string) => {
   return `${d.getUTCDate()} ${MONTHS[d.getUTCMonth()]} ${d.getUTCFullYear()}`;
 };
 
-/** Reads every article from the CMS. Throws when the database is unreachable, so a failure is never cached. */
+/** Reads every published article from the CMS; null when the CMS holds no article at all. Throws when the database is unreachable, so a failure is never cached. */
 const readAll = unstable_cache(
   async (): Promise<ArticleDetail[] | null> => {
     const payload = await getPayload({ config });
-    const res = await payload.find({ collection: "insights", limit: 500, sort: ["order", "-publishedAt"], depth: 0, pagination: false });
-    if (res.docs.length === 0) return null;
+    const res = await payload.find({
+      collection: "insights",
+      where: { _status: { equals: "published" } },
+      limit: 500,
+      sort: ["order", "-publishedAt"],
+      depth: 1, // images and internal links inside the body
+      pagination: false,
+    });
+    // Everything unpublished means an empty list, not a fall back to the bundled articles.
+    if (res.docs.length === 0 && (await payload.count({ collection: "insights" })).totalDocs === 0) return null;
     return res.docs.map((d) => ({
       id: d.slug,
       cat: d.cat,

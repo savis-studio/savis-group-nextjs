@@ -20,6 +20,7 @@ Mẫu ở `.env.example`. Không commit file này.
 | `ALLOWED_ORIGINS` | Origin bổ sung, cách nhau bằng dấu phẩy. Thường để trống hoặc trùng `SERVER_URL`. |
 | `INDEXABLE_HOST` | `savis-group.com`. Host khác (hostname tạm) tự nhận `X-Robots-Tag: noindex`. |
 | `CF_ACCESS_TEAM_DOMAIN`, `CF_ACCESS_AUD` | Của Access application. Thiếu thì production từ chối `/admin` và `/api` (503). |
+| `CF_ACCESS_MCP_AUD` | Tùy chọn. AUD của Access application riêng cho `/api/mcp` (xem mục MCP). Chỉ mở được đường dẫn đó. |
 | `TUNNEL_TOKEN` | Từ Cloudflare Zero Trust → Tunnels. |
 | `HUBSPOT_PORTAL_ID`, `HUBSPOT_FORM_ID` | Tùy chọn. Có cả hai thì tin nhắn từ form liên hệ được gửi thêm sang form HubSpot (xem cột `hubspot` trong Leads → Inquiries: sent hoặc failed). Bỏ trống thì chỉ lưu trong Payload. |
 | `CLOUDFLARED_TAG` | Phiên bản `cloudflared` cố định, lấy ở trang releases của cloudflared. |
@@ -58,6 +59,28 @@ DATABASE_URL=postgres://... npx payload migrate:create <tên>
   docker compose exec -T postgres pg_restore -U savis -d savis --clean --if-exists < backups/<file>.dump
   ./deploy.sh "$(cat .deploy-previous)"
   ```
+
+## Bản nháp và MCP
+
+**Bản nháp.** Bài viết có `Save Draft` và `Publish changes`. Website chỉ đọc bài đã xuất bản. Migration `drafts_mcp` đánh dấu mọi bài đang có là đã xuất bản. Rollback qua migration này phải khôi phục database (mục Rollback): code cũ không biết trạng thái nháp nên sẽ hiện cả bài nháp.
+
+**MCP** (`/api/mcp`) cho trợ lý AI tìm, tạo và sửa bài viết. Mọi thứ AI lưu là bản nháp, kể cả khi sửa bài đang đăng; AI không xoá, không xuất bản, không ghi đè bài đang có người mở sửa. Chưa có API key thì endpoint từ chối mọi yêu cầu.
+
+Bật sau khi triển khai:
+
+1. Cloudflare Zero Trust → Access → Service Auth: tạo service token (ví dụ `savis-mcp`). Client Secret chỉ hiện một lần.
+2. Access → Applications: tạo application **riêng** cho `savis-group.com/api/mcp`, một policy hành động **Service Auth** chứa đúng token đó. Không thêm token vào application của `/admin` và `/api`.
+3. Ghi AUD của application mới vào `CF_ACCESS_MCP_AUD` trong `~/savis/.env`, chép `docker-compose.yml` mới lên VPS, chạy `docker compose up -d app`.
+4. Trong admin, bằng tài khoản Admin: tạo user vai trò **Editor** chỉ dùng cho AI, rồi **MCP → API Keys → Create New**: chọn user đó, bấm **Generate new API key** và chép key ngay (không hiện lại), tick Find, Create, Update, **Save**.
+5. Kết nối (khoá đặt trong biến môi trường, không ghi vào repo):
+
+```
+claude mcp add --transport http savis-payload https://savis-group.com/api/mcp   --header "Authorization: Bearer $SAVIS_MCP_KEY"   --header "CF-Access-Client-Id: $CF_ACCESS_CLIENT_ID"   --header "CF-Access-Client-Secret: $CF_ACCESS_CLIENT_SECRET"
+```
+
+Thu hồi: **Revoke API key** hoặc xoá key trong admin, và thu hồi service token ở Cloudflare. Xoá user của AI thì xoá key của user đó trước.
+
+Plugin MCP dựng schema bằng API JavaScript của TypeScript, nên giữ `typescript` dưới phiên bản 7 và để trong `dependencies`. Phiên bản `@payloadcms/plugin-mcp` phải trùng với `payload`.
 
 ## Việc thường xuyên
 

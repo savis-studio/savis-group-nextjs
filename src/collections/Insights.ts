@@ -1,9 +1,11 @@
-import { BlocksFeature, lexicalEditor } from "@payloadcms/richtext-lexical";
+import { BlocksFeature, LinkFeature, UploadFeature, lexicalEditor } from "@payloadcms/richtext-lexical";
 import { revalidatePath, revalidateTag } from "next/cache";
 import type { CollectionAfterChangeHook, CollectionAfterDeleteHook, CollectionBeforeChangeHook, CollectionConfig } from "payload";
-import { isAdmin, isStaff, publicRead } from "../access";
+import { isAdmin, isStaff, publishedOrStaff } from "../access";
 import { insightBlocks } from "../blocks/insights";
 import { INSIGHTS_TAG } from "../lib/cache-tags";
+import { validateSlug } from "../lib/slug";
+import { draftOnlyForMcp } from "../mcp";
 import { auditChange, auditDelete } from "./audit";
 
 const purge = (slug?: string, context?: Record<string, unknown>) => {
@@ -31,14 +33,20 @@ const placeFirst: CollectionBeforeChangeHook = async ({ data, operation, req }) 
 export const Insights: CollectionConfig = {
   slug: "insights",
   labels: { singular: "Article", plural: "Articles (Insights & News)" },
-  admin: { useAsTitle: "title", defaultColumns: ["title", "type", "cat", "publishedAt"] },
+  admin: { useAsTitle: "title", defaultColumns: ["title", "_status", "type", "cat", "publishedAt"] },
   defaultSort: "-publishedAt",
-  access: { read: publicRead, create: isStaff, update: isStaff, delete: isAdmin },
-  versions: { maxPerDoc: 25 },
-  hooks: { beforeChange: [placeFirst], afterChange: [afterChange, auditChange], afterDelete: [afterDelete, auditDelete] },
+  access: { read: publishedOrStaff, readVersions: isStaff, create: isStaff, update: isStaff, delete: isAdmin },
+  // "Save draft" keeps work off the site until "Publish changes". Drafts are validated like published articles.
+  versions: { drafts: { validate: true }, maxPerDoc: 25 },
+  // What an internal link needs to know about the article it points at (not its whole body).
+  defaultPopulate: { slug: true, title: true, _status: true },
+  hooks: { beforeOperation: [draftOnlyForMcp], beforeChange: [placeFirst], afterChange: [afterChange, auditChange], afterDelete: [afterDelete, auditDelete] },
   fields: [
     { name: "title", type: "text", required: true },
-    { name: "slug", type: "text", required: true, unique: true, index: true, admin: { description: "URL: /insights/<slug>. Changing it breaks existing links." } },
+    {
+      name: "slug", type: "text", required: true, unique: true, index: true, validate: (value: unknown) => validateSlug(value),
+      admin: { description: "URL: /insights/<slug>. Lowercase letters, digits and hyphens. Changing it breaks existing links." },
+    },
     {
       type: "row",
       fields: [
@@ -61,7 +69,15 @@ export const Insights: CollectionConfig = {
     },
     {
       name: "body", type: "richText",
-      editor: lexicalEditor({ features: ({ defaultFeatures }) => [...defaultFeatures, BlocksFeature({ blocks: insightBlocks })] }),
+      // Only what the article page can show: no relationship nodes, images from Media, internal links to articles.
+      editor: lexicalEditor({
+        features: ({ defaultFeatures }) => [
+          ...defaultFeatures.filter((f) => !["relationship", "upload", "link"].includes(f.key)),
+          UploadFeature({ enabledCollections: ["media"] }),
+          LinkFeature({ enabledCollections: ["insights"] }),
+          BlocksFeature({ blocks: insightBlocks }),
+        ],
+      }),
     },
   ],
 };

@@ -16,11 +16,15 @@ export const isStaff: Access = ({ req }) => hasRole(req.user, "admin") || hasRol
 /** Admins see every user; everyone else only sees their own record. */
 export const isAdminOrSelf: Access = ({ req }) => {
   if (hasRole(req.user, "admin")) return true;
-  if (req.user) return { id: { equals: req.user.id } };
+  // People only: an MCP key is also a signed-in principal, and its id must not match a user's id.
+  if (req.user?.collection === "users") return { id: { equals: req.user.id } };
   return false;
 };
 
 export const publicRead: Access = () => true;
+/** Staff read everything; everyone else only what has been published (collections with drafts). */
+export const publishedOrStaff: Access = ({ req }) =>
+  hasRole(req.user, "admin") || hasRole(req.user, "editor") || { _status: { equals: "published" } };
 export const nobody: Access = () => false;
 
 /** Field-level: only admins may set roles. */

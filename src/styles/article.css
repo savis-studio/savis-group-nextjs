@@ -5,6 +5,8 @@
 .dt-tbl thead th { background: rgb(11, 31, 77); color: rgb(255, 255, 255); text-align: left; padding: 12px 14px; font-size: 13px; }
 .dt-tbl td,.dt-tbl tbody th { padding: 11px 14px; border-top: 1px solid var(--line); vertical-align: top; text-align: left; }
 .dt-tbl tbody th { color: var(--ink); font-weight: 700; background: var(--surface); white-space: nowrap; }
+.article .af-img { margin: 0px 0px 1.6em; }
+.article .af-img img { display: block; max-width: 100%; height: auto; margin: 0px auto; border-radius: 16px; }
 .article .af-h { font: 700 26px/1.25 var(--font-display); color: var(--ink); margin: 1.6em 0px 0.7em; }
 .af-key { border-left: 4px solid var(--brand); background: var(--surface); padding: 16px 20px; border-radius: 0 14px 14px 0; font-size: 16.5px; line-height: 1.6; }
 .af-key b { color: var(--ink); }

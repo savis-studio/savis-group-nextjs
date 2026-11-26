@@ -6,6 +6,15 @@ export interface AccessConfig {
   teamDomain: string;
   /** The application's AUD tag. */
   audience: string;
+  /** AUD tag of a second application that covers only /api/mcp (assistants sign in there with a service token). */
+  mcpAudience?: string;
+}
+
+const MCP_PATH = /^\/api\/mcp\/?$/;
+
+/** AUD tags accepted for a path: the MCP application's tag opens /api/mcp and nothing else. */
+export function audiencesFor(pathname: string, config: AccessConfig): string[] {
+  return config.mcpAudience && MCP_PATH.test(pathname) ? [config.audience, config.mcpAudience] : [config.audience];
 }
 
 let remote: { domain: string; keys: JWTVerifyGetKey } | undefined;
@@ -22,13 +31,13 @@ export function normalizeTeamDomain(value: string): string {
   return value.trim().replace(/^https?:\/\//i, "").replace(/\/+$/, "");
 }
 
-/** True when the token is a valid, unexpired Cloudflare Access JWT for this application. `keys` is for tests. */
-export async function verifyAccessJwt(token: string, config: AccessConfig, keys?: JWTVerifyGetKey): Promise<boolean> {
+/** True when the token is a valid, unexpired Cloudflare Access JWT for this path. `keys` is for tests. */
+export async function verifyAccessJwt(token: string, config: AccessConfig, pathname: string, keys?: JWTVerifyGetKey): Promise<boolean> {
   if (!token) return false;
   try {
     await jwtVerify(token, keys ?? remoteKeys(config.teamDomain), {
       issuer: `https://${config.teamDomain}`,
-      audience: config.audience,
+      audience: audiencesFor(pathname, config),
       algorithms: ["RS256"],
     });
     return true;
@@ -51,6 +60,7 @@ export function accessMode(env: NodeJS.ProcessEnv = process.env): AccessMode {
   if (env.CF_ACCESS_ENFORCE === "off") return { mode: "off" };
   const teamDomain = normalizeTeamDomain(env.CF_ACCESS_TEAM_DOMAIN ?? "");
   const audience = (env.CF_ACCESS_AUD ?? "").trim();
-  if (teamDomain && audience) return { mode: "enforce", config: { teamDomain, audience } };
+  const mcpAudience = (env.CF_ACCESS_MCP_AUD ?? "").trim() || undefined;
+  if (teamDomain && audience) return { mode: "enforce", config: { teamDomain, audience, mcpAudience } };
   return env.NODE_ENV === "production" ? { mode: "misconfigured" } : { mode: "off" };
 }

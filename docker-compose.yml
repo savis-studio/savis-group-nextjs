@@ -45,6 +45,7 @@ services:
       HUBSPOT_FORM_ID: ${HUBSPOT_FORM_ID:-}
       CF_ACCESS_TEAM_DOMAIN: ${CF_ACCESS_TEAM_DOMAIN:-}
       CF_ACCESS_AUD: ${CF_ACCESS_AUD:-}
+      CF_ACCESS_MCP_AUD: ${CF_ACCESS_MCP_AUD:-}
       CF_ACCESS_ENFORCE: ${CF_ACCESS_ENFORCE:-}
     volumes:
       - media:/app/media

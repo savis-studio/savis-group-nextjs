@@ -3,6 +3,7 @@ import * as migration_20261125_041332_inquiries from './20261125_041332_inquirie
 import * as migration_20261125_043957_insights from './20261125_043957_insights';
 import * as migration_20261125_080132_inquiry_hubspot from './20261125_080132_inquiry_hubspot';
 import * as migration_20261125_081626_inquiry_services from './20261125_081626_inquiry_services';
+import * as migration_20261126_023131_drafts_mcp from './20261126_023131_drafts_mcp';
 
 export const migrations = [
   {
@@ -28,6 +29,11 @@ export const migrations = [
   {
     up: migration_20261125_081626_inquiry_services.up,
     down: migration_20261125_081626_inquiry_services.down,
-    name: '20261125_081626_inquiry_services'
+    name: '20261125_081626_inquiry_services',
+  },
+  {
+    up: migration_20261126_023131_drafts_mcp.up,
+    down: migration_20261126_023131_drafts_mcp.down,
+    name: '20261126_023131_drafts_mcp'
   },
 ];

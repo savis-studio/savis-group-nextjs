@@ -12,6 +12,7 @@ import { Inquiries } from "./collections/Inquiries";
 import { Media } from "./collections/Media";
 import { Pillars } from "./collections/Pillars";
 import { Users } from "./collections/Users";
+import { savisMcp } from "./mcp";
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 const databaseUrl = process.env.DATABASE_URL ?? "file:./data/payload.db";
@@ -29,6 +30,7 @@ export default buildConfig({
   admin: { user: Users.slug, importMap: { baseDir: path.resolve(dirname) } },
   collections: [Users, Media, Pillars, Industries, Insights, Inquiries, AuditLogs],
   editor: lexicalEditor(),
+  plugins: [savisMcp],
   secret: process.env.PAYLOAD_SECRET ?? "",
   typescript: { outputFile: path.resolve(dirname, "payload-types.ts") },
   graphQL: { disable: true },

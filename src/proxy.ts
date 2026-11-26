@@ -23,7 +23,7 @@ export async function proxy(request: NextRequest) {
       response = refuse(503, "Access is not configured.");
     } else if (access.mode === "enforce") {
       const token = request.headers.get("cf-access-jwt-assertion") ?? "";
-      if (!(await verifyAccessJwt(token, access.config))) response = refuse(403, "Forbidden");
+      if (!(await verifyAccessJwt(token, access.config, request.nextUrl.pathname))) response = refuse(403, "Forbidden");
     }
   }
 
