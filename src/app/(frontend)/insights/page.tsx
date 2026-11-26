@@ -45,15 +45,15 @@ export default async function InsightsPage() {
       label="Insights"
       lead="What is changing in digital trust, what SAVIS is announcing, the rules that shape the market, and projects running in production."
       aside={
-        <div className="sv-feat">
+        <div className="sv-hfeat">
           {latest && (
-            <SmartLink href={`/insights/${latest.id}`} className="sv-feat__c">
+            <SmartLink href={`/insights/${latest.id}`} className="sv-hfeat__c">
               <Thumb spec={newsThumb(latest)} big />
               <span><em>Latest news</em><b>{latest.title}</b></span>
             </SmartLink>
           )}
           {featured && (
-            <SmartLink href={`/customers/${featured.id}`} className="sv-feat__c sv-feat__c--s">
+            <SmartLink href={`/customers/${featured.id}`} className="sv-hfeat__c sv-hfeat__c--s">
               <Thumb spec={caseThumb(featured)} big />
               <span><em>Featured case study</em><b>{featured.title}</b></span>
             </SmartLink>
