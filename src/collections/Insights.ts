@@ -5,7 +5,7 @@ import { isAdmin, isStaff, publishedOrStaff } from "../access";
 import { insightBlocks } from "../blocks/insights";
 import { INSIGHTS_TAG } from "../lib/cache-tags";
 import { validateSlug } from "../lib/slug";
-import { draftOnlyForMcp } from "../mcp";
+import { draftOnlyForMcp, keepHtmlBlocks } from "../mcp";
 import { auditChange, auditDelete } from "./audit";
 
 const purge = (slug?: string, context?: Record<string, unknown>) => {
@@ -40,7 +40,7 @@ export const Insights: CollectionConfig = {
   versions: { drafts: { validate: true }, maxPerDoc: 25 },
   // What an internal link needs to know about the article it points at (not its whole body).
   defaultPopulate: { slug: true, title: true, _status: true },
-  hooks: { beforeOperation: [draftOnlyForMcp], beforeChange: [placeFirst], afterChange: [afterChange, auditChange], afterDelete: [afterDelete, auditDelete] },
+  hooks: { beforeOperation: [draftOnlyForMcp], beforeChange: [keepHtmlBlocks, placeFirst], afterChange: [afterChange, auditChange], afterDelete: [afterDelete, auditDelete] },
   fields: [
     { name: "title", type: "text", required: true },
     {

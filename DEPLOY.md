@@ -65,6 +65,9 @@ DATABASE_URL=postgres://... npx payload migrate:create <tên>
 **Bản nháp.** Bài viết có `Save Draft` và `Publish changes`. Website chỉ đọc bài đã xuất bản. Migration `drafts_mcp` đánh dấu mọi bài đang có là đã xuất bản. Rollback qua migration này phải khôi phục database (mục Rollback): code cũ không biết trạng thái nháp nên sẽ hiện cả bài nháp.
 
 **MCP** (`/api/mcp`) cho trợ lý AI tìm, tạo và sửa bài viết. Mọi thứ AI lưu là bản nháp, kể cả khi sửa bài đang đăng; AI không xoá, không xuất bản, không ghi đè bài đang có người mở sửa. Chưa có API key thì endpoint từ chối mọi yêu cầu.
+AI cũng không thêm hoặc sửa khối **HTML** và **Diagram (HTML)**; khối có sẵn thì gửi lại nguyên văn hoặc bỏ đi.
+
+**Khối HTML** (của cả người và AI) được lọc khi hiển thị: chỉ thẻ chữ và hình vẽ SVG trong `src/lib/sanitize.ts` lên được trang. Script, mã sự kiện, iframe (kể cả video nhúng), form, thẻ `<style>` và liên kết `javascript:` bị bỏ. Cần thêm thẻ nào thì bổ sung vào file đó.
 
 Bật sau khi triển khai:
 

@@ -4,6 +4,7 @@
  * a converted block reproduces its source before it is accepted (see scripts/import-insights.ts).
  */
 import { escapeHtml as e, renderInline as i } from "./inline";
+import { sanitizeHtml } from "./sanitize";
 
 export type TextItem = { text?: string | null };
 
@@ -53,14 +54,6 @@ export type BlockType = keyof BlockFieldsMap;
 const list = <T>(x: T[] | null | undefined): T[] => x ?? [];
 const num = (n: number) => String(Math.round(n * 10) / 10);
 
-/** Raw diagram markup comes only from staff, but scripts and inline handlers are stripped anyway. */
-export function sanitizeHtml(html: string): string {
-  return html
-    .replace(/<script[\s\S]*?<\/script>/gi, "")
-    .replace(/\son[a-z]+\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/gi, "")
-    .replace(/(href|src|xlink:href)\s*=\s*("\s*javascript:[^"]*"|'\s*javascript:[^']*')/gi, '$1="#"');
-}
-
 const RENDER: { [K in BlockType]: (f: BlockFieldsMap[K]) => string } = {
   keyPoint: (f) => `<div class="af-key">${i(f.text)}</div>`,
   note: (f) => `<p class="af-note">${i(f.text)}</p>`,
@@ -80,7 +73,7 @@ const RENDER: { [K in BlockType]: (f: BlockFieldsMap[K]) => string } = {
         );
       })
       .join("");
-    return `<div class="${cls}">${cards}</div>`;
+    return `<div class="${e(cls)}">${cards}</div>`;
   },
 
   steps: (f) =>
@@ -154,13 +147,13 @@ const RENDER: { [K in BlockType]: (f: BlockFieldsMap[K]) => string } = {
           `<div class="al-col"><b class="al-h">${i(c.heading)}</b>${list(c.items)
             .map(
               (x) =>
-                `<div class="al-it ${x.status}"><div><strong>${i(x.name)}</strong>${x.tag ? `<em>${i(x.tag)}</em>` : ""}</div>${x.text ? `<span>${i(x.text)}</span>` : ""}</div>`,
+                `<div class="al-it ${e(String(x.status ?? ""))}"><div><strong>${i(x.name)}</strong>${x.tag ? `<em>${i(x.tag)}</em>` : ""}</div>${x.text ? `<span>${i(x.text)}</span>` : ""}</div>`,
             )
             .join("")}</div>`,
       )
       .join("");
     const legend = list(f.legend);
-    const leg = legend.length ? `<div class="al-leg">${legend.map((l) => `<span class="${l.status}">${i(l.label)}</span>`).join("")}</div>` : "";
+    const leg = legend.length ? `<div class="al-leg">${legend.map((l) => `<span class="${e(String(l.status ?? ""))}">${i(l.label)}</span>`).join("")}</div>` : "";
     return `<div class="af-land">${cols}${leg}</div>`;
   },
 

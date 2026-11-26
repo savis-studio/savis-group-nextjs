@@ -88,11 +88,11 @@ export const insightBlocks: Block[] = [
     slug: "diagramHtml", labels: { singular: "Diagram (HTML)", plural: "Diagrams (HTML)" },
     fields: [
       { name: "kind", type: "text", admin: { description: "Informational: which diagram this is." } },
-      { name: "html", type: "code", required: true, admin: { language: "html", description: "Generated SVG diagram, kept as markup. Scripts and inline handlers are removed when rendered." } },
+      { name: "html", type: "code", required: true, admin: { language: "html", description: "Generated SVG diagram, kept as markup. Only the tags allowed in src/lib/sanitize.ts reach the page." } },
     ],
   },
   {
     slug: "htmlBlock", labels: { singular: "HTML", plural: "HTML" },
-    fields: [{ name: "html", type: "code", required: true, admin: { language: "html", description: "Scripts and inline handlers are removed when rendered." } }],
+    fields: [{ name: "html", type: "code", required: true, admin: { language: "html", description: "Text and drawing tags only: scripts, iframes, forms and style sheets are removed from the page." } }],
   },
 ];
