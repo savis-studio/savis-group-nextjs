@@ -22,29 +22,26 @@ export function splitName(full: string): { firstname: string; lastname: string }
   return { firstname: parts.slice(0, -1).join(" "), lastname: parts[parts.length - 1] };
 }
 
-/** The HubSpot default "message" property carries everything that has no property of its own. */
-export function composeMessage(l: HubSpotLead): string {
-  const meta = [
-    ["Topic", l.topic],
-    ["Interested in", l.pillar],
-    ["Services", l.services],
-    ["Timeline", l.timeline],
-    ["Page", l.sourcePath],
-  ].filter(([, v]) => v);
-  return `${meta.map(([k, v]) => `${k}: ${v}`).join("\n")}\n\n${l.message}`;
-}
-
+/**
+ * Form field to contact property. Every name here must be a field of the published HubSpot form, and the values of the
+ * dropdown and checkbox properties must match the lists in contact-options.ts character for character.
+ */
 export function buildPayload(l: HubSpotLead, ctx: { pageUri: string; hutk?: string; ip?: string }) {
   const { firstname, lastname } = splitName(l.name);
   const fields = [
-    { name: "email", value: l.email },
-    { name: "firstname", value: firstname },
-    ...(lastname ? [{ name: "lastname", value: lastname }] : []),
-    ...(l.organization ? [{ name: "company", value: l.organization }] : []),
-    ...(l.phone ? [{ name: "phone", value: l.phone }] : []),
-    ...(l.country ? [{ name: "country", value: l.country }] : []),
-    { name: "message", value: composeMessage(l) },
-  ];
+    ["email", l.email],
+    ["firstname", firstname],
+    ["lastname", lastname],
+    ["company", l.organization],
+    ["phone", l.phone],
+    ["country", l.country],
+    ["chu_e_quan_tam", l.pillar],
+    ["inquiry_topic", l.topic],
+    // Multiple-checkbox properties take their values separated by semicolons.
+    ["inquiry_services", l.services?.split(", ").join(";")],
+    ["inquiry_timeline", l.timeline],
+    ["message", l.message],
+  ].flatMap(([name, value]) => (value ? [{ name: name as string, value }] : []));
   return {
     fields,
     context: { pageUri: ctx.pageUri, pageName: "Contact | SAVIS Group", ...(ctx.hutk ? { hutk: ctx.hutk } : {}), ...(ctx.ip ? { ipAddress: ctx.ip } : {}) },

@@ -4,7 +4,7 @@ import config from "@payload-config";
 import { cookies, headers } from "next/headers";
 import { after } from "next/server";
 import { getPayload } from "payload";
-import { INQUIRY_SERVICES, INQUIRY_TOPICS } from "@/lib/contact-options";
+import { INQUIRY_SERVICES, INQUIRY_TIMELINES, INQUIRY_TOPICS } from "@/lib/contact-options";
 import { hubspotEnabled, sendToHubSpot, type HubSpotLead } from "@/lib/hubspot";
 import { absoluteUrl } from "@/lib/site";
 
@@ -64,7 +64,8 @@ export async function submitInquiry(_prev: ContactState, form: FormData): Promis
       phone: text(form, "phone", 40),
       pillar: text(form, "pillar", 120),
       services: form.getAll("services").map(String).filter((x) => (INQUIRY_SERVICES as readonly string[]).includes(x)).join(", "),
-      timeline: text(form, "timeline", 60),
+      // HubSpot rejects a whole submission over one unknown option, so only listed values go through.
+      timeline: INQUIRY_TIMELINES.find((x) => x === text(form, "timeline", 60)) ?? "",
       sourcePath: text(form, "sourcePath", 200),
     };
     const saved = await payload.create({

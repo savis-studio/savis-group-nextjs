@@ -2,10 +2,9 @@
 
 import { useActionState } from "react";
 import { Alert, Button, TextField } from "@/components/ui";
-import { INQUIRY_SERVICES, INQUIRY_TOPICS } from "@/lib/contact-options";
+import { INQUIRY_SERVICES, INQUIRY_TIMELINES, INQUIRY_TOPICS } from "@/lib/contact-options";
 import { submitInquiry, type ContactState } from "./actions";
 
-const TIMELINES = ["This quarter", "Within 6 months", "6–12 months", "Just exploring"];
 const INTERESTS = [
   "Digital Identity & Trust",
   "Cybersecurity & Quantum-Safe Infrastructure",
@@ -68,7 +67,7 @@ export function ContactForm({ defaultTopic }: { defaultTopic?: string }) {
       <Chips legend="What do you need?" name="topic" items={INQUIRY_TOPICS} type="radio" defaultValue={topic} error={e.topic} />
       <Chips legend="Services you may need" name="services" items={INQUIRY_SERVICES} type="checkbox" />
       <div style={{ maxWidth: 240 }}>
-        <TextField as="select" name="timeline" label="Timeline" options={opts(TIMELINES)} placeholder="Choose…" />
+        <TextField as="select" name="timeline" label="Timeline" options={opts(INQUIRY_TIMELINES)} placeholder="Choose…" />
       </div>
       <div className="sv-row2">
         <TextField name="name" label="Full name" required autoComplete="name" error={e.name} />
