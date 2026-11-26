@@ -1,14 +1,16 @@
-/* Generated from tokens.json v2. Do not edit. */
+/* Generated from tokens.json v3. Do not edit. */
 export const tokens = {
-  "version": 2,
+  "version": 3,
   "color": {
     "white": "#FFFFFF",
     "gray-50": "#F4F7FD",
     "gray-100": "#E3E9F4",
     "gray-400": "#7D879D",
     "gray-600": "#4F5B75",
+    "gray-700": "#26324F",
     "gray-800": "#1F2A44",
     "navy-900": "#0B1F4D",
+    "blue-25": "#EDF3FF",
     "blue-50": "#E7F0FF",
     "blue-100": "#E2EAFF",
     "blue-500": "#0052FF",
@@ -53,6 +55,9 @@ export const tokens = {
     "on-band": "#FFFFFF",
     "on-band-muted": "#E2EAFF",
     "band-eyebrow": "#C4F3FF",
+    "menu-link": "#26324F",
+    "menu-heading": "#0D4FE0",
+    "menu-hover": "#EDF3FF",
     "chip": "#E7F0FF",
     "chip-ink": "#0040C7",
     "info": "#0052FF",
@@ -93,7 +98,8 @@ export const tokens = {
     "shadow-cta": "0 10px 26px rgba(0,82,255,.32)",
     "shadow-on-band": "0 10px 24px rgba(4,20,80,.25)",
     "shadow-header": "0 1px 0 #E3E9F4, 0 6px 18px rgba(12,40,110,.05)",
-    "shadow-media": "0 24px 60px rgba(8,22,56,.18)"
+    "shadow-media": "0 24px 60px rgba(8,22,56,.18)",
+    "shadow-mega": "0 30px 60px rgba(8,22,56,.18)"
   },
   "fluid": {
     "fs-display-1": "clamp(34px,3.2vw,46px)",
@@ -104,10 +110,14 @@ export const tokens = {
   },
   "layout": {
     "wrap-max": "2160px",
-    "header-h": "72px",
+    "header-h": "80px",
     "btn-h": "46px",
     "touch-min": "44px",
-    "input-h": "46px"
+    "input-h": "46px",
+    "nav-h": "72px",
+    "logo-h": "46px",
+    "logo-h-sm": "38px",
+    "logo-h-footer": "54px"
   }
 } as const;
 export type ColorToken = keyof typeof tokens.color;

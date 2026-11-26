@@ -39,7 +39,7 @@ const options: sanitize.IOptions = {
   allowedAttributes: {
     ...Object.fromEntries(SVG_TAGS.map((tag) => [tag, SVG_ATTRIBUTES])),
     // data-ctx and data-intent open the contact form with a prefilled subject.
-    a: ["href", "target", "rel", "data-ctx", "data-intent"],
+    a: ["href", "target", "rel", "download", "data-ctx", "data-intent"],
     img: ["src", "alt", "width", "height", "loading"],
     ol: ["start", "reversed", "type"],
     col: ["span"],

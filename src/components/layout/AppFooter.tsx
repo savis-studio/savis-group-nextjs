@@ -16,10 +16,10 @@ export function AppFooter({ pillars, industries }: Catalog) {
       <div className="sv-wrap">
         <div className="sv-footer__top">
           <div className="sv-footer__brand">
-            <Logo onDark />
-            <p>Trusted Digital Infrastructure for a Smarter World.</p>
+            <Logo onDark href={null} />
+            <span>Trusted Digital Infrastructure for a Smarter World.</span>
           </div>
-          <nav className="sv-footer__cols sv-footer__cols--5" aria-label="Footer">
+          <nav className="sv-footer__cols" aria-label="Footer">
             <div>
               <h2 className="sv-footer__h">Solutions &amp; Products</h2>
               <ul>

@@ -38,7 +38,7 @@
 .uc-orb b{position:relative;width:74px;height:74px;border-radius:22px;display:grid;place-items:center;color:#fff;background:rgba(255,255,255,.14);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.3);box-shadow:0 12px 30px rgba(0,0,0,.25);transition:transform .4s}
 @keyframes ucspin{to{transform:rotate(360deg)}}
 @media (prefers-reduced-motion:reduce){.uc-orb i{animation:none}}
-.uc-steps,.uc-film{position:absolute;bottom:10px;font:600 11.5px var(--body);font-style:normal;color:#fff;background:rgba(4,12,40,.55);padding:4px 9px;border-radius:999px}
+.uc-steps,.uc-film{position:absolute;bottom:10px;font:600 12px var(--font-body);font-style:normal;color:#fff;background:rgba(4,12,40,.55);padding:4px 9px;border-radius:999px}
 .uc-steps{left:10px}.uc-film{right:10px;background:var(--brand)}
 .uc-th-big{aspect-ratio:16/8}
 .vxc-ban{position:relative;display:block;aspect-ratio:16/8.5;max-height:230px;width:auto;overflow:hidden;border-radius:14px 14px 0 0;margin:calc(-1*var(--vxc-pt,24px)) calc(-1*var(--vxc-pr,24px)) 18px calc(-1*var(--vxc-pl,24px))}
@@ -56,3 +56,4 @@
 .p-coral{background:radial-gradient(120% 95% at 75% 15%,#FF9A7A,#8A1F4E)}
 .p-amber{background:radial-gradient(120% 95% at 75% 15%,#FFC266,#8A3412)}
 .p-emerald{background:radial-gradient(120% 95% at 75% 15%,#4ADE9B,#0A5640)}
+.uc-th-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}

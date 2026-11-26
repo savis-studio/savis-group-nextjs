@@ -21,6 +21,8 @@ export interface PageMeta {
   type?: "website" | "article";
   /** ISO date; sets article:published_time for articles. */
   published?: string;
+  /** Social sharing picture (a site path or URL). */
+  image?: { url: string; alt: string };
   /** Leave the page out of search results. */
   noindex?: boolean;
 }
@@ -29,7 +31,7 @@ export interface PageMeta {
  * Metadata for one page. The title is limited so that "title | SAVIS Group" fits 60 characters, the description 160.
  * Open Graph image: the segment's opengraph-image file is picked up by Next automatically.
  */
-export function buildMetadata({ title, description, path, type = "website", published, noindex }: PageMeta): Metadata {
+export function buildMetadata({ title, description, path, type = "website", published, noindex, image }: PageMeta): Metadata {
   const suffix = ` | ${SITE_NAME}`;
   const t = clip(title, TITLE_MAX - suffix.length);
   const d = clip(description, DESCRIPTION_MAX);
@@ -46,8 +48,9 @@ export function buildMetadata({ title, description, path, type = "website", publ
       description: d,
       locale: "en_US",
       ...(type === "article" && published ? { publishedTime: published } : {}),
+      ...(image ? { images: [{ url: absoluteUrl(image.url), alt: image.alt }] } : {}),
     },
-    twitter: { card: "summary_large_image", title: `${t}${suffix}`, description: d },
+    twitter: { card: "summary_large_image", title: `${t}${suffix}`, description: d, ...(image ? { images: [absoluteUrl(image.url)] } : {}) },
     ...(noindex ? { robots: { index: false, follow: false } } : {}),
   };
 }
@@ -63,7 +66,7 @@ export const organizationLd = (): Json => ({
   name: SITE_NAME,
   url: SITE_ORIGIN,
   slogan: SITE_TAGLINE,
-  logo: absoluteUrl("/brand/logo-mark.svg"),
+  logo: absoluteUrl("/brand/savis-mark.png"),
   contactPoint: [{ "@type": "ContactPoint", contactType: "sales", email: SALES_EMAIL }],
 });
 

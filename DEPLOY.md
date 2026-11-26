@@ -50,6 +50,29 @@ DATABASE_URL=postgres://... npx payload migrate:create <tên>
 
 `deploy.sh` sẽ chạy migration mới khi phát hành.
 
+## Bài viết và ảnh đi kèm bản phát hành
+
+Bài viết và ảnh nằm trong Payload (database và volume `media`), nên deploy code không tự thêm bài. Khi bản phát hành mang theo bài mới trong `src/data/mockup/news.json`:
+
+1. Ảnh không nằm trong git. Trên máy dev chúng ở `src/data/insight-media/` (danh sách trong `src/data/mockup/news-media.json`). Chép lên VPS:
+
+```
+scp -r src/data/insight-media <vps>:~/savis/
+```
+
+2. Trên VPS, sau `deploy.sh` (cần `docker-compose.yml` bản mới để container `tools` thấy ảnh và ghi được vào volume `media`):
+
+```
+./backup.sh
+docker compose run --rm -e DRY=1 -e UPDATE=press tools npm run import:insights  # xem trước
+docker compose run --rm -e UPDATE=press tools npm run import:insights           # tạo bài chưa có, ghi đè các bài press
+rm -rf ~/savis/insight-media                                                    # ảnh đã nằm trong Payload
+```
+
+Không đặt `UPDATE` thì chỉ tạo bài chưa có. `UPDATE` nhận danh sách slug, `press` hoặc `all`. Bài đã được sửa hoặc xoá trong admin (theo audit log) được bỏ qua; `FORCE=1` bỏ qua bảo vệ này. Thiếu file ảnh thì bài được nhập không kèm ảnh đó; chạy lại với `UPDATE` sau khi bổ sung. Trang tự làm mới sau khoảng 1 phút.
+
+`npm run staging:seed` ở máy dev tự lấy ảnh trong thư mục trên nếu có.
+
 ## Rollback
 
 - **Chỉ code:** `./deploy.sh "$(cat .deploy-previous)"`.
@@ -92,7 +115,28 @@ Plugin MCP dựng schema bằng API JavaScript của TypeScript, nên giữ `typ
 - Tunnel đứt: `docker compose restart cloudflared`.
 - Bị khoá khỏi admin: thêm email vào policy Access. Mất toàn bộ admin: đặt lại bằng Local API từ container `tools`.
 
-## Kiểm thử cục bộ
+## Dev và test trước khi lên prod
+
+Máy Windows dùng Docker Engine trong WSL (distro `Ubuntu-24.04`, đổi bằng biến `SAVIS_WSL_DISTRO`). Không cần Docker Desktop. File dùng ở máy là `docker-compose.local.yml`; VPS vẫn chỉ dùng `docker-compose.yml`. Các cổng chỉ mở trên `127.0.0.1`.
+
+| Lệnh | Việc làm |
+|---|---|
+| `npm run dev` | Dev nhanh với SQLite, không cần Docker. |
+| `npm run dev:pg` | Dev với Postgres (cổng 5433). Payload tự đồng bộ schema vào database dev. |
+| `npm run db:migration -- <tên>` | Tạo migration Postgres sau khi sửa collection hoặc field. Commit file được tạo. |
+| `npm run staging` | Build image production từ mã đang có trên máy, chạy migration, khởi động tại http://localhost:3100. |
+| `npm run staging:seed` | Nạp dữ liệu mẫu và bài viết. |
+| `npm run staging:check` | Quét các trang trên bản staging. |
+| `npm run staging:restore -- <file.dump>` | Thay database staging bằng bản dump rồi migrate: diễn tập đổi schema trên dữ liệu thật. |
+| `npm run staging:logs` | Xem log app. |
+| `npm run staging:down` / `staging:reset` | Dừng staging (giữ dữ liệu) / xoá luôn dữ liệu staging. |
+| `npm run docker:stop` | Dừng mọi container ở máy và cho WSL tắt. |
+
+Quy trình phát hành: sửa mã → `npm run dev` hoặc `dev:pg` → nếu đổi schema thì `db:migration` → `npm run staging` và `staging:check` → commit, push → `deploy.sh` trên VPS.
+
+Khác với prod: không có Cloudflare Tunnel và Access (`CF_ACCESS_ENFORCE=off`), không gửi HubSpot, image được build ở máy thay vì lấy từ GHCR. Mật khẩu staging nằm trong `.env.staging.local`, tự tạo, không commit. Lần đầu mở `/admin` của staging thì tạo tài khoản admin riêng cho máy.
+
+Bản dump lấy từ prod chứa thông tin khách (Inquiries) và tài khoản: chỉ lấy khi cần, xoá sau khi thử, rồi `npm run staging:reset`.
 
 `next build` cần `PAYLOAD_SECRET` khi `NODE_ENV=production`. Dockerfile đặt giá trị giả chỉ cho bước build, không đưa vào image. Build không cần database vì trang `(frontend)` được render theo từng request.
 

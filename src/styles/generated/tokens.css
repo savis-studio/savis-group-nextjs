@@ -1,4 +1,4 @@
-/* SAVIS Group — generated from tokens.json v2. Do not edit. */
+/* SAVIS Group — generated from tokens.json v3. Do not edit. */
 :root {
   /* palette */
   --white: #FFFFFF;
@@ -6,8 +6,10 @@
   --gray-100: #E3E9F4;
   --gray-400: #7D879D;
   --gray-600: #4F5B75;
+  --gray-700: #26324F;
   --gray-800: #1F2A44;
   --navy-900: #0B1F4D;
+  --blue-25: #EDF3FF;
   --blue-50: #E7F0FF;
   --blue-100: #E2EAFF;
   --blue-500: #0052FF;
@@ -53,6 +55,9 @@
   --on-band: var(--white);
   --on-band-muted: var(--blue-100);
   --band-eyebrow: var(--cyan-100);
+  --menu-link: var(--gray-700);
+  --menu-heading: var(--blue-650);
+  --menu-hover: var(--blue-25);
   --chip: var(--blue-50);
   --chip-ink: var(--blue-750);
   --info: var(--blue-500);
@@ -91,6 +96,7 @@
   --shadow-on-band: 0 10px 24px rgba(4,20,80,.25);
   --shadow-header: 0 1px 0 #E3E9F4, 0 6px 18px rgba(12,40,110,.05);
   --shadow-media: 0 24px 60px rgba(8,22,56,.18);
+  --shadow-mega: 0 30px 60px rgba(8,22,56,.18);
   /* fluid */
   --fs-display-1: clamp(34px,3.2vw,46px);
   --fs-h2: clamp(26px,2.3vw,34px);
@@ -99,10 +105,14 @@
   --gutter: clamp(16px,3vw,64px);
   /* layout */
   --wrap-max: 2160px;
-  --header-h: 72px;
+  --header-h: 80px;
   --btn-h: 46px;
   --touch-min: 44px;
   --input-h: 46px;
+  --nav-h: 72px;
+  --logo-h: 46px;
+  --logo-h-sm: 38px;
+  --logo-h-footer: 54px;
   /* fonts */
   --font-display: var(--font-sora, "Sora"), ui-sans-serif, system-ui, sans-serif;
   --font-body: var(--font-inter, "Inter"), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;

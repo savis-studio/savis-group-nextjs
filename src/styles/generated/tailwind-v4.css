@@ -1,4 +1,4 @@
-/* Generated from tokens.json v2. Do not edit. Import after tokens.css. */
+/* Generated from tokens.json v3. Do not edit. Import after tokens.css. */
 @theme inline {
   --color-bg: var(--bg);
   --color-surface: var(--surface);
@@ -24,6 +24,9 @@
   --color-on-band: var(--on-band);
   --color-on-band-muted: var(--on-band-muted);
   --color-band-eyebrow: var(--band-eyebrow);
+  --color-menu-link: var(--menu-link);
+  --color-menu-heading: var(--menu-heading);
+  --color-menu-hover: var(--menu-hover);
   --color-chip: var(--chip);
   --color-chip-ink: var(--chip-ink);
   --color-info: var(--info);
@@ -51,6 +54,7 @@
   --shadow-on-band: var(--shadow-on-band);
   --shadow-header: var(--shadow-header);
   --shadow-media: var(--shadow-media);
+  --shadow-mega: var(--shadow-mega);
   --spacing-sv-6: var(--space-6);
   --spacing-sv-10: var(--space-10);
   --spacing-sv-14: var(--space-14);

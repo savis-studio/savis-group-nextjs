@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { CaseCard } from "@/components/home/CaseCard";
+import { InsightsTabs } from "@/components/insights/InsightsTabs";
 import { PageShell } from "@/components/page/PageShell";
 import { JumpBar } from "@/components/solutions/Blocks";
 import { Button, Section, SectionHead } from "@/components/ui";
@@ -39,12 +40,7 @@ export default async function CustomersPage() {
         </>
       }
     >
-      <nav className="sv-jump" aria-label="Insights">
-        <div className="sv-wrap">
-          {tabs.map((g) => <a key={g.id} className="sv-jump__a" href={`/insights#${g.id}`}>{g.label}</a>)}
-          <a className="sv-jump__a sv-jump__a--on" href="/customers" aria-current="page">Case Study</a>
-        </div>
-      </nav>
+      <InsightsTabs groups={tabs} current="cases" base="/insights" />
       <JumpBar links={cats.map((c) => ({ href: `#${c.id}`, label: c.name }))} />
       {cats.map((c, i) => {
         const items = cases.filter((x) => x.cat === c.id);

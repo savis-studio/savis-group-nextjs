@@ -281,7 +281,8 @@ function convertItem(raw: string, article: string, report: Report): unknown {
     const tag = el.tagName.toLowerCase();
     if (tag === "p" && !el.className) { report.structured.paragraph = (report.structured.paragraph ?? 0) + 1; return para(inlineNodes(el)); }
     if (tag === "h2" || tag === "h3") { report.structured[tag] = (report.structured[tag] ?? 0) + 1; return heading(tag, inlineNodes(el)); }
-    if ((tag === "ul" || tag === "ol") && !el.className) { report.structured.list = (report.structured.list ?? 0) + 1; return listNode(el); }
+    // "ev-list" is the plain list of the press articles: keep it editable as a list.
+    if ((tag === "ul" || tag === "ol") && (!el.className || el.className === "ev-list")) { report.structured.list = (report.structured.list ?? 0) + 1; return listNode(el); }
 
     if (el.matches(RAW_DIAGRAM)) return fallback("raw", "generated or bespoke diagram");
     for (const [type, parse] of PARSERS) {
@@ -299,11 +300,23 @@ function convertItem(raw: string, article: string, report: Report): unknown {
   }
 }
 
+/** The mockup's news feed spreads a list over several body items ("<ul>", "<li>…", "</ul>"): put each element back together. */
+export function wholeElements(body: string[]): string[] {
+  const out: string[] = [];
+  let open = 0;
+  for (const item of body) {
+    if (open > 0) out[out.length - 1] += item;
+    else out.push(item);
+    open += (item.match(/<(ul|ol|div|table|figure)\b/g)?.length ?? 0) - (item.match(/<\/(ul|ol|div|table|figure)>/g)?.length ?? 0);
+  }
+  return out;
+}
+
 export function bodyToLexical(body: string[], article: string, report: Report) {
   return {
     root: {
       type: "root", version: 1, direction: "ltr", format: "", indent: 0,
-      children: body.map((b) => convertItem(b, article, report)),
+      children: wholeElements(body).map((b) => convertItem(b, article, report)),
     },
   };
 }

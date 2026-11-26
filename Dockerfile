@@ -28,6 +28,8 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY package.json package-lock.json tsconfig.json ./
 COPY src ./src
 COPY scripts ./scripts
+# The article import uploads photos, so this image writes to the media volume too.
+RUN mkdir -p /app/media && chown node:node /app/media
 USER node
 CMD ["npx", "payload", "migrate:status"]
 

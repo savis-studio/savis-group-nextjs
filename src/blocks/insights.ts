@@ -17,6 +17,15 @@ const status = (name = "status"): Field => ({
 
 /** Editor blocks for article diagrams. Rendered by src/lib/insight-render.ts with the site's article styles. */
 export const insightBlocks: Block[] = [
+  {
+    slug: "gallery", labels: { singular: "Photo gallery", plural: "Photo galleries" },
+    fields: [
+      items("photos", "Photos", [
+        { name: "image", type: "upload", relationTo: "media", required: true, filterOptions: { mimeType: { contains: "image" } } },
+        text("caption", "Caption", false, false),
+      ]),
+    ],
+  },
   { slug: "keyPoint", labels: { singular: "Key point", plural: "Key points" }, fields: [area("text", "Text", true)] },
   { slug: "note", labels: { singular: "Note", plural: "Notes" }, fields: [area("text", "Text", true)] },
   {

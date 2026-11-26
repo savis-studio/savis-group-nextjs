@@ -193,6 +193,16 @@ export interface Media {
   height?: number | null;
   focalX?: number | null;
   focalY?: number | null;
+  sizes?: {
+    card?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+  };
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -260,7 +270,11 @@ export interface Insight {
    */
   summary: string;
   /**
-   * Lower numbers show first. Left empty, a new article goes to the top.
+   * Photo on cards and at the top of the article (landscape works best). Left empty, cards show an illustration.
+   */
+  cover?: (number | null) | Media;
+  /**
+   * Lower numbers show first in lists such as “Keep reading”. Left empty, a new article goes to the top. The Insights page sorts by date instead.
    */
   order?: number | null;
   /**
@@ -539,6 +553,20 @@ export interface MediaSelect<T extends boolean = true> {
   height?: T;
   focalX?: T;
   focalY?: T;
+  sizes?:
+    | T
+    | {
+        card?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+      };
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -587,6 +615,7 @@ export interface InsightsSelect<T extends boolean = true> {
   publishedAt?: T;
   dateLabel?: T;
   summary?: T;
+  cover?: T;
   order?: T;
   scene?: T;
   tags?:

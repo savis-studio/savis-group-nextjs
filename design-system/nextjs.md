@@ -11,13 +11,15 @@ scripts/build-preview.mjs          ← build lại bundle preview cho hệ thố
 src/styles/generated/              ← output của build-tokens (không sửa tay)
   tokens.css  tailwind.preset.js  tailwind-v4.css  tokens.ts
 src/styles/savis.css               ← style component, chỉ dùng biến token
-src/components/ui/*.tsx            ← 18 component + Logo, SmartLink, cn
-public/brand/*.svg                 ← 3 file logo
+src/styles/vx.css                  ← tranh minh hoạ và sơ đồ hero
+src/lib/thumbs.ts  vx-art.ts       ← chọn tranh cho từng loại thẻ, vẽ SVG
+src/components/ui/*.tsx            ← component (gồm Logo, SmartLink, cn)
+public/brand/*.png                 ← savis-logo.png, savis-logo-white.png, savis-logo-alt.png, savis-mark.png
 ```
 
 ## Cài đặt
 
-1. Chép `nextjs-kit/` vào dự án (hoặc giải nén `savis-ui.zip`), đặt logo vào `public/brand/`.
+1. Chép `nextjs-kit/` vào dự án (hoặc giải nén `savis-ui.zip`), đặt 4 file PNG logo vào `public/brand/`; dùng `savis-mark.png` làm favicon/apple-touch-icon trong `app/layout.tsx` (`metadata.icons`).
 2. Thêm script: `"tokens": "node scripts/build-tokens.mjs design-system/tokens.json src/styles/generated"` và chạy `npm run tokens`.
 3. Font và CSS trong `app/layout.tsx`:
 
@@ -25,6 +27,7 @@ public/brand/*.svg                 ← 3 file logo
 import { Sora, Inter } from "next/font/google";
 import "@/styles/generated/tokens.css";
 import "@/styles/savis.css";
+import "@/styles/vx.css";
 import "./globals.css";
 
 const sora = Sora({ subsets: ["latin"], weight: ["600", "700"], variable: "--font-sora", display: "swap" });
@@ -38,6 +41,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   );
 }
 ```
+
+Trang dùng `Thumb` hoặc `HeroMosaic` thì thêm `<VxActivate />` (từ `@/components/ui`) một lần trong `<body>`.
 
 `tokens.css` đã nối `--font-display` và `--font-body` với `--font-sora` / `--font-inter` của next/font.
 

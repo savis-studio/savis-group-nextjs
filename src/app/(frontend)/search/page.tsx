@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { PageShell } from "@/components/page/PageShell";
-import { Section } from "@/components/ui";
+import { Button, Section } from "@/components/ui";
 import { groupResults, search } from "@/lib/search";
 import { getSearchIndex } from "@/lib/search-index";
 import { buildMetadata } from "@/lib/seo";
@@ -22,7 +22,7 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
         <div className="sv-sp">
           <form action="/search" role="search">
             <input type="search" name="q" defaultValue={q} placeholder="Search the site" aria-label="Search the site" autoComplete="off" />
-            <button type="submit" className="sv-search" style={{ background: "var(--brand)", color: "#fff", padding: "0 var(--space-18)" }}>Search</button>
+            <Button type="submit">Search</Button>
           </form>
           {q && results.length === 0 && <p>No results for “{q}”. Try fewer words, or <a href="/contact">ask an expert</a>.</p>}
           {q && results.length > 0 && <p aria-live="polite">{results.length} result{results.length === 1 ? "" : "s"} for “{q}”</p>}

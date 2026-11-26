@@ -1,4 +1,4 @@
-/* Generated from tokens.json v2. Do not edit. */
+/* Generated from tokens.json v3. Do not edit. */
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   "theme": {
@@ -28,6 +28,9 @@ module.exports = {
         "on-band": "var(--on-band)",
         "on-band-muted": "var(--on-band-muted)",
         "band-eyebrow": "var(--band-eyebrow)",
+        "menu-link": "var(--menu-link)",
+        "menu-heading": "var(--menu-heading)",
+        "menu-hover": "var(--menu-hover)",
         "chip": "var(--chip)",
         "chip-ink": "var(--chip-ink)",
         "info": "var(--info)",
@@ -82,7 +85,8 @@ module.exports = {
         "cta": "var(--shadow-cta)",
         "on-band": "var(--shadow-on-band)",
         "header": "var(--shadow-header)",
-        "media": "var(--shadow-media)"
+        "media": "var(--shadow-media)",
+        "mega": "var(--shadow-mega)"
       },
       "maxWidth": {
         "wrap": "var(--wrap-max)"

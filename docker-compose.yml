@@ -64,6 +64,10 @@ services:
       PAYLOAD_SECRET: ${PAYLOAD_SECRET:?set PAYLOAD_SECRET in .env}
       DATABASE_URL: postgres://savis:${POSTGRES_PASSWORD}@postgres:5432/savis
       SERVER_URL: ${SERVER_URL:?set SERVER_URL in .env}
+    volumes:
+      - media:/app/media
+      # Photos for `npm run import:insights`, copied here only for the import (see DEPLOY.md). Normally empty.
+      - ./insight-media:/app/src/data/insight-media:ro
     mem_limit: 768m
     logging: *logging
 

@@ -21,7 +21,7 @@ type Props = { params: Promise<{ id: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const n = await getArticle((await params).id);
   if (!n) return {};
-  return buildMetadata({ title: n.title, description: n.sum, path: `/insights/${n.id}`, type: "article", published: n.iso });
+  return buildMetadata({ title: n.title, description: n.sum, path: `/insights/${n.id}`, type: "article", published: n.iso, image: n.cover && { url: n.cover.full, alt: n.cover.alt } });
 }
 
 export default async function ArticlePage({ params }: Props) {
@@ -44,6 +44,12 @@ export default async function ArticlePage({ params }: Props) {
     >
       <JsonLd data={articleLd({ title: n.title, description: n.sum, path, published: n.iso })} />
       <Section>
+        {n.cover && (
+          <figure className="article-cover">
+            <img src={n.cover.full} alt={n.cover.alt} fetchPriority="high" />
+            {n.cover.alt && <figcaption>{n.cover.alt}</figcaption>}
+          </figure>
+        )}
         {n.body ? (
           <ArticleRichText data={n.body} />
         ) : n.html ? (

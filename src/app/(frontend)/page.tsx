@@ -108,7 +108,7 @@ export default async function Home() {
           <SmartLink className="sv-home__more" href="/insights">Read Insights →</SmartLink>
         </SectionHead>
         <div className="sv-home__grid4">
-          {news.map(({ item, tone }) => <NewsTile key={item.id} item={item} tone={tone} />)}
+          {news.map(({ item, tone }) => <NewsTile key={item.id} item={item} tone={tone} boxed />)}
         </div>
       </Section>
 

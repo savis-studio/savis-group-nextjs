@@ -3,7 +3,7 @@ import type { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical
 import { unstable_cache } from "next/cache";
 import { getPayload } from "payload";
 import { INSIGHTS_TAG } from "./cache-tags";
-import { articleHtml, getNews as bundledNews, getNewsDetail as bundledDetail, type NewsItem } from "./content";
+import { articleHtml, getNews as bundledNews, getNewsDetail as bundledDetail, type Cover, type NewsItem } from "./content";
 
 export interface ArticleDetail extends NewsItem {
   tags: string[];
@@ -20,6 +20,13 @@ const label = (iso: string) => {
   return `${d.getUTCDate()} ${MONTHS[d.getUTCMonth()]} ${d.getUTCFullYear()}`;
 };
 
+/** The cover relation, once populated. */
+function toCover(value: unknown): Cover | undefined {
+  const m = value as { url?: string | null; alt?: string | null; sizes?: { card?: { url?: string | null } } } | null | undefined;
+  if (!m || typeof m !== "object" || !m.url) return undefined;
+  return { src: m.sizes?.card?.url || m.url, full: m.url, alt: m.alt ?? "" };
+}
+
 /** Reads every published article from the CMS; null when the CMS holds no article at all. Throws when the database is unreachable, so a failure is never cached. */
 const readAll = unstable_cache(
   async (): Promise<ArticleDetail[] | null> => {
@@ -29,7 +36,7 @@ const readAll = unstable_cache(
       where: { _status: { equals: "published" } },
       limit: 500,
       sort: ["order", "-publishedAt"],
-      depth: 1, // images and internal links inside the body
+      depth: 1, // the cover, images and internal links inside the body
       pagination: false,
     });
     // Everything unpublished means an empty list, not a fall back to the bundled articles.
@@ -41,6 +48,7 @@ const readAll = unstable_cache(
       date: d.dateLabel || (d.publishedAt ? label(d.publishedAt) : ""),
       iso: d.publishedAt ? d.publishedAt.slice(0, 10) : undefined,
       scene: d.scene,
+      cover: toCover(d.cover),
       title: d.title,
       sum: d.summary,
       tags: (d.tags ?? []).map((t) => t.tag),

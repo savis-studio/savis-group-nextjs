@@ -4,7 +4,7 @@ import { ArticleReveal } from "./ArticleBody";
 import { type BlockType, renderBlock } from "@/lib/insight-render";
 import { mapHref } from "@/lib/insight-href";
 
-const BLOCKS: BlockType[] = ["keyPoint", "note", "cardGrid", "steps", "chips", "stats", "table", "timeline", "arch", "layers", "landscape", "diagramHtml", "htmlBlock"];
+const BLOCKS: BlockType[] = ["gallery", "keyPoint", "note", "cardGrid", "steps", "chips", "stats", "table", "timeline", "arch", "layers", "landscape", "diagramHtml", "htmlBlock"];
 
 interface MediaFile {
   url?: string | null;

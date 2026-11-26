@@ -3,6 +3,7 @@ import cases from "@/data/mockup/cases.json";
 import graphics from "@/data/mockup/graphics.json";
 import news from "@/data/mockup/news.json";
 import pillars from "@/data/mockup/pillars.json";
+import { localMedia } from "./insight-href";
 import { hashToPath } from "./routes";
 
 /** Typed access to the mockup data. Phase 1 reads JSON files; later this can move to the CMS without changing callers. */
@@ -10,7 +11,9 @@ import { hashToPath } from "./routes";
 export interface Pillar { id: string; n: string; name: string; vi: string; slug: string; pitch: string; tags: string[] }
 export interface CaseStudy { id: string; cat: string; featured?: boolean; client: string; country: string; title: string; summary: string }
 export interface CaseCategory { id: string; name: string }
-export interface NewsItem { id: string; cat: string; type: string; date: string; iso?: string; title: string; sum: string; scene?: string | null }
+/** A cover photo from the CMS: `src` is the card-sized copy, `full` the original. */
+export interface Cover { src: string; full: string; alt: string }
+export interface NewsItem { id: string; cat: string; type: string; date: string; iso?: string; title: string; sum: string; scene?: string | null; cover?: Cover }
 export interface AudienceLink { kind: string; label: string; href: string }
 export interface Audience {
   id: string; label: string; title: string; lead: string;
@@ -242,12 +245,12 @@ export const getNewsDetail = (id: string): NewsDetail | undefined => {
 };
 
 /**
- * Article body HTML from the bundled mockup data (trusted, not user input). In-app `#hash` links become real paths;
+ * Article body HTML from the bundled mockup data (trusted, not user input). Photos and files are left out: they live
+ * in the CMS (see scripts/import-insights.ts). In-app `#hash` links become real paths;
  * `#report-*` and `#resources-*` point at the whitepaper library, which has no pages yet, so they go to /insights.
  */
 export function articleHtml(body: string[]): string {
-  return body
-    .join("")
+  return localMedia(body.join(""), () => undefined)
     .replace(/href="(#[^"]*)"/g, (_m, h: string) => {
       const key = h.slice(1);
       const to = /^(report-|resources)/.test(key) ? "/insights" : hashToPath(h);

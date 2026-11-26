@@ -1,0 +1,75 @@
+# Local development and testing before a release. The VPS does not use this file (see docker-compose.yml).
+# Run it through `npm run staging` / `npm run dev:pg` (scripts/local.mjs). Ports are bound to 127.0.0.1 only.
+name: savis-local
+
+x-postgres: &postgres
+  # Same version as production.
+  image: postgres:16-alpine
+  healthcheck:
+    # -h makes the check wait for the real server, not the temporary one used while the database is first created.
+    test: ["CMD-SHELL", "pg_isready -h 127.0.0.1 -U savis"]
+    interval: 3s
+    timeout: 3s
+    retries: 20
+
+x-database-env: &database-env
+  NODE_ENV: production
+  PAYLOAD_SECRET: ${PAYLOAD_SECRET:?run through npm run staging}
+  DATABASE_URL: postgres://savis:${POSTGRES_PASSWORD:?run through npm run staging}@postgres:5432/savis
+  SERVER_URL: http://localhost:3100
+
+services:
+  # Database for `next dev` on the host. Payload syncs the schema into it by itself (dev mode).
+  devdb:
+    <<: *postgres
+    profiles: ["dev"]
+    environment:
+      POSTGRES_USER: savis
+      POSTGRES_DB: savis_dev
+      POSTGRES_PASSWORD: savis-local-dev
+    ports: ["127.0.0.1:5433:5432"]
+    volumes:
+      - devdb:/var/lib/postgresql/data
+
+  # ---- staging: the production images, built from the working tree, with migrations ----
+  postgres:
+    <<: *postgres
+    environment:
+      POSTGRES_USER: savis
+      POSTGRES_DB: savis
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?run through npm run staging}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  app:
+    image: savis-app:local
+    build: { context: "${SAVIS_BUILD_CONTEXT:-.}", target: runner }
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      <<: *database-env
+      # No Cloudflare here. HubSpot is left unset on purpose: test messages must never reach the real CRM.
+      CF_ACCESS_ENFORCE: "off"
+    ports: ["127.0.0.1:3100:3000"]
+    volumes:
+      - media:/app/media
+    mem_limit: 768m
+
+  tools:
+    image: savis-tools:local
+    build: { context: "${SAVIS_BUILD_CONTEXT:-.}", target: tools }
+    profiles: ["tools"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment: *database-env
+    volumes:
+      - media:/app/media
+      - ./src/data/insight-media:/app/src/data/insight-media:ro
+    mem_limit: 768m
+
+volumes:
+  devdb:
+  pgdata:
+  media:

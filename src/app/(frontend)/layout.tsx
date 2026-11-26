@@ -6,6 +6,7 @@ import "@/styles/layout.css";
 import "@/styles/vx.css";
 // Shared page classes (.sv-grid, .sv-steps, ...). Global, so a page never depends on which components it happens to import.
 import "@/styles/solutions.css";
+import "@/styles/insights.css";
 import "./globals.css";
 import { vxArt } from "@/lib/thumbs";
 import { companyMenu, resourcesMenu, servicesMenu } from "@/components/layout/nav-data";
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
   title: { default: `${SITE_NAME} — ${SITE_TAGLINE}`, template: `%s | ${SITE_NAME}` },
   description: SITE_DESCRIPTION,
   applicationName: SITE_NAME,
-  icons: { icon: "/brand/logo-mark.svg" },
+  icons: { icon: "/brand/savis-mark.png", apple: "/brand/savis-mark.png" },
 };
 
 /** Product name → page, so the mega menu links each product to its own page. */

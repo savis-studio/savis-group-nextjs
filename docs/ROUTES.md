@@ -14,7 +14,7 @@ Source of truth for Phase 1–6. Data lives in `src/data/mockup/*.json`, extract
 | `#industries` | `/industries` | 3 |
 | `#use-cases`, `#use-cases-matrix` | `/use-cases` | 3 |
 | `#customers`, `#customers-*` | `/customers` | 4 |
-| `#insights`, `#insights-*` | `/insights` (filter via `?type=`) | 4 |
+| `#insights`, `#insights-*` | `/insights` (overview; tabs are the hashes `#news`, `#press`, `#regulation`, `#insights` = Blog) | 4 |
 | `#resources` | `/resources` | 4 |
 | `#resources-blog/videos/brochures/briefs/datasheets/reports` | `/resources/[kind]` | 4 |
 | `#services`, `#services-advise/developers/e2e` | `/services` (+ anchors) | 5 |
@@ -64,7 +64,7 @@ Hash URLs are never seen by the server, so no redirect is needed for them. The p
 | `pillars.json` | 5 pillars (id, name, vi, slug, pitch, tags) |
 | `groups.json` | 27 product groups, each with `pillar` and `items` |
 | `products.json` | 114 products, normalised (`pillar` and `group` are slugs), plus `tags`, `scene`, `detail` |
-| `news.json` | 81 items; the 20 `NEWS_C6` overrides are merged in |
+| `news.json` | 129 items (research and blog, news with sources, press releases, regulation); photos listed in `news-media.json` |
 | `cases.json` | `categories`, 32 `items`, `useCaseLinks`, `clientGroups` |
 | `use-cases.json` | 43 use cases |
 | `industries.json` | 13 `items` and `groupIndustries` |
@@ -112,8 +112,8 @@ Hash URLs are never seen by the server, so no redirect is needed for them. The p
 ## Status after Phase 6 (2026-11-25)
 
 All routes above are built except `/resources` and `/resources/[kind]`, which were dropped (no reports or whitepaper data was
-extracted). Mockup links to it (`#resources-*`, `#report-*`, `#tech-bulletins`) resolve to `/insights`, and
-`#resources-datasheets` to `/solutions`; see `src/lib/routes.ts`. If `/resources` is built later, remove those mappings.
+extracted). Mockup links to it (`#resources-*`, `#report-*`, `#tech-bulletins`) resolve to `/insights`,
+`#resources-blog` to `/insights#insights` and `#resources-datasheets` to `/solutions`; see `src/lib/routes.ts`. If `/resources` is built later, remove those mappings.
 
 Checks, run against a production build (for example `CF_ACCESS_ENFORCE=off npx next start -p 3150`):
 

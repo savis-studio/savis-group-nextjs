@@ -11,6 +11,16 @@ export function Thumb({ spec, big, tone, className }: { spec: ThumbSpec; big?: b
   );
 }
 
+/** The same frame as `Thumb`, holding a photo. */
+export function PhotoThumb({ src, label, big = true, className }: { src: string; label?: string; big?: boolean; className?: string }) {
+  return (
+    <span className={cn("uc-th uc-th-photo", big && "uc-th-big", className)} aria-hidden="true">
+      <img src={src} alt="" loading="lazy" decoding="async" />
+      {label && <em className="uc-steps">{label}</em>}
+    </span>
+  );
+}
+
 /** Thumbnail for industry cards: fixed seed and a captioned art. */
 export function IndustryThumb({ icon, tag, tone, seed }: { icon: string; tag: string; tone: string; seed: number }) {
   return (

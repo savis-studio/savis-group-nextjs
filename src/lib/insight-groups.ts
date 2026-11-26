@@ -1,9 +1,60 @@
 import type { ArticleDetail } from "./insights";
 
-/** Tabs of the Insights area, in order. A tab with no articles is left out. Blog and tech bulletins will appear once there are any. */
-export const INSIGHT_GROUPS: Array<{ id: string; label: string; eyebrow: string; title: string; pick: (n: ArticleDetail) => boolean }> = [
-  { id: "news", label: "News", eyebrow: "News", title: "What is changing", pick: (n) => n.type === "press" && n.cat !== "Press release" },
-  { id: "press", label: "Press Releases", eyebrow: "Press", title: "Press releases", pick: (n) => n.type === "press" && n.cat === "Press release" },
-  { id: "regulation", label: "Regulation & Policy", eyebrow: "Regulation", title: "Regulation & policy", pick: (n) => n.type === "news" },
-  { id: "insights", label: "Research", eyebrow: "Insights", title: "Research & reference architectures", pick: (n) => n.type === "insight" },
+// Mockup placeholders without a real date stay out of every tab.
+const dated = (n: ArticleDetail) => !n.date.includes("[Date]");
+
+/** Newest first, reading the display date ("October 2026", "2026") when there is no exact one. */
+const time = (n: ArticleDetail) => Date.parse(n.iso ?? n.date) || 0;
+export const newestFirst = (a: ArticleDetail, b: ArticleDetail) => time(b) - time(a);
+
+export interface InsightGroup {
+  /** URL hash of the tab: /insights#<id>. */
+  id: "news" | "press" | "regulation" | "insights";
+  label: string;
+  /** Preview row on the overview: its heading and the link to the tab. */
+  title: string;
+  more: string;
+  /** Tab view: hero lead, the line above the filters, and the caption on the hero's latest article. */
+  lead: string;
+  intro: string;
+  latest: string;
+  pick: (n: ArticleDetail) => boolean;
+}
+
+/** Tabs of the Insights area, in order (case studies sit before Blog). A tab with no articles is left out. */
+export const INSIGHT_GROUPS: InsightGroup[] = [
+  {
+    id: "news", label: "News", title: "What is changing", more: "All news",
+    lead: "Industry and project news on digital identity, trust services and payments, from Vietnam and around the world.",
+    intro: "Industry, regulation and project news from Vietnam and around the world — selected and summarised by SAVIS, with sources.",
+    latest: "Latest news", pick: (n) => n.type === "news" && n.cat !== "Regulation" && dated(n),
+  },
+  {
+    id: "press", label: "Press Releases", title: "News from SAVIS Group", more: "All press releases",
+    lead: "Announcements, awards, partnerships and events from SAVIS Group.",
+    intro: "Announcements, awards, partnerships, events and case studies from SAVIS Group.",
+    latest: "Latest press release", pick: (n) => n.type === "press" && dated(n),
+  },
+  {
+    id: "regulation", label: "Regulation & Policy", title: "Laws and standards to watch", more: "All regulation & policy",
+    lead: "Laws, standards and policy shaping digital identity, trust services and payments, in Vietnam and around the world.",
+    intro: "Laws, decrees, standards and policy moves that change how identity, signatures and payments work.",
+    latest: "Latest on regulation", pick: (n) => n.type === "news" && n.cat === "Regulation" && dated(n),
+  },
+  {
+    id: "insights", label: "Blog", title: "Expert analysis and guides", more: "All blog posts",
+    lead: "Analysis, guides and how-to articles from SAVIS experts.",
+    intro: "Analysis, reference architectures and country profiles from SAVIS experts.",
+    latest: "Latest post", pick: (n) => n.type === "insight",
+  },
+];
+
+/** The overview's "Expert insights" row: the AI security, quantum and side-channel series, labelled by sector. */
+export const EXPERT_SERIES: Array<[slug: string, sector: string]> = [
+  ["ai-security-banking-2026", "Banking, FSI & enterprise"],
+  ["quantum-banking-roadmap-2026", "Banking, FSI & enterprise"],
+  ["side-channel-attacks-banking-2026", "Banking, FSI & enterprise"],
+  ["ai-security-critical-infrastructure-2026", "Government, telco, IoT & smart city"],
+  ["quantum-government-telco-2026", "Government, telco, IoT & smart city"],
+  ["side-channel-attacks-iot-government-2026", "Government, telco, IoT & smart factory"],
 ];

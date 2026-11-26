@@ -7,3 +7,5 @@ next-env.d.ts
 .env
 /data
 /media
+# Photos for the article import: they live in Payload Media, not in git (see DEPLOY.md).
+/src/data/insight-media/

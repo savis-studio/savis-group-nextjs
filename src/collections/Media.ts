@@ -24,6 +24,8 @@ export const Media: CollectionConfig = {
   upload: {
     // No SVG or HTML: both can carry scripts. Add formats here deliberately.
     mimeTypes: ["image/png", "image/jpeg", "image/webp", "image/avif", "application/pdf"],
+    // A smaller copy for cards. Served by app/(frontend)/media/[filename], which looks its name up too.
+    imageSizes: [{ name: "card", width: 800 }],
   },
   fields: [{ name: "alt", type: "text", required: true }],
 };

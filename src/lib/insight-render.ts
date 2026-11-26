@@ -9,6 +9,8 @@ import { sanitizeHtml } from "./sanitize";
 export type TextItem = { text?: string | null };
 
 export interface BlockFieldsMap {
+  /** `image` is the Media document once populated, or only its id (then nothing is shown). */
+  gallery: { photos?: Array<{ image?: unknown; caption?: string | null }> | null };
   keyPoint: { text: string };
   note: { text: string };
   cardGrid: {
@@ -55,6 +57,19 @@ const list = <T>(x: T[] | null | undefined): T[] => x ?? [];
 const num = (n: number) => String(Math.round(n * 10) / 10);
 
 const RENDER: { [K in BlockType]: (f: BlockFieldsMap[K]) => string } = {
+  gallery: (f) => {
+    const figures = list(f.photos).flatMap((p) => {
+      const m = p.image as { url?: string | null; alt?: string | null; sizes?: { card?: { url?: string | null } } } | null | undefined;
+      if (!m || typeof m !== "object" || !m.url) return [];
+      const caption = p.caption || "";
+      return [
+        `<figure><a href="${e(m.url)}" target="_blank" rel="noopener"><img src="${e(m.sizes?.card?.url || m.url)}" alt="${e(caption || m.alt || "")}" loading="lazy"></a>` +
+          (caption ? `<figcaption>${e(caption)}</figcaption>` : "") + `</figure>`,
+      ];
+    });
+    return figures.length ? `<div class="ph-gal">${figures.join("")}</div>` : "";
+  },
+
   keyPoint: (f) => `<div class="af-key">${i(f.text)}</div>`,
   note: (f) => `<p class="af-note">${i(f.text)}</p>`,
 

@@ -4,6 +4,7 @@ import * as migration_20261125_043957_insights from './20261125_043957_insights'
 import * as migration_20261125_080132_inquiry_hubspot from './20261125_080132_inquiry_hubspot';
 import * as migration_20261125_081626_inquiry_services from './20261125_081626_inquiry_services';
 import * as migration_20261126_023131_drafts_mcp from './20261126_023131_drafts_mcp';
+import * as migration_20261126_093154_insight_cover_media_card from './20261126_093154_insight_cover_media_card';
 
 export const migrations = [
   {
@@ -34,6 +35,11 @@ export const migrations = [
   {
     up: migration_20261126_023131_drafts_mcp.up,
     down: migration_20261126_023131_drafts_mcp.down,
-    name: '20261126_023131_drafts_mcp'
+    name: '20261126_023131_drafts_mcp',
+  },
+  {
+    up: migration_20261126_093154_insight_cover_media_card.up,
+    down: migration_20261126_093154_insight_cover_media_card.down,
+    name: '20261126_093154_insight_cover_media_card'
   },
 ];

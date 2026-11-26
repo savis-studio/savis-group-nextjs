@@ -29,6 +29,7 @@ const NESTED: Record<string, string> = {
   integrity: "/about/integrity",
   "services-pro": "/services#professional",
   "resources-datasheets": "/solutions",
+  "resources-blog": "/insights#insights",
 };
 
 const PREFIXES: Array<[prefix: string, base: string, suffix?: string]> = [

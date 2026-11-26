@@ -60,7 +60,12 @@ export const Insights: CollectionConfig = {
       ],
     },
     { name: "summary", type: "textarea", required: true, admin: { description: "Card text and meta description (about 150 characters)." } },
-    { name: "order", type: "number", admin: { position: "sidebar", description: "Lower numbers show first. Left empty, a new article goes to the top." } },
+    {
+      name: "cover", label: "Cover image", type: "upload", relationTo: "media",
+      filterOptions: { mimeType: { contains: "image" } },
+      admin: { description: "Photo on cards and at the top of the article (landscape works best). Left empty, cards show an illustration." },
+    },
+    { name: "order", type: "number", admin: { position: "sidebar", description: "Lower numbers show first in lists such as “Keep reading”. Left empty, a new article goes to the top. The Insights page sorts by date instead." } },
     { name: "scene", type: "text", admin: { description: "Illustration key from the design (optional)." } },
     { name: "tags", type: "array", labels: { singular: "Tag", plural: "Tags" }, fields: [{ name: "tag", type: "text", required: true }] },
     {
