@@ -255,10 +255,16 @@ export interface Insight {
   id: number;
   title: string;
   /**
-   * URL: /insights/<slug>. Lowercase letters, digits and hyphens. Changing it breaks existing links.
+   * URL: /insights/<slug>. Leave empty to make it from the title when you save. Changing it later breaks existing links.
    */
   slug: string;
+  /**
+   * The tab of /insights that shows the article.
+   */
   type: 'insight' | 'news' | 'press';
+  /**
+   * In News & Regulation, “Regulation” shows under Regulation & Policy.
+   */
   cat: string;
   publishedAt?: string | null;
   /**
