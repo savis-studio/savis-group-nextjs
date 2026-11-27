@@ -20,14 +20,33 @@ export const mainNav: Array<{ id: MenuId; label: string }> = [
   { id: "company", label: "Company" },
 ];
 
+/** A document shown beside the Solutions menu. `pal` is the color family of its cover (see layout.css). */
+export interface MenuDoc { kind: "Report" | "Whitepaper"; title: string; series?: string; pal: string }
+
+const digitalTrust: MenuDoc = { kind: "Report", title: "Digital Trust Report 2026", pal: "identity" };
+
 export const solutionsMenu = {
   tabs: [
-    { id: "products", title: "By products", text: "Products and platforms across five solution pillars" },
-    { id: "industry", title: "By industry", text: "Solutions for your sector, from government to banking" },
-  ],
+    { id: "products", title: "By products", text: "Products and platforms across five solution pillars", heading: "Products by solution", all: { label: "All solutions & products →", href: "#solutions" } },
+    { id: "industry", title: "By industry", text: "Solutions for your sector, from government to banking", heading: "Industries by sector", all: { label: "All industries →", href: "#industries" } },
+  ] as const,
   overview: { label: "Solutions & Products overview →", href: "#solutions" },
-  all: { label: "All solutions & products →", href: "#solutions" },
-  promo: { tag: "Featured report", kicker: "SAVIS Report · 2026", title: "Digital Trust Report 2026", cta: "Read the report →", href: "#report-digital-trust-2026" },
+  /** The website has no page for these documents yet, so the card asks for a copy through the contact form. */
+  request: "#contact",
+  /** Keyed by what is open: a tab, a pillar id, or a sector name from INDUSTRY_GROUPS. */
+  docs: {
+    products: digitalTrust,
+    identity: { kind: "Whitepaper", title: "Digital trust as economic infrastructure: the case, the gaps and the models", series: "National Digital Identity Playbook", pal: "nd" },
+    cyber: { kind: "Report", title: "Post-Quantum Readiness Report 2026", pal: "cyber" },
+    gov: { kind: "Whitepaper", title: "One control plane, three enforcement planes: zero trust for digital public services", series: "Zero Trust for Digital Public Services", pal: "zt" },
+    finance: { kind: "Whitepaper", title: "Know the device, understand the context, decide the risk", series: "AI Fraud Decisioning Series", pal: "fr" },
+    ai: { kind: "Report", title: "Secure AI in regulated organizations", pal: "ai" },
+    industry: digitalTrust,
+    "Government & public sector": { kind: "Whitepaper", title: "Designing a national-grade digital identity and trust platform", series: "TrustPass & TrustSign Developer Series", pal: "tp" },
+    "Financial services": { kind: "Whitepaper", title: "One authentication layer for every channel: transaction signing and dynamic linking with FIDO2", series: "Passkeys Across Every Banking Channel", pal: "pp" },
+    "Telco & enterprise": { kind: "Whitepaper", title: "Beyond app shielding: securing the whole digital trust chain", series: "The Digital Trust Chain", pal: "dt" },
+    "Mobility & infrastructure": { kind: "Whitepaper", title: "Digital ID wallets: architecture and standards", series: "Digital ID Wallet series", pal: "wallet" },
+  } as Record<string, MenuDoc>,
 };
 
 export const servicesMenu = {

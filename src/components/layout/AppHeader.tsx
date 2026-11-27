@@ -3,9 +3,9 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState, type KeyboardEvent as ReactKeyboardEvent } from "react";
 import { Button, Logo } from "@/components/ui";
 import { NavLink as SmartLink } from "./NavLink";
-import type { Catalog } from "@/lib/cms";
 import { SearchOverlay } from "./SearchOverlay";
 import { ServicesMenu, type ServiceGroup } from "./ServicesMenu";
+import { SolutionsMenu, type Sector, type SolutionPillar } from "./SolutionsMenu";
 import {
   companyMenu, insightsMenu, mainNav, resourcesMenu, servicesMenu, solutionsMenu, utilityLinks,
 } from "./nav-data";
@@ -15,7 +15,6 @@ import type { FeatureCard, Link, MenuId } from "./nav-data";
 export interface MenuStory { id: string; title: string; cat: string; date: string; photo?: string; cls: string; art: string }
 
 const Chev = () => <svg className="sv-mx__chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="m9 6 6 6-6 6" /></svg>;
-const TAB_ICON: Record<string, string> = { products: "M12 3 4 7v10l8 4 8-4V7l-8-4Zm0 9v9m0-9 8-5M12 12 4 7", industry: "M4 21V8l6-3v16M10 21V11l7-3v13M3 21h18M7 11h.01M7 15h.01M13 14h.01M13 17h.01" };
 const Plus = () => <span aria-hidden="true">+</span>;
 
 /** Pages under each top-level item: it is underlined (and opened in the drawer) while one of them is shown. */
@@ -60,14 +59,12 @@ function LinkList({ links, onNavigate }: { links: Link[]; onNavigate: () => void
 }
 
 /** Utility bar, sticky header, five mega-menus (desktop) and a full-screen drawer (up to 1080px). */
-export function AppHeader({ pillars, industries, productHrefs, cardArt, latest, serviceGroups }: Catalog & { productHrefs: Record<string, string>; cardArt: Record<string, string>; latest: MenuStory[]; serviceGroups: ServiceGroup[] }) {
+export function AppHeader({ pillars, sectors, cardArt, latest, serviceGroups }: { pillars: SolutionPillar[]; sectors: Sector[]; cardArt: Record<string, string>; latest: MenuStory[]; serviceGroups: ServiceGroup[] }) {
   const [open, setOpen] = useState<MenuId | null>(null);
   const [drawer, setDrawer] = useState(false);
   const [searching, setSearching] = useState(false);
   const [mac, setMac] = useState(false);
   useEffect(() => { setMac(/mac|iphone|ipad/i.test(navigator.platform || navigator.userAgent)); }, []);
-  const [tab, setTab] = useState<"products" | "industry">("products");
-  const [pillarId, setPillarId] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const ref = useRef<HTMLElement>(null);
   const drawerRef = useRef<HTMLDivElement>(null);
@@ -105,22 +102,26 @@ export function AppHeader({ pillars, industries, productHrefs, cardArt, latest, 
     }
   };
 
-  const close = () => { setOpen(null); setDrawer(false); };
+  // With a mouse the menus open on hover and close shortly after the pointer leaves the header and its panel.
+  const timer = useRef<number | undefined>(undefined);
+  const cancel = () => window.clearTimeout(timer.current);
+  const later = (fn: () => void, ms: number) => { cancel(); timer.current = window.setTimeout(fn, ms); };
+  useEffect(() => cancel, []);
+
+  const close = () => { cancel(); setOpen(null); setDrawer(false); };
   const closeSearch = () => { setSearching(false); ref.current?.querySelector<HTMLElement>(".sv-search")?.focus(); };
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") { setOpen(null); setDrawer(false); }
+      if (e.key === "Escape") { cancel(); setOpen(null); setDrawer(false); }
       const typing = /^(INPUT|TEXTAREA|SELECT)$/.test((e.target as HTMLElement).tagName) || (e.target as HTMLElement).isContentEditable;
-      if ((e.key === "k" && (e.metaKey || e.ctrlKey)) || (e.key === "/" && !typing)) { e.preventDefault(); setSearching(true); setOpen(null); setDrawer(false); }
+      if ((e.key === "k" && (e.metaKey || e.ctrlKey)) || (e.key === "/" && !typing)) { e.preventDefault(); cancel(); setSearching(true); setOpen(null); setDrawer(false); }
     };
     const onDoc = (e: MouseEvent) => { if (ref.current && !ref.current.contains(e.target as Node)) setOpen(null); };
     document.addEventListener("keydown", onKey);
     document.addEventListener("mousedown", onDoc);
     return () => { document.removeEventListener("keydown", onKey); document.removeEventListener("mousedown", onDoc); };
   }, []);
-
-  const pillar = pillars.find((p) => p.id === pillarId) ?? null;
 
   return (
     <>
@@ -129,14 +130,15 @@ export function AppHeader({ pillars, industries, productHrefs, cardArt, latest, 
           {utilityLinks.map((l) => <SmartLink key={l.label} href={l.href}>{l.label}</SmartLink>)}
         </div>
       </div>
-      <header className={`sv-header${scrolled ? " is-scrolled" : ""}`} ref={ref} onMouseLeave={() => setOpen(null)}>
+      <header className={`sv-header${scrolled ? " is-scrolled" : ""}`} ref={ref}
+        onPointerEnter={cancel} onPointerLeave={(e) => { if (e.pointerType !== "touch") later(() => setOpen(null), 280); }}>
         <div className="sv-wrap sv-header__bar">
           <Logo />
           <nav className="sv-nav" aria-label="Main">
             <ul>
               {mainNav.map((m) => (
                 <li key={m.id}>
-                  <button type="button" aria-expanded={open === m.id} aria-controls="sv-mx" aria-current={current === m.id ? "page" : undefined} onMouseEnter={() => setOpen(m.id)} onClick={() => setOpen(open === m.id ? null : m.id)}>
+                  <button type="button" aria-expanded={open === m.id} aria-controls="sv-mx" aria-current={current === m.id ? "page" : undefined} onPointerEnter={(e) => { if (e.pointerType !== "touch") later(() => setOpen(m.id), open ? 60 : 140); }} onClick={() => { cancel(); setOpen(open === m.id ? null : m.id); }}>
                     {m.label}
                   </button>
                 </li>
@@ -144,7 +146,7 @@ export function AppHeader({ pillars, industries, productHrefs, cardArt, latest, 
             </ul>
           </nav>
           <div className="sv-header__actions">
-            <button type="button" className="sv-search" aria-label="Search" aria-haspopup="dialog" aria-keyshortcuts="Control+K Meta+K" title={`Search (${mac ? "⌘" : "Ctrl"} K)`} onClick={() => { setSearching(true); setOpen(null); setDrawer(false); }}>
+            <button type="button" className="sv-search" aria-label="Search" aria-haspopup="dialog" aria-keyshortcuts="Control+K Meta+K" title={`Search (${mac ? "⌘" : "Ctrl"} K)`} onClick={() => { cancel(); setSearching(true); setOpen(null); setDrawer(false); }}>
               <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" strokeWidth="1.6" /><path d="M11 11l3.5 3.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>
             </button>
             <Button href="/contact">Contact us</Button>
@@ -159,55 +161,7 @@ export function AppHeader({ pillars, industries, productHrefs, cardArt, latest, 
         {open && (
           <div className="sv-mega" id="sv-mx">
             <div className="sv-wrap sv-mx">
-              {open === "solutions" && (
-                <div className="sv-mx__sol">
-                  <div className="sv-mx__tabs">
-                    {solutionsMenu.tabs.map((t) => (
-                      <button key={t.id} type="button" className="sv-mx__tab" aria-pressed={tab === t.id}
-                        onClick={() => { setTab(t.id as "products" | "industry"); setPillarId(null); }}>
-                        <svg className="sv-mx__ico" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" aria-hidden="true"><path d={TAB_ICON[t.id]} /></svg><b>{t.title}<Chev /></b><span>{t.text}</span>
-                      </button>
-                    ))}
-                    <SmartLink href={solutionsMenu.overview.href} className="sv-mx__more" onClick={close}>{solutionsMenu.overview.label}</SmartLink>
-                  </div>
-                  <div className="sv-mx__col">
-                    <span className="sv-mx__k">{tab === "products" ? "Products by solution" : "Industries"}</span>
-                    {tab === "products" ? (
-                      <ul className="sv-mx__list">
-                        {pillars.map((p) => (
-                          <li key={p.id}>
-                            <button type="button" aria-current={pillarId === p.id} onClick={() => setPillarId(p.id)} onMouseEnter={() => setPillarId(p.id)}>{p.short}<Chev /></button>
-                          </li>
-                        ))}
-                      </ul>
-                    ) : (
-                      <ul className="sv-mx__list">
-                        {industries.map((i) => <li key={i.id}><SmartLink href={`#ind-${i.id}`} onClick={close}>{i.name}<Chev /></SmartLink></li>)}
-                      </ul>
-                    )}
-                    <SmartLink href={solutionsMenu.all.href} className="sv-mx__more" onClick={close}>{solutionsMenu.all.label}</SmartLink>
-                  </div>
-                  {tab === "products" && pillar ? (
-                    <div className="sv-mx__detail">
-                      <SmartLink href={`#pillar-${pillar.id}`} className="sv-mx__pillar" onClick={close}>{pillar.name} →</SmartLink>
-                      <div className="sv-mx__groups">
-                        {pillar.groups.map((g) => (
-                          <div key={g.name}>
-                            <h4>{g.name}</h4>
-                            <ul>{g.items.map((it) => <li key={it}><SmartLink href={productHrefs[it] ?? "/solutions"} onClick={close}>{it}</SmartLink></li>)}</ul>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  ) : (
-                    <SmartLink href={solutionsMenu.promo.href} className="sv-mx__promo" onClick={close}>
-                      <span className="sv-mx__k">{solutionsMenu.promo.tag}</span>
-                      <span className="sv-mx__cover"><em>{solutionsMenu.promo.kicker}</em><b>{solutionsMenu.promo.title}</b></span>
-                      <i>{solutionsMenu.promo.cta}</i>
-                    </SmartLink>
-                  )}
-                </div>
-              )}
+              {open === "solutions" && <SolutionsMenu pillars={pillars} sectors={sectors} onNavigate={close} />}
 
               {open === "services" && (
                 <ServicesMenu
@@ -283,11 +237,11 @@ export function AppHeader({ pillars, industries, productHrefs, cardArt, latest, 
             <details open={current === "solutions"} data-cur={current === "solutions" ? "" : undefined}>
               <summary>Solutions &amp; Products<Plus /></summary>
               <ul>
+                <li className="is-heading">By products</li>
+                {pillars.map((p) => <li key={p.id}><SmartLink href={`#pillar-${p.id}`} onClick={close}>{p.name}</SmartLink></li>)}
+                <li className="is-heading">By industry</li>
+                {sectors.flatMap((s) => s.industries).map((i) => <li key={i.id}><SmartLink href={`#ind-${i.id}`} onClick={close}>{i.name}</SmartLink></li>)}
                 <li className="is-overview"><SmartLink href={solutionsMenu.overview.href} onClick={close}>{solutionsMenu.overview.label}</SmartLink></li>
-                <li className="is-heading">Solution pillars</li>
-                {pillars.map((p) => <li key={p.id}><SmartLink href={`#pillar-${p.id}`} onClick={close}>{p.n} · {p.name}</SmartLink></li>)}
-                <li className="is-heading">Industries</li>
-                {industries.map((i) => <li key={i.id}><SmartLink href={`#ind-${i.id}`} onClick={close}>{i.name}</SmartLink></li>)}
               </ul>
             </details>
             {drawerSections.map((s) => (

@@ -12,12 +12,13 @@ import { newsThumb, thumbArt, vxArt } from "@/lib/thumbs";
 import { companyMenu, resourcesMenu, servicesMenu } from "@/components/layout/nav-data";
 import { AppHeader, type MenuStory } from "@/components/layout/AppHeader";
 import type { ServiceGroup } from "@/components/layout/ServicesMenu";
+import type { Sector, SolutionPillar } from "@/components/layout/SolutionsMenu";
 import { AppFooter } from "@/components/layout/AppFooter";
 import { VxActivate } from "@/components/ui/VxActivate";
 import { PROFESSIONAL_SERVICES, SUPPORT_SERVICES, serviceOfferings } from "@/data/company-pages";
 import { DEVELOPER_APIS } from "@/data/developers";
-import { getProducts } from "@/lib/content";
-import { getCatalog } from "@/lib/cms";
+import { INDUSTRY_GROUPS, groupsOfPillar, pillarById } from "@/lib/content";
+import { getCatalog, type Catalog } from "@/lib/cms";
 import { INSIGHT_GROUPS, newestFirst } from "@/lib/insight-groups";
 import { getArticles } from "@/lib/insights";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_ORIGIN, SITE_TAGLINE } from "@/lib/site";
@@ -38,8 +39,22 @@ export const metadata: Metadata = {
   icons: { icon: "/brand/savis-mark.png", apple: "/brand/savis-mark.png" },
 };
 
-/** Product name → page, so the mega menu links each product to its own page. */
-const productHrefs = Object.fromEntries(getProducts().map((p) => [p.name, `/products/${p.slug}`]));
+/**
+ * The Solutions menu's pillars, each with its product groups. The groups come from the same list as the pillar page,
+ * so every group link has its section there.
+ */
+const solutionPillars = (pillars: Catalog["pillars"]): SolutionPillar[] =>
+  pillars.map(({ id, name, short }) => {
+    const slug = pillarById(id)?.slug;
+    return { id, name, short, groups: slug ? groupsOfPillar(slug).map((g) => ({ slug: g.slug, name: g.name })) : [] };
+  });
+
+/** Industries by sector. One added in the admin that no sector lists yet is kept under "More industries". */
+function bySector(industries: Catalog["industries"]): Sector[] {
+  const listed = new Set(INDUSTRY_GROUPS.flatMap(([, ids]) => ids));
+  const sectors = INDUSTRY_GROUPS.map(([name, ids]) => ({ name, industries: ids.flatMap((id) => industries.find((i) => i.id === id) ?? []) }));
+  return [...sectors, { name: "More industries", industries: industries.filter((i) => !listed.has(i.id)) }].filter((s) => s.industries.length > 0);
+}
 
 /** Scene art for the mega-menu feature cards, rendered here so the art code stays out of the client bundle. */
 const cardArt: Record<string, string> = Object.fromEntries(
@@ -74,7 +89,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html lang="en" className={`${sora.variable} ${inter.variable}`}>
       <body style={{ margin: 0, background: "var(--bg)", color: "var(--text)", font: "400 16px/1.6 var(--font-body)" }}>
         <a href="#main" className="sr-only focus:not-sr-only">Skip to content</a>
-        <AppHeader {...catalog} productHrefs={productHrefs} cardArt={cardArt} latest={latest} serviceGroups={serviceGroups} />
+        <AppHeader pillars={solutionPillars(catalog.pillars)} sectors={bySector(catalog.industries)} cardArt={cardArt} latest={latest} serviceGroups={serviceGroups} />
         <div id="main">{children}</div>
         <AppFooter {...catalog} />
         <VxActivate />

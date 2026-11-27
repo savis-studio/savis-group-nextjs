@@ -37,7 +37,7 @@ export default async function DatasheetPage({ params }: Props) {
       trail={[
         { label: "Solutions & Products", href: "/solutions" },
         ...(pillar ? [{ label: pillar.name, href: `/solutions/${pillar.id}` }] : []),
-        ...(group ? [{ label: group.name, href: `/solutions#${group.slug}` }] : []),
+        ...(pillar && group ? [{ label: group.name, href: `/solutions/${pillar.id}#${group.slug}` }] : []),
         { label: p.name, href: `/products/${p.slug}` },
       ]}
       actions={

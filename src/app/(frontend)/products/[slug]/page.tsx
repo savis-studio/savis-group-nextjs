@@ -59,7 +59,7 @@ export default async function ProductPage({ params }: Props) {
       trail={[
         { label: "Solutions & Products", href: "/solutions" },
         ...(pillar ? [{ label: pillar.name, href: `/solutions/${pillar.id}` }] : []),
-        ...(group ? [{ label: group.name, href: `/solutions#${group.slug}` }] : []),
+        ...(pillar && group ? [{ label: group.name, href: `/solutions/${pillar.id}#${group.slug}` }] : []),
       ]}
       actions={
         <>
