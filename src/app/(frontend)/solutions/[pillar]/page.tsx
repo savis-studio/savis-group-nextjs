@@ -73,8 +73,8 @@ export default async function PillarPage({ params }: Props) {
           <SmartLink href="/solutions" className="sv-more">All pillars →</SmartLink>
         </SectionHead>
         {groups.map((g) => (
-          <div key={g.slug} className="sv-group">
-            <h3><SmartLink href={`/solutions#${g.slug}`}>{g.name}</SmartLink></h3>
+          <div key={g.slug} id={g.slug} className="sv-group">
+            <h3>{g.name}</h3>
             <LinkPills>
               {productsOfGroup(g).map((x) => <SmartLink key={x.slug} href={`/products/${x.slug}`}>{x.name}</SmartLink>)}
             </LinkPills>
