@@ -75,7 +75,8 @@ export function AppHeader({ pillars, sectors, cardArt, latest, serviceGroups, re
   const ref = useRef<HTMLElement>(null);
   const drawerRef = useRef<HTMLDivElement>(null);
   const path = usePathname();
-  const current = mainNav.find((m) => SECTION_PATHS[m.id].some((p) => path === p || path.startsWith(`${p}/`)))?.id;
+  // A datasheet is part of the resource library, although its address sits under its product.
+  const current = path.endsWith("/datasheet") ? "resources" : mainNav.find((m) => SECTION_PATHS[m.id].some((p) => path === p || path.startsWith(`${p}/`)))?.id;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);

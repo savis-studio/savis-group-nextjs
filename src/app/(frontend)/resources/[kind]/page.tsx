@@ -73,7 +73,7 @@ const datasheetItems = (): LibraryItem[] =>
   datasheetProducts().map((p) => {
     const pillar = pillarOfProduct(p)?.id;
     return {
-      id: p.slug, title: p.name, text: p.desc, topic: pillar, kind: "Datasheet", about: pillar && pillarShort(pillar), art: datasheetArt(p),
+      id: p.slug, title: p.name, text: p.desc, topic: pillar, kind: "Datasheet", about: pillar && pillarShort(pillar), art: datasheetArt(p), badge: "PDF",
       links: [{ label: "View datasheet →", href: `/products/${p.slug}/datasheet` }, { label: "Product page", href: `/products/${p.slug}` }],
     };
   });

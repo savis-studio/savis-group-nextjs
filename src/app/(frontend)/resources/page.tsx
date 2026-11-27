@@ -74,6 +74,7 @@ export default async function ResourcesPage() {
                     <SmartLink href={`/products/${d.slug}/datasheet`}>
                       <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" aria-hidden="true"><path d="M6 3h9l4 4v14H6zM14 3v5h5M9 13h7M9 17h5" /></svg>
                       <span><b>{d.name}</b><em>{p.name}</em></span>
+                      <i>PDF</i>
                     </SmartLink>
                   </li>
                 ))}

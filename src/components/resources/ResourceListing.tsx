@@ -19,6 +19,8 @@ export interface LibraryItem {
   kind: string;
   about?: string;
   art: Art;
+  /** Short mark on the picture, such as "PDF". */
+  badge?: string;
   /** Opens the video instead of a page. */
   film?: FilmId;
   /** The first link is the picture's too. */
@@ -84,6 +86,7 @@ export function ResourceListing({ title, items, topics, perPage, skip }: {
             <>
               <ResourceArt art={i.art} />
               {i.film && <span className="sv-mx__play" aria-hidden="true" />}
+              {i.badge && <i className="sv-libcard__badge" aria-hidden="true">{i.badge}</i>}
             </>
           );
           return (

@@ -29,7 +29,7 @@ export function InfoCard({ label, items, chips }: { label: string; items?: strin
   );
 }
 
-const STEPS = ["Assess", "Design", "Pilot", "Roll out", "Operate"];
+export const ROADMAP_STEPS = ["Assess", "Design", "Pilot", "Roll out", "Operate"];
 
 /** The five-step delivery roadmap. `notes` gives one sentence per step; without it the generic wording is used. */
 export function Roadmap({ title, notes }: { title: string; notes?: string[] }) {
@@ -44,7 +44,7 @@ export function Roadmap({ title, notes }: { title: string; notes?: string[] }) {
     <div className="sv-roadmap">
       <h3>{title}</h3>
       <ol>
-        {STEPS.map((s, i) => (
+        {ROADMAP_STEPS.map((s, i) => (
           <li key={s}>
             <span>{String(i + 1).padStart(2, "0")}</span>
             <b>{s}</b>
