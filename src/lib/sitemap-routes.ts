@@ -25,7 +25,8 @@ export const STATIC_ROUTES: SitemapRoute[] = [
   // Phase 4
   staticRoute("/customers", true, 0.8),
   staticRoute("/insights", true, 0.8),
-  staticRoute("/resources", false, 0.7),
+  staticRoute("/resources", true, 0.7),
+  ...["datasheets", "brochures", "briefs", "videos"].map((k) => staticRoute(`/resources/${k}`, true, 0.6)),
   // Phase 5
   staticRoute("/services", true, 0.8),
   staticRoute("/services/developers", true, 0.6),

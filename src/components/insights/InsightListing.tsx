@@ -16,7 +16,7 @@ const PER_PAGE = 9;
 const plain = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/đ/gi, "d").toLowerCase();
 
 /** Page numbers with gaps: 1 2 3 4 5 … 12. */
-function pageList(pages: number, current: number): Array<number | "gap"> {
+export function pageList(pages: number, current: number): Array<number | "gap"> {
   if (pages <= 7) return Array.from({ length: pages }, (_, i) => i + 1);
   if (current <= 4) return [1, 2, 3, 4, 5, "gap", pages];
   if (current >= pages - 3) return [1, "gap", pages - 4, pages - 3, pages - 2, pages - 1, pages];

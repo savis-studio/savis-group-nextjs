@@ -158,6 +158,8 @@ export const getProducts = (): Product[] => products as unknown as Product[];
 export const getProduct = (slug: string) => getProducts().find((p) => p.slug === slug);
 export const getProductDetail = (slug: string): ProductDetail | undefined =>
   (productDetails as unknown as Record<string, ProductDetail>)[slug];
+/** Slugs that have a detail record, in the mockup's order. */
+export const getDetailSlugs = (): string[] => Object.keys(productDetails);
 
 /** Architecture for any product: hand-written detail first, then the 8 products that only have a diagram. */
 export const getProductArch = (slug: string): Arch | undefined =>
@@ -247,13 +249,13 @@ export const getNewsDetail = (id: string): NewsDetail | undefined => {
 /**
  * Article body HTML from the bundled mockup data (trusted, not user input). Photos and files are left out: they live
  * in the CMS (see scripts/import-insights.ts). In-app `#hash` links become real paths;
- * `#report-*` and `#resources-*` point at the whitepaper library, which has no pages yet, so they go to /insights.
+ * `#report-*` and `#resources-reports` point at reports, which have no pages yet, so they go to /insights.
  */
 export function articleHtml(body: string[]): string {
   return localMedia(body.join(""), () => undefined)
     .replace(/href="(#[^"]*)"/g, (_m, h: string) => {
       const key = h.slice(1);
-      const to = /^(report-|resources)/.test(key) ? "/insights" : hashToPath(h);
+      const to = /^(report-|resources-reports$)/.test(key) ? "/insights" : hashToPath(h);
       return `href="${to}"`;
     });
 }

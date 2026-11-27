@@ -1,8 +1,12 @@
 "use client";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState, type KeyboardEvent as ReactKeyboardEvent } from "react";
+import { VideoDialog } from "@/components/resources/VideoDialog";
 import { Button, Logo } from "@/components/ui";
+import type { FilmId } from "@/data/films";
+import type { ResourceSet } from "@/lib/resources";
 import { NavLink as SmartLink } from "./NavLink";
+import { ResourcesMenu } from "./ResourcesMenu";
 import { SearchOverlay } from "./SearchOverlay";
 import { ServicesMenu, type ServiceGroup } from "./ServicesMenu";
 import { SolutionsMenu, type Sector, type SolutionPillar } from "./SolutionsMenu";
@@ -22,15 +26,16 @@ const SECTION_PATHS: Record<MenuId, string[]> = {
   solutions: ["/solutions", "/products", "/industries", "/use-cases"],
   services: ["/services"],
   insights: ["/insights", "/customers"],
-  resources: [],
+  resources: ["/resources"],
   company: ["/about", "/innovation", "/careers"],
 };
 
-const drawerSections: Array<{ id: MenuId; label: string; overview: string; links: Link[] }> = [
-  { id: "services", label: "Services", overview: servicesMenu.all.href, links: servicesMenu.links },
-  { id: "insights", label: "Insights", overview: insightsMenu.overview.href, links: insightsMenu.links },
-  { id: "resources", label: "Resources", overview: resourcesMenu.all.href, links: resourcesMenu.links },
-  { id: "company", label: "Company", overview: companyMenu.all.href, links: companyMenu.links },
+/** `more` is the section's overview link: first in the list, or last when `after` is set. */
+const drawerSections: Array<{ id: MenuId; label: string; links: Link[]; more: Link; after?: boolean }> = [
+  { id: "services", label: "Services", links: servicesMenu.links, more: { label: "Services overview →", href: servicesMenu.all.href } },
+  { id: "insights", label: "Insights", links: insightsMenu.links, more: { label: "Insights overview →", href: insightsMenu.overview.href } },
+  { id: "resources", label: "Resources", links: resourcesMenu.categories, more: resourcesMenu.all, after: true },
+  { id: "company", label: "Company", links: companyMenu.links, more: { label: "Company overview →", href: companyMenu.all.href } },
 ];
 
 function Cards({ cards, art, onNavigate }: { cards: FeatureCard[]; art: Record<string, string>; onNavigate: () => void }) {
@@ -59,10 +64,11 @@ function LinkList({ links, onNavigate }: { links: Link[]; onNavigate: () => void
 }
 
 /** Utility bar, sticky header, five mega-menus (desktop) and a full-screen drawer (up to 1080px). */
-export function AppHeader({ pillars, sectors, cardArt, latest, serviceGroups }: { pillars: SolutionPillar[]; sectors: Sector[]; cardArt: Record<string, string>; latest: MenuStory[]; serviceGroups: ServiceGroup[] }) {
+export function AppHeader({ pillars, sectors, cardArt, latest, serviceGroups, resources }: { pillars: SolutionPillar[]; sectors: Sector[]; cardArt: Record<string, string>; latest: MenuStory[]; serviceGroups: ServiceGroup[]; resources: ResourceSet[] }) {
   const [open, setOpen] = useState<MenuId | null>(null);
   const [drawer, setDrawer] = useState(false);
   const [searching, setSearching] = useState(false);
+  const [film, setFilm] = useState<FilmId | null>(null);
   const [mac, setMac] = useState(false);
   useEffect(() => { setMac(/mac|iphone|ipad/i.test(navigator.platform || navigator.userAgent)); }, []);
   const [scrolled, setScrolled] = useState(false);
@@ -110,9 +116,18 @@ export function AppHeader({ pillars, sectors, cardArt, latest, serviceGroups }: 
 
   const close = () => { cancel(); setOpen(null); setDrawer(false); };
   const closeSearch = () => { setSearching(false); ref.current?.querySelector<HTMLElement>(".sv-search")?.focus(); };
+  /** A video picked in a menu: the menu closes, and the focus returns to its button afterwards. */
+  const play = (id: FilmId) => { close(); setFilm(id); };
+  const endFilm = () => {
+    setFilm(null);
+    const back = [".sv-nav button[data-menu=resources]", ".sv-icon-btn"].map((s) => ref.current?.querySelector<HTMLElement>(s)).find((el) => el?.checkVisibility());
+    back?.focus();
+  };
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
+      // An open video window keeps the keyboard to itself.
+      if (document.querySelector("dialog.sv-vdlg[open]")) return;
       if (e.key === "Escape") { cancel(); setOpen(null); setDrawer(false); }
       const typing = /^(INPUT|TEXTAREA|SELECT)$/.test((e.target as HTMLElement).tagName) || (e.target as HTMLElement).isContentEditable;
       if ((e.key === "k" && (e.metaKey || e.ctrlKey)) || (e.key === "/" && !typing)) { e.preventDefault(); cancel(); setSearching(true); setOpen(null); setDrawer(false); }
@@ -138,7 +153,7 @@ export function AppHeader({ pillars, sectors, cardArt, latest, serviceGroups }: 
             <ul>
               {mainNav.map((m) => (
                 <li key={m.id}>
-                  <button type="button" aria-expanded={open === m.id} aria-controls="sv-mx" aria-current={current === m.id ? "page" : undefined} onPointerEnter={(e) => { if (e.pointerType !== "touch") later(() => setOpen(m.id), open ? 60 : 140); }} onClick={() => { cancel(); setOpen(open === m.id ? null : m.id); }}>
+                  <button type="button" data-menu={m.id} aria-expanded={open === m.id} aria-controls="sv-mx" aria-current={current === m.id ? "page" : undefined} onPointerEnter={(e) => { if (e.pointerType !== "touch") later(() => setOpen(m.id), open ? 60 : 140); }} onClick={() => { cancel(); setOpen(open === m.id ? null : m.id); }}>
                     {m.label}
                   </button>
                 </li>
@@ -196,16 +211,7 @@ export function AppHeader({ pillars, sectors, cardArt, latest, serviceGroups }: 
                 </div>
               )}
 
-              {open === "resources" && (
-                <div className="sv-mx__split">
-                  <div className="sv-mx__side">
-                    <span className="sv-mx__k">{resourcesMenu.heading}</span>
-                    <LinkList links={resourcesMenu.links} onNavigate={close} />
-                    <SmartLink href={resourcesMenu.all.href} className="sv-mx__more" onClick={close}>{resourcesMenu.all.label}</SmartLink>
-                  </div>
-                  <div><div className="sv-mx__head"><span className="sv-mx__k">Featured resources</span><SmartLink href={resourcesMenu.all.href} onClick={close}>{resourcesMenu.all.label}</SmartLink></div><Cards cards={resourcesMenu.cards} art={cardArt} onNavigate={close} /></div>
-                </div>
-              )}
+              {open === "resources" && <ResourcesMenu sets={resources} onNavigate={close} onFilm={play} />}
 
               {open === "company" && (
                 <div className="sv-mx__split">
@@ -248,8 +254,9 @@ export function AppHeader({ pillars, sectors, cardArt, latest, serviceGroups }: 
               <details key={s.id} open={current === s.id} data-cur={current === s.id ? "" : undefined}>
                 <summary>{s.label}<Plus /></summary>
                 <ul>
-                  <li className="is-overview"><SmartLink href={s.overview} onClick={close}>{s.label} overview →</SmartLink></li>
+                  {!s.after && <li className="is-overview"><SmartLink href={s.more.href} onClick={close}>{s.more.label}</SmartLink></li>}
                   {s.links.map((l) => <li key={l.label}><SmartLink href={l.href} onClick={close}>{l.label}</SmartLink></li>)}
+                  {s.after && <li className="is-overview"><SmartLink href={s.more.href} onClick={close}>{s.more.label}</SmartLink></li>}
                 </ul>
               </details>
             ))}
@@ -258,6 +265,7 @@ export function AppHeader({ pillars, sectors, cardArt, latest, serviceGroups }: 
         </div>
       )}
       <SearchOverlay open={searching} onClose={closeSearch} mac={mac} />
+      <VideoDialog film={film} onClose={endFilm} />
     </>
   );
 }
