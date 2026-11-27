@@ -11,8 +11,11 @@ import "./globals.css";
 import { newsThumb, thumbArt, vxArt } from "@/lib/thumbs";
 import { companyMenu, resourcesMenu, servicesMenu } from "@/components/layout/nav-data";
 import { AppHeader, type MenuStory } from "@/components/layout/AppHeader";
+import type { ServiceGroup } from "@/components/layout/ServicesMenu";
 import { AppFooter } from "@/components/layout/AppFooter";
 import { VxActivate } from "@/components/ui/VxActivate";
+import { PROFESSIONAL_SERVICES, SUPPORT_SERVICES, serviceOfferings } from "@/data/company-pages";
+import { DEVELOPER_APIS } from "@/data/developers";
 import { getProducts } from "@/lib/content";
 import { getCatalog } from "@/lib/cms";
 import { INSIGHT_GROUPS, newestFirst } from "@/lib/insight-groups";
@@ -43,6 +46,19 @@ const cardArt: Record<string, string> = Object.fromEntries(
   [...servicesMenu.cards, ...resourcesMenu.cards, ...companyMenu.cards].flatMap((c) => (c.art ? [[c.title, vxArt(c.art.icon, undefined, undefined, c.art.lbl)]] : [])),
 );
 
+/** Services listed in each panel of the Services menu, linking to the item that opens on its page. */
+const serviceLines = {
+  pro: serviceOfferings(PROFESSIONAL_SERVICES),
+  support: serviceOfferings(SUPPORT_SERVICES),
+  developers: DEVELOPER_APIS,
+} as Record<string, Array<{ id: string; name: string; icon: ServiceGroup["lines"][number]["icon"] }>>;
+
+const serviceGroups: ServiceGroup[] = servicesMenu.groups.map((g) => ({
+  ...g,
+  card: { ...g.card, art: g.card.art.cls, svg: vxArt(g.card.art.icon, undefined, undefined, g.card.art.lbl) },
+  lines: (serviceLines[g.id] ?? []).map((l) => ({ name: l.name, icon: l.icon, href: `${g.id === "developers" ? "/services/developers" : "/services"}#${l.id}` })),
+}));
+
 /** The two newest news items, for the Insights menu. */
 async function latestNews(): Promise<MenuStory[]> {
   const news = INSIGHT_GROUPS.find((g) => g.id === "news")!;
@@ -58,7 +74,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html lang="en" className={`${sora.variable} ${inter.variable}`}>
       <body style={{ margin: 0, background: "var(--bg)", color: "var(--text)", font: "400 16px/1.6 var(--font-body)" }}>
         <a href="#main" className="sr-only focus:not-sr-only">Skip to content</a>
-        <AppHeader {...catalog} productHrefs={productHrefs} cardArt={cardArt} latest={latest} />
+        <AppHeader {...catalog} productHrefs={productHrefs} cardArt={cardArt} latest={latest} serviceGroups={serviceGroups} />
         <div id="main">{children}</div>
         <AppFooter {...catalog} />
         <VxActivate />

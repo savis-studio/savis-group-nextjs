@@ -11,6 +11,7 @@ import {
   getPillars, getProduct, getProductDetail, getProducts, getUseCase, getUseCases, groupsOfPillar, productsOfGroup,
 } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
+import { JOURNEY_ICONS } from "@/lib/line-icons";
 
 const PATH = "/solutions";
 
@@ -96,7 +97,7 @@ export default function SolutionsPage() {
         <ChallengePicker panels={panels()} />
       </Section>
 
-      <Journey journey={LIFE as never} />
+      <Journey journey={LIFE as never} icons={JOURNEY_ICONS.solutions!} />
 
       <Section tone="surface" id="pillars">
         <SectionHead eyebrow="Five solution pillars" title="Explore by pillar" />

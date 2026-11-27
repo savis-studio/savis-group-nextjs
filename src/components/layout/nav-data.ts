@@ -1,7 +1,7 @@
 /* Header and footer content, taken from the final savis.vn V3 mockup.
    Every href is a "#" placeholder until the real routes exist. */
 export interface Link { label: string; href: string }
-export interface FeatureCard { photo?: string; tag: string; title: string; cta: string; href: string; art?: { cls: string; icon: string; lbl?: string } }
+export interface FeatureCard { photo?: string; /** Shows a play button on the picture. */ video?: boolean; tag: string; title: string; cta: string; href: string; art?: { cls: string; icon: string; lbl?: string } }
 
 export const utilityLinks: Link[] = [
   { label: "Who are you?", href: "#who" },
@@ -40,10 +40,28 @@ export const servicesMenu = {
   all: { label: "Explore all services →", href: "#services" },
   talk: { label: "Talk to an expert →", href: "#contact" },
   cards: [
-    { tag: "Video", title: "Assess, design, deploy and operate.", cta: "Watch the film →", href: "#services", art: { cls: "ai", icon: "mega", lbl: "Assess · Design · Deploy|mx-film-services" } },
+    { tag: "Video", title: "Assess, design, deploy and operate.", cta: "Watch the film →", href: "#services-watch", photo: "/images/company/film-services.jpg", video: true },
     { tag: "Professional Services", title: "Advisory, integration, engineering, cloud, managed and trust services.", cta: "See professional services →", href: "#services-pro", art: { cls: "ai", icon: "compass", lbl: "~mx-pro" } },
     { tag: "Customer Support", title: "One support team for every SAVIS product, from first ticket to root cause.", cta: "See customer support →", href: "#services-support", art: { cls: "finance", icon: "headset", lbl: "~mx-support" } },
   ] as FeatureCard[],
+  /** Panel of each service group; its list of services is filled in by the layout. */
+  groups: [
+    {
+      id: "pro", name: "Professional Services", href: "/services#professional", explore: "Explore professional services →",
+      lead: "Advisory, integration, engineering, cloud, managed and trust services, delivered by the team that makes the technology.",
+      card: { tag: "Professional Services", title: "Tell us your project and get the right specialists.", cta: "Talk to an expert →", href: "/contact", art: { cls: "ai", icon: "compass", lbl: "mx-side-pro" } },
+    },
+    {
+      id: "support", name: "Customer Support", href: "/services#support", explore: "Explore customer support →",
+      lead: "One support team for every SAVIS product - from first ticket to root cause.",
+      card: { tag: "Customer Support", title: "Talk to our support team about your SAVIS products.", cta: "Contact support →", href: "/contact", art: { cls: "finance", icon: "headset", lbl: "mx-side-support" } },
+    },
+    {
+      id: "developers", name: "Developers", href: "/services/developers", explore: "Explore developers →",
+      lead: "APIs and SDKs for partners who build Digital Trust as a Service on TrustCA QTSP and SAVIS Paperless.",
+      card: { tag: "Developers", title: "Standards-based APIs and SDKs for signing, identity and open finance.", cta: "Explore the APIs →", href: "/services/developers#dev-apis", art: { cls: "cyber", icon: "api", lbl: "mx-side-dev" } },
+    },
+  ],
 };
 
 export const insightsMenu = {

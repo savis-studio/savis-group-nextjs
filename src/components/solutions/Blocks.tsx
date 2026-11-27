@@ -84,10 +84,10 @@ export function LinkPills({ children }: { children: ReactNode }) {
   return <div className="sv-pills">{children}</div>;
 }
 
-/** In-page navigation bar: anchor links on the left, actions on the right. */
-export function JumpBar({ title, links, actions }: { title?: string; links: Array<{ href: string; label: string }>; actions?: ReactNode }) {
+/** In-page navigation bar: anchor links on the left, actions on the right. `pills` is the sticky variant with round buttons. */
+export function JumpBar({ title, links, actions, pills }: { title?: string; links: Array<{ href: string; label: string }>; actions?: ReactNode; pills?: boolean }) {
   return (
-    <nav className="sv-jump" aria-label="On this page">
+    <nav className={pills ? "sv-jump sv-jump--pills" : "sv-jump"} aria-label="On this page">
       <div className="sv-wrap">
         {title && <b>{title}</b>}
         {links.map((l) => <a key={l.href} className="sv-jump__a" href={l.href}>{l.label}</a>)}

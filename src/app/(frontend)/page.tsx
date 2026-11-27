@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import "@/styles/film.css";
 import "@/styles/home.css";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buildMetadata, organizationLd, websiteLd } from "@/lib/seo";

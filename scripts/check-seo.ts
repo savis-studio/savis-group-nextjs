@@ -20,7 +20,7 @@ const cases: Array<[string, string]> = [
   ["#news-asocio-smart-city-2026", "/insights/asocio-smart-city-2026"], ["#pillar-gov", "/solutions/gov"], ["#grp-zero-trust", "/solutions#zero-trust"],
   ["#pqc-lab", "/innovation/pqc-lab"], ["#culture", "/about/culture"], ["#partners", "/partners"], ["#partner-portal", "/partners"],
   ["#p-smart-ekyc", "/products/trustonboard"], ["#ds-digital-id-mobile", "/products/national-eid-trust/datasheet"],
-  ["#services-advise", "/services#advise"], ["#resources-blog", "/insights#insights"], ["#services-pro", "/services#professional"], ["#report-nd-case-2026", "/insights"], ["#use-cases-matrix", "/use-cases#matrix"], ["/already/a/path", "/already/a/path"], ["mailto:a@b.c", "mailto:a@b.c"],
+  ["#services-advise", "/services#professional"], ["#developers", "/services/developers"], ["#resources-blog", "/insights#insights"], ["#services-pro", "/services#professional"], ["#report-nd-case-2026", "/insights"], ["#use-cases-matrix", "/use-cases#matrix"], ["/already/a/path", "/already/a/path"], ["mailto:a@b.c", "mailto:a@b.c"],
 ];
 for (const [h, p] of cases) eq(`route ${h}`, hashToPath(h), p);
 

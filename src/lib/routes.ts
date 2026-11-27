@@ -26,6 +26,13 @@ const NESTED: Record<string, string> = {
   esg: "/about/esg",
   integrity: "/about/integrity",
   "services-pro": "/services#professional",
+  // Stage anchors of the earlier services page.
+  "services-advise": "/services#professional",
+  "services-build": "/services#professional",
+  "services-operate": "/services#professional",
+  "services-e2e": "/services#professional",
+  developers: "/services/developers",
+  "services-developers": "/services/developers",
   "resources-datasheets": "/solutions",
   "resources-blog": "/insights#insights",
   "tech-bulletins": "/insights#bulletins",
@@ -56,7 +63,7 @@ export function hashToPath(href: string): string {
   return family ?? "/";
 }
 
-/** `services-advise` → `/services#advise`, `resources-*` → `/insights` until a resources section exists, etc. */
+/** `services-pricing` → `/services#pricing`, `resources-*` → `/insights` until a resources section exists, etc. */
 function anchorFamily(key: string): string | null {
   const m = /^(services|about|insights|customers|use-cases)-(.+)$/.exec(key);
   if (m) return `/${m[1]}#${m[2]}`;

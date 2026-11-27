@@ -11,6 +11,7 @@ import { getJourney, getPillars, getUseCases, groupsOfPillar, pillarById, produc
 import { buildMetadata } from "@/lib/seo";
 import { Thumb } from "@/components/ui/Thumb";
 import { useCaseThumb } from "@/lib/thumbs";
+import { JOURNEY_ICONS } from "@/lib/line-icons";
 
 export const dynamicParams = false;
 export const generateStaticParams = () => getPillars().map((p) => ({ pillar: p.id }));
@@ -65,7 +66,7 @@ export default async function PillarPage({ params }: Props) {
         </Section>
       )}
 
-      {journey && <div id="journey"><Journey journey={journey} /></div>}
+      {journey && <div id="journey"><Journey journey={journey} icons={JOURNEY_ICONS[p.id] ?? []} /></div>}
 
       <Section tone="surface" id="products">
         <SectionHead eyebrow="Products" title="Products by group">
