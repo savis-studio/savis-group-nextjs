@@ -208,7 +208,7 @@
   {
    "id": "enterprise",
    "name": "Enterprise",
-   "pitch": "Zero-trust access, secure browsing, signing, e-contracts and security operations for large organisations.",
+   "pitch": "Zero-trust access, secure browsing, signing, e-contracts and security operations for large organizations.",
    "pillars": [
     "cyber",
     "identity",

@@ -22,9 +22,9 @@ const label = (iso: string) => {
 
 /** The cover relation, once populated. */
 function toCover(value: unknown): Cover | undefined {
-  const m = value as { url?: string | null; alt?: string | null; sizes?: { card?: { url?: string | null } } } | null | undefined;
+  const m = value as { url?: string | null; alt?: string | null; width?: number | null; height?: number | null; sizes?: { card?: { url?: string | null } } } | null | undefined;
   if (!m || typeof m !== "object" || !m.url) return undefined;
-  return { src: m.sizes?.card?.url || m.url, full: m.url, alt: m.alt ?? "" };
+  return { src: m.sizes?.card?.url || m.url, full: m.url, alt: m.alt ?? "", width: m.width ?? undefined, height: m.height ?? undefined };
 }
 
 /** Reads every published article from the CMS; null when the CMS holds no article at all. Throws when the database is unreachable, so a failure is never cached. */

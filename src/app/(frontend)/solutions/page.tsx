@@ -21,7 +21,7 @@ const LIFE = {
   eyebrow: "One customer journey",
   title: "Every step of a digital life, secured by SAVIS",
   steps: [
-    { href: "/solutions/identity", title: "Enrol & verify", text: "Prove who you are remotely: chip ID, face match and liveness.", products: ["SAVIS TrustOnboard", "SAVIS Liveness & Deepfake Defense"] },
+    { href: "/solutions/identity", title: "Enroll & verify", text: "Prove who you are remotely: chip ID, face match and liveness.", products: ["SAVIS TrustOnboard", "SAVIS Liveness & Deepfake Defense"] },
     { href: "/solutions/identity", title: "Log in", text: "Passwordless, phishing-resistant authentication on any device.", products: ["FIDO2 Passwordless Identity", "SAM Appliance"] },
     { href: "/solutions/identity", title: "Sign", text: "Legally binding remote signatures with keys kept in the HSM.", products: ["TrustCA Remote Signing", "Smart eContract"] },
     { href: "/solutions/finance", title: "Pay & transact", text: "Open APIs, consent, 3-D Secure and transaction signing.", products: ["Open Banking Suite", "3D Secure 2.0"] },
@@ -75,7 +75,7 @@ export default function SolutionsPage() {
       eyebrow="Solutions & Products"
       title="Digital trust, from identity to payments."
       label="Solutions & Products"
-      lead={`${total} products in five solution pillars — designed, delivered and operated by SAVIS. Start with your challenge; we’ll show you the products, the demo and the people behind them.`}
+      lead={`${total} products in five solution pillars - designed, delivered and operated by SAVIS. Start with your challenge; we’ll show you the products, the demo and the people behind them.`}
       actions={
         <>
           <Button href="#challenges" onBand>Find your challenge ↓</Button>
@@ -123,7 +123,7 @@ export default function SolutionsPage() {
       </Section>
 
       <Section id="all-products">
-        <SectionHead eyebrow="Full catalogue" title={`All ${total} products, by pillar and group`} />
+        <SectionHead eyebrow="Full catalog" title={`All ${total} products, by pillar and group`} />
         <details className="sv-az">
           <summary>Browse all {total} products<em>by pillar and group</em></summary>
           {pillars.map((p) => (

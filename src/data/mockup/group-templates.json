@@ -90,7 +90,7 @@
     "phone"
    ],
    [
-    "Enrolment station",
+    "Enrollment station",
     "kiosk"
    ]
   ],
@@ -139,7 +139,7 @@
   ]
  },
  "authentication-access": {
-  "intro": "Replace passwords and SMS OTP with phishing-resistant authentication: passkeys, device-bound keys, transaction signing and hardware authenticators — for customers and staff.",
+  "intro": "Replace passwords and SMS OTP with phishing-resistant authentication: passkeys, device-bound keys, transaction signing and hardware authenticators - for customers and staff.",
   "users": [
    [
     "Customers",
@@ -213,7 +213,7 @@
   ]
  },
  "secure-credentials": {
-  "intro": "Physical and virtual credentials that carry keys and identity: PKI tokens, PIV smart cards, biometric tokens and virtual cards on the phone — issued and revoked from one place.",
+  "intro": "Physical and virtual credentials that carry keys and identity: PKI tokens, PIV smart cards, biometric tokens and virtual cards on the phone - issued and revoked from one place.",
   "users": [
    [
     "Employees",
@@ -285,7 +285,7 @@
   ]
  },
  "pki-infrastructure": {
-  "intro": "The public-key infrastructure that every digital signature depends on — from a national root CA to enterprise PKI, timestamping and high-volume signing.",
+  "intro": "The public-key infrastructure that every digital signature depends on - from a national root CA to enterprise PKI, timestamping and high-volume signing.",
   "users": [
    [
     "Relying parties",
@@ -298,7 +298,7 @@
   ],
   "ch": [
    [
-    "Enrolment / RA",
+    "Enrollment / RA",
     "web"
    ],
    [
@@ -590,7 +590,7 @@
   ]
  },
  "key-management": {
-  "intro": "Protect and manage cryptographic keys across applications, payments and clouds — hardware modules, key management and HSM as a service.",
+  "intro": "Protect and manage cryptographic keys across applications, payments and clouds - hardware modules, key management and HSM as a service.",
   "users": [
    [
     "Security admins",
@@ -818,7 +818,7 @@
   "int": [
    "TDE",
    "File / app encryption",
-   "Tokenisation API"
+   "Tokenization API"
   ],
   "dep": [
    "On-premises",
@@ -898,7 +898,7 @@
    "Decree 69/2024"
   ],
   "pre": [
-   "Procedure catalogue"
+   "Procedure catalog"
   ],
   "go": [
    "Select procedures",
@@ -957,7 +957,7 @@
   ]
  },
  "smart-city": {
-  "intro": "City operations with AI video, sensors and connected services — secured from the device to the dashboard.",
+  "intro": "City operations with AI video, sensors and connected services - secured from the device to the dashboard.",
   "users": [
    [
     "Operators",
@@ -966,7 +966,7 @@
   ],
   "ch": [
    [
-    "Operations centre",
+    "Operations center",
     "chart"
    ]
   ],
@@ -1124,7 +1124,7 @@
    "FAPI 2.0"
   ],
   "pre": [
-   "API catalogue",
+   "API catalog",
    "Consent policy"
   ],
   "go": [
@@ -1136,7 +1136,7 @@
   ]
  },
  "payment-security": {
-  "intro": "Secure every payment: 3-D Secure, tokenisation, payment HSMs, transaction signing and palm payments.",
+  "intro": "Secure every payment: 3-D Secure, tokenization, payment HSMs, transaction signing and palm payments.",
   "users": [
    [
     "Cardholders",
@@ -1248,7 +1248,7 @@
    "SBV Circulars"
   ],
   "pre": [
-   "Licences and core APIs"
+   "Licenses and core APIs"
   ],
   "go": [
    "Define products",
@@ -1320,7 +1320,7 @@
   ]
  },
  "digital-assets": {
-  "intro": "Regulated digital assets: permissioned ledgers, stablecoins, CBDC pilots, tokenised real-world assets and institutional custody.",
+  "intro": "Regulated digital assets: permissioned ledgers, stablecoins, CBDC pilots, tokenized real-world assets and institutional custody.",
   "users": [
    [
     "Institutions",
@@ -1542,7 +1542,7 @@
    "Design",
    "Pilot",
    "Roll out",
-   "Optimise"
+   "Optimize"
   ]
  },
  "media-platforms": {

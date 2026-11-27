@@ -2,7 +2,7 @@
  {
   "slug": "national-eid-trust",
   "name": "National eID Trust",
-  "desc": "The full national identity lifecycle: biometric enrolment, IDMS and ABIS de-duplication, ICAO chip cards, Mobile ID, national PKI, eSign and the national wallet.",
+  "desc": "The full national identity lifecycle: biometric enrollment, IDMS and ABIS de-duplication, ICAO chip cards, Mobile ID, national PKI, eSign and the national wallet.",
   "role": "SY",
   "isNew": true,
   "pillar": "digital-identity-trust",
@@ -14,12 +14,12 @@
   ],
   "scene": null,
   "detail": {
-   "lead": "The full national identity lifecycle, from biometric enrolment to digital signing and the national wallet.",
+   "lead": "The full national identity lifecycle, from biometric enrollment to digital signing and the national wallet.",
    "blocks": [
     [
-     "1 · Enrolment & identity",
+     "1 · Enrollment & identity",
      [
-      "Point-of-registration and mobile enrolment",
+      "Point-of-registration and mobile enrollment",
       "IDMS: identity records and lifecycle",
       "ABIS biometric de-duplication",
       "Civil registry and population database links"
@@ -31,7 +31,7 @@
       "ICAO 9303 chip eID card",
       "Mobile ID on the phone",
       "PID for the national wallet",
-      "Card personalisation and key management"
+      "Card personalization and key management"
      ]
     ],
     [
@@ -62,13 +62,13 @@
     "ISO 18013-5 · SD-JWT VC",
     "FIPS 140-3 · CC"
    ],
-   "fit": "Identity agencies, ministries of interior, civil registries — direct or as a component in World Bank, IDB and ADB-funded programmes."
+   "fit": "Identity agencies, ministries of interior, civil registries - direct or as a component in World Bank, IDB and ADB-funded programs."
   }
  },
  {
   "slug": "savis-idms",
   "name": "SAVIS IDMS",
-  "desc": "National identity management system: the identity register and lifecycle — create, update, suspend and mark deceased — linked to ABIS, CRVS, card, Mobile ID and wallet issuance, with tokenised IDs and full audit.",
+  "desc": "National identity management system: the identity register and lifecycle - create, update, suspend and mark deceased - linked to ABIS, CRVS, card, Mobile ID and wallet issuance, with tokenized IDs and full audit.",
   "role": "SY",
   "isNew": true,
   "pillar": "digital-identity-trust",
@@ -84,7 +84,7 @@
  {
   "slug": "savis-idvs",
   "name": "SAVIS IDVS",
-  "desc": "National identity verification service for banks, telcos and agencies: demographic and biometric 1:1 checks against the register, consent-based eKYC, partner management, tokenised identifiers and per-transaction billing.",
+  "desc": "National identity verification service for banks, telcos and agencies: demographic and biometric 1:1 checks against the register, consent-based eKYC, partner management, tokenized identifiers and per-transaction billing.",
   "role": "SY",
   "isNew": true,
   "pillar": "digital-identity-trust",
@@ -116,7 +116,7 @@
  {
   "slug": "trustonboard",
   "name": "SAVIS TrustOnboard",
-  "desc": "One platform for remote onboarding and identity verification: ID document and NFC chip reading, face match, passive liveness and deepfake defense, and device intelligence — combined into a single Trust Score, with an orchestration console, mobile and web SDKs and APIs.",
+  "desc": "One platform for remote onboarding and identity verification: ID document and NFC chip reading, face match, passive liveness and deepfake defense, and device intelligence - combined into a single Trust Score, with an orchestration console, mobile and web SDKs and APIs.",
   "role": "SY",
   "isNew": true,
   "pillar": "digital-identity-trust",
@@ -132,7 +132,7 @@
  {
   "slug": "vneid-integration",
   "name": "VNeID Integration",
-  "desc": "Connect and verify customer identity through VNeID, VietNam’s national electronic identity, with consent, data minimisation and audit logs built in.",
+  "desc": "Connect and verify customer identity through VNeID, Vietnam’s national electronic identity, with consent, data minimisation and audit logs built in.",
   "role": "S",
   "isNew": true,
   "pillar": "digital-identity-trust",
@@ -148,7 +148,7 @@
  {
   "slug": "digital-id-wallet",
   "name": "Digital ID Wallet",
-  "desc": "Hold national ID, licences and certificates on the phone and present them securely.",
+  "desc": "Hold national ID, licenses and certificates on the phone and present them securely.",
   "role": "SY",
   "isNew": false,
   "pillar": "digital-identity-trust",
@@ -239,7 +239,7 @@
  {
   "slug": "savis-abis",
   "name": "SAVIS ABIS",
-  "desc": "Multimodal face and fingerprint identification for national ID, SIM registration and social programmes: real-time 1:N de-duplication and 1:1 verification, scale-out matcher nodes, REST API and a MOSIP-compatible queue interface (MOSIP compliance testing in progress), on COTS hardware or cloud.",
+  "desc": "Multimodal face and fingerprint identification for national ID, SIM registration and social programs: real-time 1:N de-duplication and 1:1 verification, scale-out matcher nodes, REST API and a MOSIP-compatible queue interface (MOSIP compliance testing in progress), on COTS hardware or cloud.",
   "role": "SY",
   "isNew": true,
   "pillar": "digital-identity-trust",
@@ -255,7 +255,7 @@
  {
   "slug": "touchless-fingerprint",
   "name": "SAVIS Touchless Fingerprint",
-  "desc": "Capture and match four fingerprints with any smartphone camera — no scanner, no contact. SDKs for Android, iOS and web; 1:1 and 1:N; on-device or server.",
+  "desc": "Capture and match four fingerprints with any smartphone camera - no scanner, no contact. SDKs for Android, iOS and web; 1:1 and 1:N; on-device or server.",
   "role": "SY",
   "isNew": true,
   "pillar": "digital-identity-trust",
@@ -303,7 +303,7 @@
  {
   "slug": "enrollment-station",
   "name": "SAVIS Enrollment Station",
-  "desc": "Fixed enrolment stations and rugged mobile kits: ICAO face, ten-print or touchless fingerprints, document and NFC chip reading, signature; offline-first with encrypted sync to ABIS. Devices OEM-sourced from certified third-party manufacturers.",
+  "desc": "Fixed enrollment stations and rugged mobile kits: ICAO face, ten-print or touchless fingerprints, document and NFC chip reading, signature; offline-first with encrypted sync to ABIS. Devices OEM-sourced from certified third-party manufacturers.",
   "role": "SY",
   "isNew": true,
   "pillar": "digital-identity-trust",
@@ -335,7 +335,7 @@
  {
   "slug": "mosip-integration",
   "name": "SAVIS MOSIP Integration",
-  "desc": "Open-source national IDMS on MOSIP, delivered as a complementary solution: SAVIS ABIS via the MOSIP ABIS API, enrolment devices, eSignet authentication, Inji and CryptoID credentials, PKI support and system integration. MOSIP compliance testing in progress.",
+  "desc": "Open-source national IDMS on MOSIP, delivered as a complementary solution: SAVIS ABIS via the MOSIP ABIS API, enrollment devices, eSignet authentication, Inji and CryptoID credentials, PKI support and system integration. MOSIP compliance testing in progress.",
   "role": "SY",
   "isNew": true,
   "pillar": "digital-identity-trust",
@@ -411,7 +411,7 @@
     ],
     [
      "Directory",
-     "Active Directory · LDAP — keeps existing infrastructure"
+     "Active Directory · LDAP - keeps existing infrastructure"
     ],
     [
      "Cryptography",
@@ -451,7 +451,7 @@
  {
   "slug": "sam-auth-server",
   "name": "SAM Auth Server",
-  "desc": "Six anti-fraud modules — SmartOTP, transaction signing and push, PKI token, Device Intelligence and Risk Engine — on one 1U appliance with a post-quantum HSM.",
+  "desc": "Six anti-fraud modules - SmartOTP, transaction signing and push, PKI token, Device Intelligence and Risk Engine - on one 1U appliance with a post-quantum HSM.",
   "role": "SY",
   "isNew": true,
   "pillar": "digital-identity-trust",
@@ -482,7 +482,7 @@
     [
      "Transaction signing · Push",
      [
-      "WYSIWYS — what you see is what you sign",
+      "WYSIWYS - what you see is what you sign",
       "Separate channel, end-to-end encryption"
      ]
     ],
@@ -503,7 +503,7 @@
     [
      "Risk Engine",
      [
-      "Risk and behaviour scoring",
+      "Risk and behavior scoring",
       "Token lock, step-up"
      ]
     ]
@@ -657,7 +657,7 @@
   "tags": null,
   "scene": null,
   "detail": {
-   "lead": "Ten hardware authenticators for customers who do not want — or are not allowed — to depend on a smartphone. Own FIDO AAGUID.",
+   "lead": "Ten hardware authenticators for customers who do not want - or are not allowed - to depend on a smartphone. Own FIDO AAGUID.",
    "visual": "trustpass",
    "fit": "Banks, enterprises and governments that need phishing-resistant authentication without a smartphone."
   }
@@ -821,7 +821,7 @@
   ],
   "scene": null,
   "detail": {
-   "lead": "A QTSP platform for qualified remote signing on every channel — signing portal, Mobile ID app, enterprise APIs and national wallets.",
+   "lead": "A QTSP platform for qualified remote signing on every channel - signing portal, Mobile ID app, enterprise APIs and national wallets.",
    "blocks": [
     [
      "Identity proofing & biometrics",
@@ -840,7 +840,7 @@
      ]
     ],
     [
-     "Certificate & authorisation",
+     "Certificate & authorization",
      [
       "Qualified certificate issuance",
       "Key activation (SCAL2)",
@@ -998,7 +998,7 @@
  {
   "slug": "device-intelligence",
   "name": "Device Intelligence",
-  "desc": "Score the risk of every device in real time — emulators, rooted phones, remote-access tools, SIM swaps and device farms — to stop fraud before login or payment.",
+  "desc": "Score the risk of every device in real time - emulators, rooted phones, remote-access tools, SIM swaps and device farms - to stop fraud before login or payment.",
   "role": "SY",
   "isNew": true,
   "pillar": "digital-identity-trust",
@@ -1014,7 +1014,7 @@
  {
   "slug": "device-fingerprint-sdk",
   "name": "Device Fingerprint SDK",
-  "desc": "Recognise each device behind a login or payment to spot emulators, bots and account takeover.",
+  "desc": "Recognize each device behind a login or payment to spot emulators, bots and account takeover.",
   "role": "SY",
   "isNew": true,
   "pillar": "digital-identity-trust",
@@ -1142,7 +1142,7 @@
      [
       "SCA: FIDO2, OTP, push",
       "PKI: CA, VA, TSA",
-      "Tokenisation of card data and PII"
+      "Tokenization of card data and PII"
      ]
     ],
     [
@@ -1218,7 +1218,7 @@
  {
   "slug": "zero-trust-gateway",
   "name": "Zero Trust Gateway Appliance",
-  "desc": "Hardware gateway that checks identity, device health and policy on every request before granting access to applications — never trust, always verify.",
+  "desc": "Hardware gateway that checks identity, device health and policy on every request before granting access to applications - never trust, always verify.",
   "role": "SY",
   "isNew": true,
   "pillar": "cybersecurity-quantum-safe",
@@ -1262,7 +1262,7 @@
   ],
   "scene": null,
   "detail": {
-   "lead": "Brings Zero Trust and post-quantum cryptography into existing infrastructure — without replacing it.",
+   "lead": "Brings Zero Trust and post-quantum cryptography into existing infrastructure - without replacing it.",
    "blocks": [
     [
      "Identity-based Zero Trust",
@@ -1274,7 +1274,7 @@
     [
      "Overlay network",
      [
-      "Connects data centres, branches, DR and cloud",
+      "Connects data centers, branches, DR and cloud",
       "No ports opened to the Internet"
      ]
     ],
@@ -1331,7 +1331,7 @@
     ]
    ],
    "visual": "qssg",
-   "fit": "Data centres, critical infrastructure and large enterprises."
+   "fit": "Data centers, critical infrastructure and large enterprises."
   }
  },
  {
@@ -1369,7 +1369,7 @@
  {
   "slug": "crypto-agility",
   "name": "Crypto Agility",
-  "desc": "Discover and inventory every algorithm, key and certificate, then switch them by policy without rewriting applications — the foundation for post-quantum migration.",
+  "desc": "Discover and inventory every algorithm, key and certificate, then switch them by policy without rewriting applications - the foundation for post-quantum migration.",
   "role": "SY",
   "isNew": true,
   "pillar": "cybersecurity-quantum-safe",
@@ -1457,7 +1457,7 @@
   "tags": [
    "At rest",
    "In transit",
-   "Tokenise"
+   "Tokenize"
   ],
   "scene": null,
   "detail": null
@@ -1465,7 +1465,7 @@
  {
   "slug": "savis-crvs",
   "name": "SAVIS CRVS",
-  "desc": "Digital civil registration and vital statistics built on OpenCRVS, the open-source Digital Public Good: birth and death registration offline and online, signed certificates, birth-to-ID with MOSIP, and real-time statistics — implemented, integrated and operated by SAVIS.",
+  "desc": "Digital civil registration and vital statistics built on OpenCRVS, the open-source Digital Public Good: birth and death registration offline and online, signed certificates, birth-to-ID with MOSIP, and real-time statistics - implemented, integrated and operated by SAVIS.",
   "role": "SY",
   "isNew": true,
   "pillar": "digital-government-smart-infrastructure",
@@ -1497,7 +1497,7 @@
  {
   "slug": "lgsp",
   "name": "SAVIS Digital Integration Platform",
-  "desc": "Integrates applications and services from central to local government — ministries, provinces and communes — and secures every API with the FAPI 2.0 Security Profile.",
+  "desc": "Integrates applications and services from central to local government - ministries, provinces and communes - and secures every API with the FAPI 2.0 Security Profile.",
   "role": "S",
   "isNew": false,
   "pillar": "digital-government-smart-infrastructure",
@@ -1505,7 +1505,7 @@
   "tags": [
    "FAPI 2.0",
    "Central ↔ local",
-   "API catalogue"
+   "API catalog"
   ],
   "scene": "dip",
   "detail": null
@@ -1577,7 +1577,7 @@
  {
   "slug": "ai-camera",
   "name": "AI Camera Security",
-  "desc": "AI video analytics that detects incidents, intrusions and safety risks in real time — on a SAVIS AI camera line with a hardware root of trust, designed for IEC 62443 and ETSI EN 303 645.",
+  "desc": "AI video analytics that detects incidents, intrusions and safety risks in real time - on a SAVIS AI camera line with a hardware root of trust, designed for IEC 62443 and ETSI EN 303 645.",
   "role": "S",
   "isNew": false,
   "pillar": "digital-government-smart-infrastructure",
@@ -1765,7 +1765,7 @@
   ],
   "scene": "spc",
   "detail": {
-   "lead": "EMV 3-D Secure ACS with FIDO2 challenges instead of SMS OTP — on web, kiosk and mobile.",
+   "lead": "EMV 3-D Secure ACS with FIDO2 challenges instead of SMS OTP - on web, kiosk and mobile.",
    "standards": [
     "EMV 3DS 2.3.1",
     "W3C SPC",
@@ -2129,7 +2129,7 @@
  {
   "slug": "mrp-ai",
   "name": "SAVIS MRP AI",
-  "desc": "AI platform for planning and producing content — Sao Khuê Award 2026.",
+  "desc": "AI platform for planning and producing content - Sao Khuê Award 2026.",
   "role": "S",
   "isNew": false,
   "pillar": "ai-data-platforms",

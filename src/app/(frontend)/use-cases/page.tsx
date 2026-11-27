@@ -25,7 +25,7 @@ export default function UseCasesPage() {
       eyebrow="Solutions by use case"
       title="See it work before you buy it."
       label="Use cases"
-      lead="Real-world journeys, step by step — the problem, the flow, the products behind it."
+      lead="Real-world journeys, step by step - the problem, the flow, the products behind it."
       trail={[{ label: "Solutions & Products", href: "/solutions" }]}
       aside={<HeroMosaic items={pillars.map((p) => all.find((u) => u.pillar === p.id)).flatMap((u) => (u ? [{ spec: useCaseThumb(u), title: u.name, note: `${u.flow.length} steps` }] : []))} />}
       actions={

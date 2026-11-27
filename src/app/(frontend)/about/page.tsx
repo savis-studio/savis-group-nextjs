@@ -83,7 +83,7 @@ export default function AboutPage() {
           <InfoCard label="Signature" items={[SIGNATURE]} />
         </div>
         <div style={{ marginTop: "var(--space-30)" }}>
-          <InfoCard label="Values" items={VALUES.map(([t, d]) => `${t} — ${d}`)} />
+          <InfoCard label="Values" items={VALUES.map(([t, d]) => `${t} - ${d}`)} />
         </div>
       </Section>
 

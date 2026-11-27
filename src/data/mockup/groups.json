@@ -7,7 +7,7 @@
    [
     "National eID Trust",
     "national-eid-trust",
-    "The full national identity lifecycle: biometric enrolment, IDMS and ABIS de-duplication, ICAO chip cards, Mobile ID, national PKI, eSign and the national wallet.",
+    "The full national identity lifecycle: biometric enrollment, IDMS and ABIS de-duplication, ICAO chip cards, Mobile ID, national PKI, eSign and the national wallet.",
     "SY",
     {
      "isnew": true
@@ -16,7 +16,7 @@
    [
     "SAVIS IDMS",
     "savis-idms",
-    "National identity management system: the identity register and lifecycle — create, update, suspend and mark deceased — linked to ABIS, CRVS, card, Mobile ID and wallet issuance, with tokenised IDs and full audit.",
+    "National identity management system: the identity register and lifecycle - create, update, suspend and mark deceased - linked to ABIS, CRVS, card, Mobile ID and wallet issuance, with tokenized IDs and full audit.",
     "SY",
     {
      "isnew": true
@@ -25,7 +25,7 @@
    [
     "SAVIS IDVS",
     "savis-idvs",
-    "National identity verification service for banks, telcos and agencies: demographic and biometric 1:1 checks against the register, consent-based eKYC, partner management, tokenised identifiers and per-transaction billing.",
+    "National identity verification service for banks, telcos and agencies: demographic and biometric 1:1 checks against the register, consent-based eKYC, partner management, tokenized identifiers and per-transaction billing.",
     "SY",
     {
      "isnew": true
@@ -43,7 +43,7 @@
    [
     "SAVIS TrustOnboard",
     "trustonboard",
-    "One platform for remote onboarding and identity verification: ID document and NFC chip reading, face match, passive liveness and deepfake defense, and device intelligence — combined into a single Trust Score, with an orchestration console, mobile and web SDKs and APIs.",
+    "One platform for remote onboarding and identity verification: ID document and NFC chip reading, face match, passive liveness and deepfake defense, and device intelligence - combined into a single Trust Score, with an orchestration console, mobile and web SDKs and APIs.",
     "SY",
     {
      "isnew": true
@@ -52,7 +52,7 @@
    [
     "VNeID Integration",
     "vneid-integration",
-    "Connect and verify customer identity through VNeID, VietNam’s national electronic identity, with consent, data minimisation and audit logs built in.",
+    "Connect and verify customer identity through VNeID, Vietnam’s national electronic identity, with consent, data minimisation and audit logs built in.",
     "S",
     {
      "service": true,
@@ -62,7 +62,7 @@
    [
     "Digital ID Wallet",
     "digital-id-wallet",
-    "Hold national ID, licences and certificates on the phone and present them securely.",
+    "Hold national ID, licenses and certificates on the phone and present them securely.",
     "SY"
    ],
    [
@@ -88,7 +88,7 @@
    [
     "SAVIS ABIS",
     "savis-abis",
-    "Multimodal face and fingerprint identification for national ID, SIM registration and social programmes: real-time 1:N de-duplication and 1:1 verification, scale-out matcher nodes, REST API and a MOSIP-compatible queue interface (MOSIP compliance testing in progress), on COTS hardware or cloud.",
+    "Multimodal face and fingerprint identification for national ID, SIM registration and social programs: real-time 1:N de-duplication and 1:1 verification, scale-out matcher nodes, REST API and a MOSIP-compatible queue interface (MOSIP compliance testing in progress), on COTS hardware or cloud.",
     "SY",
     {
      "isnew": true
@@ -97,7 +97,7 @@
    [
     "SAVIS Touchless Fingerprint",
     "touchless-fingerprint",
-    "Capture and match four fingerprints with any smartphone camera — no scanner, no contact. SDKs for Android, iOS and web; 1:1 and 1:N; on-device or server.",
+    "Capture and match four fingerprints with any smartphone camera - no scanner, no contact. SDKs for Android, iOS and web; 1:1 and 1:N; on-device or server.",
     "SY",
     {
      "isnew": true
@@ -124,7 +124,7 @@
    [
     "SAVIS Enrollment Station",
     "enrollment-station",
-    "Fixed enrolment stations and rugged mobile kits: ICAO face, ten-print or touchless fingerprints, document and NFC chip reading, signature; offline-first with encrypted sync to ABIS. Devices OEM-sourced from certified third-party manufacturers.",
+    "Fixed enrollment stations and rugged mobile kits: ICAO face, ten-print or touchless fingerprints, document and NFC chip reading, signature; offline-first with encrypted sync to ABIS. Devices OEM-sourced from certified third-party manufacturers.",
     "SY",
     {
      "isnew": true
@@ -142,7 +142,7 @@
    [
     "SAVIS MOSIP Integration",
     "mosip-integration",
-    "Open-source national IDMS on MOSIP, delivered as a complementary solution: SAVIS ABIS via the MOSIP ABIS API, enrolment devices, eSignet authentication, Inji and CryptoID credentials, PKI support and system integration. MOSIP compliance testing in progress.",
+    "Open-source national IDMS on MOSIP, delivered as a complementary solution: SAVIS ABIS via the MOSIP ABIS API, enrollment devices, eSignet authentication, Inji and CryptoID credentials, PKI support and system integration. MOSIP compliance testing in progress.",
     "SY",
     {
      "isnew": true
@@ -183,7 +183,7 @@
    [
     "SAM Auth Server",
     "sam-auth-server",
-    "Six anti-fraud modules — SmartOTP, transaction signing and push, PKI token, Device Intelligence and Risk Engine — on one 1U appliance with a post-quantum HSM.",
+    "Six anti-fraud modules - SmartOTP, transaction signing and push, PKI token, Device Intelligence and Risk Engine - on one 1U appliance with a post-quantum HSM.",
     "SY",
     {
      "isnew": true
@@ -430,7 +430,7 @@
    [
     "Device Intelligence",
     "device-intelligence",
-    "Score the risk of every device in real time — emulators, rooted phones, remote-access tools, SIM swaps and device farms — to stop fraud before login or payment.",
+    "Score the risk of every device in real time - emulators, rooted phones, remote-access tools, SIM swaps and device farms - to stop fraud before login or payment.",
     "SY",
     {
      "isnew": true
@@ -439,7 +439,7 @@
    [
     "Device Fingerprint SDK",
     "device-fingerprint-sdk",
-    "Recognise each device behind a login or payment to spot emulators, bots and account takeover.",
+    "Recognize each device behind a login or payment to spot emulators, bots and account takeover.",
     "SY",
     {
      "isnew": true
@@ -535,7 +535,7 @@
    [
     "Zero Trust Gateway Appliance",
     "zero-trust-gateway",
-    "Hardware gateway that checks identity, device health and policy on every request before granting access to applications — never trust, always verify.",
+    "Hardware gateway that checks identity, device health and policy on every request before granting access to applications - never trust, always verify.",
     "SY",
     {
      "isnew": true
@@ -589,7 +589,7 @@
    [
     "Crypto Agility",
     "crypto-agility",
-    "Discover and inventory every algorithm, key and certificate, then switch them by policy without rewriting applications — the foundation for post-quantum migration.",
+    "Discover and inventory every algorithm, key and certificate, then switch them by policy without rewriting applications - the foundation for post-quantum migration.",
     "SY",
     {
      "isnew": true
@@ -650,7 +650,7 @@
    [
     "SAVIS CRVS",
     "savis-crvs",
-    "Digital civil registration and vital statistics built on OpenCRVS, the open-source Digital Public Good: birth and death registration offline and online, signed certificates, birth-to-ID with MOSIP, and real-time statistics — implemented, integrated and operated by SAVIS.",
+    "Digital civil registration and vital statistics built on OpenCRVS, the open-source Digital Public Good: birth and death registration offline and online, signed certificates, birth-to-ID with MOSIP, and real-time statistics - implemented, integrated and operated by SAVIS.",
     "SY",
     {
      "isnew": true
@@ -665,7 +665,7 @@
    [
     "SAVIS Digital Integration Platform",
     "lgsp",
-    "Integrates applications and services from central to local government — ministries, provinces and communes — and secures every API with the FAPI 2.0 Security Profile.",
+    "Integrates applications and services from central to local government - ministries, provinces and communes - and secures every API with the FAPI 2.0 Security Profile.",
     "S"
    ],
    [
@@ -717,7 +717,7 @@
    [
     "AI Camera Security",
     "ai-camera",
-    "AI video analytics that detects incidents, intrusions and safety risks in real time — on a SAVIS AI camera line with a hardware root of trust, designed for IEC 62443 and ETSI EN 303 645.",
+    "AI video analytics that detects incidents, intrusions and safety risks in real time - on a SAVIS AI camera line with a hardware root of trust, designed for IEC 62443 and ETSI EN 303 645.",
     "S",
     {
      "rnd": true
@@ -1055,7 +1055,7 @@
    [
     "SAVIS MRP AI",
     "mrp-ai",
-    "AI platform for planning and producing content — Sao Khuê Award 2026.",
+    "AI platform for planning and producing content - Sao Khuê Award 2026.",
     "S"
    ],
    [

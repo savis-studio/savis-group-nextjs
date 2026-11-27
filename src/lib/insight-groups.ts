@@ -9,7 +9,7 @@ export const newestFirst = (a: ArticleDetail, b: ArticleDetail) => time(b) - tim
 
 export interface InsightGroup {
   /** URL hash of the tab: /insights#<id>. */
-  id: "news" | "press" | "regulation" | "insights";
+  id: "news" | "press" | "regulation" | "insights" | "bulletins";
   label: string;
   /** Preview row on the overview: its heading and the link to the tab. */
   title: string;
@@ -26,7 +26,7 @@ export const INSIGHT_GROUPS: InsightGroup[] = [
   {
     id: "news", label: "News", title: "What is changing", more: "All news",
     lead: "Industry and project news on digital identity, trust services and payments, from Vietnam and around the world.",
-    intro: "Industry, regulation and project news from Vietnam and around the world — selected and summarised by SAVIS, with sources.",
+    intro: "Industry, regulation and project news from Vietnam and around the world - selected and summarised by SAVIS, with sources.",
     latest: "Latest news", pick: (n) => n.type === "news" && n.cat !== "Regulation" && dated(n),
   },
   {
@@ -46,6 +46,13 @@ export const INSIGHT_GROUPS: InsightGroup[] = [
     lead: "Analysis, guides and how-to articles from SAVIS experts.",
     intro: "Analysis, reference architectures and country profiles from SAVIS experts.",
     latest: "Latest post", pick: (n) => n.type === "insight",
+  },
+  {
+    // The daily radar: dated news with its sources. The same articles also sit under News or Regulation.
+    id: "bulletins", label: "Tech bulletins", title: "The daily digital trust radar", more: "Open Tech bulletins",
+    lead: "Digital identity, trust services, secure payments and cybersecurity - with every fact linked to its source.",
+    intro: "A daily digital identity and trust radar. Short briefings on digital ID, wallets, eIDAS and trust services, each with its sources.",
+    latest: "Latest bulletin", pick: (n) => n.type === "news" && Boolean(n.iso) && n.sources.length > 0 && dated(n),
   },
 ];
 

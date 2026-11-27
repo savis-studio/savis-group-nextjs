@@ -10,6 +10,17 @@ export interface ThumbSpec {
   lbl?: string;
   /** Small label at the bottom left. */
   left?: string;
+  /** No words drawn inside the art (article cards). */
+  plain?: boolean;
+}
+
+/** An illustration without the words drawn in it. */
+export const stripWords = (art: string) => art.replace(/<text\b[\s\S]*?<\/text>/g, "");
+
+/** The illustration markup of a card. */
+export function thumbArt(spec: ThumbSpec): string {
+  const art = vxArt(spec.icon, undefined, undefined, spec.lbl);
+  return spec.plain ? stripWords(art) : art;
 }
 
 export { vxArt };
@@ -43,7 +54,7 @@ export function newsThumb(n: { id: string; type: string; cat: string; scene?: st
       : n.type === "insight" ? (n.cat === "Reference architecture" ? "layers" : n.cat === "Country profile" ? "border" : "bulb")
       : "news");
   const cls = n.type === "press" ? "ai" : n.cat === "Regulation" ? "gov" : n.type === "insight" ? "identity" : "cyber";
-  return { cls, icon, lbl: `~${n.id}`, left: n.cat };
+  return { cls, icon, lbl: `~${n.id}`, left: n.cat, plain: true };
 }
 
 const CS_TH: Record<string, string> = { national: "identity", bankca: "cyber", openbanking: "finance", govdigital: "gov", security: "ai", onboarding: "identity", signing: "finance" };

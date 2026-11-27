@@ -16,7 +16,7 @@ const PAGES: Array<[title: string, path: string, summary: string, extra?: string
   ["Insights & News", "/insights", "Research, regulation updates and press releases.", "blog articles"],
   ["Services", "/services", "Advisory, integration, engineering, managed services and customer support.", "professional services support developers"],
   ["Innovation", "/innovation", "Research and engineering in post-quantum cryptography, AI and identity.", "r&d research"],
-  ["PQC Lab", "/innovation/pqc-lab", "Post-quantum cryptography lab and migration programme.", "quantum pqc"],
+  ["PQC Lab", "/innovation/pqc-lab", "Post-quantum cryptography lab and migration program.", "quantum pqc"],
   ["About SAVIS", "/about", "Who we are: 22 years of digital trust from Vietnam.", "company history"],
   ["Culture", "/about/culture", "How we work and what we value."],
   ["ESG and responsibility", "/about/esg", "Our environmental, social and governance commitments.", "sustainability"],

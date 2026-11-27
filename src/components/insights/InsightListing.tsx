@@ -36,10 +36,12 @@ function Select({ label, all, options, value, onChange }: { label: string; all: 
 }
 
 /**
- * A tab's articles: category, region and text filters, nine cards a page. All cards come rendered from the server;
- * this only chooses which to show. A filter with fewer than two choices is left out.
+ * A tab's articles: category, region and text filters over a grid of cards, nine a page, or a plain list of rows,
+ * twelve a page. Everything comes rendered from the server; this only chooses what to show. A filter without choices
+ * is left out.
  */
-export function InsightListing({ items, categories = [], regions = [] }: { items: ListingItem[]; categories?: string[]; regions?: string[] }) {
+export function InsightListing({ items, categories = [], regions = [], rows = false }: { items: ListingItem[]; categories?: string[]; regions?: string[]; rows?: boolean }) {
+  const perPage = rows ? 12 : PER_PAGE;
   const [category, setCategory] = useState("");
   const [region, setRegion] = useState("");
   const [query, setQuery] = useState("");
@@ -49,10 +51,10 @@ export function InsightListing({ items, categories = [], regions = [] }: { items
   const words = plain(query).split(/\s+/).filter(Boolean);
   const hits = items.filter((i) =>
     (!category || i.category === category) && (!region || i.region === region) && words.every((w) => plain(i.text).includes(w)));
-  const pages = Math.max(1, Math.ceil(hits.length / PER_PAGE));
+  const pages = Math.max(1, Math.ceil(hits.length / perPage));
   const current = Math.min(page, pages);
-  const from = (current - 1) * PER_PAGE;
-  const shown = new Set(hits.slice(from, from + PER_PAGE).map((i) => i.id));
+  const from = (current - 1) * perPage;
+  const shown = new Set(hits.slice(from, from + perPage).map((i) => i.id));
 
   const filter = (set: (v: string) => void) => (v: string) => { set(v); setPage(1); };
   const turn = (p: number) => { setPage(p); top.current?.scrollIntoView({ block: "start" }); };
@@ -60,8 +62,8 @@ export function InsightListing({ items, categories = [], regions = [] }: { items
   return (
     <div className="sv-listing" ref={top}>
       <div className="sv-filter">
-        {categories.length > 1 && <Select label="Category" all="All categories" options={categories} value={category} onChange={filter(setCategory)} />}
-        {regions.length > 1 && <Select label="Region" all="All regions" options={regions} value={region} onChange={filter(setRegion)} />}
+        {categories.length > 0 && <Select label="Category" all="All categories" options={categories} value={category} onChange={filter(setCategory)} />}
+        {regions.length > 0 && <Select label="Region" all="All regions" options={regions} value={region} onChange={filter(setRegion)} />}
         <label className="sv-filter__q">
           <span className="sr-only">Search</span>
           <input type="search" placeholder="Search articles" autoComplete="off" value={query} onChange={(e) => filter(setQuery)(e.target.value)} />
@@ -71,7 +73,7 @@ export function InsightListing({ items, categories = [], regions = [] }: { items
       <p className="sv-listing__count" aria-live="polite">
         {hits.length ? `Showing ${from + 1}-${from + shown.size} of ${hits.length}` : ""}
       </p>
-      <div className="sv-lgrid">
+      <div className={rows ? "sv-lgrid sv-lgrid--rows" : "sv-lgrid"}>
         {items.map((i) => <div key={i.id} hidden={!shown.has(i.id)}>{i.node}</div>)}
       </div>
       {!hits.length && <p className="sv-listing__empty">No articles match your search. Try another keyword or category.</p>}

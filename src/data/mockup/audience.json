@@ -20,7 +20,7 @@
    "id": "gov",
    "label": "Government & public sector",
    "title": "For governments and public agencies",
-   "lead": "National identity, roots of trust and digital public services — designed, delivered and operated at national scale since 2006.",
+   "lead": "National identity, roots of trust and digital public services - designed, delivered and operated at national scale since 2006.",
    "page": [
     "Government solutions",
     "#ind-government"
@@ -48,7 +48,7 @@
     ],
     [
      "Case study",
-     "VietNam National Root CA",
+     "Vietnam National Root CA",
      "#case-neac-national-pki"
     ],
     [
@@ -62,7 +62,7 @@
    "id": "bank",
    "label": "Banks & financial institutions",
    "title": "For banks, payments and fintech",
-   "lead": "Onboarding, strong authentication, remote signing, open banking and secure payments — built for SBV regulation, PSD2 and eIDAS 2.0.",
+   "lead": "Onboarding, strong authentication, remote signing, open banking and secure payments - built for SBV regulation, PSD2 and eIDAS 2.0.",
    "page": [
     "Banking solutions",
     "#ind-bfsi"
@@ -104,7 +104,7 @@
    "id": "ent",
    "label": "Telcos & enterprises",
    "title": "For telcos and enterprises",
-   "lead": "Zero Trust access, key management, paperless contracts and trusted archives — security that runs your business, not the other way round.",
+   "lead": "Zero Trust access, key management, paperless contracts and trusted archives - security that runs your business, not the other way round.",
    "page": [
     "Enterprise solutions",
     "#ind-enterprise"
@@ -146,7 +146,7 @@
    "id": "tsp",
    "label": "Trust service providers & CAs",
    "title": "For CAs and trust service providers",
-   "lead": "Everything a CA or qualified trust service provider runs: PKI, signing, timestamping and the readiness programmes to pass WebTrust and eIDAS 2.0 audits.",
+   "lead": "Everything a CA or qualified trust service provider runs: PKI, signing, timestamping and the readiness programs to pass WebTrust and eIDAS 2.0 audits.",
    "page": [
     "Trust provider solutions",
     "#ind-trust-providers"
@@ -188,15 +188,15 @@
    "id": "partner",
    "label": "Partners & developers",
    "title": "For partners, integrators and developers",
-   "lead": "Resell, integrate or build on SAVIS: a partner programme, open APIs and a global ecosystem of more than 70 technology partners.",
+   "lead": "Resell, integrate or build on SAVIS: a partner program, open APIs and a global ecosystem of more than 70 technology partners.",
    "page": [
-    "Partner programme",
+    "Partner program",
     "#partners"
    ],
    "links": [
     [
-     "Programme",
-     "Partner programme",
+     "Program",
+     "Partner program",
      "#partners"
     ],
     [

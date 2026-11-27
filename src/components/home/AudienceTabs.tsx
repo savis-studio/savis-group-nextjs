@@ -24,7 +24,7 @@ export function AudienceTabs({ audiences, icons }: AudienceTabsProps) {
 
   return (
     <>
-      <div className="sv-aud__tabs" role="tablist" aria-label="Choose your organisation">
+      <div className="sv-aud__tabs" role="tablist" aria-label="Choose your organization">
         {audiences.map((a, i) => (
           <button
             key={a.id}

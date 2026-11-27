@@ -52,7 +52,7 @@ export default function CareersPage() {
       </Section>
 
       <Section tone="surface">
-        <CtaBanner title="Life at SAVIS: work hard, play hard — and look after each other" action={<Button href="/about/culture" onBand>Explore our culture</Button>}>
+        <CtaBanner title="Life at SAVIS: work hard, play hard - and look after each other" action={<Button href="/about/culture" onBand>Explore our culture</Button>}>
           Teambuilding, S-Awards, S-Health Care Day and the stories behind our culture.
         </CtaBanner>
       </Section>

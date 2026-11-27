@@ -43,7 +43,7 @@ export async function getCatalog(): Promise<Catalog> {
     const catalog = await readCatalog();
     if (catalog) return catalog;
   } catch (err) {
-    console.warn("CMS unavailable, using bundled catalogue:", err instanceof Error ? err.message : err);
+    console.warn("CMS unavailable, using bundled catalog:", err instanceof Error ? err.message : err);
   }
   return { pillars: fallbackPillars, industries: fallbackIndustries };
 }

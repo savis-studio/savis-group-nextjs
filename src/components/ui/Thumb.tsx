@@ -1,11 +1,11 @@
-import { vxArt, type ThumbSpec } from "@/lib/thumbs";
+import { thumbArt, vxArt, type ThumbSpec } from "@/lib/thumbs";
 import { cn } from "./cn";
 
 /** Card thumbnail: animated scene art on a colour-family background. Server-rendered; `VxActivate` starts the animation. */
 export function Thumb({ spec, big, tone, className }: { spec: ThumbSpec; big?: boolean; tone?: string; className?: string }) {
   return (
     <span className={cn("uc-th", `uc-th-${spec.cls}`, big && "uc-th-big", tone && `p-${tone}`, className)} aria-hidden="true">
-      <span dangerouslySetInnerHTML={{ __html: vxArt(spec.icon, undefined, undefined, spec.lbl) }} />
+      <span dangerouslySetInnerHTML={{ __html: thumbArt(spec) }} />
       {spec.left && <em className="uc-steps">{spec.left}</em>}
     </span>
   );

@@ -27,9 +27,9 @@ export function ArticleReveal({ children, html }: { children?: ReactNode; html?:
         <style>{".xd *{opacity:1!important;transform:none!important;translate:none!important}.xd-tl ol::before{transform:none!important}"}</style>
       </noscript>
       {html !== undefined ? (
-        <div ref={ref} className="article" style={{ maxWidth: 820, margin: "0 auto" }} dangerouslySetInnerHTML={{ __html: html }} />
+        <div ref={ref} className="article" dangerouslySetInnerHTML={{ __html: html }} />
       ) : (
-        <div ref={ref} className="article" style={{ maxWidth: 820, margin: "0 auto" }}>{children}</div>
+        <div ref={ref} className="article">{children}</div>
       )}
     </>
   );

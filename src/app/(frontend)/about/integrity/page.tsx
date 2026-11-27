@@ -45,7 +45,7 @@ export default function IntegrityPage() {
       </Section>
       <Section>
         <CtaBanner title="Speak up" action={<Button href={REPORT} onBand>Report a concern</Button>}>
-          If you see conduct that may break the law or these principles — by SAVIS staff, partners or suppliers — tell us. Reports are handled confidentially and without retaliation against anyone who reports in good faith.
+          If you see conduct that may break the law or these principles - by SAVIS staff, partners or suppliers - tell us. Reports are handled confidentially and without retaliation against anyone who reports in good faith.
         </CtaBanner>
       </Section>
     </PageShell>

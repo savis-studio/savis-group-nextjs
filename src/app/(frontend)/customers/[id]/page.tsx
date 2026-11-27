@@ -99,7 +99,7 @@ export default async function CasePage({ params }: Props) {
 
       {products.length > 0 && (
         <Section id="products">
-          <SectionHead eyebrow="Products used" title="The SAVIS products behind this programme" />
+          <SectionHead eyebrow="Products used" title="The SAVIS products behind this program" />
           <div className="sv-grid">
             {products.map((p) => (
               <ProductCard key={p.slug} thumb={<Thumb spec={productThumb(p)} />} name={p.name} description={p.desc} tags={roleTags(p)} href={`/products/${p.slug}`} />

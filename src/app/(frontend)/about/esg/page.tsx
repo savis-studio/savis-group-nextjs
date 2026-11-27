@@ -21,7 +21,7 @@ export default function EsgPage() {
       title="Digital trust that serves people and the planet."
       label="ESG & Sustainability"
       trail={[{ label: "About", href: "/about" }]}
-      lead="Our work puts identity, public services and secure transactions in people’s hands — and replaces paper, travel and waiting with trusted digital journeys. This is how we approach environment, society and governance."
+      lead="Our work puts identity, public services and secure transactions in people’s hands - and replaces paper, travel and waiting with trusted digital journeys. This is how we approach environment, society and governance."
       actions={
         <>
           <Button href="/about/integrity" onBand>Integrity &amp; Compliance</Button>

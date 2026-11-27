@@ -33,7 +33,7 @@
   {
    "id": "security",
    "name": "Security & Compliance",
-   "lead": "Strong customer authentication, certification programmes and compliance for regulated institutions.",
+   "lead": "Strong customer authentication, certification programs and compliance for regulated institutions.",
    "icon": "shield"
   },
   {
@@ -49,16 +49,16 @@
    "cat": "national",
    "featured": true,
    "client": "NEAC",
-   "clientFull": "National Electronic Authentication Centre of VietNam",
-   "country": "VietNam",
+   "clientFull": "National Electronic Authentication Centre of Vietnam",
+   "country": "Vietnam",
    "ind": [
     "government",
     "trust-providers"
    ],
-   "title": "National Root CA for VietNam’s digital signature ecosystem, for NEAC",
-   "summary": "SAVIS designed and delivered the VietNam National Root CA — the root of trust that anchors every public digital signature certificate in the country.",
-   "challenge": "Every licensed public digital signature provider in VietNam chains its certificates to a national root. The National Electronic Authentication Centre of VietNam needed a root infrastructure that is secure enough to anchor the whole country’s e-transactions, available around the clock and auditable against national and international practice.",
-   "solution": "SAVIS delivered the national PKI end to end: an offline Root CA ceremony environment, subordinate issuing CAs, hardware-protected keys, certificate and revocation services, and the policies and procedures to operate them. The platform is built on SAVIS PKI technology and integrated with the National Electronic Authentication Centre of VietNam’s supervision of licensed providers.",
+   "title": "National Root CA for Vietnam’s digital signature ecosystem, for NEAC",
+   "summary": "SAVIS designed and delivered the Vietnam National Root CA - the root of trust that anchors every public digital signature certificate in the country.",
+   "challenge": "Every licensed public digital signature provider in Vietnam chains its certificates to a national root. The National Electronic Authentication Centre of Vietnam needed a root infrastructure that is secure enough to anchor the whole country’s e-transactions, available around the clock and auditable against national and international practice.",
+   "solution": "SAVIS delivered the national PKI end to end: an offline Root CA ceremony environment, subordinate issuing CAs, hardware-protected keys, certificate and revocation services, and the policies and procedures to operate them. The platform is built on SAVIS PKI technology and integrated with the National Electronic Authentication Centre of Vietnam’s supervision of licensed providers.",
    "scope": [
     "Root CA and subordinate CA architecture",
     "Key ceremony design and hardware key protection",
@@ -69,7 +69,7 @@
    "standards": [
     "X.509 / RFC 5280",
     "RFC 6960 (OCSP)",
-    "VietNam digital signature regulation"
+    "Vietnam digital signature regulation"
    ],
    "arch": [
     [
@@ -81,7 +81,7 @@
      ]
     ],
     [
-     "VietNam National Root CA",
+     "Vietnam National Root CA",
      [
       "Offline Root CA",
       "Issuing CAs",
@@ -92,7 +92,7 @@
     [
      "Trust anchor",
      [
-      "National Electronic Authentication Centre of VietNam (policy authority)",
+      "National Electronic Authentication Centre of Vietnam (policy authority)",
       "Audit & supervision"
      ]
     ]
@@ -104,7 +104,7 @@
     "trustca-va-ra"
    ],
    "results": [
-    "A national root of trust for VietNam’s public digital signature ecosystem",
+    "A national root of trust for Vietnam’s public digital signature ecosystem",
     "Root keys generated and kept in certified hardware under ceremony controls",
     "Foundation for the national mobile PKI, time-stamping and validation services"
    ],
@@ -115,26 +115,26 @@
    "cat": "national",
    "featured": true,
    "client": "NEAC",
-   "clientFull": "National Electronic Authentication Centre of VietNam",
-   "country": "VietNam",
+   "clientFull": "National Electronic Authentication Centre of Vietnam",
+   "country": "Vietnam",
    "ind": [
     "government",
     "trust-providers"
    ],
    "title": "WebTrust-grade international CA for cross-border trust, for NEAC",
-   "summary": "An international certification authority built to WebTrust requirements, so Vietnamese certificates can be recognised by Microsoft, Apple, Adobe and EU trust programmes.",
-   "challenge": "Signatures and certificates issued under a national root are not automatically trusted abroad. To support cross-border trust services, the National Electronic Authentication Centre of VietNam needed a CA that meets WebTrust for CAs and the requirements of major root programmes, with evidence an auditor can verify.",
-   "solution": "SAVIS delivered an international CA hierarchy and the controls around it: segregated infrastructure, hardware key protection, CP/CPS aligned with WebTrust principles, logging and monitoring, and readiness support for the audit and root programme applications.",
+   "summary": "An international certification authority built to WebTrust requirements, so Vietnamese certificates can be recognized by Microsoft, Apple, Adobe and EU trust programs.",
+   "challenge": "Signatures and certificates issued under a national root are not automatically trusted abroad. To support cross-border trust services, the National Electronic Authentication Centre of Vietnam needed a CA that meets WebTrust for CAs and the requirements of major root programs, with evidence an auditor can verify.",
+   "solution": "SAVIS delivered an international CA hierarchy and the controls around it: segregated infrastructure, hardware key protection, CP/CPS aligned with WebTrust principles, logging and monitoring, and readiness support for the audit and root program applications.",
    "scope": [
     "International Root and issuing CA design",
     "WebTrust control framework and evidence collection",
-    "CP/CPS aligned with root programme requirements",
+    "CP/CPS aligned with root program requirements",
     "Readiness for Microsoft, Apple, Adobe AATL and EU trust listing applications"
    ],
    "standards": [
     "WebTrust for CAs",
     "CA/Browser Forum requirements",
-    "Microsoft & Apple root programmes",
+    "Microsoft & Apple root programs",
     "Adobe AATL",
     "eIDAS"
    ],
@@ -159,7 +159,7 @@
      "Assurance",
      [
       "WebTrust audit",
-      "Root programme applications"
+      "Root program applications"
      ]
     ]
    ],
@@ -170,9 +170,9 @@
     "eidas-readiness"
    ],
    "results": [
-    "A CA designed to meet international audit and root programme requirements",
-    "A path for Vietnamese trust services to be recognised across borders",
-    "Root programme recognition status: [to confirm with the National Electronic Authentication Centre of VietNam]"
+    "A CA designed to meet international audit and root program requirements",
+    "A path for Vietnamese trust services to be recognized across borders",
+    "Root program recognition status: [to confirm with the National Electronic Authentication Centre of Vietnam]"
    ],
    "year": null
   },
@@ -180,16 +180,16 @@
    "id": "sbv-rootca",
    "cat": "national",
    "featured": true,
-   "client": "State Bank of VietNam",
-   "clientFull": "State Bank of VietNam (SBV)",
-   "country": "VietNam",
+   "client": "State Bank of Vietnam",
+   "clientFull": "State Bank of Vietnam (SBV)",
+   "country": "Vietnam",
    "ind": [
     "bfsi",
     "government"
    ],
    "title": "Root CA and issuing CA for the national payment system, for SBV",
-   "summary": "SAVIS built the Root CA and intermediate CA that secure interbank and national payment transactions for VietNam’s central bank.",
-   "challenge": "Interbank and national payment messages must be signed and verified by every participating institution. The State Bank of VietNam needed its own certificate hierarchy for the banking sector, operated to central bank security standards.",
+   "summary": "SAVIS built the Root CA and intermediate CA that secure interbank and national payment transactions for Vietnam’s central bank.",
+   "challenge": "Interbank and national payment messages must be signed and verified by every participating institution. The State Bank of Vietnam needed its own certificate hierarchy for the banking sector, operated to central bank security standards.",
    "solution": "SAVIS delivered the SBV Root CA and Intermediate CA (ICA), with hardware-protected keys, certificate profiles for banks and payment systems, and revocation services integrated with interbank payment infrastructure.",
    "scope": [
     "SBV Root CA and ICA hierarchy",
@@ -243,17 +243,17 @@
    "id": "neac-mobile-pki",
    "cat": "national",
    "client": "NEAC",
-   "clientFull": "National Electronic Authentication Centre of VietNam",
-   "country": "VietNam",
+   "clientFull": "National Electronic Authentication Centre of Vietnam",
+   "country": "Vietnam",
    "ind": [
     "telco",
     "government",
     "trust-providers"
    ],
    "title": "Root CA and trust services for the national mobile PKI, for NEAC",
-   "summary": "A dedicated Root CA and trust services that let VietNam’s mobile network operators issue digital signatures directly on subscribers’ phones.",
+   "summary": "A dedicated Root CA and trust services that let Vietnam’s mobile network operators issue digital signatures directly on subscribers’ phones.",
    "challenge": "Mobile operators wanted to offer digital signatures to tens of millions of subscribers without USB tokens. That required a separate, nationally governed trust hierarchy for mobile PKI, with clear rules for how operators issue and protect keys on SIMs and phones.",
-   "solution": "SAVIS built the mobile PKI Root CA for the National Electronic Authentication Centre of VietNam and the trust services operators connect to: certificate issuance profiles for mobile keys, revocation and validation services, and integration interfaces for each telco’s mobile signing platform.",
+   "solution": "SAVIS built the mobile PKI Root CA for the National Electronic Authentication Centre of Vietnam and the trust services operators connect to: certificate issuance profiles for mobile keys, revocation and validation services, and integration interfaces for each telco’s mobile signing platform.",
    "scope": [
     "Mobile PKI Root CA hierarchy",
     "Certificate profiles for SIM- and app-based keys",
@@ -263,7 +263,7 @@
    "standards": [
     "X.509 / RFC 5280",
     "ETSI mobile signature practices",
-    "VietNam digital signature regulation"
+    "Vietnam digital signature regulation"
    ],
    "arch": [
     [
@@ -306,16 +306,16 @@
    "id": "neac-tsa-va",
    "cat": "national",
    "client": "NEAC",
-   "clientFull": "National Electronic Authentication Centre of VietNam",
-   "country": "VietNam",
+   "clientFull": "National Electronic Authentication Centre of Vietnam",
+   "country": "Vietnam",
    "ind": [
     "government",
     "trust-providers"
    ],
    "title": "National time-stamping and validation services for NEAC",
    "summary": "National TSA and VA services that prove when a document was signed and whether a certificate was valid at that moment.",
-   "challenge": "A digital signature is only useful in court if you can prove when it was made and that the certificate was valid at the time. VietNam needed shared, nationally trusted time-stamping and validation services rather than each provider running its own.",
-   "solution": "SAVIS deployed a national Timestamp Authority synchronised to trusted time sources and a Validation Authority that checks certificates across all licensed providers, both exposed through standard protocols for government and business systems.",
+   "challenge": "A digital signature is only useful in court if you can prove when it was made and that the certificate was valid at the time. Vietnam needed shared, nationally trusted time-stamping and validation services rather than each provider running its own.",
+   "solution": "SAVIS deployed a national Timestamp Authority synchronized to trusted time sources and a Validation Authority that checks certificates across all licensed providers, both exposed through standard protocols for government and business systems.",
    "scope": [
     "Timestamp Authority (RFC 3161) with trusted time synchronisation",
     "Validation Authority across licensed CAs",
@@ -369,13 +369,13 @@
    "cat": "bankca",
    "featured": true,
    "client": "Agribank",
-   "clientFull": "VietNam Bank for Agriculture and Rural Development (Agribank)",
-   "country": "VietNam",
+   "clientFull": "Vietnam Bank for Agriculture and Rural Development (Agribank)",
+   "country": "Vietnam",
    "ind": [
     "bfsi"
    ],
    "title": "Root CA, two issuing CAs and a signing portal for Agribank",
-   "summary": "SAVIS replaced and upgraded Agribank’s CA — a Root CA, two issuing CAs, a Signing Portal, USB tokens and a Validation Authority — for signing and approving payments, LOT, e-documents, e-invoices and core banking transactions.",
+   "summary": "SAVIS replaced and upgraded Agribank’s CA - a Root CA, two issuing CAs, a Signing Portal, USB tokens and a Validation Authority - for signing and approving payments, LOT, e-documents, e-invoices and core banking transactions.",
    "challenge": "Agribank’s channels and back-office systems handled certificates and signatures in different ways, which made security policy hard to enforce and audit. The bank needed a secure, upgraded CA for payment approval, LOT, e-documents, e-invoices and core banking.",
    "solution": "SAVIS replaced and upgraded the Agribank CA with a Root CA and two issuing CAs, a Signing Portal, USB tokens for staff and a Validation Authority. Every channel signs and verifies through one controlled service, with keys protected in hardware and full audit trails.",
    "scope": [
@@ -388,7 +388,7 @@
    "standards": [
     "X.509 / RFC 5280",
     "RFC 6960 (OCSP)",
-    "VietNam digital signature regulation",
+    "Vietnam digital signature regulation",
     "SBV security requirements"
    ],
    "arch": [
@@ -438,15 +438,15 @@
    "featured": true,
    "client": "Viettel-CA",
    "clientFull": "Viettel-CA, trust services of Viettel Group",
-   "country": "VietNam",
+   "country": "Vietnam",
    "ind": [
     "telco",
     "trust-providers"
    ],
    "title": "Turnkey QTSP and remote signing platform for Viettel-CA",
-   "summary": "SAVIS delivered remote signing, QSCD and the QTSP platform for the trust services arm of VietNam’s largest mobile operator.",
+   "summary": "SAVIS delivered remote signing, QSCD and the QTSP platform for the trust services arm of Vietnam’s largest mobile operator.",
    "challenge": "Viettel-CA wanted to offer remote digital signatures at national scale: customers sign from any device, while private keys stay in a qualified signature creation device (QSCD) under the provider’s control. That requires a full QTSP platform, not just a CA.",
-   "solution": "SAVIS provided the products and turnkey services: remote signing service, remote QSCD with hardware key protection, signature activation, and the QTSP platform around them — deployed, integrated and handed over to Viettel-CA’s operations team.",
+   "solution": "SAVIS provided the products and turnkey services: remote signing service, remote QSCD with hardware key protection, signature activation, and the QTSP platform around them - deployed, integrated and handed over to Viettel-CA’s operations team.",
    "scope": [
     "Remote signing service and APIs",
     "Remote QSCD and signature activation",
@@ -457,7 +457,7 @@
     "CSC API 2.0 / 2.2",
     "ETSI EN 319 401 / 411",
     "eIDAS (QSCD concepts)",
-    "VietNam digital signature regulation"
+    "Vietnam digital signature regulation"
    ],
    "arch": [
     [
@@ -503,8 +503,8 @@
    "id": "coopbank-ca",
    "cat": "bankca",
    "client": "Co-opBank",
-   "clientFull": "Cooperative Bank of VietNam (Co-opBank)",
-   "country": "VietNam",
+   "clientFull": "Cooperative Bank of Vietnam (Co-opBank)",
+   "country": "Vietnam",
    "ind": [
     "bfsi"
    ],
@@ -522,7 +522,7 @@
    "standards": [
     "X.509 / RFC 5280",
     "RFC 6960 (OCSP)",
-    "VietNam digital signature regulation",
+    "Vietnam digital signature regulation",
     "SBV security requirements"
    ],
    "arch": [
@@ -566,12 +566,12 @@
    "cat": "bankca",
    "client": "Sacombank",
    "clientFull": "Saigon Thuong Tin Commercial Joint Stock Bank (Sacombank)",
-   "country": "VietNam",
+   "country": "Vietnam",
    "ind": [
     "bfsi"
    ],
    "title": "Qualified CA, from appliance to signing, for Sacombank",
-   "summary": "A complete in-house CA for Sacombank — SAM Appliance, PKI Appliance, Signing Server, VA and RA — serving payments, open banking, digital banking, lending and e-contracts.",
+   "summary": "A complete in-house CA for Sacombank - SAM Appliance, PKI Appliance, Signing Server, VA and RA - serving payments, open banking, digital banking, lending and e-contracts.",
    "challenge": "Sacombank needed its own certificate authority to sign transactions and documents across a fast-growing set of digital services, from payments and open banking to loan origination and e-contracts, without depending on external providers for every signature.",
    "solution": "SAVIS supplied and integrated the full CA stack: SAM Appliance and PKI Appliance for key protection and certificate issuance, Signing Server for high-volume signing, and VA and RA services, connected to the bank’s payment, Open Banking, digital bank, LOS and eContract systems.",
    "scope": [
@@ -583,7 +583,7 @@
    "standards": [
     "X.509 / RFC 5280",
     "SBV Circular 64/2024/TT-NHNN",
-    "VietNam digital signature regulation"
+    "Vietnam digital signature regulation"
    ],
    "arch": [
     [
@@ -631,13 +631,13 @@
    "id": "vib-signing-hub",
    "cat": "bankca",
    "client": "VIB",
-   "clientFull": "VietNam International Bank (VIB)",
-   "country": "VietNam",
+   "clientFull": "Vietnam International Bank (VIB)",
+   "country": "Vietnam",
    "ind": [
     "bfsi"
    ],
    "title": "One signing hub for every signing method for VIB",
-   "summary": "A signing hub for VIB that supports remote, mobile, local and HSM-based signing — and verifies them all in one place.",
+   "summary": "A signing hub for VIB that supports remote, mobile, local and HSM-based signing - and verifies them all in one place.",
    "challenge": "Different VIB journeys needed different ways to sign: remote signing for customers, mobile signing in the app, local signing for staff and HSM signing for systems. Running separate tools for each made integration slow and verification inconsistent.",
    "solution": "SAVIS delivered the VIB Signing Hub: a Validation Authority, a Signing Gateway and a signing platform that expose one API for remote, mobile, local and HSM signing, plus a single verification service. Documents issued by VIB carry its corporate seal as a qualified TrustCA eSeal.",
    "scope": [
@@ -702,12 +702,12 @@
    "featured": true,
    "client": "Leading Vietnamese banks",
    "clientFull": "VIB, VPBank, BIDV, Vietcombank, VCBS, Home Credit, HD SAISON, FE CREDIT, Agribank, Sacombank and others",
-   "country": "VietNam",
+   "country": "Vietnam",
    "ind": [
     "bfsi"
    ],
    "title": "TrustCA remote signing with VNeID for leading Vietnamese banks",
-   "summary": "Banks and finance companies use TrustCA Remote Signing, linked to VietNam’s VNeID national identity, to sign documents digitally from front office to back office.",
+   "summary": "Banks and finance companies use TrustCA Remote Signing, linked to Vietnam’s VNeID national identity, to sign documents digitally from front office to back office.",
    "challenge": "Banks wanted customers and staff to sign loan, account and service documents digitally, with identity checked against the national electronic ID, and without asking anyone to buy a token or visit a branch.",
    "solution": "TrustCA Remote Signing, operated by SAVIS, integrates identity verification through VNeID with remote signing in the cloud. Banks connect through standard APIs from their digital banking apps, loan origination and back-office systems. Documents issued by each institution carry its corporate seal as a qualified TrustCA eSeal.",
    "scope": [
@@ -720,7 +720,7 @@
    "standards": [
     "CSC API 2.0 / 2.2",
     "eIDAS 2.0 and NIS2 (TrustCA certification)",
-    "VietNam digital signature regulation"
+    "Vietnam digital signature regulation"
    ],
    "arch": [
     [
@@ -769,7 +769,7 @@
    "cat": "signing",
    "client": "BAC A BANK",
    "clientFull": "Bac A Commercial Joint Stock Bank (BAC A BANK)",
-   "country": "VietNam",
+   "country": "Vietnam",
    "ind": [
     "bfsi"
    ],
@@ -832,7 +832,7 @@
    "cat": "signing",
    "client": "FE CREDIT",
    "clientFull": "VPBank SMBC Finance Company (FE CREDIT)",
-   "country": "VietNam",
+   "country": "Vietnam",
    "ind": [
     "bfsi"
    ],
@@ -896,13 +896,13 @@
    "id": "bidv-paperless",
    "cat": "signing",
    "client": "BIDV",
-   "clientFull": "Joint Stock Commercial Bank for Investment and Development of VietNam (BIDV)",
-   "country": "VietNam",
+   "clientFull": "Joint Stock Commercial Bank for Investment and Development of Vietnam (BIDV)",
+   "country": "Vietnam",
    "ind": [
     "bfsi"
    ],
    "title": "eContract, eInvoice and an HSM network for BIDV",
-   "summary": "Smart eContract, SAVIS eInvoice, Signing Server, DocVerify and an HSM network that let BIDV sign and digitise documents, e-records and invoices.",
+   "summary": "Smart eContract, SAVIS eInvoice, Signing Server, DocVerify and an HSM network that let BIDV sign and digitize documents, e-records and invoices.",
    "challenge": "BIDV needed to move paper documents, electronic records and invoices to signed digital processes, with keys protected in hardware and every signature verifiable.",
    "solution": "In 2025 SAVIS delivered Smart eContract, SAVIS eInvoice, the SAVIS Signing Server, DocVerify and an HSM network. BIDV signs contracts, electronic records and invoices digitally and verifies them in one place.",
    "scope": [
@@ -915,7 +915,7 @@
    "standards": [
     "PAdES / XAdES",
     "X.509 / RFC 5280",
-    "VietNam e-transaction and e-invoice regulation"
+    "Vietnam e-transaction and e-invoice regulation"
    ],
    "arch": [
     [
@@ -958,13 +958,13 @@
    "id": "agribank-paperless",
    "cat": "signing",
    "client": "Agribank",
-   "clientFull": "VietNam Bank for Agriculture and Rural Development (Agribank)",
-   "country": "VietNam",
+   "clientFull": "Vietnam Bank for Agriculture and Rural Development (Agribank)",
+   "country": "Vietnam",
    "ind": [
     "bfsi"
    ],
    "title": "Paperless signing of credit, loans and e-invoices for Agribank",
-   "summary": "eContract, SAM Appliance, Signing Server, DocVerify and an HSM network that let Agribank sign and digitise documents for retail and corporate customers.",
+   "summary": "eContract, SAM Appliance, Signing Server, DocVerify and an HSM network that let Agribank sign and digitize documents for retail and corporate customers.",
    "challenge": "Credit files, loan contracts, invoices and internal approvals still moved on paper between branches, customers and head office, slowing lending for retail and corporate customers.",
    "solution": "In 2024 SAVIS delivered Smart eContract, SAM Appliance, the SAVIS Signing Server, DocVerify for document verification and an HSM network. Contracts, credit and loan documents, e-invoices and approvals are now signed and verified electronically, for retail (KHCN) and corporate (KHDN) customers.",
    "scope": [
@@ -977,7 +977,7 @@
    "standards": [
     "PAdES / XAdES",
     "X.509 / RFC 5280",
-    "VietNam e-transaction and e-invoice regulation"
+    "Vietnam e-transaction and e-invoice regulation"
    ],
    "arch": [
     [
@@ -1022,8 +1022,8 @@
    "id": "bidv-remote-signing",
    "cat": "signing",
    "client": "BIDV",
-   "clientFull": "Joint Stock Commercial Bank for Investment and Development of VietNam (BIDV)",
-   "country": "VietNam",
+   "clientFull": "Joint Stock Commercial Bank for Investment and Development of Vietnam (BIDV)",
+   "country": "Vietnam",
    "ind": [
     "bfsi"
    ],
@@ -1087,7 +1087,7 @@
    "cat": "signing",
    "client": "HD SAISON",
    "clientFull": "HD SAISON Finance Company",
-   "country": "VietNam",
+   "country": "Vietnam",
    "ind": [
     "bfsi"
    ],
@@ -1151,8 +1151,8 @@
    "id": "vpbank-remote-signing",
    "cat": "signing",
    "client": "VPBank",
-   "clientFull": "VietNam Prosperity Joint Stock Commercial Bank (VPBank)",
-   "country": "VietNam",
+   "clientFull": "Vietnam Prosperity Joint Stock Commercial Bank (VPBank)",
+   "country": "Vietnam",
    "ind": [
     "bfsi"
    ],
@@ -1216,13 +1216,13 @@
    "id": "vietcredit",
    "cat": "signing",
    "client": "VietCredit",
-   "clientFull": "VietNam Joint Stock Finance Company (VietCredit)",
-   "country": "VietNam",
+   "clientFull": "Vietnam Joint Stock Finance Company (VietCredit)",
+   "country": "Vietnam",
    "ind": [
     "bfsi"
    ],
    "title": "Paperless lending with e-contracts and e-signatures for VietCredit",
-   "summary": "Customers complete a loan end to end online — onboarding, contract and signature — without visiting a branch.",
+   "summary": "Customers complete a loan end to end online - onboarding, contract and signature - without visiting a branch.",
    "challenge": "Paper contracts slowed down loan approval and added cost to every customer journey.",
    "solution": "SAVIS enabled remote onboarding with eKYC, electronic contracts and remote digital signatures in one journey. Documents issued by VietCredit carry its corporate seal as a qualified TrustCA eSeal.",
    "scope": [
@@ -1232,7 +1232,7 @@
     "TrustCA eSeal for VietCredit's corporate seal"
    ],
    "standards": [
-    "VietNam e-transaction and digital signature regulation"
+    "Vietnam e-transaction and digital signature regulation"
    ],
    "arch": [
     [
@@ -1276,12 +1276,12 @@
    "cat": "signing",
    "client": "Hong Leong Bank",
    "clientFull": "Hong Leong Bank",
-   "country": "VietNam",
+   "country": "Vietnam",
    "ind": [
     "bfsi"
    ],
    "title": "Paperless e-contracts with remote signatures for Hong Leong Bank",
-   "summary": "Customer agreements are prepared, signed and archived electronically — with remote digital signatures instead of paper and wet ink.",
+   "summary": "Customer agreements are prepared, signed and archived electronically - with remote digital signatures instead of paper and wet ink.",
    "challenge": "Paper agreements meant printing, wet-ink signatures, couriers and manual filing for every customer journey.",
    "solution": "SAVIS delivered electronic contracts and remote digital signing (eSign), so customers and the bank sign agreements online and every signed document is kept with its signature and timestamp. Documents issued by Hong Leong Bank carry its corporate seal as a qualified TrustCA eSeal.",
    "scope": [
@@ -1291,7 +1291,7 @@
     "TrustCA eSeal for Hong Leong Bank's corporate seal"
    ],
    "standards": [
-    "VietNam e-transaction and digital signature regulation"
+    "Vietnam e-transaction and digital signature regulation"
    ],
    "arch": [
     [
@@ -1332,7 +1332,7 @@
    "cat": "signing",
    "client": "Bank SinoPac",
    "clientFull": "Bank SinoPac",
-   "country": "VietNam",
+   "country": "Vietnam",
    "ind": [
     "bfsi"
    ],
@@ -1347,7 +1347,7 @@
     "TrustCA eSeal for Bank SinoPac's corporate seal"
    ],
    "standards": [
-    "VietNam e-transaction and digital signature regulation"
+    "Vietnam e-transaction and digital signature regulation"
    ],
    "arch": [
     [
@@ -1387,8 +1387,8 @@
    "id": "homecredit-ekyc",
    "cat": "onboarding",
    "client": "Home Credit",
-   "clientFull": "Home Credit VietNam",
-   "country": "VietNam",
+   "clientFull": "Home Credit Vietnam",
+   "country": "Vietnam",
    "ind": [
     "bfsi"
    ],
@@ -1413,7 +1413,7 @@
      [
       "Mobile app",
       "Point of sale",
-      "Call centre"
+      "Call center"
      ]
     ],
     [
@@ -1449,8 +1449,8 @@
    "id": "homecredit-vneid-data",
    "cat": "onboarding",
    "client": "Home Credit",
-   "clientFull": "Home Credit VietNam",
-   "country": "VietNam",
+   "clientFull": "Home Credit Vietnam",
+   "country": "Vietnam",
    "ind": [
     "bfsi"
    ],
@@ -1508,8 +1508,8 @@
    "id": "vnpt-vneid-data",
    "cat": "onboarding",
    "client": "VNPT",
-   "clientFull": "VietNam Posts and Telecommunications Group (VNPT)",
-   "country": "VietNam",
+   "clientFull": "Vietnam Posts and Telecommunications Group (VNPT)",
+   "country": "Vietnam",
    "ind": [
     "telco"
    ],
@@ -1568,14 +1568,14 @@
    "cat": "openbanking",
    "featured": true,
    "client": "Vietcombank",
-   "clientFull": "Joint Stock Commercial Bank for Foreign Trade of VietNam (Vietcombank)",
-   "country": "VietNam",
+   "clientFull": "Joint Stock Commercial Bank for Foreign Trade of Vietnam (Vietcombank)",
+   "country": "Vietnam",
    "ind": [
     "bfsi"
    ],
    "title": "Complete Open Banking platform for Vietcombank",
    "summary": "SAVIS delivered every module of Vietcombank’s Open Banking platform, built for SBV Circular 64 and aligned with PSD2.",
-   "challenge": "SBV Circular 64 requires banks to open APIs to licensed third parties securely and with customer consent. Vietcombank needed a full platform — not just an API gateway — covering third-party management, consent, strong authentication, key management and data.",
+   "challenge": "SBV Circular 64 requires banks to open APIs to licensed third parties securely and with customer consent. Vietcombank needed a full platform - not just an API gateway - covering third-party management, consent, strong authentication, key management and data.",
    "solution": "SAVIS delivered the Open Banking Platform with all modules: Open Banking CMS, TPP Management, Key Management System, Consent Management, a decoupled SCA app for strong customer authentication, and master data convergence.",
    "scope": [
     "Open Banking CMS and developer portal",
@@ -1640,13 +1640,13 @@
    "cat": "openbanking",
    "client": "BAC A BANK",
    "clientFull": "Bac A Commercial Joint Stock Bank (BAC A BANK)",
-   "country": "VietNam",
+   "country": "Vietnam",
    "ind": [
     "bfsi"
    ],
    "title": "Signed CITAD interbank transfers on SAM Appliance for BAC A BANK",
    "summary": "Services and a solution that connect BAC A BANK to the CITAD interbank payment system, with every transfer message digitally signed on a trusted SAM Appliance.",
-   "challenge": "Interbank transfers through CITAD, the State Bank of VietNam’s interbank electronic payment system, must be digitally signed. BAC A BANK needed a secure, reliable connection and signing keys that never leave trusted hardware.",
+   "challenge": "Interbank transfers through CITAD, the State Bank of Vietnam’s interbank electronic payment system, must be digitally signed. BAC A BANK needed a secure, reliable connection and signing keys that never leave trusted hardware.",
    "solution": "SAVIS delivered the CITAD connection services and solution, with transfer messages signed on SAM Appliance. Keys are generated and used inside the appliance, and every signature is logged for audit.",
    "scope": [
     "Connection to the CITAD interbank payment system",
@@ -1676,7 +1676,7 @@
      ]
     ],
     [
-     "State Bank of VietNam",
+     "State Bank of Vietnam",
      [
       "CITAD"
      ]
@@ -1697,8 +1697,8 @@
    "id": "napas-open-banking-hub",
    "cat": "openbanking",
    "client": "NAPAS",
-   "clientFull": "National Payment Corporation of VietNam (NAPAS)",
-   "country": "VietNam",
+   "clientFull": "National Payment Corporation of Vietnam (NAPAS)",
+   "country": "Vietnam",
    "ind": [
     "bfsi"
    ],
@@ -1759,8 +1759,8 @@
    "id": "vpbank-open-banking",
    "cat": "openbanking",
    "client": "VPBank",
-   "clientFull": "VietNam Prosperity Joint Stock Commercial Bank (VPBank)",
-   "country": "VietNam",
+   "clientFull": "Vietnam Prosperity Joint Stock Commercial Bank (VPBank)",
+   "country": "Vietnam",
    "ind": [
     "bfsi"
    ],
@@ -1824,8 +1824,8 @@
    "id": "lpbank-sca",
    "cat": "security",
    "client": "LPBank",
-   "clientFull": "Loc Phat VietNam Commercial Joint Stock Bank (LPBank)",
-   "country": "VietNam",
+   "clientFull": "Loc Phat Vietnam Commercial Joint Stock Bank (LPBank)",
+   "country": "Vietnam",
    "ind": [
     "bfsi"
    ],
@@ -1890,7 +1890,7 @@
    "cat": "security",
    "client": "BAC A BANK",
    "clientFull": "Bac A Commercial Joint Stock Bank (BAC A BANK)",
-   "country": "VietNam",
+   "country": "Vietnam",
    "ind": [
     "bfsi"
    ],
@@ -1952,8 +1952,8 @@
    "id": "vpbank-pci",
    "cat": "security",
    "client": "VPBank",
-   "clientFull": "VietNam Prosperity Joint Stock Commercial Bank (VPBank)",
-   "country": "VietNam",
+   "clientFull": "Vietnam Prosperity Joint Stock Commercial Bank (VPBank)",
+   "country": "Vietnam",
    "ind": [
     "bfsi"
    ],
@@ -2007,14 +2007,14 @@
    "cat": "govdigital",
    "featured": true,
    "client": "Bac Ninh City",
-   "clientFull": "People’s Committee of Bac Ninh City, VietNam",
-   "country": "VietNam",
+   "clientFull": "People’s Committee of Bac Ninh City, Vietnam",
+   "country": "Vietnam",
    "ind": [
     "government"
    ],
    "title": "iBacninh: one app between the city, citizens and businesses, for Bac Ninh City",
    "summary": "SAVIS developed and deployed iBacninh, the city’s digital communication platform that brings nearly 30 information channels and services into one app.",
-   "challenge": "Citizens and businesses had to find information and services across many separate channels. The city wanted one place to communicate, collect feedback and deliver services — and to move from “having systems” to systems that are actually used and produce data.",
+   "challenge": "Citizens and businesses had to find information and services across many separate channels. The city wanted one place to communicate, collect feedback and deliver services - and to move from “having systems” to systems that are actually used and produce data.",
    "solution": "SAVIS built iBacninh on the SAVIS SuperApp platform. The app integrates nearly 30 information channels and services, and connects to the city’s digital government systems. It was officially launched on 9 October 2026, during Bac Ninh’s National Digital Transformation Day event.",
    "scope": [
     "Citizen and business super app (iOS / Android)",
@@ -2023,7 +2023,7 @@
     "Deployment and launch support"
    ],
    "standards": [
-    "VietNam e-government architecture",
+    "Vietnam e-government architecture",
     "Personal Data Protection Law 91/2025/QH15"
    ],
    "arch": [
@@ -2037,7 +2037,7 @@
     [
      "SAVIS SuperApp platform",
      [
-      "Service catalogue",
+      "Service catalog",
       "Notifications & feedback",
       "Identity & sign-in",
       "Mini apps"
@@ -2089,7 +2089,7 @@
   [
    "Government & central agencies",
    [
-    "Ministry of National Defence",
+    "Ministry of National Defense",
     "Ministry of Public Security",
     "Ministry of Foreign Affairs",
     "Ministry of Home Affairs",
@@ -2105,12 +2105,12 @@
     "Government Inspectorate",
     "Ministry of Ethnic and Religious Affairs",
     "Office of the Government",
-    "State Bank of VietNam",
-    "National Electronic Authentication Centre of VietNam",
-    "State Audit Office of VietNam",
+    "State Bank of Vietnam",
+    "National Electronic Authentication Centre of Vietnam",
+    "State Audit Office of Vietnam",
     "State Records and Archives Department",
     "Committee for Ethnic Minority Affairs",
-    "VietNam Cooperative Alliance",
+    "Vietnam Cooperative Alliance",
     "Bac Ninh City People’s Committee",
     "Hai Phong Newspaper"
    ]
@@ -2165,7 +2165,7 @@
     "One Mount Group",
     "Giao Hang Tiet Kiem (GHTK)",
     "Buymed Logistics",
-    "Crowe VietNam",
+    "Crowe Vietnam",
     "Viet Analytics",
     "Vector"
    ]
@@ -2176,7 +2176,7 @@
     "Hanoi University of Science and Technology",
     "Posts and Telecommunications Institute of Technology",
     "Hanoi University of Natural Resources and Environment",
-    "VietNam National University of Agriculture",
+    "Vietnam National University of Agriculture",
     "Ho Chi Minh National Academy of Politics"
    ]
   ]

@@ -77,7 +77,7 @@ export default function TrustCenterPage() {
       </Section>
 
       <Section tone="surface" id="standards">
-        <SectionHead eyebrow="Open standards" title="The whole portfolio is built on open standards — no vendor lock-in" />
+        <SectionHead eyebrow="Open standards" title="The whole portfolio is built on open standards - no vendor lock-in" />
         <DataTable
           caption="Standards and protocols by layer, with the SAVIS products that implement them"
           columns={["Layer", "Standards & protocols", "SAVIS products"]}

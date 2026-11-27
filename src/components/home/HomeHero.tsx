@@ -35,7 +35,7 @@ export function HomeHero({ offices, stats }: HomeHeroProps) {
               </span>
             </h1>
             <p className="sv-hero__lead">
-              Five solution pillars, delivered end to end — from consulting and integration to 24/7 operations — on core
+              Five solution pillars, delivered end to end - from consulting and integration to 24/7 operations - on core
               technology we design and build ourselves.
             </p>
             <div className="sv-hero__actions">

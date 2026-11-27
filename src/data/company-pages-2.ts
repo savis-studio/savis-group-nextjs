@@ -100,7 +100,7 @@ export const INVESTOR_EMAIL = "investor@savis-group.com";
 export const TRUST_FEATURED = {
   label: "Certified · 2026 · First in Vietnam",
   title: "TrustCA Qualified Remote Signing, QTSA and eSeal (Legal)",
-  text: "Certified by TAYLLORCOX PCEB as in accordance with the requirements for qualified trust service providers under eIDAS — Regulation (EU) 910/2014 as amended by Regulation (EU) 2024/1183 — and with Article 21 of the NIS2 Directive (EU) 2022/2555.",
+  text: "Certified by TAYLLORCOX PCEB as in accordance with the requirements for qualified trust service providers under eIDAS - Regulation (EU) 910/2014 as amended by Regulation (EU) 2024/1183 - and with Article 21 of the NIS2 Directive (EU) 2022/2555.",
   facts: [
     ["Certification body", "TAYLLORCOX PCEB · TAYLLORCOX s.r.o., Prague"],
     ["Certificate No.", "PCEB 26/08/10"],
@@ -122,7 +122,7 @@ export const TRUST_CERTS: Array<[tag: string, title: string, text: string]> = [
   ["Compliance · Certified", "ISO 14001:2015", "Environmental management system."],
   ["Compliance · Service", "WebTrust for CAs", "Readiness service and WebTrust-grade CA delivery for the National Electronic Authentication Centre of Vietnam."],
   ["Identity · Supported", "FIDO2 / CSC API", "Open standards supported across products."],
-  ["Compliance · Certified · 2026", "FIDO2 Certified Server", "SAM FIDO2 Identity Server — full FIDO Server Certification from the FIDO Alliance, covering conformance and interoperability. Program: FIDO Server Certification · Class: FIDO2 · Full Certification · Specification: FIDO2 CTAP v2.1 PS · policy 1.3.9 · Certificate No. FA001202600030 · Issued 2 October 2026."],
+  ["Compliance · Certified · 2026", "FIDO2 Certified Server", "SAM FIDO2 Identity Server - full FIDO Server Certification from the FIDO Alliance, covering conformance and interoperability. Program: FIDO Server Certification · Class: FIDO2 · Full Certification · Specification: FIDO2 CTAP v2.1 PS · policy 1.3.9 · Certificate No. FA001202600030 · Issued 2 October 2026."],
   ["Compliance · Certified", "eKYC PAD Level 2", "Biometric eKYC presentation-attack detection certified by FIME (ISO/IEC 30107-3)."],
 ];
 

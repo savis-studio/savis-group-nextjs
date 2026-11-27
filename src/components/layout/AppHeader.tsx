@@ -10,6 +10,9 @@ import {
 } from "./nav-data";
 import type { FeatureCard, Link, MenuId } from "./nav-data";
 
+/** One of the newest articles shown in the Insights menu: its photo, or its illustration. */
+export interface MenuStory { id: string; title: string; cat: string; date: string; photo?: string; cls: string; art: string }
+
 const Chev = () => <svg className="sv-mx__chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="m9 6 6 6-6 6" /></svg>;
 const TAB_ICON: Record<string, string> = { products: "M12 3 4 7v10l8 4 8-4V7l-8-4Zm0 9v9m0-9 8-5M12 12 4 7", industry: "M4 21V8l6-3v16M10 21V11l7-3v13M3 21h18M7 11h.01M7 15h.01M13 14h.01M13 17h.01" };
 const Plus = () => <span aria-hidden="true">+</span>;
@@ -56,7 +59,7 @@ function LinkList({ links, onNavigate }: { links: Link[]; onNavigate: () => void
 }
 
 /** Utility bar, sticky header, five mega-menus (desktop) and a full-screen drawer (up to 1080px). */
-export function AppHeader({ pillars, industries, productHrefs, cardArt }: Catalog & { productHrefs: Record<string, string>; cardArt: Record<string, string> }) {
+export function AppHeader({ pillars, industries, productHrefs, cardArt, latest }: Catalog & { productHrefs: Record<string, string>; cardArt: Record<string, string>; latest: MenuStory[] }) {
   const [open, setOpen] = useState<MenuId | null>(null);
   const [drawer, setDrawer] = useState(false);
   const [searching, setSearching] = useState(false);
@@ -222,9 +225,13 @@ export function AppHeader({ pillars, industries, productHrefs, cardArt }: Catalo
                   <div>
                     <span className="sv-mx__k">Latest</span>
                     <div className="sv-mx__news">
-                      {insightsMenu.latest.map((n) => (
-                        <SmartLink key={n.title} href={n.href} className="sv-mx__item" onClick={close}>
-                          <img src={n.photo} alt="" loading="lazy" className="sv-mx__nthumb" /><span className="sv-mx__ntext"><span className="sv-mx__meta"><em>{n.tag}</em> · <time>{n.date}</time></span><b>{n.title}</b></span>
+                      {latest.map((n) => (
+                        <SmartLink key={n.id} href={`/insights/${n.id}`} className="sv-mx__item" onClick={close}>
+                          <span className={`sv-mx__nthumb uc-th uc-th-${n.cls}${n.photo ? " uc-th-photo" : ""}`} aria-hidden="true">
+                            {n.photo ? <img src={n.photo} alt="" loading="lazy" /> : <span dangerouslySetInnerHTML={{ __html: n.art }} />}
+                            <em className="uc-steps">{n.cat}</em>
+                          </span>
+                          <span className="sv-mx__ntext"><span className="sv-mx__meta"><em>{n.cat}</em> · <time>{n.date}</time></span><b>{n.title}</b></span>
                         </SmartLink>
                       ))}
                     </div>

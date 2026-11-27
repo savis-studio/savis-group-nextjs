@@ -11,8 +11,6 @@ const ALIASES: Record<string, string> = {
   "partner-portal": "partners",
   // No /resources section yet: its entries land on the closest page that exists.
   resources: "insights",
-  "tech-bulletins": "insights",
-  "insights-news": "insights",
   "customers-stories": "customers",
 };
 
@@ -30,6 +28,7 @@ const NESTED: Record<string, string> = {
   "services-pro": "/services#professional",
   "resources-datasheets": "/solutions",
   "resources-blog": "/insights#insights",
+  "tech-bulletins": "/insights#bulletins",
 };
 
 const PREFIXES: Array<[prefix: string, base: string, suffix?: string]> = [

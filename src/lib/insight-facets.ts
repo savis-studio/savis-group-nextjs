@@ -24,9 +24,8 @@ const recorded = new Map(
 export function newsFacets(n: ArticleDetail): { topic: string; region: string } {
   const known = recorded.get(n.id);
   const text = [n.title, n.sum, n.tags.join(" ")].join(" ");
-  const region = known?.region ?? (VIETNAM.test(text) ? "Vietnam" : "International");
   return {
     topic: known?.topic ?? TOPIC_RULES.find(([, words]) => words.test(text))![0],
-    region: region === "VietNam" ? "Vietnam" : region,
+    region: known?.region ?? (VIETNAM.test(text) ? "Vietnam" : "International"),
   };
 }

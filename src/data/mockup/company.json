@@ -2,13 +2,13 @@
  "offices": [
   [
    "Hanoi",
-   "VietNam",
+   "Vietnam",
    "Global headquarters",
    "Viet A Tower, 9 Duy Tan"
   ],
   [
    "Ho Chi Minh City",
-   "VietNam",
+   "Vietnam",
    "Office",
    "Winhome, 25 Dao Duy Anh"
   ],
@@ -16,7 +16,7 @@
    "Singapore",
    "Singapore",
    "Asia-Pacific",
-   "Marina Bay Financial Centre, Singapore"
+   "Marina Bay Financial Center, Singapore"
   ],
   [
    "Manila",
@@ -71,7 +71,7 @@
    "cities": [
     [
      "Singapore",
-     "Marina Bay Financial Centre"
+     "Marina Bay Financial Center"
     ],
     [
      "Manila",
@@ -160,8 +160,8 @@
      "Plan, migrate, build and operate cloud and hybrid infrastructure."
     ],
     [
-     "Digitisation & Data",
-     "Digitise archives; extract, convert and protect data."
+     "Digitization & Data",
+     "Digitize archives; extract, convert and protect data."
     ],
     [
      "Managed Services",
@@ -195,7 +195,7 @@
     ],
     [
      "R&D",
-     "Research programmes with our engineering teams."
+     "Research programs with our engineering teams."
     ],
     [
      "Technology Partnerships",
@@ -244,7 +244,7 @@
    "items": [
     [
      "News",
-     "Industry and project news from VietNam and around the world.",
+     "Industry and project news from Vietnam and around the world.",
      "insights-news"
     ],
     [
@@ -267,7 +267,7 @@
   "about": {
    "label": "About SAVIS",
    "eyebrow": "ABOUT SAVIS GROUP",
-   "title": "Make in VietNam. Trusted worldwide.",
+   "title": "Make in Vietnam. Trusted worldwide.",
    "cta": "Contact SAVIS",
    "items": [
     [
@@ -330,7 +330,7 @@
   "company": {
    "label": "Company",
    "eyebrow": "SAVIS GROUP",
-   "title": "Make in VietNam. Trusted worldwide.",
+   "title": "Make in Vietnam. Trusted worldwide.",
    "cta": "About SAVIS",
    "items": [
     [
@@ -385,7 +385,7 @@
     ],
     [
      "Partners",
-     "Partner programme and alliances",
+     "Partner program and alliances",
      "partners"
     ]
    ]
@@ -398,11 +398,11 @@
    "s": [
     [
      "Who we are",
-     "This website is operated by SAVIS Group (SAVIS Technology Joint Stock Company), headquartered in Hanoi, VietNam. For privacy questions contact info@savis-group.com."
+     "This website is operated by SAVIS Group (SAVIS Technology Joint Stock Company), headquartered in Hanoi, Vietnam. For privacy questions contact info@savis-group.com."
     ],
     [
      "Data we collect",
-     "Information you give us through our forms: the contact form (name, organisation, work email, country, phone and message) and the report and whitepaper download forms (first and last name, business email, company, job title, phone, country, the title you requested and your consent choices); technical data such as IP address, browser and pages visited; and cookie data as described in our Cookie Policy."
+     "Information you give us through our forms: the contact form (name, organization, work email, country, phone and message) and the report and whitepaper download forms (first and last name, business email, company, job title, phone, country, the title you requested and your consent choices); technical data such as IP address, browser and pages visited; and cookie data as described in our Cookie Policy."
     ],
     [
      "Why we use it",
@@ -410,7 +410,7 @@
     ],
     [
      "Legal basis",
-     "Your consent, our legitimate interest in responding to business enquiries and securing the site, and compliance with legal obligations — under VietNam's personal data protection law and, where applicable, the EU GDPR and other local laws."
+     "Your consent, our legitimate interest in responding to business enquiries and securing the site, and compliance with legal obligations - under Vietnam's personal data protection law and, where applicable, the EU GDPR and other local laws."
     ],
     [
      "Sharing",
@@ -464,7 +464,7 @@
     ],
     [
      "Governing law",
-     "These terms are governed by the laws of VietNam, unless mandatory local law provides otherwise."
+     "These terms are governed by the laws of Vietnam, unless mandatory local law provides otherwise."
     ]
    ]
   },
@@ -498,7 +498,7 @@
  "services": [
   [
    "Consulting & Advisory",
-   "Strategy, architecture and regulation for digital trust programmes.",
+   "Strategy, architecture and regulation for digital trust programs.",
    [
     "Digital identity and trust strategy",
     "Regulatory compliance: eIDAS 2.0, NIS2, PCI DSS, data protection",
@@ -531,15 +531,15 @@
    [
     "Mobile and web applications",
     "Cloud-native microservices and Open API",
-    "Localisation for national requirements"
+    "Localization for national requirements"
    ]
   ],
   [
    "Cloud Transformation & Infrastructure",
    "From cloud strategy to daily operation of your infrastructure.",
    [
-    "Cloud and data centre consulting and design",
-    "Cloud migration and modernisation",
+    "Cloud and data center consulting and design",
+    "Cloud migration and modernization",
     "Hybrid and private cloud build",
     "Infrastructure operation",
     "Network infrastructure and integration",
@@ -548,10 +548,10 @@
    ]
   ],
   [
-   "Digitisation & Data Services",
+   "Digitization & Data Services",
    "Turn paper archives into searchable, trusted digital records.",
    [
-    "Document digitisation and data entry",
+    "Document digitization and data entry",
     "Data extraction and recognition",
     "Data conversion and migration",
     "Cloud storage",
@@ -603,11 +603,11 @@
   ],
   [
    "VINASA",
-   "VietNam Software and IT Services Association"
+   "Vietnam Software and IT Services Association"
   ],
   [
    "NCA",
-   "National Cybersecurity Association of VietNam"
+   "National Cybersecurity Association of Vietnam"
   ],
   [
    "PKI Consortium",
@@ -738,7 +738,7 @@
   [
    "01",
    "Digital Trust as a Service",
-   "Trust services consumed by API or subscription: remote qualified signing, timestamping, certificates, biometric eKYC and credential issuance — operated by SAVIS and TrustCA.",
+   "Trust services consumed by API or subscription: remote qualified signing, timestamping, certificates, biometric eKYC and credential issuance - operated by SAVIS and TrustCA.",
    "As a service · On-premise",
    "identity",
    [
@@ -797,7 +797,7 @@
   [
    "05",
    "Open Finance & Secure Transactions",
-   "Open APIs with consent, transaction signing, 3-D Secure, tokenisation and digital banking for banks, payments and fintech.",
+   "Open APIs with consent, transaction signing, 3-D Secure, tokenization and digital banking for banks, payments and fintech.",
    "Platform · As a service",
    "finance",
    [
@@ -834,13 +834,13 @@
   ],
   [
    "Managed & IT services",
-   "Consulting, deployment, operation and 24/7 support — on-premise, hosted or as a service."
+   "Consulting, deployment, operation and 24/7 support - on-premise, hosted or as a service."
   ]
  ],
  "bizDir": [
   [
    "Product-led",
-   "Grow SAVIS-owned IP — SAM Appliance, Quantum Security Appliance, TrustPass and the SAVIS SuperApp platform — certified to international standards."
+   "Grow SAVIS-owned IP - SAM Appliance, Quantum Security Appliance, TrustPass and the SAVIS SuperApp platform - certified to international standards."
   ],
   [
    "As a service",
@@ -912,7 +912,7 @@
   ],
   [
    "Quantum-Safe Data Center",
-   "Data centres and large enterprises",
+   "Data centers and large enterprises",
    "2 Quantum Safe Gateways, Zero Trust identity, certificate management, PQC assessment",
    [
     "quantum-safe-gateway",
@@ -924,7 +924,7 @@
  "deckCerts": [
   [
    "FIDO2 Certified Server",
-   "SAM FIDO2 Identity Server — full FIDO Server Certification from the FIDO Alliance, covering conformance and interoperability.<span class=\"cert-meta\"><span><b>Program</b>FIDO Server Certification</span><span><b>Class</b>FIDO2 · Full Certification</span><span><b>Specification</b>FIDO2 CTAP v2.1 PS · policy 1.3.9</span><span><b>Certificate No.</b>FA001202600030</span><span><b>Issued</b>2 October 2026</span></span><a class=\"cert-req\" href=\"#contact\">Request the certificate →</a>",
+   "SAM FIDO2 Identity Server - full FIDO Server Certification from the FIDO Alliance, covering conformance and interoperability.<span class=\"cert-meta\"><span><b>Program</b>FIDO Server Certification</span><span><b>Class</b>FIDO2 · Full Certification</span><span><b>Specification</b>FIDO2 CTAP v2.1 PS · policy 1.3.9</span><span><b>Certificate No.</b>FA001202600030</span><span><b>Issued</b>2 October 2026</span></span><a class=\"cert-req\" href=\"#contact\">Request the certificate →</a>",
    "Certified · 2026"
   ],
   [
@@ -992,7 +992,7 @@
     "Networks",
     "Endpoints",
     "Cloud",
-    "Data centres"
+    "Data centers"
    ],
    "core": [
     "GP HSM · Payment HSM",
@@ -1118,7 +1118,7 @@
    ],
    "ch": [
     [
-     "Enrolment centres",
+     "Enrollment centers",
      "kiosk"
     ],
     [
@@ -1131,7 +1131,7 @@
     ]
    ],
    "mods": [
-    "Enrolment & ABIS",
+    "Enrollment & ABIS",
     "Card & Mobile ID issuance",
     "Authentication (FIDO2)",
     "Lifecycle (CLM)",
@@ -1153,7 +1153,7 @@
      "gov"
     ],
     [
-     "Card personalisation",
+     "Card personalization",
      "card"
     ],
     [
@@ -1162,8 +1162,8 @@
     ]
    ],
    "steps": [
-    "Citizens enrol at centres or on mobile.",
-    "Data flows to enrolment, ABIS and issuance.",
+    "Citizens enroll at centers or on mobile.",
+    "Data flows to enrollment, ABIS and issuance.",
     "Credentials are signed by the national PKI.",
     "Public services authenticate and verify citizens."
    ]
@@ -1442,7 +1442,7 @@
      "net"
     ],
     [
-     "Data centre links",
+     "Data center links",
      "server"
     ]
    ],
@@ -1469,7 +1469,7 @@
     ]
    ],
    "steps": [
-    "Traffic leaves sites and data centres.",
+    "Traffic leaves sites and data centers.",
     "It enters the gateway.",
     "Keys are exchanged with hybrid PQC.",
     "Applications and partners receive protected traffic."
@@ -1500,7 +1500,7 @@
     "PKI & signing",
     "Remote QSCD",
     "SCA · FIDO2",
-    "Wallet & tokenisation"
+    "Wallet & tokenization"
    ],
    "core": [
     [

@@ -111,7 +111,7 @@ export function NextSteps() {
         <div>
           <span className="sv-eyebrow">Next step</span>
           <h2>Let’s talk about your project</h2>
-          <p>Tell us what you need — our experts reply with a demo slot, a datasheet pack or a quote.</p>
+          <p>Tell us what you need - our experts reply with a demo slot, a datasheet pack or a quote.</p>
         </div>
         <div className="sv-nextsteps__grid">
           {items.map(([t, d]) => (

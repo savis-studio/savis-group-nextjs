@@ -70,7 +70,7 @@ export default function ServicesPage() {
       eyebrow="Services"
       title="Assess. Design. Deploy. Operate."
       label="Services"
-      lead="One accountable team takes you from regulation and readiness to integration and 24/7 operations — the same people who design the technology."
+      lead="One accountable team takes you from regulation and readiness to integration and 24/7 operations - the same people who design the technology."
       aside={<StagesDiagram />}
       actions={
         <>
@@ -97,7 +97,7 @@ export default function ServicesPage() {
               <h3 style={{ margin: 0 }}>{s.n}</h3>
               <p style={{ margin: 0, color: "var(--muted)" }}>{s.text}</p>
               <p style={{ margin: 0, fontWeight: 600, fontSize: 14 }}>{s.items.join(" · ")}</p>
-              <SmartLink href={STAGE_LINK[i] ?? "#professional"} className="sv-home__more">See the services →</SmartLink>
+              <SmartLink href={STAGE_LINK[i] ?? "#professional"} className="sv-more">See the services →</SmartLink>
             </div>
           ))}
         </div>
@@ -126,7 +126,7 @@ export default function ServicesPage() {
       <Section tone="surface" id="support">
         <SectionHead eyebrow="Services" title="Customer Support" />
         <p style={{ margin: "0 0 var(--space-30)", maxWidth: 760, color: "var(--muted)" }}>
-          One support team for every SAVIS product — from first ticket to root cause.
+          One support team for every SAVIS product - from first ticket to root cause.
         </p>
         <Offerings
           name="sup"

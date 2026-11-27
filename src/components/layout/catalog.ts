@@ -8,7 +8,7 @@ export const pillars: CatalogPillar[] = [
     "n": "01",
     "name": "Digital Identity & Trust",
     "short": "Digital Identity & Trust",
-    "pitch": "Verify people, authenticate access and sign with legal certainty — from onboarding to qualified signatures.",
+    "pitch": "Verify people, authenticate access and sign with legal certainty - from onboarding to qualified signatures.",
     "groups": [
       {
         "name": "Digital Identity & Verification",

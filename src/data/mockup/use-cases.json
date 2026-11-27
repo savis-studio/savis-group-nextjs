@@ -3,7 +3,7 @@
   "id": "passkey-payments",
   "pillar": "finance",
   "name": "Passkey payments with Secure Payment Confirmation",
-  "tagline": "Strong customer authentication and dynamic linking right on the merchant page — no redirect.",
+  "tagline": "Strong customer authentication and dynamic linking right on the merchant page - no redirect.",
   "problem": "SMS OTP is slow and can be phished; redirects to the bank page lose customers at checkout. Regulation requires the amount and payee to be bound to the authentication.",
   "industries": [
    "bfsi",
@@ -42,7 +42,7 @@
    [
     "bio",
     "Touch to confirm",
-    "The passkey signs merchant and amount — the proof for dynamic linking."
+    "The passkey signs merchant and amount - the proof for dynamic linking."
    ],
    [
     "success",
@@ -137,7 +137,7 @@
   "id": "national-wallet",
   "pillar": "identity",
   "name": "National digital ID wallet",
-  "tagline": "From activation to signing and travelling abroad, in four phases.",
+  "tagline": "From activation to signing and traveling abroad, in four phases.",
   "problem": "Citizens carry plastic documents and photocopies; services cannot verify them remotely. A national wallet needs a trusted PID, many issuers, a network of verifiers and qualified signatures.",
   "industries": [
    "government",
@@ -171,7 +171,7 @@
     "list",
     "Add documents",
     [
-     "Driving licence",
+     "Driving license",
      "Health insurance card",
      "University diploma"
     ]
@@ -462,7 +462,7 @@
    [
     "login",
     "Sign in",
-    "Customer enters a username only — no password."
+    "Customer enters a username only - no password."
    ],
    [
     "push",
@@ -496,7 +496,7 @@
     [
      "Mobile app",
      "Web",
-     "Contact centre"
+     "Contact center"
     ]
    ],
    [
@@ -778,9 +778,9 @@
    [
     "form",
     "Certificate request",
-    "A subordinate CA or organisation submits a request.",
+    "A subordinate CA or organization submits a request.",
     [
-     "Organisation",
+     "Organization",
      "Profile",
      "Public key (CSR)"
     ]
@@ -790,9 +790,9 @@
     "RA approval",
     "Registration officers verify and approve with dual control.",
     [
-     "Sacombank CA — pending",
-     "Telco CA — approved",
-     "Gov Sub-CA — approved"
+     "Sacombank CA - pending",
+     "Telco CA - approved",
+     "Gov Sub-CA - approved"
     ]
    ],
    [
@@ -823,7 +823,7 @@
    [
     "Access & API",
     [
-     "Enrolment API (EST/CMP)",
+     "Enrollment API (EST/CMP)",
      "OCSP / CRL endpoints"
     ]
    ],
@@ -899,7 +899,7 @@
   "id": "digital-id-wallet",
   "pillar": "identity",
   "name": "Present a mobile ID",
-  "tagline": "Show only what is needed — verified, on the phone.",
+  "tagline": "Show only what is needed - verified, on the phone.",
   "problem": "Photocopies of ID cards spread personal data everywhere and are easy to fake. Citizens need a secure way to prove who they are, or just their age, from the phone.",
   "industries": [
    "government",
@@ -919,7 +919,7 @@
    [
     "wallet",
     "Open the wallet",
-    "National ID, driving licence and diplomas held as credentials."
+    "National ID, driving license and diplomas held as credentials."
    ],
    [
     "consent",
@@ -1056,7 +1056,7 @@
   "flow": [
    [
     "form",
-    "Enrol",
+    "Enroll",
     "Identity verified once by HR, registrar or authority.",
     [
      "Employee ID",
@@ -1195,12 +1195,12 @@
    [
     "login",
     "Login from a new device",
-    "Device fingerprint and behaviour collected silently."
+    "Device fingerprint and behavior collected silently."
    ],
    [
     "chart",
     "Risk scored",
-    "Device, location, malware and behaviour combined into one score."
+    "Device, location, malware and behavior combined into one score."
    ],
    [
     "alert",
@@ -1306,8 +1306,8 @@
   "id": "soc",
   "pillar": "cyber",
   "name": "24/7 detection and response",
-  "tagline": "A security operations centre that watches, triages and contains around the clock.",
-  "problem": "Most organisations cannot staff analysts 24/7. Alerts pile up and real incidents are found too late.",
+  "tagline": "A security operations center that watches, triages and contains around the clock.",
+  "problem": "Most organizations cannot staff analysts 24/7. Alerts pile up and real incidents are found too late.",
   "industries": [
    "bfsi",
    "government",
@@ -1342,11 +1342,11 @@
    [
     "list",
     "Triage",
-    "Analysts enrich, prioritise and escalate.",
+    "Analysts enrich, prioritize and escalate.",
     [
-     "P1 — Admin login anomaly",
-     "P3 — Port scan",
-     "P4 — Policy violation"
+     "P1 - Admin login anomaly",
+     "P3 - Port scan",
+     "P4 - Policy violation"
     ]
    ],
    [
@@ -1488,9 +1488,9 @@
     "Distribute & use",
     "Applications call the KMS API; keys never leave in clear.",
     [
-     "Core DB — AES-256",
-     "API gateway — RSA-3072",
-     "Card system — 3DES→AES"
+     "Core DB - AES-256",
+     "API gateway - RSA-3072",
+     "Card system - 3DES→AES"
     ]
    ],
    [
@@ -1758,9 +1758,9 @@
     "Plan",
     "Phased roadmap from the Quantum Readiness Program.",
     [
-     "Phase 1 — External links",
-     "Phase 2 — PKI & signing",
-     "Phase 3 — Data at rest"
+     "Phase 1 - External links",
+     "Phase 2 - PKI & signing",
+     "Phase 3 - Data at rest"
     ]
    ],
    [
@@ -1886,7 +1886,7 @@
    [
     "list",
     "Choose a service",
-    "Searchable catalogue across agencies.",
+    "Searchable catalog across agencies.",
     [
      "Business registration",
      "Birth certificate",
@@ -2007,7 +2007,7 @@
   "id": "smart-city",
   "pillar": "gov",
   "name": "Smart city operations",
-  "tagline": "One operations centre for cameras, sensors and incidents.",
+  "tagline": "One operations center for cameras, sensors and incidents.",
   "problem": "City data sits in separate systems for traffic, security and utilities. Operators react late, and connected devices are an easy target for attackers.",
   "industries": [
    "government",
@@ -2042,8 +2042,8 @@
     "Dispatch",
     "Assign teams and notify citizens.",
     [
-     "Traffic police — en route",
-     "Ambulance — dispatched"
+     "Traffic police - en route",
+     "Ambulance - dispatched"
     ]
    ],
    [
@@ -2061,7 +2061,7 @@
    [
     "Channels",
     [
-     "Operations centre",
+     "Operations center",
      "Citizen app"
     ]
    ],
@@ -2138,7 +2138,7 @@
   "id": "connected-car",
   "pillar": "gov",
   "name": "Digital car key and vehicle security",
-  "tagline": "Unlock, start and share a car from the phone — securely.",
+  "tagline": "Unlock, start and share a car from the phone - securely.",
   "problem": "Physical keys get lost and cannot be shared remotely. Connected vehicles also need strong identity for over-the-air updates and charging.",
   "industries": [
    "automotive",
@@ -2266,7 +2266,7 @@
   "id": "open-banking",
   "pillar": "finance",
   "name": "Third-party access with customer consent",
-  "tagline": "Let licensed fintechs access accounts — only with the customer’s say-so.",
+  "tagline": "Let licensed fintechs access accounts - only with the customer’s say-so.",
   "problem": "SBV Circular 64 and PSD2 require banks to open APIs safely. That means onboarding third parties, capturing consent and authenticating customers strongly.",
   "industries": [
    "bfsi",
@@ -2302,7 +2302,7 @@
    [
     "login",
     "Redirect to the bank",
-    "The bank app opens — credentials never go to the fintech."
+    "The bank app opens - credentials never go to the fintech."
    ],
    [
     "consent",
@@ -2413,7 +2413,7 @@
   "id": "secure-payment",
   "pillar": "finance",
   "name": "Secure online payment",
-  "tagline": "Approve exactly what you pay — amount and payee bound to your signature.",
+  "tagline": "Approve exactly what you pay - amount and payee bound to your signature.",
   "problem": "Card-not-present fraud and payment redirection attacks target the moment of approval. Regulations require dynamic linking of amount and payee.",
   "industries": [
    "bfsi",
@@ -2438,7 +2438,7 @@
    [
     "cart",
     "Checkout",
-    "The customer pays on a merchant site with a tokenised card."
+    "The customer pays on a merchant site with a tokenized card."
    ],
    [
     "push",
@@ -2694,7 +2694,7 @@
   "id": "palm-payment",
   "pillar": "finance",
   "name": "Pay with the palm of the hand",
-  "tagline": "No card, no phone — hover your palm to pay.",
+  "tagline": "No card, no phone - hover your palm to pay.",
   "problem": "Queues at canteens, transit gates and stores slow down when people search for cards or phones. Cards get lost; phones run out of battery.",
   "industries": [
    "retail",
@@ -2711,23 +2711,23 @@
   "flow": [
    [
     "palm",
-    "Enrol your palm",
+    "Enroll your palm",
     "Palm template captured once at a kiosk or counter."
    ],
    [
     "card",
     "Link a card or account",
-    "Payment credential tokenised and linked."
+    "Payment credential tokenized and linked."
    ],
    [
     "palm",
     "Hover to pay",
-    "Palm recognised at the terminal in about a second."
+    "Palm recognized at the terminal in about a second."
    ],
    [
     "approve",
     "Charged",
-    "Token sent to the issuer for authorisation.",
+    "Token sent to the issuer for authorization.",
     [
      "35,000 VND",
      "Campus canteen",
@@ -2745,7 +2745,7 @@
     "Channels",
     [
      "Palm terminals",
-     "Enrolment kiosks",
+     "Enrollment kiosks",
      "Customer app"
     ]
    ],
@@ -2813,16 +2813,16 @@
   "benefits": [
    "Faster queues",
    "Nothing to carry or lose",
-   "Biometric templates encrypted and tokenised"
+   "Biometric templates encrypted and tokenized"
   ],
   "scene": "palm"
  },
  {
   "id": "digital-assets",
   "pillar": "finance",
-  "name": "Tokenised assets and digital currency",
+  "name": "Tokenized assets and digital currency",
   "tagline": "Issue, hold and transfer regulated digital assets with bank-grade key protection.",
-  "problem": "Central banks and institutions are piloting CBDC, stablecoins and tokenised bonds. Each needs a ledger, wallets, compliance and custody that regulators can trust.",
+  "problem": "Central banks and institutions are piloting CBDC, stablecoins and tokenized bonds. Each needs a ledger, wallets, compliance and custody that regulators can trust.",
   "industries": [
    "bfsi",
    "payments",
@@ -2958,7 +2958,7 @@
   "pillar": "ai",
   "name": "Customer 360 and analytics",
   "tagline": "One trusted view of every customer, ready for dashboards and AI.",
-  "problem": "Customer data is duplicated across many systems. Reports disagree and personalisation is guesswork.",
+  "problem": "Customer data is duplicated across many systems. Reports disagree and personalization is guesswork.",
   "industries": [
    "bfsi",
    "retail",
@@ -2984,8 +2984,8 @@
     "Match & merge",
     "Master data rules build golden records.",
     [
-     "Duplicate merged — 3 records",
-     "Address standardised",
+     "Duplicate merged - 3 records",
+     "Address standardized",
      "Consent flag applied"
     ]
    ],
@@ -3262,11 +3262,11 @@
    [
     "list",
     "Plan",
-    "Programmes and resources planned in MRP AI.",
+    "Programs and resources planned in MRP AI.",
     [
-     "Evening news — 19:00",
-     "Sport live — 20:30",
-     "Documentary — Sat"
+     "Evening news - 19:00",
+     "Sport live - 20:30",
+     "Documentary - Sat"
     ]
    ],
    [
@@ -3518,8 +3518,8 @@
   "id": "wallet-bank-onboarding",
   "pillar": "identity",
   "name": "Open a bank account from a national ID wallet",
-  "tagline": "Verified identity in, passkey out — in a single session.",
-  "problem": "Banks re-verify identities the state has already verified, then hand new customers a password and an SMS OTP. National wallets and data exchange let a bank reuse a verified identity — if it can check the issuer, the person and the device in one flow.",
+  "tagline": "Verified identity in, passkey out - in a single session.",
+  "problem": "Banks re-verify identities the state has already verified, then hand new customers a password and an SMS OTP. National wallets and data exchange let a bank reuse a verified identity - if it can check the issuer, the person and the device in one flow.",
   "industries": [
    "bfsi",
    "payments",
@@ -3665,7 +3665,7 @@
   "id": "omnichannel-bank-authentication",
   "pillar": "identity",
   "name": "One authentication layer for every banking channel",
-  "tagline": "Internet, mobile, corporate, branch, cards and staff — on one active-active platform.",
+  "tagline": "Internet, mobile, corporate, branch, cards and staff - on one active-active platform.",
   "problem": "Large banks run a different authenticator for each channel: OTP for internet banking, a token for corporates, SMS for 3-D Secure, passwords for staff. Fraudsters target the weakest one, and every new regulation has to be implemented many times.",
   "industries": [
    "bfsi",
@@ -3815,7 +3815,7 @@
   "id": "wallet-pay-by-bank",
   "pillar": "finance",
   "name": "Pay from a wallet with a bank account",
-  "tagline": "Web redirect, app-to-app or decoupled approval — the bank keeps control of SCA.",
+  "tagline": "Web redirect, app-to-app or decoupled approval - the bank keeps control of SCA.",
   "problem": "Wallets want to debit bank accounts directly, but every bank authenticates differently and SMS OTP is easy to phish. Customers also fall for ‘just approve this for me’ scams when approval is detached from the channel that started it.",
   "industries": [
    "payments",
@@ -3862,7 +3862,7 @@
    [
     "success",
     "Back in the wallet",
-    "The wallet receives a one-time authorisation through its back end."
+    "The wallet receives a one-time authorization through its back end."
    ]
   ],
   "logical": [
@@ -3920,7 +3920,7 @@
     "DMZ",
     [
      "API gateway",
-     "Authorisation server"
+     "Authorization server"
     ]
    ],
    [
@@ -3956,7 +3956,7 @@
   "id": "tickets-transit-wallet",
   "pillar": "gov",
   "name": "Tickets, boarding passes and tap-to-pay in one wallet",
-  "tagline": "Event tickets, flights, transit passes and payment cards — all on the phone.",
+  "tagline": "Event tickets, flights, transit passes and payment cards - all on the phone.",
   "problem": "Paper and screenshot tickets are easy to copy, transit cards are yet another card to carry, and boarding still needs a document check at every step.",
   "industries": [
    "transport",
@@ -4004,7 +4004,7 @@
    [
     "bio",
     "Tap and pay",
-    "A tokenised card at the POS — the real number never leaves the bank; a passkey online."
+    "A tokenized card at the POS - the real number never leaves the bank; a passkey online."
    ]
   ],
   "logical": [
@@ -4138,12 +4138,12 @@
    [
     "qr",
     "Share a verification link",
-    "A time-limited link for an employer abroad — expires after 7 days, one view."
+    "A time-limited link for an employer abroad - expires after 7 days, one view."
    ],
    [
     "verify",
     "Verified abroad",
-    "Issuer on the ministry's trusted list, signature valid, not revoked — download a PDF proof."
+    "Issuer on the ministry's trusted list, signature valid, not revoked - download a PDF proof."
    ]
   ],
   "logical": [
@@ -4234,7 +4234,7 @@
   "pillar": "finance",
   "name": "Confirm a payment in the banking app with one touch",
   "tagline": "Checkout in another app or website; approve in the bank app with a biometric.",
-  "problem": "Payments that start in a store or wallet app are usually confirmed by SMS OTP, which can be intercepted or socially engineered — and the customer never sees what the code actually authorises.",
+  "problem": "Payments that start in a store or wallet app are usually confirmed by SMS OTP, which can be intercepted or socially engineered - and the customer never sees what the code actually authorises.",
   "industries": [
    "bfsi",
    "payments",
@@ -4351,7 +4351,7 @@
    ]
   ],
   "benefits": [
-   "The displayed content is recomputed into the challenge — any mismatch rejects the signature",
+   "The displayed content is recomputed into the challenge - any mismatch rejects the signature",
    "Keys never leave the TEE or Secure Enclave",
    "Transaction profiles with integrity checks",
    "Works for card, account and wallet payments"
@@ -4362,7 +4362,7 @@
   "id": "counter-kiosk-qr-approval",
   "pillar": "finance",
   "name": "Approve at the counter, kiosk or POS from your own phone",
-  "tagline": "Scan a QR and approve in your app — type nothing on a public machine.",
+  "tagline": "Scan a QR and approve in your app - type nothing on a public machine.",
   "problem": "PIN pads and signature tablets at counters and kiosks expose customers to shoulder surfing, skimming and impersonation. High-value counter transactions also need a strong, auditable proof that the account holder approved them.",
   "industries": [
    "bfsi",
@@ -4382,7 +4382,7 @@
    [
     "qr",
     "The teller creates a request",
-    "Cash withdrawal at the counter — or the customer starts at a kiosk or POS — shows a one-time QR."
+    "Cash withdrawal at the counter - or the customer starts at a kiosk or POS - shows a one-time QR."
    ],
    [
     "shield",
@@ -4496,8 +4496,8 @@
   "id": "high-value-hardware-authenticators",
   "pillar": "identity",
   "name": "High-value transactions without a smartphone",
-  "tagline": "Possession and the owner's fingerprint — both inside one card.",
-  "problem": "Phones get infected, swapped or shared, and some customers do not use one. For the largest transactions regulators expect two independent factors bound to the amount and payee — and a method that does not depend on a smartphone.",
+  "tagline": "Possession and the owner's fingerprint - both inside one card.",
+  "problem": "Phones get infected, swapped or shared, and some customers do not use one. For the largest transactions regulators expect two independent factors bound to the amount and payee - and a method that does not depend on a smartphone.",
   "industries": [
    "bfsi",
    "payments",
@@ -4542,7 +4542,7 @@
    [
     "nfc",
     "Tap TrustPass Card Bio",
-    "Finger on the card's sensor — the match happens on the card; the phone is only the NFC channel."
+    "Finger on the card's sensor - the match happens on the card; the phone is only the NFC channel."
    ],
    [
     "otp",
@@ -4645,8 +4645,8 @@
   "id": "authenticator-self-service",
   "pillar": "identity",
   "name": "Manage passkeys, cards and keys in the app",
-  "tagline": "Customers change PINs, enrol fingerprints and report losses themselves.",
-  "problem": "Every lost token, forgotten PIN or new fingerprint becomes a branch visit or a call-centre ticket — and suspended devices stay active elsewhere until someone updates every system.",
+  "tagline": "Customers change PINs, enroll fingerprints and report losses themselves.",
+  "problem": "Every lost token, forgotten PIN or new fingerprint becomes a branch visit or a call-center ticket - and suspended devices stay active elsewhere until someone updates every system.",
   "industries": [
    "bfsi",
    "enterprise"
@@ -4680,7 +4680,7 @@
    ],
    [
     "key",
-    "Change PIN, enrol fingerprints",
+    "Change PIN, enroll fingerprints",
     "CTAP clientPIN and bioEnrollment commands go straight to the key."
    ],
    [
@@ -4696,7 +4696,7 @@
    [
     "alert",
     "Suspend or report lost",
-    "Suspension is synchronised to the bank in seconds.",
+    "Suspension is synchronized to the bank in seconds.",
     [
      "Card reported lost",
      "Suspended across all services"
@@ -4705,7 +4705,7 @@
    [
     "success",
     "Reset or replace",
-    "Reset the key or enrol a new one."
+    "Reset the key or enroll a new one."
    ]
   ],
   "logical": [
@@ -4742,7 +4742,7 @@
    [
     "Enterprise systems",
     [
-     "Contact centre",
+     "Contact center",
      "Card management"
     ]
    ]
@@ -4775,7 +4775,7 @@
    [
     "Core & integration",
     [
-     "Contact centre"
+     "Contact center"
     ]
    ]
   ],
@@ -4790,9 +4790,9 @@
  {
   "id": "national-abis-deduplication",
   "pillar": "identity",
-  "name": "One person, one identity: national enrolment with ABIS",
-  "tagline": "Face and fingerprint de-duplication at national scale — before any card or credential is issued.",
-  "problem": "Duplicate and fraudulent identities leak into civil registers, voter rolls, SIM databases and social programmes. Every credential issued later inherits that weakness unless each person is enrolled once and checked against everyone already registered.",
+  "name": "One person, one identity: national enrollment with ABIS",
+  "tagline": "Face and fingerprint de-duplication at national scale - before any card or credential is issued.",
+  "problem": "Duplicate and fraudulent identities leak into civil registers, voter rolls, SIM databases and social programs. Every credential issued later inherits that weakness unless each person is enrolled once and checked against everyone already registered.",
   "industries": [
    "government",
    "telco",
@@ -4812,7 +4812,7 @@
   "flow": [
    [
     "form",
-    "Enrol at a service point",
+    "Enroll at a service point",
     "Demographics captured by an operator or pre-registered online.",
     [
      "Full name",
@@ -4828,7 +4828,7 @@
    [
     "fingerprint",
     "Capture fingerprints",
-    "Four fingers by smartphone camera or scanner — no contact needed."
+    "Four fingers by smartphone camera or scanner - no contact needed."
    ],
    [
     "chart",
@@ -4845,15 +4845,15 @@
    [
     "Channels",
     [
-     "Enrolment stations",
-     "Mobile enrolment kits",
+     "Enrollment stations",
+     "Mobile enrollment kits",
      "Online pre-registration"
     ]
    ],
    [
     "Access & API",
     [
-     "Enrolment API",
+     "Enrollment API",
      "ABIS REST API"
     ]
    ],
@@ -4892,7 +4892,7 @@
    [
     "DMZ",
     [
-     "Enrolment gateway"
+     "Enrollment gateway"
     ]
    ],
    [
@@ -4919,9 +4919,9 @@
   ],
   "benefits": [
    "One person, one identity across registers",
-   "Touchless capture speeds up enrolment in the field",
+   "Touchless capture speeds up enrollment in the field",
    "Scale out matcher nodes as the population grows",
-   "Feeds the eID lifecycle: enrol, de-duplicate, issue"
+   "Feeds the eID lifecycle: enroll, de-duplicate, issue"
   ],
   "scene": "abis"
  },
@@ -4929,7 +4929,7 @@
   "id": "touchless-fingerprint-onboarding",
   "pillar": "identity",
   "name": "Open an account with four fingers and a phone camera",
-  "tagline": "Fingerprint-grade assurance without a scanner — for banks, telcos and agents in the field.",
+  "tagline": "Fingerprint-grade assurance without a scanner - for banks, telcos and agents in the field.",
   "problem": "Face-only onboarding is under pressure from deepfakes, while fingerprint scanners are expensive to deploy across branches, agents and remote areas. Regulators increasingly expect biometrics that are both strong and spoof-resistant.",
   "industries": [
    "bfsi",
@@ -4961,7 +4961,7 @@
    [
     "fingerprint",
     "Show four fingers",
-    "The phone camera captures four fingerprints — no contact."
+    "The phone camera captures four fingerprints - no contact."
    ],
    [
     "review",
@@ -5076,7 +5076,7 @@
   "id": "cryptoid-offline-identity",
   "pillar": "identity",
   "name": "Identity that works offline: CryptoID",
-  "tagline": "A signed QR code that carries identity and biometrics — verified without a network.",
+  "tagline": "A signed QR code that carries identity and biometrics - verified without a network.",
   "problem": "Hundreds of millions of people have no smartphone or live where connectivity is unreliable. Paper documents are easy to forge, and online-only verification fails exactly where inclusion matters most.",
   "industries": [
    "government",
@@ -5155,7 +5155,7 @@
     "Enterprise systems",
     [
      "Civil register",
-     "Programme databases"
+     "Program databases"
     ]
    ]
   ],
@@ -5204,8 +5204,8 @@
   "id": "field-registration-offline",
   "pillar": "identity",
   "name": "Register people where there is no network",
-  "tagline": "Mobile enrolment kits, offline de-duplication sync and CryptoID issued on the spot.",
-  "problem": "Remote villages, islands and camps are where people most often lack an identity — and where connectivity is weakest. Registration teams need to capture high-quality biometrics offline, avoid duplicates, and leave each person with a credential that works without a network.",
+  "tagline": "Mobile enrollment kits, offline de-duplication sync and CryptoID issued on the spot.",
+  "problem": "Remote villages, islands and camps are where people most often lack an identity - and where connectivity is weakest. Registration teams need to capture high-quality biometrics offline, avoid duplicates, and leave each person with a credential that works without a network.",
   "industries": [
    "government",
    "healthcare",
@@ -5252,7 +5252,7 @@
    [
     "Channels",
     [
-     "Mobile enrolment kit",
+     "Mobile enrollment kit",
      "Fixed station",
      "Verifier app"
     ]
@@ -5283,7 +5283,7 @@
     "Enterprise systems",
     [
      "Civil register / MOSIP",
-     "Programme databases"
+     "Program databases"
     ]
    ]
   ],
@@ -5335,8 +5335,8 @@
   "id": "birth-to-id-crvs-mosip",
   "pillar": "gov",
   "name": "From birth registration to a national ID",
-  "tagline": "OpenCRVS and MOSIP working as one lifecycle — delivered and secured by SAVIS.",
-  "problem": "Civil registration and national ID are often separate systems. Births go unregistered, IDs are issued without a link to the birth record, and deaths are never removed from registers — creating gaps, duplicates and fraud in benefits and voter rolls.",
+  "tagline": "OpenCRVS and MOSIP working as one lifecycle - delivered and secured by SAVIS.",
+  "problem": "Civil registration and national ID are often separate systems. Births go unregistered, IDs are issued without a link to the birth record, and deaths are never removed from registers - creating gaps, duplicates and fraud in benefits and voter rolls.",
   "industries": [
    "government",
    "healthcare"
@@ -5474,7 +5474,7 @@
   "id": "national-id-verification-service",
   "pillar": "identity",
   "name": "National ID verification for banks and telcos",
-  "tagline": "One trusted service to check identities against the national register — with consent, per transaction.",
+  "tagline": "One trusted service to check identities against the national register - with consent, per transaction.",
   "problem": "Banks and mobile operators must verify identities for KYC and SIM registration, but cannot copy the national register. Without a shared verification service, each builds its own checks, fraud slips through, and citizens' data is spread across many databases.",
   "industries": [
    "bfsi",
@@ -5627,8 +5627,8 @@
   "id": "bank-open-api-ecosystem",
   "pillar": "finance",
   "name": "Open API ecosystem for a retail bank: VPBank",
-  "tagline": "Partners embed payments, wallet linking, savings and bonds — every call consented, authenticated and monitored.",
-  "problem": "A bank that opens its services to e-wallets, fintechs and securities firms has to onboard partners safely, capture consent for every link, authenticate customers strongly and meet SBV Circular 64/2024 — without slowing partners down.",
+  "tagline": "Partners embed payments, wallet linking, savings and bonds - every call consented, authenticated and monitored.",
+  "problem": "A bank that opens its services to e-wallets, fintechs and securities firms has to onboard partners safely, capture consent for every link, authenticate customers strongly and meet SBV Circular 64/2024 - without slowing partners down.",
   "industries": [
    "bfsi",
    "payments",
@@ -5761,7 +5761,7 @@
    ]
   ],
   "benefits": [
-   "One platform for VPBank Open API service families: online payments, e-wallet linking, balance sharing, savings, payment authorisation and bond trading",
+   "One platform for VPBank Open API service families: online payments, e-wallet linking, balance sharing, savings, payment authorization and bond trading",
    "Partner onboarding, certificates and monitoring built in",
    "Consent and strong authentication consistent across every API",
    "Built for SBV Circular 64/2024"
@@ -5772,8 +5772,8 @@
   "id": "vneid-trustsign-remote-signing",
   "pillar": "identity",
   "name": "From VNeID to a remote signature on mobile with TrustSign",
-  "tagline": "Prove identity with VNeID and the chip ID card, receive a certificate and sign a contract — all on the phone.",
-  "problem": "Signing a loan, insurance or service contract remotely needs three things at once: identity proofing to a high level, a certificate issued to the right person, and a signature only that person can activate. Separate apps and paper checks lose customers — and leave gaps for document fraud and deepfakes.",
+  "tagline": "Prove identity with VNeID and the chip ID card, receive a certificate and sign a contract - all on the phone.",
+  "problem": "Signing a loan, insurance or service contract remotely needs three things at once: identity proofing to a high level, a certificate issued to the right person, and a signature only that person can activate. Separate apps and paper checks lose customers - and leave gaps for document fraud and deepfakes.",
   "industries": [
    "bfsi",
    "telco",
@@ -5913,7 +5913,7 @@
   ],
   "benefits": [
    "Identity proofing, certificate and signature in one mobile journey",
-   "Chip data and face checked against the national ID — resistant to forged documents and deepfakes",
+   "Chip data and face checked against the national ID - resistant to forged documents and deepfakes",
    "Signing keys never leave the HSM; only the customer can activate them through TrustSign",
    "Timestamps and long-term validation for every signed contract"
   ],
@@ -5923,7 +5923,7 @@
   "id": "palm-identity",
   "pillar": "identity",
   "name": "Touchless palm check-in for services and access",
-  "tagline": "Hover your palm to prove who you are — at a counter, kiosk or gate.",
+  "tagline": "Hover your palm to prove who you are - at a counter, kiosk or gate.",
   "problem": "Cards and PINs are forgotten, shared or lost, and contact scanners slow down queues at service counters, border points and building entrances.",
   "industries": [
    "government",
@@ -5940,7 +5940,7 @@
   "flow": [
    [
     "palm",
-    "Enrol your palm",
+    "Enroll your palm",
     "Palm captured once with a phone camera or kiosk, with a liveness check."
    ],
    [
@@ -5956,7 +5956,7 @@
    [
     "palm",
     "Hover to check in",
-    "Palm recognised at the counter, kiosk or gate in about a second."
+    "Palm recognized at the counter, kiosk or gate in about a second."
    ],
    [
     "review",
@@ -5980,7 +5980,7 @@
    [
     "success",
     "Served",
-    "Ticket issued, door opened or service started — no card needed."
+    "Ticket issued, door opened or service started - no card needed."
    ]
   ],
   "logical": [

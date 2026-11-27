@@ -7,7 +7,7 @@ export type Pair = [title: string, text: string];
 
 /* ----------------------------- Services ----------------------------- */
 export const SERVICE_STAGES: Array<{ n: string; title: string; text: string; items: string[] }> = [
-  { n: "01 · Advise", title: "Advise", text: "Strategy, regulation and readiness — before you build.", items: ["Consulting & Advisory", "Readiness Programs"] },
+  { n: "01 · Advise", title: "Advise", text: "Strategy, regulation and readiness - before you build.", items: ["Consulting & Advisory", "Readiness Programs"] },
   { n: "02 · Build", title: "Build", text: "Integration and engineering by the team that makes the technology.", items: ["System Integration", "Software Engineering", "Digitization & Data Services"] },
   { n: "03 · Operate", title: "Operate", text: "Cloud, managed services and trust services, 24/7.", items: ["Cloud Transformation & Infrastructure", "Managed Services", "Trust Services"] },
 ];
@@ -76,13 +76,13 @@ export const STORY_INTRO = [
 ];
 
 export const STORY_ERAS: Array<{ years: string; title: string; text: string }> = [
-  { years: "2004 – 2015", title: "The nation’s root of trust", text: "Founded in Hanoi in 2004, SAVIS began deploying national PKI in 2006 — the root CAs, time-stamping and validation services that anchor digital signatures for a whole country. From 2012, our Trusted Identity & Transaction Signing secured high-value payment channels and interbank transfers for State Bank of Vietnam units and credit institutions." },
+  { years: "2004 – 2015", title: "The nation’s root of trust", text: "Founded in Hanoi in 2004, SAVIS began deploying national PKI in 2006 - the root CAs, time-stamping and validation services that anchor digital signatures for a whole country. From 2012, our Trusted Identity & Transaction Signing secured high-value payment channels and interbank transfers for State Bank of Vietnam units and credit institutions." },
   { years: "2016 – 2025", title: "Trust services, identity and platforms", text: "Ranked among Vietnam’s Top 10 IT companies for ten consecutive years since 2016. TrustCA was licensed by NEAC (Ministry of Information and Communications) in 2019 for remote digital signatures and is the first in Vietnam certified against EU eIDAS for qualified remote signing (QTSP), timestamp and eSeal services. Alongside it, SAVIS delivers mobile PKI, eKYC, open banking and digital government platforms for leading banks, ministries and provinces." },
   { years: "2026", title: "A global digital trust company", text: "On our 22nd anniversary, 4 November 2026, SAVIS set its course: own the core technology and take it to the world. TrustCA Qualified Remote Signing, QTSA and eSeal are certified against eIDAS 2.0 and NIS2, the SAVIS SuperApp platform won the ASOCIO Smart City Awards 2026, and ten offices now serve Asia-Pacific, the Middle East, Africa and the Americas." },
 ];
 
 export const MISSION = "Build the trusted digital infrastructure that lets nations and enterprises serve people securely.";
-export const SIGNATURE = "National-grade trust since 2006 — the same infrastructure that secures a country’s signatures, identities and payments, delivered to governments and enterprises worldwide.";
+export const SIGNATURE = "National-grade trust since 2006 - the same infrastructure that secures a country’s signatures, identities and payments, delivered to governments and enterprises worldwide.";
 export const VALUES: Pair[] = [
   ["Trust first", "Security and integrity in every decision."],
   ["Mastery", "We own and understand our technology."],
@@ -92,7 +92,7 @@ export const VALUES: Pair[] = [
 ];
 
 export const STRATEGY_DIRECTIONS: Pair[] = [
-  ["Product-led", "Grow SAVIS-owned IP — SAM Appliance, Quantum Security Appliance, TrustPass and the SAVIS SuperApp platform — certified to international standards."],
+  ["Product-led", "Grow SAVIS-owned IP - SAM Appliance, Quantum Security Appliance, TrustPass and the SAVIS SuperApp platform - certified to international standards."],
   ["As a service", "Offer Digital Trust as a Service alongside on-premise delivery, so customers can start small and scale."],
   ["One core, national profiles", "Build once on ISO, ETSI, FIDO, W3C and NIST standards; configure profiles for eIDAS, NIST SP 800-63-4, Australia’s Digital ID Act and national frameworks."],
   ["Quantum-safe by design", "Crypto-agility and NIST post-quantum algorithms across products and services."],
@@ -100,19 +100,19 @@ export const STRATEGY_DIRECTIONS: Pair[] = [
 ];
 
 export const NAME_MEANING = {
-  text: "SAVIS evokes the English word “savvy” — deep understanding and mastery of technology — and the Latin root sapere, “to be wise”. The name SAVIS carries the sound of wisdom and technological mastery. Each letter, S-A-V-I-S, traces a journey from Smart to Agile, Visionary, Innovative and Secure — affirming the confidence of a leading group that masters its own technology.",
+  text: "SAVIS evokes the English word “savvy” - deep understanding and mastery of technology - and the Latin root sapere, “to be wise”. The name SAVIS carries the sound of wisdom and technological mastery. Each letter, S-A-V-I-S, traces a journey from Smart to Agile, Visionary, Innovative and Secure - affirming the confidence of a leading group that masters its own technology.",
   letters: [["S", "Smart"], ["A", "Agile"], ["V", "Visionary"], ["I", "Innovative"], ["S", "Secure"]] as Pair[],
 };
 
 export const MILESTONES: Pair[] = [
   ["2004", "SAVIS Group founded in Hanoi on 4 November 2004."],
-  ["2006", "Began deploying national PKI — the root of trust for Vietnam’s digital signatures."],
+  ["2006", "Began deploying national PKI - the root of trust for Vietnam’s digital signatures."],
   ["2012", "Trusted Identity & Transaction Signing for State Bank of Vietnam units and credit institutions: authentication for high-value payment channels and signing of interbank transfers."],
-  ["2016", "Ranked among Vietnam’s Top 10 IT companies — ten consecutive years since 2016."],
+  ["2016", "Ranked among Vietnam’s Top 10 IT companies - ten consecutive years since 2016."],
   ["2019", "TrustCA licensed by NEAC, Ministry of Information and Communications, to provide remote digital signature services."],
-  ["2021", "SAVIS was officially licensed to provide Remote Signing services and the first electronic authentication service for timestamping in Vietnam — TrustCA Qualified Timestamp."],
+  ["2021", "SAVIS was officially licensed to provide Remote Signing services and the first electronic authentication service for timestamping in Vietnam - TrustCA Qualified Timestamp."],
   ["2026", "TrustCA becomes the first in Vietnam certified against EU eIDAS for qualified remote signing (QTSP), timestamp and eSeal services, with NIS2, by TAYLLORCOX PCEB; Zero Trust partnership with Soliton. SAVIS SuperApp platform wins the ASOCIO Smart City Awards 2026; iBacNinh launched in Bac Ninh; SAVIS MRP AI wins a Sao Khuê Award. 22nd anniversary on 4 November: ten offices on four continents and a course set to become a global digital trust company."],
-  ["2030", "Vision 2030 — from the nation’s root of trust to the quantum era."],
+  ["2030", "Vision 2030 - from the nation’s root of trust to the quantum era."],
 ];
 
 export const LEADERS: Array<{ group: string; people: Array<[name: string, role: string, focus: string]> }> = [
@@ -147,16 +147,16 @@ export const CULTURE_HOW: Pair[] = [
 ];
 
 export const CULTURE_LIFE: Array<[label: string, title: string, text: string]> = [
-  ["Growth", "Learn and grow", "Full onboarding and training for every new S-er — technical and soft skills — taught by senior engineers. Leaders mentor hands-on, every idea for a better process is welcome, and checkpoints every six months open the path to Leader and Manager roles."],
+  ["Growth", "Learn and grow", "Full onboarding and training for every new S-er - technical and soft skills - taught by senior engineers. Leaders mentor hands-on, every idea for a better process is welcome, and checkpoints every six months open the path to Leader and Manager roles."],
   ["Recognition", "Recognition", "S-Awards each year for Star of the Year, Outstanding Employee and Rising Star, and long-service honours at 5, 10 and 15 years. Colleagues who make an exceptional contribution can share in the company’s success."],
   ["Well-being", "Well-being", "S-Health Care Day for every employee each year, support for birthdays, weddings, illness and maternity, and holiday and year-end bonuses."],
   ["People", "Together", "Work hard, play hard: S-Teambuilding, the founding-day Olympics and SAVIS Run, the Year End Party, MasterChef on 8 March, 20 October, Mid-Autumn and monthly birthdays."],
 ];
 
 export const CULTURE_STORIES: Array<{ tag: string; date: string; title: string; text: string; quote: string }> = [
-  { tag: "Teambuilding", date: "July 2026", title: "S-Teambuilding 2026: Ride the Infinite Wave", text: "At Lăng Cô Bay in Hue, three teams — All-in-one, Visilead and Long Phung Sum Vay — competed in relay, ball-collection and “magic flying carpet” challenges built on coordination and trust. At the gala dinner, Chairman Steve Huang set out the group’s direction: platform growth, AI security and a wider partner ecosystem across Asia-Pacific and beyond. S-Award 2026 honoured colleagues with 5, 10 and 15 years at SAVIS.", quote: "One Team – One Dream" },
-  { tag: "Well-being", date: "October 2025", title: "S-Health Care Day 2025: 100% Strong", text: "Every year SAVIS invites all employees to a full health check — general, imaging and laboratory screening with a partner clinic. The Board of Management sees physical and mental well-being as the foundation of sustainable growth, not a perk.", quote: "Healthy people, strong company" },
-  { tag: "Year End Party", date: "January 2025", title: "S-Revolution: Fire It Up", text: "The 2024 Year End Party marked SAVIS’s 20-year milestone. The S-Awards recognized the Star of the Year — an engineer behind open banking, e-signature, remote signing and bank PKI projects — together with Outstanding Employee and Rising Star awards, before teams took the stage in the S-Talent Show.", quote: "Creative yet determined, agile yet powerful" },
+  { tag: "Teambuilding", date: "July 2026", title: "S-Teambuilding 2026: Ride the Infinite Wave", text: "At Lăng Cô Bay in Hue, three teams - All-in-one, Visilead and Long Phung Sum Vay - competed in relay, ball-collection and “magic flying carpet” challenges built on coordination and trust. At the gala dinner, Chairman Steve Huang set out the group’s direction: platform growth, AI security and a wider partner ecosystem across Asia-Pacific and beyond. S-Award 2026 honoured colleagues with 5, 10 and 15 years at SAVIS.", quote: "One Team – One Dream" },
+  { tag: "Well-being", date: "October 2025", title: "S-Health Care Day 2025: 100% Strong", text: "Every year SAVIS invites all employees to a full health check - general, imaging and laboratory screening with a partner clinic. The Board of Management sees physical and mental well-being as the foundation of sustainable growth, not a perk.", quote: "Healthy people, strong company" },
+  { tag: "Year End Party", date: "January 2025", title: "S-Revolution: Fire It Up", text: "The 2024 Year End Party marked SAVIS’s 20-year milestone. The S-Awards recognized the Star of the Year - an engineer behind open banking, e-signature, remote signing and bank PKI projects - together with Outstanding Employee and Rising Star awards, before teams took the stage in the S-Talent Show.", quote: "Creative yet determined, agile yet powerful" },
   { tag: "Anniversary", date: "November 2023", title: "19 years: Shaping Digital Future Together", text: "On SAVIS’s 19th birthday, colleagues with more than ten years of service received certificates and medals, standout project teams were honoured, and prizes went to the winners of the SAVIS Run Challenge, the Team Unleashed photo contest and the “SAVIS in me” story contest.", quote: "Shaping Digital Future Together" },
   { tag: "Workplace", date: "Every day", title: "Small corners, big ideas", text: "Our Hanoi office mixes focus and fun: green corners, a teamwork corner, a “chill” zone for coffee after deep work, monthly birthday parties and seasonal celebrations from Mid-Autumn to Christmas.", quote: "A place you want to come back to" },
 ];
@@ -177,7 +177,7 @@ export const ESG_IMPACT: Array<[sdg: string, title: string, text: string]> = [
 
 export const INTEGRITY_PRINCIPLES: Pair[] = [
   ["Code of conduct", "Honesty, fairness and respect in how we work with customers, partners, colleagues and communities."],
-  ["Anti-bribery & anti-corruption", "No bribes, kickbacks or improper payments — directly or through third parties — in any market."],
+  ["Anti-bribery & anti-corruption", "No bribes, kickbacks or improper payments - directly or through third parties - in any market."],
   ["Data protection & privacy", "Personal data handled lawfully and minimally, in line with Vietnam’s personal data protection law and GDPR where it applies."],
   ["Information security", "An ISO/IEC 27001:2022 information security management system and security-by-design products."],
   ["Export control & sanctions", "Cryptographic products and services supplied in line with applicable export-control and sanctions rules."],
@@ -188,7 +188,7 @@ export const INTEGRITY_PRINCIPLES: Pair[] = [
 ];
 
 export const MANAGEMENT_SYSTEMS: Pair[] = [
-  ["eIDAS 2.0 · NIS2", "TrustCA Qualified Remote Signing, QTSA and eSeal — TAYLLORCOX PCEB 26/08/10, valid to 9 Aug 2028"],
+  ["eIDAS 2.0 · NIS2", "TrustCA Qualified Remote Signing, QTSA and eSeal - TAYLLORCOX PCEB 26/08/10, valid to 9 Aug 2028"],
   ["ISO/IEC 27001:2022", "Information security management"],
   ["ISO 9001:2015", "Quality management"],
   ["ISO 14001:2015", "Environmental management"],

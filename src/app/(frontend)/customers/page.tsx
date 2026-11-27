@@ -32,7 +32,7 @@ export default async function CustomersPage() {
       label="Case studies"
       trail={[{ label: "Insights", href: "/insights" }]}
       aside={<HeroMosaic bare items={cases.slice(0, 4).map((c) => ({ key: c.id, spec: caseThumb(c as never), title: (c as { client: string }).client }))} />}
-      lead="National PKI, bank CAs, open banking and digital government — real projects, real results."
+      lead="National PKI, bank CAs, open banking and digital government - real projects, real results."
       actions={
         <>
           <Button href="/contact" onBand>Discuss Your Project</Button>

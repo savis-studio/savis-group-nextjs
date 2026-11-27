@@ -43,7 +43,7 @@ export const insightBlocks: Block[] = [
         text("title", "Title", true), area("text", "Text"),
         items("bullets", "Bullets", [text("text", "Bullet", true)], 0),
         text("tag", "Footnote"),
-        { name: "accent", label: "Accent colour (CSS)", type: "text", admin: { description: "Optional, e.g. var(--teal) or #1ba39c." } },
+        { name: "accent", label: "Accent color (CSS)", type: "text", admin: { description: "Optional, e.g. var(--teal) or #1ba39c." } },
       ]),
     ],
   },

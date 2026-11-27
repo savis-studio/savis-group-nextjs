@@ -12,7 +12,7 @@ export interface Pillar { id: string; n: string; name: string; vi: string; slug:
 export interface CaseStudy { id: string; cat: string; featured?: boolean; client: string; country: string; title: string; summary: string }
 export interface CaseCategory { id: string; name: string }
 /** A cover photo from the CMS: `src` is the card-sized copy, `full` the original. */
-export interface Cover { src: string; full: string; alt: string }
+export interface Cover { src: string; full: string; alt: string; width?: number; height?: number }
 export interface NewsItem { id: string; cat: string; type: string; date: string; iso?: string; title: string; sum: string; scene?: string | null; cover?: Cover }
 export interface AudienceLink { kind: string; label: string; href: string }
 export interface Audience {

@@ -22,6 +22,7 @@
     "seed": "payload run src/seed/index.ts",
     "import:insights": "payload run scripts/import-insights.ts",
     "check:insights": "payload run scripts/check-insights.tsx",
+    "wording:cms": "payload run scripts/apply-wording.ts",
     "payload": "payload",
     "generate:types": "payload generate:types",
     "generate:importmap": "payload generate:importmap",

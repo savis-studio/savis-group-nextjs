@@ -21,7 +21,7 @@ export default function CulturePage() {
       title="One team, shaping the digital future together."
       label="Culture"
       trail={[{ label: "About", href: "/about" }]}
-      lead="Behind every national root CA, remote signature and secure payment are the S-ers: engineers, consultants and builders who work hard, play hard and look after each other — from Hanoi to offices on four continents."
+      lead="Behind every national root CA, remote signature and secure payment are the S-ers: engineers, consultants and builders who work hard, play hard and look after each other - from Hanoi to offices on four continents."
       actions={
         <>
           <Button href="/careers" onBand>Join the S-ers</Button>

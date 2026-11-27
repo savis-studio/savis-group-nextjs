@@ -167,7 +167,7 @@
     "use": "Gates, toll points, tunnels and traffic enforcement",
     "hl": [
      "Global shutter",
-     "Plate, make, colour",
+     "Plate, make, color",
      "IR 850 + 940 nm",
      "22 W"
     ]
@@ -258,7 +258,7 @@
     "AI analytics",
     "Person / vehicle classification, line crossing, loitering, people counting",
     "As D4 + attribute search, crowd detection",
-    "Multi-country plate reading, make / colour, average speed",
+    "Multi-country plate reading, make / color, average speed",
     "Cross-channel tracking, heat maps",
     "AI auto-tracking, AI-driven PTZ control"
    ],

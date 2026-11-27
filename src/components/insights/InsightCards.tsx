@@ -2,7 +2,19 @@ import { SmartLink } from "@/components/ui/SmartLink";
 import { PhotoThumb, Thumb } from "@/components/ui/Thumb";
 import type { CaseStudy } from "@/lib/content";
 import type { ArticleDetail } from "@/lib/insights";
-import { caseThumb, newsThumb } from "@/lib/thumbs";
+import type { ListArt } from "@/lib/list-art";
+import { caseThumb, newsThumb, stripWords, vxArt } from "@/lib/thumbs";
+
+/** Row of the Tech bulletins tab: category and date, title, summary. */
+export function BulletinRow({ item }: { item: ArticleDetail }) {
+  return (
+    <SmartLink href={`/insights/${item.id}`} className="sv-bul">
+      <span className="sv-bul__meta">{item.cat} · {item.date}</span>
+      <h3>{item.title}</h3>
+      <p>{item.sum}</p>
+    </SmartLink>
+  );
+}
 
 /** The article's photo, or its illustration. `chip` shows the category on the picture. */
 function Art({ item, chip }: { item: ArticleDetail; chip?: boolean }) {
@@ -11,13 +23,17 @@ function Art({ item, chip }: { item: ArticleDetail; chip?: boolean }) {
   return <Thumb spec={chip ? spec : { ...spec, left: undefined }} />;
 }
 
-/** Boxed card of a tab's listing: banner, category and date, title, summary and sources. */
-export function ListCard({ item, category, region }: { item: ArticleDetail; category: string; region?: string }) {
-  const names = [...new Set(item.sources.map((s) => s.name))].slice(0, 2).join(", ");
+/** Boxed card of a tab's listing: banner, category and date, title, summary and, unless turned off, sources. */
+export function ListCard({ item, category, region, art, sources = true }: { item: ArticleDetail; category: string; region?: string; art?: ListArt; sources?: boolean }) {
+  const names = sources ? [...new Set(item.sources.map((s) => s.name))].slice(0, 2).join(", ") : "";
   const more = item.sources.length - 2;
   return (
     <SmartLink href={`/insights/${item.id}`} className="sv-lcard">
-      <span className="sv-lcard__ban"><Art item={item} /></span>
+      <span className="sv-lcard__ban">
+        {art ? (
+          <span className={`vxc-ban p-${art.palette}`} aria-hidden="true" dangerouslySetInnerHTML={{ __html: stripWords(vxArt(art.icon, art.seed)) }} />
+        ) : <Art item={item} />}
+      </span>
       <span className="sv-lcard__meta">
         <b>{category}</b>
         {region && <i>{region}</i>}

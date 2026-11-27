@@ -1,11 +1,11 @@
 {
  "identity": {
   "eyebrow": "The identity journey",
-  "title": "From enrolment to a trusted signature",
+  "title": "From enrollment to a trusted signature",
   "steps": [
    {
     "href": "#p-enrollment-station",
-    "title": "Enrol",
+    "title": "Enroll",
     "text": "Capture biometrics and documents once, at a station or online.",
     "products": [
      "SAVIS Enrollment Station",
@@ -174,7 +174,7 @@
    {
     "href": "#p-3d-secure",
     "title": "Pay",
-    "text": "3-D Secure and tokenised card payments.",
+    "text": "3-D Secure and tokenized card payments.",
     "products": [
      "3D Secure 2.0",
      "Tokenization"
@@ -204,7 +204,7 @@
    },
    {
     "href": "#p-data-lake-bi",
-    "title": "Organise",
+    "title": "Organize",
     "text": "A governed data lake for every source.",
     "products": [
      "SAVIS Data Lake & BI"
@@ -212,7 +212,7 @@
    },
    {
     "href": "#p-data-lake-bi",
-    "title": "Analyse",
+    "title": "Analyze",
     "text": "Dashboards and BI for every team.",
     "products": [
      "SAVIS Data Lake & BI"

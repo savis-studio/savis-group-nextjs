@@ -22,7 +22,7 @@ const PILLAR_ICON: Record<string, string> = { identity: "face", cyber: "shield",
 export const metadata: Metadata = {
   ...buildMetadata({ title: SITE_TAGLINE, description: SITE_DESCRIPTION, path: "/" }),
   // The home title stands alone; the layout template would repeat the site name.
-  title: { absolute: `${SITE_NAME} — Digital Trust, Identity & Secure Platforms` },
+  title: { absolute: `${SITE_NAME} - Digital Trust, Identity & Secure Platforms` },
 };
 
 const STATS = [
@@ -66,7 +66,7 @@ export default async function Home() {
               <span className="sv-eyebrow sv-eyebrow--rule">Who are you?</span>
               <h2 id="aud-h">Find what matters to you</h2>
             </div>
-            <p>Choose your organisation to see the solutions, use cases and case studies that fit it best.</p>
+            <p>Choose your organization to see the solutions, use cases and case studies that fit it best.</p>
           </div>
           <AudienceTabs audiences={getAudiences()} icons={getAudienceIcons()} />
         </div>
@@ -117,7 +117,7 @@ export default async function Home() {
           <div>
             <span className="sv-eyebrow">Let’s build trust together</span>
             <h2>Talk to a SAVIS solution expert</h2>
-            <p>From a first workshop to 24/7 operation — in Vietnam and across ten offices worldwide.</p>
+            <p>From a first workshop to 24/7 operation - in Vietnam and across ten offices worldwide.</p>
           </div>
           <div className="sv-home__cta-actions">
             <Button href="/contact">Contact sales</Button>

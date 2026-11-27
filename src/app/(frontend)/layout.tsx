@@ -8,13 +8,15 @@ import "@/styles/vx.css";
 import "@/styles/solutions.css";
 import "@/styles/insights.css";
 import "./globals.css";
-import { vxArt } from "@/lib/thumbs";
+import { newsThumb, thumbArt, vxArt } from "@/lib/thumbs";
 import { companyMenu, resourcesMenu, servicesMenu } from "@/components/layout/nav-data";
-import { AppHeader } from "@/components/layout/AppHeader";
+import { AppHeader, type MenuStory } from "@/components/layout/AppHeader";
 import { AppFooter } from "@/components/layout/AppFooter";
 import { VxActivate } from "@/components/ui/VxActivate";
 import { getProducts } from "@/lib/content";
 import { getCatalog } from "@/lib/cms";
+import { INSIGHT_GROUPS, newestFirst } from "@/lib/insight-groups";
+import { getArticles } from "@/lib/insights";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_ORIGIN, SITE_TAGLINE } from "@/lib/site";
 
 const sora = Sora({ subsets: ["latin"], weight: ["600", "700"], variable: "--font-sora", display: "swap" });
@@ -27,7 +29,7 @@ export const revalidate = 60;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_ORIGIN),
-  title: { default: `${SITE_NAME} — ${SITE_TAGLINE}`, template: `%s | ${SITE_NAME}` },
+  title: { default: `${SITE_NAME} - ${SITE_TAGLINE}`, template: `%s | ${SITE_NAME}` },
   description: SITE_DESCRIPTION,
   applicationName: SITE_NAME,
   icons: { icon: "/brand/savis-mark.png", apple: "/brand/savis-mark.png" },
@@ -41,13 +43,22 @@ const cardArt: Record<string, string> = Object.fromEntries(
   [...servicesMenu.cards, ...resourcesMenu.cards, ...companyMenu.cards].flatMap((c) => (c.art ? [[c.title, vxArt(c.art.icon, undefined, undefined, c.art.lbl)]] : [])),
 );
 
+/** The two newest news items, for the Insights menu. */
+async function latestNews(): Promise<MenuStory[]> {
+  const news = INSIGHT_GROUPS.find((g) => g.id === "news")!;
+  return (await getArticles()).filter(news.pick).sort(newestFirst).slice(0, 2).map((n) => {
+    const spec = newsThumb(n);
+    return { id: n.id, title: n.title, cat: n.cat, date: n.date, photo: n.cover?.src, cls: spec.cls, art: n.cover ? "" : thumbArt(spec) };
+  });
+}
+
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const catalog = await getCatalog();
+  const [catalog, latest] = await Promise.all([getCatalog(), latestNews()]);
   return (
     <html lang="en" className={`${sora.variable} ${inter.variable}`}>
       <body style={{ margin: 0, background: "var(--bg)", color: "var(--text)", font: "400 16px/1.6 var(--font-body)" }}>
         <a href="#main" className="sr-only focus:not-sr-only">Skip to content</a>
-        <AppHeader {...catalog} productHrefs={productHrefs} cardArt={cardArt} />
+        <AppHeader {...catalog} productHrefs={productHrefs} cardArt={cardArt} latest={latest} />
         <div id="main">{children}</div>
         <AppFooter {...catalog} />
         <VxActivate />

@@ -15,13 +15,16 @@ export interface HeroProps {
   /** Right column: illustration or badge, up to 420px. */
   aside?: ReactNode;
   className?: string;
+  /** Decoration drawn behind the text, such as the node network. */
+  backdrop?: ReactNode;
   /** Buttons, each with onBand. */
   children?: ReactNode;
 }
 
-export function Hero({ eyebrow, title, accent, lead, crumbs, aside, className, children }: HeroProps) {
+export function Hero({ eyebrow, title, accent, lead, crumbs, aside, className, backdrop, children }: HeroProps) {
   return (
-    <section className={cn("sv-hero", className)}>
+    <section className={cn("sv-hero", Boolean(backdrop) && "sv-hero--backdrop", className)}>
+      {backdrop}
       <div className="sv-wrap sv-hero__in">
         <div className="sv-hero__txt">
           {crumbs && crumbs.length > 0 && (

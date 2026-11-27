@@ -31,7 +31,7 @@
    "REST API and webhooks",
    "Android, iOS and web SDKs",
    "OpenID4VP for wallet-based PID",
-   "VNeID connector (VietNam)"
+   "VNeID connector (Vietnam)"
   ],
   "dep": [
    "On-premises",
@@ -43,7 +43,7 @@
    "ISO/IEC 30107-3 PAD",
    "SBV Circulars 50/2024 and 77/2025",
    "ETSI TS 119 461",
-   "GDPR / PDPL VietNam"
+   "GDPR / PDPL Vietnam"
   ],
   "pre": [
    "Onboarding journey and risk policy",
@@ -130,7 +130,7 @@
    ],
    [
     "1:N de-duplication",
-    "Search a new enrolment against the whole register."
+    "Search a new enrollment against the whole register."
    ],
    [
     "1:1 verification",
@@ -155,29 +155,29 @@
   ],
   "int": [
    "REST API",
-   "MOSIP-compatible queue interface (ABIS API) — complementary solution",
-   "Enrolment client SDKs",
+   "MOSIP-compatible queue interface (ABIS API) - complementary solution",
+   "Enrollment client SDKs",
    "Batch import of legacy records"
   ],
   "dep": [
-   "On-premises (national data centre)",
+   "On-premises (national data center)",
    "Private cloud on COTS hardware"
   ],
   "std": [
    "ISO/IEC 19794 / 39794 templates",
    "ISO/IEC 30107-3 PAD at capture",
-   "MOSIP ABIS API — compliance testing in progress",
+   "MOSIP ABIS API - compliance testing in progress",
    "GDPR-aligned privacy controls"
   ],
   "pre": [
-   "Enrolment centres or mobile kits",
+   "Enrollment centers or mobile kits",
    "Legacy biometric data to migrate",
    "Data protection approval"
   ],
   "go": [
    "Size population, transactions and legacy data",
    "Design matcher topology and adjudication",
-   "Pilot with one region or programme",
+   "Pilot with one region or program",
    "National roll-out and legacy migration",
    "24/7 operation and capacity planning"
   ],
@@ -194,7 +194,7 @@
    ],
    "ch": [
     [
-     "Enrolment stations",
+     "Enrollment stations",
      "kiosk"
     ],
     [
@@ -291,7 +291,7 @@
    "Matching back end (SAVIS ABIS or existing AFIS)"
   ],
   "go": [
-   "Select journeys: onboarding, approval, field enrolment",
+   "Select journeys: onboarding, approval, field enrollment",
    "Integrate SDK and matching",
    "Pilot with agents or one branch network",
    "Roll out to customers",
@@ -396,7 +396,7 @@
   ],
   "pre": [
    "Channel app",
-   "Reference photos (chip, register or enrolment)"
+   "Reference photos (chip, register or enrollment)"
   ],
   "go": [
    "Define journeys and thresholds",
@@ -507,7 +507,7 @@
   ],
   "pre": [
    "Kiosks or app",
-   "Enrolment process"
+   "Enrollment process"
   ],
   "go": [
    "Choose services and sites",
@@ -684,7 +684,7 @@
   }
  },
  "cryptoid": {
-  "sum": "Online-only identity excludes people without smartphones or coverage. CryptoID puts a signed identity — with biometrics — into a QR code that can be verified anywhere, even offline.",
+  "sum": "Online-only identity excludes people without smartphones or coverage. CryptoID puts a signed identity - with biometrics - into a QR code that can be verified anywhere, even offline.",
   "feat": [
    [
     "Signed QR credential",
@@ -729,8 +729,8 @@
    "Cloud verifier apps"
   ],
   "std": [
-   "ISO 22376:2023 Visible Digital Seal — alignment, certification in progress",
-   "ISO 22385:2023 trust framework — in progress",
+   "ISO 22376:2023 Visible Digital Seal - alignment, certification in progress",
+   "ISO 22385:2023 trust framework - in progress",
    "ISO/IEC 39794 biometric templates",
    "ECDSA P-256 / P-384 signatures",
    "X.509 PKI"
@@ -742,7 +742,7 @@
   "go": [
    "Define credential types and attributes",
    "Set up issuance and keys",
-   "Pilot in one programme",
+   "Pilot in one program",
    "Scale to registers and verifiers",
    "Operate key lifecycle"
   ],
@@ -793,7 +793,7 @@
      "gov"
     ],
     [
-     "Programme databases",
+     "Program databases",
      "db"
     ]
    ],
@@ -801,7 +801,7 @@
     "An authority issues CryptoID to the holder.",
     "The holder presents it on paper, card or phone.",
     "The verifier checks the issuer signature and the biometric offline.",
-    "Programmes update records when connectivity returns."
+    "Programs update records when connectivity returns."
    ]
   }
  },
@@ -855,7 +855,7 @@
    "Design journey",
    "Pilot",
    "Roll out",
-   "Optimise"
+   "Optimize"
   ],
   "arch": {
    "users": [
@@ -1326,7 +1326,7 @@
    ],
    [
     "Risk ranking",
-    "Prioritise by data lifetime and exposure."
+    "Prioritize by data lifetime and exposure."
    ],
    [
     "Policy switching",
@@ -1420,7 +1420,7 @@
     "VNeID and national identity login."
    ],
    [
-    "Service catalogue",
+    "Service catalog",
     "Public services as mini apps."
    ],
    [
@@ -1454,7 +1454,7 @@
    "Decree 69/2024 identification"
   ],
   "pre": [
-   "Service catalogue",
+   "Service catalog",
    "Data-sharing agreements"
   ],
   "go": [
@@ -1462,7 +1462,7 @@
    "Integrate identity and the Digital Integration Platform",
    "Launch with core services",
    "Add mini apps",
-   "Operate and analyse"
+   "Operate and analyze"
   ],
   "arch": {
    "users": [
@@ -1536,12 +1536,12 @@
     "Connects ministries, national databases and the national data exchange platform with provincial and commune systems."
    ],
    [
-    "API gateway & service catalogue",
-    "Publish, discover and reuse shared services and data from one catalogue."
+    "API gateway & service catalog",
+    "Publish, discover and reuse shared services and data from one catalog."
    ],
    [
     "FAPI 2.0 security",
-    "Pushed authorisation requests, PKCE and sender-constrained tokens (mTLS or DPoP) for every client."
+    "Pushed authorization requests, PKCE and sender-constrained tokens (mTLS or DPoP) for every client."
    ],
    [
     "Strong client authentication",
@@ -1549,7 +1549,7 @@
    ],
    [
     "Consent & audit",
-    "Every data exchange authorised, logged and traceable end to end."
+    "Every data exchange authorized, logged and traceable end to end."
    ],
    [
     "Monitoring & SLA",
@@ -1581,7 +1581,7 @@
   ],
   "go": [
    "Inventory systems and APIs",
-   "Design the catalogue and security profile",
+   "Design the catalog and security profile",
    "Onboard first agencies and clients",
    "Scale to all ministries, provinces and communes",
    "Operate and monitor 24/7"
@@ -1613,8 +1613,8 @@
    ],
    "mods": [
     "API gateway",
-    "Service catalogue",
-    "FAPI 2.0 authorisation",
+    "Service catalog",
+    "FAPI 2.0 authorization",
     "Consent & audit",
     "Monitoring"
    ],
@@ -1642,15 +1642,15 @@
     "Agency and citizen apps register as FAPI 2.0 clients.",
     "Clients authenticate with mTLS or private_key_jwt and receive sender-constrained tokens.",
     "The gateway checks token, consent and policy on every call.",
-    "Data flows between national, provincial and commune systems — fully logged."
+    "Data flows between national, provincial and commune systems - fully logged."
    ]
   }
  },
  "smart-city": {
-  "sum": "City data sits in silos. The Smart City Solution connects sensors, cameras and services into one operations centre.",
+  "sum": "City data sits in silos. The Smart City Solution connects sensors, cameras and services into one operations center.",
   "feat": [
    [
-    "Operations centre",
+    "Operations center",
     "Live city dashboards."
    ],
    [
@@ -1709,7 +1709,7 @@
    ],
    "ch": [
     [
-     "Operations centre",
+     "Operations center",
      "chart"
     ],
     [
@@ -1790,7 +1790,7 @@
    "PSD2 / PSD3"
   ],
   "pre": [
-   "API catalogue",
+   "API catalog",
    "Consent policy"
   ],
   "go": [
@@ -1953,7 +1953,7 @@
   "feat": [
    [
     "Network and local tokens",
-    "Card and account tokenisation."
+    "Card and account tokenization."
    ],
    [
     "Vault",
@@ -1986,7 +1986,7 @@
   ],
   "std": [
    "PCI DSS",
-   "EMVCo Payment Tokenisation"
+   "EMVCo Payment Tokenization"
   ],
   "pre": [
    "Card data flows"
@@ -2164,7 +2164,7 @@
     "Find footage fast."
    ],
    [
-    "Recognised",
+    "Recognized",
     "Sao Khuê Award 2026."
    ]
   ],
@@ -2188,7 +2188,7 @@
    "Configure",
    "Pilot one desk",
    "Roll out",
-   "Optimise"
+   "Optimize"
   ],
   "arch": {
    "users": [
@@ -2427,7 +2427,7 @@
   }
  },
  "vneid-integration": {
-  "sum": "Businesses need verified identity data without storing more than they need. VNeID Integration connects to VietNam's national electronic identity with consent and audit.",
+  "sum": "Businesses need verified identity data without storing more than they need. VNeID Integration connects to Vietnam's national electronic identity with consent and audit.",
   "feat": [
    [
     "VNeID login and verification",
@@ -2533,7 +2533,7 @@
   }
  },
  "decentralized-identity": {
-  "sum": "Centralised identity databases are single points of failure. Decentralized Identity uses DIDs and verifiable credentials the holder controls.",
+  "sum": "Centralized identity databases are single points of failure. Decentralized Identity uses DIDs and verifiable credentials the holder controls.",
   "feat": [
    [
     "DIDs",
@@ -3758,7 +3758,7 @@
    ],
    "ch": [
     [
-     "Enrolment / RA",
+     "Enrollment / RA",
      "web"
     ],
     [
@@ -3794,7 +3794,7 @@
    ],
    "tag": "PKI Infrastructure",
    "steps": [
-    "Relying parties and Applications use National PKI through enrolment / ra, signing api.",
+    "Relying parties and Applications use National PKI through enrollment / ra, signing api.",
     "The channel calls National PKI by API or SDK.",
     "Keys, evidence and policies are protected in the trust core.",
     "Results flow to Directories / CRL / OCSP and Business systems."
@@ -3860,7 +3860,7 @@
    ],
    "ch": [
     [
-     "Enrolment / RA",
+     "Enrollment / RA",
      "web"
     ],
     [
@@ -3896,7 +3896,7 @@
    ],
    "tag": "PKI Infrastructure",
    "steps": [
-    "Relying parties and Applications use PKI in a Box through enrolment / ra, signing api.",
+    "Relying parties and Applications use PKI in a Box through enrollment / ra, signing api.",
     "The channel calls PKI in a Box by API or SDK.",
     "Keys, evidence and policies are protected in the trust core.",
     "Results flow to Directories / CRL / OCSP and Business systems."
@@ -3912,7 +3912,7 @@
    ],
    [
     "Accurate time source",
-    "Synchronised and audited."
+    "Synchronized and audited."
    ],
    [
     "High volume",
@@ -3962,7 +3962,7 @@
    ],
    "ch": [
     [
-     "Enrolment / RA",
+     "Enrollment / RA",
      "web"
     ],
     [
@@ -3998,7 +3998,7 @@
    ],
    "tag": "PKI Infrastructure",
    "steps": [
-    "Relying parties and Applications use Timestamp Authority (TSA) through enrolment / ra, signing api.",
+    "Relying parties and Applications use Timestamp Authority (TSA) through enrollment / ra, signing api.",
     "The channel calls Timestamp Authority (TSA) by API or SDK.",
     "Keys, evidence and policies are protected in the trust core.",
     "Results flow to Directories / CRL / OCSP and Business systems."
@@ -4064,7 +4064,7 @@
    ],
    "ch": [
     [
-     "Enrolment / RA",
+     "Enrollment / RA",
      "web"
     ],
     [
@@ -4100,7 +4100,7 @@
    ],
    "tag": "PKI Infrastructure",
    "steps": [
-    "Relying parties and Applications use Signing Gateway through enrolment / ra, signing api.",
+    "Relying parties and Applications use Signing Gateway through enrollment / ra, signing api.",
     "The channel calls Signing Gateway by API or SDK.",
     "Keys, evidence and policies are protected in the trust core.",
     "Results flow to Directories / CRL / OCSP and Business systems."
@@ -4166,7 +4166,7 @@
    ],
    "ch": [
     [
-     "Enrolment / RA",
+     "Enrollment / RA",
      "web"
     ],
     [
@@ -4202,7 +4202,7 @@
    ],
    "tag": "PKI Infrastructure",
    "steps": [
-    "Relying parties and Applications use SAVIS Signing Server through enrolment / ra, signing api.",
+    "Relying parties and Applications use SAVIS Signing Server through enrollment / ra, signing api.",
     "The channel calls SAVIS Signing Server by API or SDK.",
     "Keys, evidence and policies are protected in the trust core.",
     "Results flow to Directories / CRL / OCSP and Business systems."
@@ -4710,7 +4710,7 @@
   }
  },
  "webtrust-readiness": {
-  "sum": "Browser and OS trust programmes require WebTrust audits. WebTrust Readiness prepares CAs to pass.",
+  "sum": "Browser and OS trust programs require WebTrust audits. WebTrust Readiness prepares CAs to pass.",
   "feat": [
    [
     "Gap assessment",
@@ -4890,7 +4890,7 @@
    ],
    [
     "Signals",
-    "Device, behaviour, transaction."
+    "Device, behavior, transaction."
    ],
    [
     "Case management",
@@ -5074,7 +5074,7 @@
   }
  },
  "device-fingerprint-sdk": {
-  "sum": "Account takeover often comes from new or fake devices. The Device Fingerprint SDK recognises each device behind a login or payment.",
+  "sum": "Account takeover often comes from new or fake devices. The Device Fingerprint SDK recognizes each device behind a login or payment.",
   "feat": [
    [
     "Stable device ID",
@@ -6160,7 +6160,7 @@
    ],
    [
     "Hybrid with PQC",
-    "Defence in depth."
+    "Defense in depth."
    ]
   ],
   "int": [
@@ -6252,7 +6252,7 @@
    ],
    [
     "Research",
-    "Applied programmes."
+    "Applied programs."
    ],
    [
     "Integration",
@@ -6366,7 +6366,7 @@
   "int": [
    "TDE",
    "File / app encryption",
-   "Tokenisation API"
+   "Tokenization API"
   ],
   "dep": [
    "On-premises",
@@ -6463,7 +6463,7 @@
    "Decree 69/2024"
   ],
   "pre": [
-   "Procedure catalogue"
+   "Procedure catalog"
   ],
   "go": [
    "Select procedures",
@@ -6565,7 +6565,7 @@
    "Decree 69/2024"
   ],
   "pre": [
-   "Procedure catalogue"
+   "Procedure catalog"
   ],
   "go": [
    "Select procedures",
@@ -7016,7 +7016,7 @@
   }
  },
  "open-api": {
-  "sum": "Bank APIs need security, metering and versioning. SAVIS Open API manages standardised banking and finance APIs.",
+  "sum": "Bank APIs need security, metering and versioning. SAVIS Open API manages standardized banking and finance APIs.",
   "feat": [
    [
     "API gateway",
@@ -7049,7 +7049,7 @@
    "FAPI 2.0"
   ],
   "pre": [
-   "API catalogue",
+   "API catalog",
    "Consent policy"
   ],
   "go": [
@@ -7145,7 +7145,7 @@
    "FAPI 2.0"
   ],
   "pre": [
-   "API catalogue",
+   "API catalog",
    "Consent policy"
   ],
   "go": [
@@ -7241,7 +7241,7 @@
    "FAPI 2.0"
   ],
   "pre": [
-   "API catalogue",
+   "API catalog",
    "Consent policy"
   ],
   "go": [
@@ -7337,7 +7337,7 @@
    "FAPI 2.0"
   ],
   "pre": [
-   "API catalogue",
+   "API catalog",
    "Consent policy"
   ],
   "go": [
@@ -7433,7 +7433,7 @@
    "FAPI 2.0"
   ],
   "pre": [
-   "API catalogue",
+   "API catalog",
    "Consent policy"
   ],
   "go": [
@@ -7699,7 +7699,7 @@
   "sum": "Customers forget cards and phones. Palm Biometric Payment lets them pay with the palm of the hand.",
   "feat": [
    [
-    "Palm enrolment",
+    "Palm enrollment",
     "Linked to card or account."
    ],
    [
@@ -7765,7 +7765,7 @@
     ]
    ],
    "mods": [
-    "Palm enrolment",
+    "Palm enrollment",
     "Contactless payment",
     "Liveness",
     "Use cases"
@@ -7827,7 +7827,7 @@
    "SBV Circulars"
   ],
   "pre": [
-   "Licences and core APIs"
+   "Licenses and core APIs"
   ],
   "go": [
    "Define products",
@@ -8635,7 +8635,7 @@
   "sum": "KPIs are tracked in spreadsheets. SAVIS AI KPI tracks performance with AI-assisted dashboards.",
   "feat": [
    [
-    "KPI catalogue",
+    "KPI catalog",
     "Define and assign."
    ],
    [
@@ -8694,7 +8694,7 @@
     ]
    ],
    "mods": [
-    "KPI catalogue",
+    "KPI catalog",
     "AI insights",
     "Dashboards",
     "Reporting"
@@ -9019,7 +9019,7 @@
    "Design",
    "Pilot",
    "Roll out",
-   "Optimise"
+   "Optimize"
   ],
   "arch": {
    "users": [
@@ -9112,7 +9112,7 @@
    "Design",
    "Pilot",
    "Roll out",
-   "Optimise"
+   "Optimize"
   ],
   "arch": {
    "users": [
@@ -9205,7 +9205,7 @@
    "Design",
    "Pilot",
    "Roll out",
-   "Optimise"
+   "Optimize"
   ],
   "arch": {
    "users": [
@@ -9298,7 +9298,7 @@
    "Design",
    "Pilot",
    "Roll out",
-   "Optimise"
+   "Optimize"
   ],
   "arch": {
    "users": [
@@ -9941,7 +9941,7 @@
   }
  },
  "enrollment-station": {
-  "sum": "National ID, voter and benefit programmes live or die at the enrolment desk. SAVIS Enrollment Station captures face, fingerprints, documents and signature to international quality standards — in a fixed office or a rugged mobile kit that works offline.",
+  "sum": "National ID, voter and benefit programs live or die at the enrollment desk. SAVIS Enrollment Station captures face, fingerprints, documents and signature to international quality standards - in a fixed office or a rugged mobile kit that works offline.",
   "feat": [
    [
     "Face to ICAO 9303",
@@ -9993,7 +9993,7 @@
    "Survey sites, volumes and connectivity",
    "Select station and kit configurations",
    "Pilot in one district with the ABIS",
-   "Mass enrolment campaign",
+   "Mass enrollment campaign",
    "Maintenance, spares and operator support"
   ],
   "arch": {
@@ -10050,7 +10050,7 @@
    ],
    "tag": "Third-party certified devices",
    "steps": [
-    "A registration officer enrols the citizen at a fixed station or with a mobile kit.",
+    "A registration officer enrolls the citizen at a fixed station or with a mobile kit.",
     "Face, fingerprints, document and signature are captured and quality-checked.",
     "The record is encrypted and signed by the device and operator.",
     "The packet is uploaded to ABIS for de-duplication and then to issuance."
@@ -10066,7 +10066,7 @@
    ],
    [
     "On-the-spot checks",
-    "Liveness, quality and possible duplicate alerts during enrolment."
+    "Liveness, quality and possible duplicate alerts during enrollment."
    ],
    [
     "Operator control",
@@ -10102,8 +10102,8 @@
    "NFIQ 2"
   ],
   "pre": [
-   "Enrolment forms and rules",
-   "Operator organisation"
+   "Enrollment forms and rules",
+   "Operator organization"
   ],
   "go": [
    "Define forms, rules and roles",
@@ -10134,7 +10134,7 @@
     ]
    ],
    "mods": [
-    "Enrolment wizard",
+    "Enrollment wizard",
     "Quality & liveness",
     "Duplicate alerts",
     "Operator audit",
@@ -10161,15 +10161,15 @@
     ]
    ],
    "steps": [
-    "Officers enrol people with the guided wizard.",
+    "Officers enroll people with the guided wizard.",
     "Quality, liveness and duplicates are checked on the spot.",
     "Packets and operator actions are signed and logged.",
-    "Data is synchronised to ABIS and the register."
+    "Data is synchronized to ABIS and the register."
    ]
   }
  },
  "mosip-integration": {
-  "sum": "Many countries build their national identity on MOSIP, the open-source modular identity platform. SAVIS designs, integrates and operates MOSIP-based identity management systems (IDMS) and adds the components a national programme needs: ABIS, enrolment devices, PKI, authentication with eSignet, credentials with Inji and CryptoID, and CRVS integration.",
+  "sum": "Many countries build their national identity on MOSIP, the open-source modular identity platform. SAVIS designs, integrates and operates MOSIP-based identity management systems (IDMS) and adds the components a national program needs: ABIS, enrollment devices, PKI, authentication with eSignet, credentials with Inji and CryptoID, and CRVS integration.",
   "feat": [
    [
     "IDMS deployment",
@@ -10180,7 +10180,7 @@
     "SAVIS ABIS through the MOSIP queue-based ABIS API."
    ],
    [
-    "Enrolment devices",
+    "Enrollment devices",
     "Enrollment Station and mobile kits for the registration client."
    ],
    [
@@ -10203,16 +10203,16 @@
    "Inji / OpenID4VCI"
   ],
   "dep": [
-   "National data centre",
+   "National data center",
    "Government cloud"
   ],
   "std": [
-   "MOSIP specifications — compliance testing in progress",
+   "MOSIP specifications - compliance testing in progress",
    "ISO/IEC 19794 / 39794",
    "OpenID4VCI / OIDC"
   ],
   "pre": [
-   "MOSIP programme scope",
+   "MOSIP program scope",
    "Integration environment and test kit"
   ],
   "go": [
@@ -10276,7 +10276,7 @@
    ],
    "tag": "Complementary to MOSIP",
    "steps": [
-    "Residents enrol through the MOSIP registration client with SAVIS devices.",
+    "Residents enroll through the MOSIP registration client with SAVIS devices.",
     "Packets are processed by MOSIP and sent to SAVIS ABIS through queues.",
     "Keys and signatures are protected for the MOSIP key manager.",
     "Relying parties authenticate residents and accept credentials."
@@ -10284,7 +10284,7 @@
   }
  },
  "savis-crvs": {
-  "sum": "Children without a birth certificate struggle to get an ID, school place, health care or social protection later in life. SAVIS CRVS digitises civil registration — birth, death and other vital events — on OpenCRVS, the open-source Digital Public Good, and connects it to national ID, health and statistics.",
+  "sum": "Children without a birth certificate struggle to get an ID, school place, health care or social protection later in life. SAVIS CRVS digitises civil registration - birth, death and other vital events - on OpenCRVS, the open-source Digital Public Good, and connects it to national ID, health and statistics.",
   "feat": [
    [
     "Vital events",
@@ -10296,7 +10296,7 @@
    ],
    [
     "Offline-first",
-    "Declarations captured offline in remote areas and synchronised later."
+    "Declarations captured offline in remote areas and synchronized later."
    ],
    [
     "Signed certificates",
@@ -10318,7 +10318,7 @@
    "Statistics and social-protection registries"
   ],
   "dep": [
-   "Government data centre",
+   "Government data center",
    "Government cloud",
    "Kubernetes or container deployment, including air-gapped installs"
   ],
@@ -10406,7 +10406,7 @@
   }
  },
  "savis-idms": {
-  "sum": "A national ID programme is only as good as its identity register. SAVIS IDMS is the system of record that manages every identity from enrolment to death — linking biographic and biometric data, documents, credentials and life events, with full audit and privacy controls.",
+  "sum": "A national ID program is only as good as its identity register. SAVIS IDMS is the system of record that manages every identity from enrollment to death - linking biographic and biometric data, documents, credentials and life events, with full audit and privacy controls.",
   "feat": [
    [
     "Identity register",
@@ -10414,7 +10414,7 @@
    ],
    [
     "Lifecycle",
-    "Create, update, correct, suspend, revoke and mark as deceased — with approvals."
+    "Create, update, correct, suspend, revoke and mark as deceased - with approvals."
    ],
    [
     "Biometric link",
@@ -10430,18 +10430,18 @@
    ],
    [
     "Privacy and audit",
-    "Tokenised IDs for relying parties, consent records, tamper-evident audit logs."
+    "Tokenized IDs for relying parties, consent records, tamper-evident audit logs."
    ]
   ],
   "int": [
    "Enrollment Suite / registration clients",
    "SAVIS ABIS or MOSIP-compatible ABIS",
    "SAVIS CRVS / OpenCRVS",
-   "Card personalisation and PKI",
+   "Card personalization and PKI",
    "Digital Integration Platform (LGSP / NDXP)"
   ],
   "dep": [
-   "National data centre (primary + DR)",
+   "National data center (primary + DR)",
    "Government cloud"
   ],
   "std": [
@@ -10453,7 +10453,7 @@
   "pre": [
    "Legal basis and data model",
    "Legacy registers to migrate",
-   "Enrolment network"
+   "Enrollment network"
   ],
   "go": [
    "Assess registers, laws and data quality",
@@ -10475,7 +10475,7 @@
    ],
    "ch": [
     [
-     "Enrolment centres",
+     "Enrollment centers",
      "kiosk"
     ],
     [
@@ -10500,7 +10500,7 @@
      "key"
     ],
     [
-     "Tokenisation",
+     "Tokenization",
      "shield"
     ]
    ],
@@ -10520,15 +10520,15 @@
    ],
    "tag": "Identity system of record",
    "steps": [
-    "People enrol at centres; births and deaths arrive from CRVS.",
+    "People enroll at centers; births and deaths arrive from CRVS.",
     "IDMS creates or updates the identity and runs ABIS de-duplication.",
-    "Records are signed and identifiers tokenised for privacy.",
+    "Records are signed and identifiers tokenized for privacy.",
     "Credentials are issued, and relying parties verify through IDVS."
    ]
   }
  },
  "savis-idvs": {
-  "sum": "Banks, telcos and agencies need to check identities against the national register — quickly, with consent, and without copying the whole register. SAVIS IDVS is the national identity verification service that answers those requests securely and bills them per transaction.",
+  "sum": "Banks, telcos and agencies need to check identities against the national register - quickly, with consent, and without copying the whole register. SAVIS IDVS is the national identity verification service that answers those requests securely and bills them per transaction.",
   "feat": [
    [
     "Demographic match",
@@ -10547,7 +10547,7 @@
     "Onboarding, API keys, certificates, quotas and SLAs per relying party."
    ],
    [
-    "Tokenised identifiers",
+    "Tokenized identifiers",
     "Partner-specific tokens instead of the national ID number."
    ],
    [
@@ -10562,7 +10562,7 @@
    "Bank, telco and agency connectors"
   ],
   "dep": [
-   "National data centre",
+   "National data center",
    "Government cloud with DR"
   ],
   "std": [
