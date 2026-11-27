@@ -28,17 +28,44 @@ Mẫu ở `.env.example`. Không commit file này.
 
 ## Lần đầu
 
-1. Trên VPS: `mkdir -p ~/savis && cd ~/savis`, chép `docker-compose.yml` và `deploy.sh` vào, `chmod +x deploy.sh`, tạo `.env`.
+1. Trên VPS: `mkdir -p ~/savis && cd ~/savis`, chép `docker-compose.yml`, `deploy.sh`, `backup.sh` vào, `chmod +x deploy.sh backup.sh`, tạo `.env`.
 2. Đăng nhập GHCR (token classic chỉ có `read:packages`, tự nhập, không lưu vào repo): `docker login ghcr.io -u <tên-github>`.
-3. Lấy mã commit (7 ký tự) của bản build xanh trong GitHub Actions, rồi: `./deploy.sh <mã-commit>`.
+3. Lấy mã commit (7 ký tự) trên `main` có run GitHub Actions xanh, rồi: `./deploy.sh <mã-commit>`.
 4. Nạp dữ liệu mẫu một lần: `docker compose run --rm tools npm run seed`.
 5. Mở `<SERVER_URL>/admin`, đăng nhập Access, tạo tài khoản đầu tiên. Tài khoản này tự thành admin.
 
 ## Phát hành
 
-Push lên `main`, chờ Actions xanh, rồi trên VPS: `./deploy.sh <mã-commit>`.
+`main` được bảo vệ: mọi thay đổi đi qua pull request, kể cả của tài khoản admin. Không push thẳng, không force push. Chỉ dùng squash merge, nhánh tự xoá sau khi merge.
 
-Script làm theo thứ tự: chụp `pg_dump` vào `backups/` → kéo image → chạy migration → khởi động lại → chờ `healthy` → ghi tag đang chạy (`.deploy-current`) và tag trước đó (`.deploy-previous`). Giữ 14 bản backup gần nhất.
+1. Tạo nhánh từ `main` mới nhất, sửa và thử ở máy (mục "Dev và test trước khi lên prod").
+2. Push nhánh, mở pull request (`gh pr create`).
+3. Hai check bắt buộc phải xanh:
+   - `check`: kiểm tra kiểu (`tsc`) và `npm run check`.
+   - `audit`: build hai image, migrate một Postgres trống, khởi động, gọi API đọc database, quét các trang trong sitemap.
+4. Nhánh phải cập nhật theo `main` mới merge được (`gh pr update-branch`, chờ check chạy lại). Rồi squash merge.
+5. Chờ run trên `main` xanh: `check` và `audit` chạy lại, sau đó job `images` đẩy image lên GHCR.
+6. Nếu bản này đổi `docker-compose.yml`, `deploy.sh` hoặc `backup.sh`: chép file mới lên `~/savis`.
+7. Trên VPS: `./deploy.sh <mã-commit>`, với mã là 7 ký tự đầu của commit **trên `main`** (không phải commit của nhánh). Mỗi lúc chỉ một người deploy.
+8. Nếu bản này mang theo bài viết: làm mục "Bài viết và ảnh đi kèm bản phát hành". Nếu đổi cách viết trong `src/lib/wording.ts` và nội dung trong CMS cũng phải đổi: `./backup.sh`, `docker compose run --rm tools npm run wording:cms` để xem trước, rồi chạy lại với `-e WRITE=1`.
+9. Mở website và `/admin`. Ở máy dev chạy `npm run audit -- https://savis-group.com`.
+
+Audit trong CI chỉ thấy nội dung đóng gói sẵn trong mã: không kiểm tra nội dung trên CMS, form, `/admin` hay giao diện.
+
+`deploy.sh` làm theo thứ tự: chụp `pg_dump` vào `backups/` → kéo image → chạy migration → khởi động lại → chờ `healthy` → ghi tag đang chạy (`.deploy-current`) và tag trước đó (`.deploy-previous`). Giữ 14 bản backup gần nhất.
+
+### Khi khẩn cấp
+
+Website lỗi sau khi deploy: rollback trên VPS (mục Rollback), không cần đụng GitHub.
+
+Nếu buộc phải đưa thay đổi vào `main` khi check chưa xanh, tài khoản admin tạm bỏ áp dụng cho admin, làm xong bật lại ngay:
+
+```
+gh api -X DELETE repos/savis-studio/savis-group-nextjs/branches/main/protection/enforce_admins   # tạm tắt
+gh api -X POST   repos/savis-studio/savis-group-nextjs/branches/main/protection/enforce_admins   # bật lại
+```
+
+Việc này không tạo ra image: job `images` vẫn chờ `check` và `audit` đạt. Check báo sai thì sửa check đó trong một pull request.
 
 ## Thêm hoặc đổi schema
 
@@ -76,12 +103,17 @@ Không đặt `UPDATE` thì chỉ tạo bài chưa có. `UPDATE` nhận danh sá
 ## Rollback
 
 - **Chỉ code:** `./deploy.sh "$(cat .deploy-previous)"`.
-- **Bản lỗi đã chạy migration:** đổi code là không đủ. Khôi phục từ file `backups/pre-<tag>-*.dump` chụp ngay trước lần đó:
+- **Bản lỗi đã chạy migration:** đổi code là không đủ. Khôi phục từ file `backups/pre-<tag-lỗi>-*.dump` chụp ngay trước lần đó. Bài viết và tin nhắn liên hệ tạo sau thời điểm đó sẽ mất, nên chụp thêm một bản trước:
   ```
+  ./backup.sh
   docker compose stop app
-  docker compose exec -T postgres pg_restore -U savis -d savis --clean --if-exists < backups/<file>.dump
+  docker compose exec -T postgres dropdb -U savis --force savis
+  docker compose exec -T postgres createdb -U savis savis
+  docker compose exec -T postgres pg_restore -U savis -d savis --no-owner --exit-on-error < backups/<file>.dump
   ./deploy.sh "$(cat .deploy-previous)"
   ```
+
+Sau khi rollback, `.deploy-previous` trỏ vào bản lỗi: đừng chạy lại lệnh rollback.
 
 ## Bản nháp và MCP
 
@@ -110,7 +142,7 @@ Plugin MCP dựng schema bằng API JavaScript của TypeScript, nên giữ `typ
 
 ## Việc thường xuyên
 
-- Backup hằng ngày ra ngoài VPS (database và volume `media`), thử khôi phục định kỳ. `deploy.sh` chỉ chụp bản trước khi migrate.
+- Backup hằng ngày chạy tự động và đẩy lên Google Drive (mục Backup định kỳ). Chưa có cảnh báo khi lỗi: xem `~/savis/backups/backup.log`. Thử khôi phục định kỳ.
 - `docker image prune` đã nằm trong `deploy.sh`. Theo dõi dung lượng đĩa.
 - Tunnel đứt: `docker compose restart cloudflared`.
 - Bị khoá khỏi admin: thêm email vào policy Access. Mất toàn bộ admin: đặt lại bằng Local API từ container `tools`.
@@ -132,19 +164,19 @@ Máy Windows dùng Docker Engine trong WSL (distro `Ubuntu-24.04`, đổi bằng
 | `npm run staging:down` / `staging:reset` | Dừng staging (giữ dữ liệu) / xoá luôn dữ liệu staging. |
 | `npm run docker:stop` | Dừng mọi container ở máy và cho WSL tắt. |
 
-Quy trình phát hành: sửa mã → `npm run dev` hoặc `dev:pg` → nếu đổi schema thì `db:migration` → `npm run staging` và `staging:check` → commit, push → `deploy.sh` trên VPS.
+Trước khi mở pull request: sửa mã → `npm run dev` hoặc `dev:pg` → nếu đổi schema thì `db:migration` → `npm run lint` và `npm run check` → thay đổi lớn thì thêm `npm run staging` và `staging:check`. Các bước sau đó ở mục Phát hành.
 
 Khác với prod: không có Cloudflare Tunnel và Access (`CF_ACCESS_ENFORCE=off`), không gửi HubSpot, image được build ở máy thay vì lấy từ GHCR. Mật khẩu staging nằm trong `.env.staging.local`, tự tạo, không commit. Lần đầu mở `/admin` của staging thì tạo tài khoản admin riêng cho máy.
 
 Bản dump lấy từ prod chứa thông tin khách (Inquiries) và tài khoản: chỉ lấy khi cần, xoá sau khi thử, rồi `npm run staging:reset`.
 
-`next build` cần `PAYLOAD_SECRET` khi `NODE_ENV=production`. Dockerfile đặt giá trị giả chỉ cho bước build, không đưa vào image. Build không cần database vì trang `(frontend)` được render theo từng request.
+`next build` cần `PAYLOAD_SECRET` khi `NODE_ENV=production`. Dockerfile đặt giá trị giả chỉ cho bước build, không đưa vào image. Build không cần database: trang được dựng sẵn từ dữ liệu đóng gói trong mã, rồi lấy nội dung CMS ở lần làm mới đầu tiên (khoảng 1 phút). Database lỗi thì trang vẫn hiện dữ liệu đóng gói, nên trang mở được chưa chắc database ổn.
 
 ## Backup định kỳ
 
 `backup.sh` (chép lên `~/savis`) chạy bằng cron lúc 02:30 mỗi ngày: `pg_dump` database, nén volume `media`, sao `.env` và `docker-compose.yml` vào `backups/scheduled/<thời-gian>/`, kiểm tra dump đọc được, giữ 7 bản gần nhất. Log ở `backups/backup.log`. Chạy tay: `./backup.sh`.
 
-Bản sao ngoài VPS: tạo `~/savis/.backup.conf` với `BACKUP_REMOTE="<remote-rclone>:<thư-mục>"` (và `~/savis/.backup-pass` chứa mật khẩu mã hoá, chmod 600) rồi script sẽ đẩy lên remote và giữ 14 bản. `.env` chứa bí mật nên không bao giờ được tải lên dạng thô.
+Bản sao ngoài VPS: tạo `~/savis/.backup.conf` với `BACKUP_REMOTE="<remote-rclone>:<thư-mục>"` (và `~/savis/.backup-pass` chứa mật khẩu mã hoá, chmod 600) rồi script sẽ đẩy lên remote và giữ 14 bản. `.env` chứa bí mật nên không bao giờ được tải lên dạng thô. VPS hiện tại đã cấu hình đích `savis_crypt:daily` trên Google Drive (mục "Khôi phục từ Google Drive").
 
 Khôi phục thử (không đụng database thật):
 
@@ -153,3 +185,85 @@ docker compose exec -T postgres psql -U savis -d postgres -c "create database re
 docker compose exec -T postgres pg_restore -U savis -d restore_test --no-owner < backups/scheduled/<thời-gian>/db.dump
 docker compose exec -T postgres psql -U savis -d postgres -c "drop database restore_test"
 ```
+
+## Khôi phục từ Google Drive
+
+Từ 27/11/2026, `backup.sh` trên VPS đẩy bản sao lên Drive qua `savis_crypt`, một remote mã hoá của `rclone` nằm trên `gdrive_backup:SAVIS-VPS-Backups`. Mỗi bản ở `daily/<thời-gian>/` gồm `db.dump`, `media.tar.gz`, `env.gpg`, `docker-compose.yml`, `SHA256SUMS`. Nội dung file được mã hoá (trên Drive có đuôi `.bin`), tên thì đọc được.
+
+Cần **mật khẩu mã hoá** (nội dung `~/savis/.backup-pass`) và giữ một bản ngoài VPS. Mất cả VPS lẫn mật khẩu thì không mở được bản nào.
+
+### 1. Lấy bản sao và giải mã
+
+VPS còn chạy:
+
+```
+cd ~/savis
+rclone lsf --dirs-only savis_crypt:daily                 # chọn bản
+rclone copy savis_crypt:daily/<thời-gian> restore/
+```
+
+Mất VPS: mở Google Drive trên web, tải thư mục `SAVIS-VPS-Backups/daily/<thời-gian>` rồi giải nén. Trên máy có `rclone` và `gpg` (Windows dùng Git Bash):
+
+```
+read -rs PASS        # dán mật khẩu mã hoá rồi Enter
+rclone config create savis_local crypt remote=<thư-mục-đã-giải-nén> \
+  filename_encryption=off directory_name_encryption=false password="$PASS" --obscure
+rclone copy savis_local: restore/
+rclone config delete savis_local; unset PASS
+```
+
+Dùng trang web vì kết nối có quyền `drive.file`: `rclone` với client ID khác không thấy các file cũ.
+
+### 2. Kiểm tra
+
+```
+(cd restore && grep -v ' env$' SHA256SUMS | sha256sum -c -)             # mọi dòng phải OK
+gpg --pinentry-mode loopback -o restore/env -d restore/env.gpg          # hỏi mật khẩu mã hoá
+```
+
+`restore/` chứa bí mật và thông tin khách. Xong việc thì xoá: `rm -rf restore`.
+
+### 3. Chuẩn bị VPS mới (bỏ qua nếu VPS còn chạy)
+
+1. Cài Docker. Tạo `~/savis`, chép `docker-compose.yml`, `deploy.sh`, `backup.sh` từ repo, `chmod +x deploy.sh backup.sh`.
+2. Chép thư mục `restore/` vào `~/savis`, rồi `install -m 600 restore/env .env`.
+3. `docker login ghcr.io` như mục "Lần đầu".
+4. Nếu VPS cũ còn chạy `cloudflared`, dừng nó trước: hai máy dùng chung `TUNNEL_TOKEN` thì khách truy cập bị chia cho cả hai.
+
+### 4. Nạp database và tệp
+
+**Bước này xoá database đang chạy.** Chạy trong `~/savis`:
+
+```
+./backup.sh                      # chỉ khi VPS còn chạy: giữ lại trạng thái hiện tại
+docker compose up -d --wait postgres
+docker compose create app        # tạo volume media nếu chưa có
+docker compose stop app
+docker compose exec -T postgres dropdb -U savis --force savis
+docker compose exec -T postgres createdb -U savis savis
+docker compose exec -T postgres pg_restore -U savis -d savis --no-owner --exit-on-error < restore/db.dump
+docker run --rm -v savis_media:/data -v "$PWD/restore":/in:ro postgres:16-alpine tar -C /data -xzf /in/media.tar.gz
+./deploy.sh "$(grep '^SAVIS_IMAGE_TAG=' .env | cut -d= -f2)"
+```
+
+`deploy.sh` chạy các migration còn thiếu rồi khởi động app và tunnel. Sau đó mở website, vài bài có ảnh và `/admin` để kiểm tra.
+
+### 5. Bật lại backup trên VPS mới
+
+1. Cài `rclone`, chạy `rclone config` để tạo remote Google Drive tên `gdrive_backup` (quyền `drive.file`, [client ID riêng](https://rclone.org/drive/#making-your-own-client-id)).
+2. Dán mật khẩu mã hoá cũ vào `~/savis/.backup-pass`, `chmod 600`.
+3. Tạo lại remote mã hoá và cấu hình:
+
+```
+cd ~/savis
+rclone config create savis_crypt crypt remote=gdrive_backup:SAVIS-VPS-Backups \
+  filename_encryption=off directory_name_encryption=false password="$(head -n1 .backup-pass | tr -d '\n')" --obscure
+(umask 077; echo 'BACKUP_REMOTE="savis_crypt:daily"' > .backup.conf)
+./backup.sh
+```
+
+4. `crontab -e`, thêm: `30 2 * * * /root/savis/backup.sh >> /root/savis/backups/backup.log 2>&1`
+
+### Diễn tập
+
+Thử khôi phục định kỳ. Trên máy dev, `npm run staging:restore -- <đường-dẫn>/db.dump` nạp database vào bản staging; xong thì xoá bản dump và chạy `npm run staging:reset`.

@@ -101,6 +101,8 @@ await pool(pages, 8, async (path) => {
     }
     if (target.startsWith("#")) target = path + target;
     if (!target.startsWith("/")) { add(path, "error", `odd href "${href}"`); continue; }
+    // Cloudflare's own paths: on the live site it rewrites email links to one that answers 404 when fetched.
+    if (target.startsWith("/cdn-cgi/")) continue;
     if (target.includes("?")) target = target.split("?")[0] + (target.includes("#") ? "#" + target.split("#")[1] : "");
     (linkSources.get(target) ?? linkSources.set(target, new Set()).get(target)!).add(path);
   }
