@@ -31,8 +31,8 @@ const NESTED: Record<string, string> = {
   "services-e2e": "/services#professional",
   developers: "/services/developers",
   "services-developers": "/services/developers",
-  // No report pages yet: a copy is requested through the contact form.
-  "resources-reports": "/contact",
+  // Sends the visitor to the contact form while no report is published.
+  "resources-reports": "/resources/reports",
   "resources-datasheets": "/resources/datasheets",
   "resources-brochures": "/resources/brochures",
   "resources-briefs": "/resources/briefs",

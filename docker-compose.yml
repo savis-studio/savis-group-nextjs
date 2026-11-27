@@ -43,6 +43,7 @@ services:
       INDEXABLE_HOST: ${INDEXABLE_HOST:-}
       HUBSPOT_PORTAL_ID: ${HUBSPOT_PORTAL_ID:-}
       HUBSPOT_FORM_ID: ${HUBSPOT_FORM_ID:-}
+      HUBSPOT_RESOURCE_FORM_ID: ${HUBSPOT_RESOURCE_FORM_ID:-}
       CF_ACCESS_TEAM_DOMAIN: ${CF_ACCESS_TEAM_DOMAIN:-}
       CF_ACCESS_AUD: ${CF_ACCESS_AUD:-}
       CF_ACCESS_MCP_AUD: ${CF_ACCESS_MCP_AUD:-}
@@ -68,6 +69,8 @@ services:
       - media:/app/media
       # Photos for `npm run import:insights`, copied here only for the import (see DEPLOY.md). Normally empty.
       - ./insight-media:/app/src/data/insight-media:ro
+      # Report pages for `npm run import:reports`, same rule (see DEPLOY.md).
+      - ./report-import:/app/src/data/report-import:ro
     mem_limit: 768m
     logging: *logging
 

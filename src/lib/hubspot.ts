@@ -48,15 +48,56 @@ export function buildPayload(l: HubSpotLead, ctx: { pageUri: string; hutk?: stri
   };
 }
 
+type Context = { pageUri: string; hutk?: string; ip?: string };
+
 /** Resolves on success, throws with the HubSpot response on failure. */
-export async function sendToHubSpot(l: HubSpotLead, ctx: { pageUri: string; hutk?: string; ip?: string }): Promise<void> {
-  const { HUBSPOT_PORTAL_ID: portal, HUBSPOT_FORM_ID: form } = process.env;
+async function submit(form: string | undefined, body: unknown): Promise<void> {
+  const portal = process.env.HUBSPOT_PORTAL_ID;
   if (!portal || !form) throw new Error("HubSpot is not configured");
   const res = await fetch(`https://api.hsforms.com/submissions/v3/integration/submit/${encodeURIComponent(portal)}/${encodeURIComponent(form)}`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(buildPayload(l, ctx)),
+    body: JSON.stringify(body),
     signal: AbortSignal.timeout(10_000),
   });
   if (!res.ok) throw new Error(`HubSpot ${res.status}: ${(await res.text()).slice(0, 300)}`);
 }
+
+export const sendToHubSpot = (l: HubSpotLead, ctx: Context) => submit(process.env.HUBSPOT_FORM_ID, buildPayload(l, ctx));
+
+/** A request for a report or whitepaper, for the HubSpot form "Resource request" (HUBSPOT_RESOURCE_FORM_ID). */
+export interface HubSpotRequest {
+  firstName: string;
+  lastName: string;
+  email: string;
+  company: string;
+  country: string;
+  jobTitle?: string;
+  phone?: string;
+  marketingOptIn: boolean;
+  document: string;
+}
+
+export const resourceFormEnabled = () => !!(process.env.HUBSPOT_PORTAL_ID && process.env.HUBSPOT_RESOURCE_FORM_ID);
+
+/** Every name here must be a field of the published HubSpot form. */
+export function buildRequestPayload(r: HubSpotRequest, ctx: Context) {
+  const fields = [
+    ["email", r.email],
+    ["firstname", r.firstName],
+    ["lastname", r.lastName],
+    ["company", r.company],
+    ["country", r.country],
+    ["jobtitle", r.jobTitle],
+    ["phone", r.phone],
+    ["requested_document", r.document],
+    // A single checkbox property.
+    ["resource_marketing_optin", String(r.marketingOptIn)],
+  ].flatMap(([name, value]) => (value ? [{ name: name as string, value }] : []));
+  return {
+    fields,
+    context: { pageUri: ctx.pageUri, pageName: `${r.document} | SAVIS Group`, ...(ctx.hutk ? { hutk: ctx.hutk } : {}), ...(ctx.ip ? { ipAddress: ctx.ip } : {}) },
+  };
+}
+
+export const sendResourceRequest = (r: HubSpotRequest, ctx: Context) => submit(process.env.HUBSPOT_RESOURCE_FORM_ID, buildRequestPayload(r, ctx));

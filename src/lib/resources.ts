@@ -8,6 +8,7 @@ import { FILMS, type FilmId } from "@/data/films";
 import { getDetailSlugs, getPillars, getProduct, getProductDetail, getUseCases, pillarOfProduct, type Product, type UseCase } from "./content";
 import { newestFirst } from "./insight-groups";
 import type { ArticleDetail } from "./insights";
+import { reportPath, type ReportSummary } from "./reports";
 import { newsThumb, PILLAR_ICON, productThumb, thumbArt, useCaseThumb } from "./thumbs";
 
 /** The picture of a resource card: a drawing, a photo, or a document cover. */
@@ -75,14 +76,32 @@ function datasheetCard(slug: string): ResourceCard[] {
   return [{ tag: "Datasheet", title: p.name, text: p.desc, cta: "View datasheet →", href: `#ds-${slug}`, art: datasheetArt(p) }];
 }
 
+const reportArt = (pal: string, title: string): ResourceArt => ({ kind: "cover", pal, title, svg: REPORT_MARKS[pal] });
+
+/** Up to three published reports, the featured ones first; the cards of the menu data while none is published. */
+function reportCards(reports: ReportSummary[]): ResourceCard[] {
+  const known = resourcesMenu.reports;
+  const cta = (kind: string) => `Request the ${kind.toLowerCase()} →`;
+  if (!reports.length) return known.map((r) => ({ tag: r.kind, title: r.title, text: r.text, cta: cta(r.kind), href: "#contact", art: reportArt(r.pal, r.tag) }));
+  // In the order of the menu data, so the three cards keep their places once published.
+  const place = (r: ReportSummary) => {
+    const i = known.findIndex((m) => m.slug === r.slug);
+    return i < 0 ? known.length : i;
+  };
+  return [...reports]
+    .sort((a, b) => Number(b.featured) - Number(a.featured) || place(a) - place(b))
+    .slice(0, 3)
+    .map((r) => ({ tag: r.kind, title: r.title, text: r.subtitle, cta: cta(r.kind), href: reportPath(r.slug), art: reportArt(r.palette, known[place(r)]?.tag ?? r.topic) }));
+}
+
 const brochureCard = (p: { id: string; name: string; pitch: string }): ResourceCard => ({ tag: "Brochure", title: p.name, text: p.pitch, cta: "Read the brochure →", href: `#pillar-${p.id}`, art: brochureArt(p) });
 
 /** The three cards shown beside the Resources menu: the featured set, then one set per category. */
-export function resourceSets(articles: ArticleDetail[]): ResourceSet[] {
+export function resourceSets(articles: ArticleDetail[], reports: ReportSummary[] = []): ResourceSet[] {
   const { featured, categories, all } = resourcesMenu;
   const pillars = getPillars();
   const cards: Record<ResourceKind, ResourceCard[]> = {
-    reports: resourcesMenu.reports.map((r) => ({ tag: r.kind, title: r.title, text: r.text, cta: `Request the ${r.kind.toLowerCase()} →`, href: "#contact", art: { kind: "cover", pal: r.pal, title: r.tag, svg: REPORT_MARKS[r.pal] } })),
+    reports: reportCards(reports),
     datasheets: resourcesMenu.datasheets.flatMap(datasheetCard),
     brochures: pillars.slice(0, 3).map(brochureCard),
     briefs: getUseCases().slice(0, 3).map((u) => ({ tag: "Solution brief", title: u.name, text: u.tagline, cta: "Read the brief →", href: `#uc-${u.id}`, art: briefArt(u) })),
@@ -92,6 +111,6 @@ export function resourceSets(articles: ArticleDetail[]): ResourceSet[] {
   const cyber = pillars.find((p) => p.id === featured.brochure);
   return [
     { id: "featured", heading: featured.panel, more: all, cards: [filmCard("brand"), ...datasheetCard(featured.datasheet), ...(cyber ? [brochureCard(cyber)] : [])] },
-    ...categories.map((c) => ({ id: c.id, heading: c.panel, more: c.more, cards: cards[c.id] })),
+    ...categories.map((c) => ({ id: c.id, heading: c.panel, more: c.id === "reports" && reports.length ? { label: "All reports →", href: c.href } : c.more, cards: cards[c.id] })),
   ];
 }

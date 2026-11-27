@@ -6,6 +6,7 @@ import { after } from "next/server";
 import { getPayload } from "payload";
 import { INQUIRY_SERVICES, INQUIRY_TIMELINES, INQUIRY_TOPICS } from "@/lib/contact-options";
 import { hubspotEnabled, sendToHubSpot, type HubSpotLead } from "@/lib/hubspot";
+import { clientIp, rateLimiter } from "@/lib/rate-limit";
 import { absoluteUrl } from "@/lib/site";
 
 export interface ContactState {
@@ -15,19 +16,7 @@ export interface ContactState {
   errors?: Partial<Record<"name" | "email" | "topic" | "message", string>>;
 }
 
-const WINDOW_MS = 10 * 60 * 1000;
-const MAX_PER_WINDOW = 5;
-const hits = new Map<string, number[]>();
-
-/** Best-effort per-IP limit. In memory, so it resets on restart and is per instance; Cloudflare is the real guard. */
-function limited(ip: string): boolean {
-  const now = Date.now();
-  const recent = (hits.get(ip) ?? []).filter((t) => now - t < WINDOW_MS);
-  recent.push(now);
-  hits.set(ip, recent);
-  if (hits.size > 5000) for (const [k, v] of hits) if (!v.some((t) => now - t < WINDOW_MS)) hits.delete(k);
-  return recent.length > MAX_PER_WINDOW;
-}
+const limited = rateLimiter();
 
 const text = (f: FormData, k: string, max: number) => String(f.get(k) ?? "").trim().slice(0, max);
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
@@ -49,7 +38,7 @@ export async function submitInquiry(_prev: ContactState, form: FormData): Promis
   if (Object.keys(errors).length) return { status: "error", errors };
 
   const h = await headers();
-  const ip = h.get("cf-connecting-ip") ?? h.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
+  const ip = clientIp(h);
   if (limited(ip)) return { status: "error", message: "Too many messages from your network. Please try again in a few minutes." };
 
   try {

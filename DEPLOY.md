@@ -23,6 +23,7 @@ Mẫu ở `.env.example`. Không commit file này.
 | `CF_ACCESS_MCP_AUD` | Tùy chọn. AUD của Access application riêng cho `/api/mcp` (xem mục MCP). Chỉ mở được đường dẫn đó. |
 | `TUNNEL_TOKEN` | Từ Cloudflare Zero Trust → Tunnels. |
 | `HUBSPOT_PORTAL_ID`, `HUBSPOT_FORM_ID` | Tùy chọn. Có cả hai thì tin nhắn từ form liên hệ được gửi thêm sang form HubSpot (xem cột `hubspot` trong Leads → Inquiries: sent hoặc failed). Bỏ trống thì chỉ lưu trong Payload. |
+| `HUBSPOT_RESOURCE_FORM_ID` | Tùy chọn, cần cùng `HUBSPOT_PORTAL_ID`. Form HubSpot nhận yêu cầu xin report/whitepaper (xem mục "Report và whitepaper"). Bỏ trống thì yêu cầu chỉ lưu trong Payload (Leads → Document requests). |
 | `CLOUDFLARED_TAG` | Phiên bản `cloudflared` cố định, lấy ở trang releases của cloudflared. |
 | `SAVIS_IMAGE_TAG` | Do `deploy.sh` ghi. Không sửa tay. |
 
@@ -99,6 +100,41 @@ rm -rf ~/savis/insight-media                                                    
 Không đặt `UPDATE` thì chỉ tạo bài chưa có. `UPDATE` nhận danh sách slug, `press` hoặc `all`. Bài đã được sửa hoặc xoá trong admin (theo audit log) được bỏ qua; `FORCE=1` bỏ qua bảo vệ này. Thiếu file ảnh thì bài được nhập không kèm ảnh đó; chạy lại với `UPDATE` sau khi bổ sung. Trang tự làm mới sau khoảng 1 phút.
 
 `npm run staging:seed` ở máy dev tự lấy ảnh trong thư mục trên nếu có.
+
+## Report và whitepaper
+
+Trang `/resources/reports` và trang của từng tài liệu chỉ hiện những mục đã **Publish** trong CMS (collection "Reports & whitepapers"). Website không chứa PDF: người đọc điền form, yêu cầu được lưu ở Leads → Document requests và gửi sang HubSpot, nhân viên kinh doanh gửi tài liệu. Khi chưa publish mục nào, menu và link vẫn dẫn về `/contact`.
+
+**Form HubSpot "Resource request"** (tạo một lần): các trường `email`, `firstname`, `lastname`, `company`, `country` (text một dòng), `jobtitle`, `phone`, `requested_document` (text một dòng), `resource_marketing_optin` (một ô checkbox). Tên trường phải đúng như trên, chỉ ba trường đầu và `requested_document` nên để bắt buộc, không bật CAPTCHA, bật email báo cho sales. Đặt Form ID vào `HUBSPOT_RESOURCE_FORM_ID` rồi `docker compose up -d app`.
+
+**Nhập 58 tài liệu** (một lần, hoặc khi có bản trích mới). Dữ liệu không nằm trong git vì repo công khai. Trên máy có bản mockup:
+
+```bash
+node scripts/extract-reports.mjs <mockup page.html>     # ghi src/data/report-import/reports.json
+scp -r src/data/report-import <vps>:~/savis/report-import
+scp docker-compose.yml <vps>:~/savis/                   # tools cần volume report-import
+```
+
+Trên VPS, trong `~/savis`:
+
+```bash
+./backup.sh
+docker compose run --rm -e DRY=1 tools npm run import:reports   # xem trước
+docker compose run --rm tools npm run import:reports            # tạo bản nháp, không ghi đè mục đã có
+rm -rf report-import
+```
+
+Sau đó MKT kiểm tra và Publish từng mục trong admin. `UPDATE=slug` (hoặc `all`) ghi đè bản nháp chưa ai sửa.
+
+**Sửa link trong bài viết** (sau khi đã publish): các link tới report trong bài cũ đang trỏ về `/insights`.
+
+```bash
+docker compose run --rm tools npm run link:reports                # xem trước
+./backup.sh
+docker compose run --rm -e WRITE=1 tools npm run link:reports
+```
+
+Chỉ link tới mục đã publish được đổi, nên có thể chạy lại sau mỗi đợt publish.
 
 ## Rollback
 

@@ -8,6 +8,7 @@ import "@/styles/vx.css";
 import "@/styles/solutions.css";
 import "@/styles/insights.css";
 import "@/styles/resources.css";
+import "@/styles/reports.css";
 import "./globals.css";
 import { newsThumb, thumbArt, vxArt } from "@/lib/thumbs";
 import { companyMenu, servicesMenu } from "@/components/layout/nav-data";
@@ -22,6 +23,7 @@ import { INDUSTRY_GROUPS, groupsOfPillar, pillarById } from "@/lib/content";
 import { getCatalog, type Catalog } from "@/lib/cms";
 import { INSIGHT_GROUPS, newestFirst } from "@/lib/insight-groups";
 import { getArticles } from "@/lib/insights";
+import { getReports, reportPath } from "@/lib/reports";
 import { resourceSets } from "@/lib/resources";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_ORIGIN, SITE_TAGLINE } from "@/lib/site";
 
@@ -86,12 +88,12 @@ async function latestNews(): Promise<MenuStory[]> {
 }
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const [catalog, latest, articles] = await Promise.all([getCatalog(), latestNews(), getArticles()]);
+  const [catalog, latest, articles, reports] = await Promise.all([getCatalog(), latestNews(), getArticles(), getReports()]);
   return (
     <html lang="en" className={`${sora.variable} ${inter.variable}`}>
       <body style={{ margin: 0, background: "var(--bg)", color: "var(--text)", font: "400 16px/1.6 var(--font-body)" }}>
         <a href="#main" className="sr-only focus:not-sr-only">Skip to content</a>
-        <AppHeader pillars={solutionPillars(catalog.pillars)} sectors={bySector(catalog.industries)} cardArt={cardArt} latest={latest} serviceGroups={serviceGroups} resources={resourceSets(articles)} />
+        <AppHeader pillars={solutionPillars(catalog.pillars)} sectors={bySector(catalog.industries)} cardArt={cardArt} latest={latest} serviceGroups={serviceGroups} resources={resourceSets(articles, reports)} reportLinks={Object.fromEntries(reports.map((r) => [r.slug, reportPath(r.slug)]))} />
         <div id="main">{children}</div>
         <AppFooter {...catalog} />
         <VxActivate />

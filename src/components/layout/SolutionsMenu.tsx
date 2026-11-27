@@ -42,7 +42,7 @@ const TAB_ICON: Record<TabId, React.ReactNode> = {
  * those lists the product groups or industries under it, and the card on the right follows the selection. Nothing is
  * selected when the menu opens. From the keyboard, Enter selects, Right Arrow moves into the list and Left Arrow comes back.
  */
-export function SolutionsMenu({ pillars, sectors, onNavigate }: { pillars: SolutionPillar[]; sectors: Sector[]; onNavigate: () => void }) {
+export function SolutionsMenu({ pillars, sectors, reportLinks, onNavigate }: { pillars: SolutionPillar[]; sectors: Sector[]; /** Slug to address, for the published reports. */ reportLinks: Record<string, string>; onNavigate: () => void }) {
   const [tabId, setTabId] = useState<TabId>("products");
   const [rowId, setRowId] = useState<string | null>(null);
   const timer = useRef<number | undefined>(undefined);
@@ -124,7 +124,7 @@ export function SolutionsMenu({ pillars, sectors, onNavigate }: { pillars: Solut
           </div>
         )}
       </div>
-      <SmartLink href={solutionsMenu.request} className="sv-sol__doc" onClick={onNavigate}>
+      <SmartLink href={reportLinks[doc.slug] ?? solutionsMenu.request} className="sv-sol__doc" onClick={onNavigate}>
         <span className="sv-sol__k">Featured {doc.kind.toLowerCase()}</span>
         <span className="sv-sol__cover" data-pal={doc.pal} aria-hidden="true"><em>SAVIS {doc.kind} · 2026</em><b>{doc.title}</b></span>
         <b>{doc.series ?? doc.title}</b>

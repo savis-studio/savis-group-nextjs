@@ -9,3 +9,5 @@ next-env.d.ts
 /media
 # Photos for the article import: they live in Payload Media, not in git (see DEPLOY.md).
 /src/data/insight-media/
+# Report pages for `npm run import:reports`: unapproved content, copied to the server only for the import (see DEPLOY.md).
+/src/data/report-import/

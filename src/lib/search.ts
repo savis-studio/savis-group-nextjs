@@ -13,7 +13,7 @@ export interface SearchEntry {
 }
 
 /** Group order in the results. */
-export const KIND_ORDER = ["Solution", "Product", "Use case", "Industry", "Customer story", "Insight", "News", "Press", "Page"];
+export const KIND_ORDER = ["Solution", "Product", "Use case", "Industry", "Customer story", "Report", "Whitepaper", "Insight", "News", "Press", "Page"];
 
 /** Lower case, accents removed (so "dinh danh" finds "định danh"), punctuation to spaces. */
 export const fold = (s: string) =>
