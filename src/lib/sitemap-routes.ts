@@ -28,6 +28,7 @@ export const STATIC_ROUTES: SitemapRoute[] = [
   staticRoute("/resources", false, 0.7),
   // Phase 5
   staticRoute("/services", true, 0.8),
+  staticRoute("/services/developers", true, 0.6),
   staticRoute("/innovation", true, 0.7),
   staticRoute("/innovation/pqc-lab", true, 0.6),
   staticRoute("/about", true, 0.7),

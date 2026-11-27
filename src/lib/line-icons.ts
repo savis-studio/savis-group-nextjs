@@ -1,0 +1,53 @@
+/** One-color line icons (24x24, drawn with the current text color), used by the journeys, the service lists and the menu. */
+export const LINE_ICONS = {
+  face: '<circle cx="12" cy="9" r="4"/><path d="M5 20c1.5-3.5 4-5 7-5s5.5 1.5 7 5"/><path d="M3 7V4h3M21 7V4h-3M3 17v3h3M21 17v3h-3"/>',
+  key: '<circle cx="8" cy="15" r="4"/><path d="m11 12 9-9M16 7l3 3M14 9l2 2"/>',
+  sign: '<path d="M4 20h16"/><path d="M5 16c3-6 5-8 6-6s-2 5 0 5 3-4 5-4 2 3 3 3"/>',
+  card: '<rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h4"/>',
+  id: '<rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2.5"/><path d="M5.5 16c.8-1.6 2-2.4 3.5-2.4s2.7.8 3.5 2.4M14 10h4M14 13h3"/>',
+  api: '<rect x="9" y="9" width="6" height="6" rx="1.5"/><path d="M12 3v6M12 15v6M3 12h6M15 12h6"/>',
+  gov: '<path d="M3 10 12 4l9 6"/><path d="M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 20h18"/>',
+  shield: '<path d="M12 3 20 6v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/>',
+  chip: '<rect x="7" y="7" width="10" height="10" rx="2"/><path d="M9 3v4M15 3v4M9 17v4M15 17v4M3 9h4M3 15h4M17 9h4M17 15h4"/>',
+  wallet: '<rect x="3" y="6" width="18" height="13" rx="2.5"/><path d="M3 10h18"/><circle cx="16.5" cy="14.5" r="1.4"/>',
+  border: '<path d="M4 20V9l8-5 8 5v11"/><path d="M9 20v-6h6v6"/>',
+  bank: '<path d="M3 9 12 4l9 5"/><path d="M5 9v9M9.5 9v9M14.5 9v9M19 9v9M3 20h18"/>',
+  bolt: '<path d="M13 3 5 14h6l-1 7 8-11h-6z"/>',
+  car: '<path d="M5 16V12l2-5h10l2 5v4"/><path d="M4 16h16v3H4z"/><circle cx="8" cy="16" r="1.5"/><circle cx="16" cy="16" r="1.5"/>',
+  cart: '<path d="M3 4h2l2.5 11h10L20 8H7"/><circle cx="9" cy="19" r="1.4"/><circle cx="17" cy="19" r="1.4"/>',
+  cap: '<path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/>',
+  health: '<path d="M12 21s-8-5-8-11a4.5 4.5 0 0 1 8-3 4.5 4.5 0 0 1 8 3c0 6-8 11-8 11z"/><path d="M9 11h6M12 8v6"/>',
+  tower: '<path d="M12 10v11M8 21h8"/><path d="M8.5 7.5a5 5 0 0 1 7 0M6 5a8.5 8.5 0 0 1 12 0"/><circle cx="12" cy="10" r="1.5"/>',
+  play: '<rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m10 9 5 3-5 3z"/>',
+  bus: '<rect x="4" y="4" width="16" height="13" rx="2"/><path d="M4 11h16M8 20v-3M16 20v-3"/>',
+  headset: '<path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/><path d="M19 20c0 1-2 2-5 2"/>',
+  tools: '<path d="M14.5 6.5a4 4 0 0 0-5.3 5.3L4 17l3 3 5.2-5.2a4 4 0 0 0 5.3-5.3l-2.5 2.5-2.5-.5-.5-2.5z"/>',
+  compass: '<circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/>',
+  layers: '<path d="M12 3 3 8l9 5 9-5z"/><path d="m3 13 9 5 9-5"/><path d="m3 17 9 5 9-5" opacity=".5"/>',
+  gauge: '<path d="M4 15a8 8 0 1 1 16 0"/><path d="M12 15l4-5"/><circle cx="12" cy="15" r="1.6"/><path d="M4 19h16"/>',
+  root: '<circle cx="12" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M12 8.5v3M12 11.5 6.8 15.8M12 11.5l5.2 4.3"/>',
+  news: '<rect x="3" y="5" width="15" height="14" rx="2"/><path d="M18 9h3v8a2 2 0 0 1-2 2M7 9h7M7 13h7M7 16h4"/>',
+  mega: '<path d="M3 11v2l11 5V6z"/><path d="M14 9a3 3 0 0 1 0 6M18 7a6 6 0 0 1 0 10"/>',
+  bulb: '<path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/>',
+  law: '<path d="M12 4v16M5 20h14M4 8h16"/><path d="m6 8-3 6h6zM18 8l-3 6h6z"/>',
+  code: '<path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/>',
+  doc: '<path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/>',
+  book: '<path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M8 7h7"/>',
+  brief: '<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/>',
+  pen: '<path d="M4 20h4L19 9l-4-4L4 16z"/><path d="m13 7 4 4"/>',
+  finger: '<path d="M12 11v4M8.5 7.5A5 5 0 0 1 17 11v2M7 11a5 5 0 0 1 .3-1.7M7 15c0 3 1.5 5 3 6M17 16c-.3 2-1 3.5-2 5M10 11a2 2 0 0 1 4 0v3c0 2 .5 4 1.5 5"/>',
+  draft: '<path d="M3 21l3.5-1 11-11-2.5-2.5-11 11z"/><path d="M14 6.5l2.5 2.5"/><path d="M3 3h7M3 3v7"/>',
+} as const;
+
+export type LineIconName = keyof typeof LINE_ICONS;
+
+/** Icon of each step, per journey, in step order. */
+export const JOURNEY_ICONS: Record<string, LineIconName[]> = {
+  solutions: ["face", "key", "sign", "card", "gov", "shield"],
+  identity: ["finger", "face", "wallet", "key", "sign"],
+  cyber: ["compass", "key", "shield", "headset", "chip"],
+  gov: ["id", "gov", "api", "wallet", "border"],
+  finance: ["face", "api", "sign", "card", "shield"],
+  ai: ["doc", "layers", "gauge", "bolt", "book"],
+  services: ["compass", "brief", "tools", "headset", "gauge"],
+};

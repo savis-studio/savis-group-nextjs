@@ -167,3 +167,17 @@
 .sv-mx__list button[aria-current=true]{background:var(--menu-hover);color:var(--menu-heading);font-weight:700;box-shadow:inset 3px 0 0 var(--menu-heading)}
 .sv-mx__groups h4{padding-left:9px;border-left:3px solid var(--menu-heading);font:700 11.5px/1.35 var(--font-body);letter-spacing:.09em;color:var(--menu-heading)}
 .sv-mx__groups a{padding:5px 8px 5px 12px;border-radius:8px}
+
+/* Services menu: hovering or focusing a group lists its services beside it. */
+.sv-mx__links a[data-active]{background:var(--menu-hover);color:var(--menu-heading);font-weight:700;box-shadow:inset 3px 0 0 var(--menu-heading)}
+.sv-mx__panel{min-width:0}
+.sv-mx__lead{max-width:760px;margin:0 0 var(--space-14);font-size:14px;line-height:1.55;color:var(--muted)}
+.sv-mx__group{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:var(--space-22);align-items:start}
+.sv-mx__lines{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--space-22);margin:0;padding:0;border-top:1px solid var(--line);list-style:none}
+.sv-mx__lines li{border-bottom:1px solid var(--line)}
+.sv-mx__lines a{display:flex;align-items:center;gap:var(--space-10);height:100%;min-height:var(--touch-min);padding:8px 6px;font:500 14px/1.35 var(--font-body);color:var(--menu-link);text-decoration:none}
+.sv-mx .sv-mx__lines a:hover{background:var(--menu-hover);color:var(--menu-heading)}
+.sv-mx__lines a>span{display:grid;flex:none;place-items:center;width:28px;height:28px;border-radius:8px;background:var(--chip);color:var(--brand)}
+.sv-mx__play{position:absolute;right:12px;bottom:12px;z-index:1;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.94);box-shadow:0 8px 20px rgba(0,0,0,.3)}
+.sv-mx__play::after{content:"";position:absolute;left:17px;top:13px;border-block:8px solid transparent;border-left:12px solid var(--brand)}
+@media (max-width:1280px){.sv-mx__group{grid-template-columns:minmax(0,1fr) 230px}}

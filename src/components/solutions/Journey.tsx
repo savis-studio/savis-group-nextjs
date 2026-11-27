@@ -1,9 +1,14 @@
+import { LineIcon } from "@/components/ui/LineIcon";
 import { SmartLink } from "@/components/ui/SmartLink";
 import type { Journey as JourneyData } from "@/lib/content";
+import type { LineIconName } from "@/lib/line-icons";
 import { hashToPath } from "@/lib/routes";
 
-/** Dark band that walks through the steps of a customer journey, each linking to its main product. */
-export function Journey({ journey, lead }: { journey: JourneyData; lead?: string }) {
+/**
+ * Dark band that walks through the steps of a customer journey on a lit timeline, each step linking to its main product.
+ * `VxActivate` draws the timeline when it scrolls into view; without scripts it is shown drawn.
+ */
+export function Journey({ journey, icons, lead }: { journey: JourneyData; icons: LineIconName[]; lead?: string }) {
   return (
     <section className="sv-journey">
       <div className="sv-wrap">
@@ -18,6 +23,7 @@ export function Journey({ journey, lead }: { journey: JourneyData; lead?: string
           {journey.steps.map((s, i) => {
             const inner = (
               <>
+                <span className="sv-journey__ic"><LineIcon name={icons[i] ?? "layers"} size={34} /></span>
                 <em>{String(i + 1).padStart(2, "0")}</em>
                 <b>{s.title}</b>
                 <span className="sv-journey__t">{s.text}</span>
@@ -25,7 +31,7 @@ export function Journey({ journey, lead }: { journey: JourneyData; lead?: string
               </>
             );
             return (
-              <li key={s.title}>
+              <li key={s.title} style={{ "--i": i } as React.CSSProperties}>
                 {s.href ? <SmartLink href={hashToPath(s.href)}>{inner}</SmartLink> : <div>{inner}</div>}
               </li>
             );

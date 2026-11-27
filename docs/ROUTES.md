@@ -17,7 +17,8 @@ Source of truth for Phase 1–6. Data lives in `src/data/mockup/*.json`, extract
 | `#insights`, `#insights-*` | `/insights` (overview; tabs are the hashes `#news`, `#press`, `#regulation`, `#insights` = Blog) | 4 |
 | `#resources` | `/resources` | 4 |
 | `#resources-blog/videos/brochures/briefs/datasheets/reports` | `/resources/[kind]` | 4 |
-| `#services`, `#services-advise/developers/e2e` | `/services` (+ anchors) | 5 |
+| `#services`, `#services-pro/support/watch` | `/services` (+ anchors); the older `#services-advise/build/operate/e2e` go to `#professional` | 5 |
+| `#developers`, `#services-developers` | `/services/developers` | 5 |
 | `#innovation` | `/innovation` | 5 |
 | `#pqc-lab` | `/innovation/pqc-lab` | 5 |
 | `#about`, `#about-story/strategy/presence`, `#company` | `/about` (+ anchors) | 5 |

@@ -71,16 +71,6 @@
 .sv-home__film .sv-sec-head h2{color:var(--on-band)}
 .sv-home__film .sv-eyebrow{color:var(--band-eyebrow)}
 .sv-home__film .sv-eyebrow::before{background:linear-gradient(90deg,var(--glow),transparent)}
-.sv-film{margin:0;display:flex;flex-direction:column;gap:10px}
-.sv-film__box{position:relative;width:100%;padding-top:56.25%}
-.sv-film video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;border-radius:var(--radius-card);background:var(--blue-975);border:1px solid rgba(111,227,255,.25);box-shadow:0 30px 70px rgba(11,31,77,.35)}
-.sv-film figcaption{font-size:13.5px;color:var(--on-band-muted)}
-.sv-film__play{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;border:0;border-radius:var(--radius-card);background:linear-gradient(180deg,rgba(4,12,40,0) 40%,rgba(4,12,40,.45));cursor:pointer;color:var(--on-band);font:600 15px var(--font-body)}
-.sv-film__play:focus-visible{outline:3px solid var(--glow);outline-offset:3px}
-.sv-film__ic{width:84px;height:84px;border-radius:50%;display:grid;place-items:center;background:rgba(13,79,224,.92);box-shadow:0 0 0 10px rgba(255,255,255,.18),0 20px 40px rgba(0,20,80,.45);transition:transform .2s}
-.sv-film__ic svg{margin-left:4px}
-.sv-film__play:hover .sv-film__ic,.sv-film__play:focus-visible .sv-film__ic{transform:scale(1.08)}
-.sv-film__st{padding:6px 14px;border-radius:var(--radius-pill);background:rgba(4,12,40,.55)}
 
 /* ---------- Case + news teasers ---------- */
 .sv-home__grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-18)}
@@ -113,7 +103,6 @@
   .sv-home__orb,.sv-home__row,.sv-home__rot b{animation:none!important}
   .sv-home__rot b{opacity:0}
   .sv-home__rot b:first-child{opacity:1;transform:none;filter:none}
-  .sv-film__ic{transition:none}
 }
 
 /* ---------- Responsive ---------- */
@@ -135,6 +124,4 @@
   .sv-aud__links{grid-template-columns:1fr}
   .sv-aud__pane{padding:18px}
   .sv-home__pillars,.sv-home__grid3,.sv-home__grid4{grid-template-columns:1fr}
-  .sv-film__ic{width:64px;height:64px}
-  .sv-film__play,.sv-film video{border-radius:var(--radius-lg)}
 }

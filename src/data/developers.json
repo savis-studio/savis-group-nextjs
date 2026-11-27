@@ -1,0 +1,3137 @@
+{
+ "hero": {
+  "eyebrow": "Developers",
+  "title": "Build Digital Trust as a Service on SAVIS.",
+  "lead": "APIs and SDKs for partners who build Digital Trust as a Service on TrustCA QTSP and SAVIS Paperless. Open standards end to end: CSC for remote signing, FAPI 2.0 for partner connections, FIDO2 for passkeys.",
+  "actions": [
+   "Request sandbox access",
+   "Explore the APIs ↓"
+  ],
+  "standards": [
+   "CSC API 2.0",
+   "CSC API 2.2",
+   "FAPI 2.0",
+   "OAuth 2.0",
+   "OpenID Connect",
+   "FIDO2 / WebAuthn",
+   "ETSI EN 319 142",
+   "RFC 3161"
+  ],
+  "code": {
+   "title": "CSC API v2 · signHash",
+   "code": "POST /csc/v2/signatures/signHash\nAuthorization: DPoP eyJhbGciOi…\nDPoP: eyJ0eXAiOiJkcG9wK2p3dCIs…\n\n{\n  \"credentialID\": \"GX0112348\",\n  \"SAD\": \"_TiHRG-bAH3XlFQZ3ndFhkXf9P24/CKN69L8gdSYp5_pw\",\n  \"hashes\": [\"sTOgwOm+474gFj0q0x1iSNspKqbcse4IeiqlDg/HWuI=\"],\n  \"hashAlgorithmOID\": \"2.16.840.1.101.3.4.2.1\",\n  \"signAlgo\": \"1.2.840.113549.1.1.11\"\n}",
+   "note": "Illustrative request. Full reference in the developer documentation."
+  }
+ },
+ "cert": {
+  "title": "Certified · eIDAS 2.0 and NIS2",
+  "text": "TAYLLORCOX PCEB 26/08/10 · TrustCA Qualified Remote Signing, QTSA and eSeal · valid until 9 August 2028",
+  "link": "See the certificate →"
+ },
+ "jump": [
+  {
+   "id": "dev-build",
+   "label": "What you can build"
+  },
+  {
+   "id": "dev-apis",
+   "label": "APIs & SDKs"
+  },
+  {
+   "id": "dev-api",
+   "label": "API reference"
+  },
+  {
+   "id": "dev-ux",
+   "label": "User journeys"
+  },
+  {
+   "id": "dev-flow",
+   "label": "Partner onboarding"
+  }
+ ],
+ "build": {
+  "eyebrow": "What you can build",
+  "title": "Trust services, delivered through your product",
+  "cards": [
+   {
+    "href": "#p-remote-signing",
+    "cls": "identity",
+    "title": "Qualified remote signing",
+    "text": "Offer QES and advanced signatures in your app, issued and held by TrustCA QTSP."
+   },
+   {
+    "href": "#p-econtract",
+    "cls": "gov",
+    "title": "Paperless journeys",
+    "text": "Contracts, onboarding packs and approvals signed and stored without paper."
+   },
+   {
+    "href": "#p-trustonboard",
+    "cls": "finance",
+    "title": "Remote onboarding",
+    "text": "Verify customers with biometric SDKs, liveness and ID chip reading."
+   },
+   {
+    "href": "#p-passwordless",
+    "cls": "cyber",
+    "title": "Passwordless & device trust",
+    "text": "Passkeys for sign-in and payments, bound to devices you trust."
+   }
+  ]
+ },
+ "apis": {
+  "eyebrow": "APIs & SDKs",
+  "title": "One set of standard interfaces",
+  "badge": "5 API & SDK families",
+  "items": [
+   {
+    "name": "Remote signing API · CSC 2.0 / 2.2",
+    "text": "Qualified remote signing from TrustCA QTSP through the Cloud Signature Consortium API, versions 2.0 and 2.2.",
+    "bullets": [
+     "Credentials list and info",
+     "signHash and signDoc",
+     "OAuth 2.0 authorization for signature activation",
+     "Timestamping and validation"
+    ]
+   },
+   {
+    "name": "Partner connection · FAPI 2.0",
+    "text": "Partners connect to SAVIS APIs under the FAPI 2.0 Security Profile, the OpenID Foundation's high-security profile for financial-grade APIs.",
+    "bullets": [
+     "Pushed authorization requests (PAR)",
+     "Sender-constrained tokens (mTLS or DPoP)",
+     "private_key_jwt client authentication",
+     "Partner registration and key rotation"
+    ]
+   },
+   {
+    "name": "Paperless & e-contract APIs",
+    "text": "Build signing workflows, e-contracts and document flows on SAVIS Paperless, signed through TrustCA.",
+    "bullets": [
+     "Document and envelope workflows",
+     "Multi-party signing",
+     "Signed-document validation",
+     "Webhooks for status updates"
+    ]
+   },
+   {
+    "name": "Biometric SDK",
+    "text": "Mobile and web SDKs for face capture, liveness and ID document reading, for remote onboarding and step-up checks.",
+    "bullets": [
+     "Face capture and liveness (PAD)",
+     "ID document and NFC chip reading",
+     "Face match against the document",
+     "iOS, Android and Web"
+    ]
+   },
+   {
+    "name": "FIDO2 passkeys & device trust",
+    "text": "Passwordless sign-in and transaction approval with FIDO2 passkeys, bound to trusted devices.",
+    "bullets": [
+     "Passkey registration and sign-in (WebAuthn)",
+     "Transaction signing with passkeys",
+     "Device binding and attestation",
+     "App integrity checks"
+    ]
+   }
+  ]
+ },
+ "apiRef": {
+  "eyebrow": "API reference",
+  "title": "TrustCA QTSP, Paperless and eKYC",
+  "lead": "Endpoints and examples for the main calls. The full OpenAPI 3.1 specification and a Postman collection come with sandbox access.",
+  "tabs": [
+   {
+    "id": "csc",
+    "title": "Remote signing · CSC API v2",
+    "org": "TrustCA QTSP",
+    "lead": [
+     {
+      "t": "code",
+      "c": [
+       "/csc/v2"
+      ]
+     },
+     " Cloud Signature Consortium API, versions 2.0 and 2.2. All calls are POST with JSON bodies, authorized with a FAPI 2.0 sender-constrained token."
+    ],
+    "table": {
+     "columns": [
+      "Method",
+      "Endpoint",
+      "What it does",
+      "Auth / scope"
+     ],
+     "rows": [
+      [
+       {
+        "method": "POST",
+        "kind": "post"
+       },
+       {
+        "code": "/info"
+       },
+       "Service information: CSC version, authentication types, signature algorithms",
+       "none"
+      ],
+      [
+       {
+        "method": "POST",
+        "kind": "post"
+       },
+       {
+        "code": "/oauth2/pushed_authorize"
+       },
+       "Pushed authorization request (PAR) with authorization_details",
+       "private_key_jwt"
+      ],
+      [
+       {
+        "method": "GET",
+        "kind": "get"
+       },
+       {
+        "code": "/oauth2/authorize"
+       },
+       "Signer signs in and approves; strong authentication for credential scope",
+       "user"
+      ],
+      [
+       {
+        "method": "POST",
+        "kind": "post"
+       },
+       {
+        "code": "/oauth2/token"
+       },
+       "Code + PKCE → access token (service) or credential token",
+       "private_key_jwt + DPoP"
+      ],
+      [
+       {
+        "method": "POST",
+        "kind": "post"
+       },
+       {
+        "code": "/credentials/list"
+       },
+       "Signing credentials (credentialID) of the signer",
+       "service"
+      ],
+      [
+       {
+        "method": "POST",
+        "kind": "post"
+       },
+       {
+        "code": "/credentials/info"
+       },
+       "Certificate chain, key algorithm, SCAL, authorization mode",
+       "service"
+      ],
+      [
+       {
+        "method": "POST",
+        "kind": "post"
+       },
+       {
+        "code": "/credentials/authorize"
+       },
+       "Explicit authorization with OTP, PIN or biometric → SAD",
+       "service"
+      ],
+      [
+       {
+        "method": "POST",
+        "kind": "post"
+       },
+       {
+        "code": "/credentials/authorizeCheck"
+       },
+       "Check a SAD and the signatures it still allows",
+       "service"
+      ],
+      [
+       {
+        "method": "POST",
+        "kind": "post"
+       },
+       {
+        "code": "/credentials/getChallenge"
+       },
+       "Challenge for passkey (FIDO2) signature activation",
+       "service"
+      ],
+      [
+       {
+        "method": "POST",
+        "kind": "post"
+       },
+       {
+        "code": "/signatures/signHash"
+       },
+       "Sign one or more hashes with the signer's key",
+       "credential / SAD"
+      ],
+      [
+       {
+        "method": "POST",
+        "kind": "post"
+       },
+       {
+        "code": "/signatures/signDoc"
+       },
+       "Sign whole documents as PAdES, XAdES, CAdES or JAdES",
+       "credential / SAD"
+      ],
+      [
+       {
+        "method": "POST",
+        "kind": "post"
+       },
+       {
+        "code": "/signatures/signPolling"
+       },
+       "Fetch results of asynchronous signing",
+       "service"
+      ],
+      [
+       {
+        "method": "POST",
+        "kind": "post"
+       },
+       {
+        "code": "/signatures/timestamp"
+       },
+       "RFC 3161 timestamp token for a hash",
+       "service"
+      ]
+     ]
+    },
+    "examples": [
+     {
+      "title": "Request · signatures/signHash",
+      "code": "{\n  \"credentialID\": \"GX0112348\",\n  \"SAD\": \"_TiHRG-bAH3XlFQZ3ndFhkXf9P24/CKN69L8gdSYp5_pw\",\n  \"hashes\": [\"sTOgwOm+474gFj0q0x1iSNspKqbcse4IeiqlDg/HWuI=\"],\n  \"hashAlgorithmOID\": \"2.16.840.1.101.3.4.2.1\",\n  \"signAlgo\": \"1.2.840.113549.1.1.11\"\n}"
+     },
+     {
+      "title": "Response · 200",
+      "code": "{\n  \"signatures\": [\"KedJuTob5gtvYx9qM3k3gm7kbLBwVbEQ...\"]\n}"
+     }
+    ]
+   },
+   {
+    "id": "ades",
+    "title": "Document signing · signDoc (AdES)",
+    "org": "TrustCA QTSP",
+    "lead": [
+     {
+      "t": "code",
+      "c": [
+       "/csc/v2"
+      ]
+     },
+     " Send the document, receive it signed in the format and level you choose. Timestamps and revocation data are added for -T, -LT and -LTA levels."
+    ],
+    "table": {
+     "columns": [
+      "Format",
+      "Parameter",
+      "Use",
+      "Conformance levels"
+     ],
+     "rows": [
+      [
+       {
+        "method": "PAdES",
+        "kind": "pades"
+       },
+       {
+        "code": "signature_format: \"P\""
+       },
+       "PDF contracts and forms; visible or invisible signature",
+       "B-B · B-T · B-LT · B-LTA"
+      ],
+      [
+       {
+        "method": "XAdES",
+        "kind": "xades"
+       },
+       {
+        "code": "signature_format: \"X\""
+       },
+       "XML e-invoices, tax filings, bank messages; enveloped or detached",
+       "B-B · B-T · B-LT · B-LTA"
+      ],
+      [
+       {
+        "method": "CAdES",
+        "kind": "cades"
+       },
+       {
+        "code": "signature_format: \"C\""
+       },
+       "Any binary file; detached or enveloping .p7s",
+       "B-B · B-T · B-LT · B-LTA"
+      ],
+      [
+       {
+        "method": "JAdES",
+        "kind": "jades"
+       },
+       {
+        "code": "signature_format: \"J\""
+       },
+       "JSON and API payloads (JWS)",
+       "B-B · B-T · B-LT · B-LTA"
+      ]
+     ]
+    },
+    "examples": [
+     {
+      "title": "Request · signatures/signDoc",
+      "code": "{\n  \"credentialID\": \"GX0112348\",\n  \"SAD\": \"_TiHRG-bAH3XlFQZ3ndFhkXf9P24/CKN69L8gdSYp5_pw\",\n  \"documents\": [{\n    \"document\": \"JVBERi0xLjcKJcfsj6IKNSAwIG9iago8PC9MZW5n...\",\n    \"signature_format\": \"P\",\n    \"conformance_level\": \"Ades-B-LT\",\n    \"signAlgo\": \"1.2.840.10045.4.3.2\",\n    \"signed_envelope_property\": \"Certification\"\n  }],\n  \"returnValidationInfo\": true\n}"
+     },
+     {
+      "title": "Response · 200",
+      "code": "{\n  \"DocumentWithSignature\": [\"JVBERi0xLjcKJcfsj6IKNSAwIG9iago8PC9MZW5n...\"],\n  \"validationInfo\": { \"ocsp\": [\"MIIHdgoBAKCCB28w...\"], \"crl\": [], \"certificates\": [\"MIIF...\"] }\n}"
+     }
+    ]
+   },
+   {
+    "id": "tsa",
+    "title": "Timestamp service",
+    "org": "TrustCA QTSP",
+    "lead": [
+     {
+      "t": "code",
+      "c": [
+       "/tsa"
+      ]
+     },
+     " Qualified timestamps under RFC 3161, by plain HTTP or through the CSC API."
+    ],
+    "table": {
+     "columns": [
+      "Method",
+      "Endpoint",
+      "What it does",
+      "Auth / scope"
+     ],
+     "rows": [
+      [
+       {
+        "method": "POST",
+        "kind": "post"
+       },
+       {
+        "code": "/tsa"
+       },
+       "RFC 3161 request (Content-Type: application/timestamp-query) → timestamp reply",
+       "mTLS or token"
+      ],
+      [
+       {
+        "method": "POST",
+        "kind": "post"
+       },
+       {
+        "code": "/csc/v2/signatures/timestamp"
+       },
+       "Same service through the CSC API, JSON in and out",
+       "service"
+      ]
+     ]
+    },
+    "examples": [
+     {
+      "title": "Request · signatures/timestamp",
+      "code": "{\n  \"hash\": \"sTOgwOm+474gFj0q0x1iSNspKqbcse4IeiqlDg/HWuI=\",\n  \"hashAlgorithmOID\": \"2.16.840.1.101.3.4.2.1\",\n  \"nonce\": \"8e4f1b2c\"\n}"
+     },
+     {
+      "title": "Response · 200",
+      "code": "{\n  \"timestamp\": \"MIIUbAYJKoZIhvcNAQcCoIIUXTCCFFkCAQMx...\"\n}"
+     }
+    ]
+   },
+   {
+    "id": "val",
+    "title": "Signature validation",
+    "org": "TrustCA VA",
+    "lead": [
+     {
+      "t": "code",
+      "c": [
+       "/validation/v1"
+      ]
+     },
+     " Validate signed documents and certificates. Reports follow ETSI EN 319 102-1 and the ETSI TS 119 102-2 report format."
+    ],
+    "table": {
+     "columns": [
+      "Method",
+      "Endpoint",
+      "What it does",
+      "Auth / scope"
+     ],
+     "rows": [
+      [
+       {
+        "method": "POST",
+        "kind": "post"
+       },
+       {
+        "code": "/reports"
+       },
+       "Validate a signed document or detached signature → TOTAL-PASSED, INDETERMINATE or TOTAL-FAILED per signature",
+       "service"
+      ],
+      [
+       {
+        "method": "POST",
+        "kind": "post"
+       },
+       {
+        "code": "/certificates/status"
+       },
+       "Certificate revocation status by OCSP or CRL",
+       "service"
+      ],
+      [
+       {
+        "method": "GET",
+        "kind": "get"
+       },
+       {
+        "code": "/reports/{id}/pdf"
+       },
+       "Human-readable validation report",
+       "service"
+      ]
+     ]
+    },
+    "examples": [
+     {
+      "title": "Request · validation/reports",
+      "code": "{\n  \"document\": \"JVBERi0xLjcKJcfsj6IKNSAwIG9iago8PC9MZW5n...\",\n  \"policy\": \"QES\",\n  \"report\": \"simple\"\n}"
+     },
+     {
+      "title": "Response · 200",
+      "code": "{\n  \"signatures\": [{\n    \"signer\": \"NGUYEN VAN A\",\n    \"issuer\": \"TrustCA QTSP\",\n    \"signingTime\": \"2026-11-19T09:12:44+07:00\",\n    \"level\": \"PAdES-BASELINE-LT\",\n    \"indication\": \"TOTAL-PASSED\"\n  }]\n}"
+     }
+    ]
+   },
+   {
+    "id": "paperless",
+    "title": "Paperless & e-contract",
+    "org": "SAVIS Paperless",
+    "lead": [
+     {
+      "t": "code",
+      "c": [
+       "/paperless/v1"
+      ]
+     },
+     " Create envelopes, route them to signers in order, and receive the signed result. Each signature is made through TrustCA."
+    ],
+    "table": {
+     "columns": [
+      "Method",
+      "Endpoint",
+      "What it does",
+      "Auth / scope"
+     ],
+     "rows": [
+      [
+       {
+        "method": "POST",
+        "kind": "post"
+       },
+       {
+        "code": "/envelopes"
+       },
+       "Create an envelope: documents, signers, order, signature fields",
+       "paperless"
+      ],
+      [
+       {
+        "method": "POST",
+        "kind": "post"
+       },
+       {
+        "code": "/envelopes/{id}/send"
+       },
+       "Send to signers by app push, SMS or email",
+       "paperless"
+      ],
+      [
+       {
+        "method": "GET",
+        "kind": "get"
+       },
+       {
+        "code": "/envelopes/{id}"
+       },
+       "Status of each signer and document",
+       "paperless"
+      ],
+      [
+       {
+        "method": "GET",
+        "kind": "get"
+       },
+       {
+        "code": "/envelopes/{id}/documents/{docId}"
+       },
+       "Download the signed PDF with its audit trail",
+       "paperless"
+      ],
+      [
+       {
+        "method": "POST",
+        "kind": "post"
+       },
+       {
+        "code": "/envelopes/{id}/cancel"
+       },
+       "Cancel an envelope that is not complete",
+       "paperless"
+      ],
+      [
+       {
+        "method": "WEBHOOK",
+        "kind": "webhook"
+       },
+       {
+        "code": "envelope.sent · signer.signed · envelope.completed · envelope.declined"
+       },
+       "Events sent to your HTTPS endpoint, signed JWS",
+       "-"
+      ]
+     ]
+    },
+    "examples": [
+     {
+      "title": "Request · paperless/envelopes",
+      "code": "{\n  \"title\": \"Loan agreement 2026-11-0042\",\n  \"documents\": [{ \"name\": \"agreement.pdf\", \"content\": \"JVBERi0xLjcK...\" }],\n  \"signers\": [\n    { \"order\": 1, \"name\": \"Nguyen Van A\", \"phone\": \"+84 9xx xxx xxx\", \"level\": \"QES\" },\n    { \"order\": 2, \"name\": \"Lender officer\", \"email\": \"officer@bank.vn\", \"level\": \"QES\" }\n  ],\n  \"signature\": { \"format\": \"PAdES\", \"level\": \"B-LT\" }\n}"
+     },
+     {
+      "title": "Response · 200",
+      "code": "{\n  \"id\": \"env_7Qk2b9\",\n  \"status\": \"draft\",\n  \"signUrl\": \"https://…/s/env_7Qk2b9\"\n}"
+     }
+    ]
+   },
+   {
+    "id": "ekyc",
+    "title": "eKYC & certificate issuance",
+    "org": "TrustCA RA",
+    "lead": [
+     {
+      "t": "code",
+      "c": [
+       "/ekyc/v1 · /ra/v1"
+      ]
+     },
+     " Identify the signer remotely from the chip ID card and VNeID, then issue a TrustCA certificate whose key is created inside the QSCD."
+    ],
+    "table": {
+     "columns": [
+      "Method",
+      "Endpoint",
+      "What it does",
+      "Auth / scope"
+     ],
+     "rows": [
+      [
+       {
+        "method": "POST",
+        "kind": "post"
+       },
+       {
+        "code": "/ekyc/v1/sessions"
+       },
+       "Start a session; record the user's consent",
+       "ekyc"
+      ],
+      [
+       {
+        "method": "POST",
+        "kind": "post"
+       },
+       {
+        "code": "/ekyc/v1/sessions/{id}/ocr"
+       },
+       "Front and back images of the ID card → extracted fields",
+       "ekyc"
+      ],
+      [
+       {
+        "method": "POST",
+        "kind": "post"
+       },
+       {
+        "code": "/ekyc/v1/sessions/{id}/nfc"
+       },
+       "Chip data (DG1, DG2, DG13, SOD) → passive and chip authentication",
+       "ekyc"
+      ],
+      [
+       {
+        "method": "POST",
+        "kind": "post"
+       },
+       {
+        "code": "/ekyc/v1/sessions/{id}/liveness"
+       },
+       "Selfie video frames → liveness score (ISO/IEC 30107-3)",
+       "ekyc"
+      ],
+      [
+       {
+        "method": "POST",
+        "kind": "post"
+       },
+       {
+        "code": "/ekyc/v1/sessions/{id}/face-match"
+       },
+       "Selfie against the chip photo (DG2)",
+       "ekyc"
+      ],
+      [
+       {
+        "method": "POST",
+        "kind": "post"
+       },
+       {
+        "code": "/ekyc/v1/sessions/{id}/vneid"
+       },
+       "Confirm the identity with VNeID",
+       "ekyc"
+      ],
+      [
+       {
+        "method": "GET",
+        "kind": "get"
+       },
+       {
+        "code": "/ekyc/v1/sessions/{id}/result"
+       },
+       "Decision, level of assurance and evidence",
+       "ekyc"
+      ],
+      [
+       {
+        "method": "POST",
+        "kind": "post"
+       },
+       {
+        "code": "/ra/v1/certificate-requests"
+       },
+       "Issue a certificate from a passed session; key generated in the QSCD → credentialID",
+       "ra"
+      ]
+     ]
+    },
+    "examples": [
+     {
+      "title": "Request · ra/certificate-requests",
+      "code": "{\n  \"ekycSession\": \"eks_41Hc9P\",\n  \"profile\": \"TRUSTCA_QES_PERSONAL\",\n  \"subject\": { \"CN\": \"NGUYEN VAN A\", \"serialNumber\": \"CCCD:0010xxxxxxxx\", \"C\": \"VN\" },\n  \"activation\": \"passkey\"\n}"
+     },
+     {
+      "title": "Response · 200",
+      "code": "{\n  \"credentialID\": \"GX0112348\",\n  \"certificate\": \"MIIGKzCCBROgAwIBAgIQ...\",\n  \"validTo\": \"2028-11-19T09:20:00+07:00\"\n}"
+     }
+    ]
+   }
+  ],
+  "sad": {
+   "eyebrow": "Sole control",
+   "title": "SAD and SCAL2: how the signer keeps sole control",
+   "lead": [
+    "For qualified signatures, TrustCA runs at ",
+    {
+     "t": "b",
+     "c": [
+      "SCAL2"
+     ]
+    },
+    " (CEN EN 419 241-1): the signer's key in the QSCD is used only with a ",
+    {
+     "t": "b",
+     "c": [
+      "Signature Activation Data (SAD)"
+     ]
+    },
+    " that the signer creates by authenticating, and that is bound to the exact hashes being signed."
+   ],
+   "steps": [
+    {
+     "title": "Hash",
+     "text": [
+      "Your system computes the hash of each document (or uses signDoc)."
+     ]
+    },
+    {
+     "title": "Authorize",
+     "text": [
+      "The signer approves in TrustSign: passkey, face + liveness, or PIN/OTP."
+     ]
+    },
+    {
+     "title": "SAD",
+     "text": [
+      "The authorization server issues a SAD bound to credentialID, the hashes and a signature count. It expires in minutes."
+     ]
+    },
+    {
+     "title": "Activate",
+     "text": [
+      "In the QSCD, the Signature Activation Module checks the SAD before the key is used (EN 419 241-2, EN 419 221-5)."
+     ]
+    },
+    {
+     "title": "Sign",
+     "text": [
+      "signHash or signDoc returns the signature. A SAD cannot sign any other hash."
+     ]
+    }
+   ],
+   "flows": [
+    {
+     "title": "OAuth 2.0 credential flow",
+     "text": [
+      "Recommended. PAR with ",
+      {
+       "t": "code",
+       "c": [
+        "authorization_details"
+       ]
+      },
+      " carrying the hashes; the credential token acts as the SAD."
+     ]
+    },
+    {
+     "title": "Explicit flow",
+     "text": [
+      {
+       "t": "code",
+       "c": [
+        "credentials/authorize"
+       ]
+      },
+      " with the signer's authentication data returns a SAD string for ",
+      {
+       "t": "code",
+       "c": [
+        "signHash"
+       ]
+      },
+      "."
+     ]
+    }
+   ]
+  }
+ },
+ "ux": {
+  "eyebrow": "User journeys",
+  "title": "What the signer sees in TrustSign",
+  "lead": [
+   "Screens of the ",
+   {
+    "t": "a",
+    "href": "#p-trustsign-mobile",
+    "c": [
+     "TrustSign Mobile"
+    ]
+   },
+   " app, with the API call behind each step."
+  ],
+  "tabs": [
+   {
+    "id": "ekyc",
+    "title": "Get a TrustCA certificate",
+    "lead": "Online eKYC with the chip ID card (NFC + OCR), a VNeID check and certificate issuance in the QSCD.",
+    "steps": [
+     {
+      "title": "Consent",
+      "call": "POST /ekyc/v1/sessions",
+      "screen": [
+       {
+        "t": "div",
+        "cls": "ph-bar",
+        "c": [
+         {
+          "t": "b",
+          "c": [
+           "TrustSign"
+          ]
+         }
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-big",
+        "c": [
+         {
+          "t": "span",
+          "c": [
+           {
+            "icon": "id"
+           }
+          ]
+         },
+         {
+          "t": "b",
+          "c": [
+           "Get your digital signature"
+          ]
+         },
+         {
+          "t": "em",
+          "c": [
+           "About 3 minutes. Have your chip ID card ready."
+          ]
+         }
+        ]
+       },
+       {
+        "t": "p",
+        "cls": "ph-note",
+        "c": [
+         "I agree SAVIS processes my personal data to verify my identity."
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-btn",
+        "c": [
+         "Agree and start"
+        ]
+       }
+      ]
+     },
+     {
+      "title": "Scan ID card (OCR)",
+      "call": "…/ocr",
+      "screen": [
+       {
+        "t": "div",
+        "cls": "ph-bar",
+        "c": [
+         {
+          "t": "i",
+          "c": [
+           "‹"
+          ]
+         },
+         {
+          "t": "b",
+          "c": [
+           "Scan the front"
+          ]
+         }
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-cam",
+        "c": [
+         {
+          "t": "div",
+          "cls": "ph-idc",
+          "c": [
+           {
+            "t": "span",
+            "c": [
+             {
+              "icon": "id"
+             }
+            ]
+           },
+           {
+            "t": "div",
+            "c": [
+             {
+              "t": "i"
+             },
+             {
+              "t": "i"
+             },
+             {
+              "t": "i",
+              "cls": "s"
+             }
+            ]
+           }
+          ]
+         },
+         {
+          "t": "em",
+          "c": [
+           "Align the card in the frame"
+          ]
+         }
+        ]
+       },
+       {
+        "t": "span",
+        "cls": "ph-pill ok",
+        "c": [
+         "Front ✓"
+        ]
+       },
+       " ",
+       {
+        "t": "span",
+        "cls": "ph-pill",
+        "c": [
+         "Back"
+        ]
+       }
+      ]
+     },
+     {
+      "title": "Read the chip (NFC)",
+      "call": "…/nfc",
+      "screen": [
+       {
+        "t": "div",
+        "cls": "ph-bar",
+        "c": [
+         {
+          "t": "i",
+          "c": [
+           "‹"
+          ]
+         },
+         {
+          "t": "b",
+          "c": [
+           "Read the chip"
+          ]
+         }
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-big nfc",
+        "c": [
+         {
+          "t": "span",
+          "c": [
+           {
+            "icon": "api"
+           }
+          ]
+         },
+         {
+          "t": "b",
+          "c": [
+           "Hold the card to the back of your phone"
+          ]
+         },
+         {
+          "t": "em",
+          "c": [
+           "Reading DG1, DG2, DG13 · checking SOD"
+          ]
+         }
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-prog",
+        "c": [
+         {
+          "t": "i",
+          "width": "72%"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "title": "Selfie and liveness",
+      "call": "…/liveness · …/face-match",
+      "screen": [
+       {
+        "t": "div",
+        "cls": "ph-bar",
+        "c": [
+         {
+          "t": "i",
+          "c": [
+           "‹"
+          ]
+         },
+         {
+          "t": "b",
+          "c": [
+           "Face check"
+          ]
+         }
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-face",
+        "c": [
+         {
+          "t": "span",
+          "c": [
+           {
+            "icon": "face"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "t": "p",
+        "cls": "ph-note",
+        "c": [
+         "Turn your head slowly to the left"
+        ]
+       },
+       {
+        "t": "span",
+        "cls": "ph-pill ok",
+        "c": [
+         "Liveness ✓"
+        ]
+       },
+       " ",
+       {
+        "t": "span",
+        "cls": "ph-pill ok",
+        "c": [
+         "Match 98%"
+        ]
+       }
+      ]
+     },
+     {
+      "title": "Confirm with VNeID",
+      "call": "…/vneid",
+      "screen": [
+       {
+        "t": "div",
+        "cls": "ph-bar",
+        "c": [
+         {
+          "t": "i",
+          "c": [
+           "‹"
+          ]
+         },
+         {
+          "t": "b",
+          "c": [
+           "VNeID"
+          ]
+         }
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-big",
+        "c": [
+         {
+          "t": "span",
+          "c": [
+           {
+            "icon": "shield"
+           }
+          ]
+         },
+         {
+          "t": "b",
+          "c": [
+           "Confirm in the VNeID app"
+          ]
+         },
+         {
+          "t": "em",
+          "c": [
+           "Open VNeID and approve the request from TrustCA"
+          ]
+         }
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-btn",
+        "c": [
+         "Open VNeID"
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-btn ph-btn2",
+        "c": [
+         "I have approved"
+        ]
+       }
+      ]
+     },
+     {
+      "title": "Review your details",
+      "call": "GET …/result",
+      "screen": [
+       {
+        "t": "div",
+        "cls": "ph-bar",
+        "c": [
+         {
+          "t": "i",
+          "c": [
+           "‹"
+          ]
+         },
+         {
+          "t": "b",
+          "c": [
+           "Your details"
+          ]
+         }
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-card",
+        "c": [
+         {
+          "t": "div",
+          "c": [
+           {
+            "t": "span",
+            "c": [
+             "Full name"
+            ]
+           },
+           {
+            "t": "b",
+            "c": [
+             "NGUYEN VAN A"
+            ]
+           }
+          ]
+         },
+         {
+          "t": "div",
+          "c": [
+           {
+            "t": "span",
+            "c": [
+             "ID number"
+            ]
+           },
+           {
+            "t": "b",
+            "c": [
+             "0010•••••••"
+            ]
+           }
+          ]
+         },
+         {
+          "t": "div",
+          "c": [
+           {
+            "t": "span",
+            "c": [
+             "Date of birth"
+            ]
+           },
+           {
+            "t": "b",
+            "c": [
+             "••/••/1990"
+            ]
+           }
+          ]
+         },
+         {
+          "t": "div",
+          "c": [
+           {
+            "t": "span",
+            "c": [
+             "Source"
+            ]
+           },
+           {
+            "t": "b",
+            "c": [
+             "Chip + VNeID"
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-btn",
+        "c": [
+         "Details are correct"
+        ]
+       }
+      ]
+     },
+     {
+      "title": "Protect your key",
+      "call": "credentials/getChallenge",
+      "screen": [
+       {
+        "t": "div",
+        "cls": "ph-bar",
+        "c": [
+         {
+          "t": "i",
+          "c": [
+           "‹"
+          ]
+         },
+         {
+          "t": "b",
+          "c": [
+           "Signing method"
+          ]
+         }
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-big",
+        "c": [
+         {
+          "t": "span",
+          "c": [
+           {
+            "icon": "key"
+           }
+          ]
+         },
+         {
+          "t": "b",
+          "c": [
+           "Create a passkey"
+          ]
+         },
+         {
+          "t": "em",
+          "c": [
+           "Your face or fingerprint will approve each signature (SCAL2)"
+          ]
+         }
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-btn",
+        "c": [
+         "Create passkey"
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-btn ph-btn2",
+        "c": [
+         "Use a 6-digit PIN"
+        ]
+       }
+      ]
+     },
+     {
+      "title": "Certificate issued",
+      "call": "POST /ra/v1/certificate-requests",
+      "screen": [
+       {
+        "t": "div",
+        "cls": "ph-bar",
+        "c": [
+         {
+          "t": "b",
+          "c": [
+           "TrustSign"
+          ]
+         }
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-big ok",
+        "c": [
+         {
+          "t": "span",
+          "c": [
+           {
+            "icon": "shield"
+           }
+          ]
+         },
+         {
+          "t": "b",
+          "c": [
+           "Your signature is ready"
+          ]
+         },
+         {
+          "t": "em",
+          "c": [
+           "Qualified certificate · TrustCA QTSP"
+          ]
+         }
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-card",
+        "c": [
+         {
+          "t": "div",
+          "c": [
+           {
+            "t": "span",
+            "c": [
+             "Valid until"
+            ]
+           },
+           {
+            "t": "b",
+            "c": [
+             "19/11/2028"
+            ]
+           }
+          ]
+         },
+         {
+          "t": "div",
+          "c": [
+           {
+            "t": "span",
+            "c": [
+             "Key"
+            ]
+           },
+           {
+            "t": "b",
+            "c": [
+             "In TrustCA QSCD"
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-btn",
+        "c": [
+         "Done"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "doc",
+    "title": "Sign a document (PDF)",
+    "lead": "A signing request from a bank or partner, signed as PAdES-B-LT with SCAL2.",
+    "steps": [
+     {
+      "title": "Signing request",
+      "call": "Paperless → push",
+      "screen": [
+       {
+        "t": "div",
+        "cls": "ph-bar",
+        "c": [
+         {
+          "t": "b",
+          "c": [
+           "Notifications"
+          ]
+         }
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-push",
+        "c": [
+         {
+          "t": "span",
+          "c": [
+           {
+            "icon": "pen"
+           }
+          ]
+         },
+         {
+          "t": "div",
+          "c": [
+           {
+            "t": "b",
+            "c": [
+             "ABC Bank"
+            ]
+           },
+           {
+            "t": "em",
+            "c": [
+             "Loan agreement 0042 is waiting for your signature"
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-push",
+        "c": [
+         {
+          "t": "span",
+          "c": [
+           {
+            "icon": "pen"
+           }
+          ]
+         },
+         {
+          "t": "div",
+          "c": [
+           {
+            "t": "b",
+            "c": [
+             "TrustCA"
+            ]
+           },
+           {
+            "t": "em",
+            "c": [
+             "Your certificate is valid until 19/11/2028"
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "title": "Read the document",
+      "call": "GET /envelopes/{id}",
+      "screen": [
+       {
+        "t": "div",
+        "cls": "ph-bar",
+        "c": [
+         {
+          "t": "i",
+          "c": [
+           "‹"
+          ]
+         },
+         {
+          "t": "b",
+          "c": [
+           "Loan agreement"
+          ]
+         }
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-doc",
+        "c": [
+         {
+          "t": "b",
+          "c": [
+           "LOAN AGREEMENT"
+          ]
+         },
+         {
+          "t": "i"
+         },
+         {
+          "t": "i"
+         },
+         {
+          "t": "i",
+          "cls": "s"
+         },
+         {
+          "t": "i"
+         },
+         {
+          "t": "i",
+          "cls": "s"
+         },
+         {
+          "t": "div",
+          "cls": "ph-sig",
+          "c": [
+           "Sign here"
+          ]
+         }
+        ]
+       },
+       {
+        "t": "p",
+        "cls": "ph-note",
+        "c": [
+         "Page 3 of 3 · 1 signature field"
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-btn",
+        "c": [
+         "Continue to sign"
+        ]
+       }
+      ]
+     },
+     {
+      "title": "Check the details",
+      "call": "credentials/info",
+      "screen": [
+       {
+        "t": "div",
+        "cls": "ph-bar",
+        "c": [
+         {
+          "t": "i",
+          "c": [
+           "‹"
+          ]
+         },
+         {
+          "t": "b",
+          "c": [
+           "Signature details"
+          ]
+         }
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-card",
+        "c": [
+         {
+          "t": "div",
+          "c": [
+           {
+            "t": "span",
+            "c": [
+             "Signer"
+            ]
+           },
+           {
+            "t": "b",
+            "c": [
+             "NGUYEN VAN A"
+            ]
+           }
+          ]
+         },
+         {
+          "t": "div",
+          "c": [
+           {
+            "t": "span",
+            "c": [
+             "Certificate"
+            ]
+           },
+           {
+            "t": "b",
+            "c": [
+             "TrustCA QTSP"
+            ]
+           }
+          ]
+         },
+         {
+          "t": "div",
+          "c": [
+           {
+            "t": "span",
+            "c": [
+             "Format"
+            ]
+           },
+           {
+            "t": "b",
+            "c": [
+             "PAdES-B-LT"
+            ]
+           }
+          ]
+         },
+         {
+          "t": "div",
+          "c": [
+           {
+            "t": "span",
+            "c": [
+             "Type"
+            ]
+           },
+           {
+            "t": "b",
+            "c": [
+             "Qualified (QES)"
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-btn",
+        "c": [
+         "Sign"
+        ]
+       }
+      ]
+     },
+     {
+      "title": "Approve (SCAL2)",
+      "call": "oauth2 credential → SAD",
+      "screen": [
+       {
+        "t": "div",
+        "cls": "ph-bar",
+        "c": [
+         {
+          "t": "i",
+          "c": [
+           "‹"
+          ]
+         },
+         {
+          "t": "b",
+          "c": [
+           "Approve"
+          ]
+         }
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-face",
+        "c": [
+         {
+          "t": "span",
+          "c": [
+           {
+            "icon": "face"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "t": "p",
+        "cls": "ph-note",
+        "c": [
+         "Look at the screen to approve 1 signature"
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-btn ph-btn2",
+        "c": [
+         "Use PIN instead"
+        ]
+       }
+      ]
+     },
+     {
+      "title": "Signed",
+      "call": "signatures/signDoc",
+      "screen": [
+       {
+        "t": "div",
+        "cls": "ph-bar",
+        "c": [
+         {
+          "t": "b",
+          "c": [
+           "TrustSign"
+          ]
+         }
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-big ok",
+        "c": [
+         {
+          "t": "span",
+          "c": [
+           {
+            "icon": "shield"
+           }
+          ]
+         },
+         {
+          "t": "b",
+          "c": [
+           "Document signed"
+          ]
+         },
+         {
+          "t": "em",
+          "c": [
+           "19/11/2026 09:12:44 · timestamped"
+          ]
+         }
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-btn",
+        "c": [
+         "View signed PDF"
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-btn ph-btn2",
+        "c": [
+         "Back to requests"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "xml",
+    "title": "Sign XML (e-invoice, tax filing)",
+    "lead": "Structured data shown field by field before signing, signed as XAdES-B-T.",
+    "steps": [
+     {
+      "title": "Requests",
+      "call": "",
+      "screen": [
+       {
+        "t": "div",
+        "cls": "ph-bar",
+        "c": [
+         {
+          "t": "b",
+          "c": [
+           "To sign"
+          ]
+         }
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-push",
+        "c": [
+         {
+          "t": "span",
+          "c": [
+           {
+            "icon": "pen"
+           }
+          ]
+         },
+         {
+          "t": "div",
+          "c": [
+           {
+            "t": "b",
+            "c": [
+             "Tax filing"
+            ]
+           },
+           {
+            "t": "em",
+            "c": [
+             "VAT return 10/2026 · XML"
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-push",
+        "c": [
+         {
+          "t": "span",
+          "c": [
+           {
+            "icon": "pen"
+           }
+          ]
+         },
+         {
+          "t": "div",
+          "c": [
+           {
+            "t": "b",
+            "c": [
+             "E-invoice"
+            ]
+           },
+           {
+            "t": "em",
+            "c": [
+             "Invoice C26TAA 0001289 · XML"
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "title": "Read the data",
+      "call": "",
+      "screen": [
+       {
+        "t": "div",
+        "cls": "ph-bar",
+        "c": [
+         {
+          "t": "i",
+          "c": [
+           "‹"
+          ]
+         },
+         {
+          "t": "b",
+          "c": [
+           "VAT return 10/2026"
+          ]
+         }
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-xml",
+        "c": [
+         {
+          "t": "div",
+          "c": [
+           "<TKhaiThue>"
+          ]
+         },
+         {
+          "t": "div",
+          "c": [
+           " Tax code: 0101xxxxxx"
+          ]
+         },
+         {
+          "t": "div",
+          "c": [
+           " Period: 10/2026"
+          ]
+         },
+         {
+          "t": "div",
+          "c": [
+           " VAT payable: 128,400,000"
+          ]
+         },
+         {
+          "t": "div",
+          "c": [
+           "</TKhaiThue>"
+          ]
+         }
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-btn",
+        "c": [
+         "Continue"
+        ]
+       }
+      ]
+     },
+     {
+      "title": "Check the details",
+      "call": "credentials/info",
+      "screen": [
+       {
+        "t": "div",
+        "cls": "ph-bar",
+        "c": [
+         {
+          "t": "i",
+          "c": [
+           "‹"
+          ]
+         },
+         {
+          "t": "b",
+          "c": [
+           "Signature details"
+          ]
+         }
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-card",
+        "c": [
+         {
+          "t": "div",
+          "c": [
+           {
+            "t": "span",
+            "c": [
+             "Format"
+            ]
+           },
+           {
+            "t": "b",
+            "c": [
+             "XAdES-B-T"
+            ]
+           }
+          ]
+         },
+         {
+          "t": "div",
+          "c": [
+           {
+            "t": "span",
+            "c": [
+             "Packaging"
+            ]
+           },
+           {
+            "t": "b",
+            "c": [
+             "Enveloped"
+            ]
+           }
+          ]
+         },
+         {
+          "t": "div",
+          "c": [
+           {
+            "t": "span",
+            "c": [
+             "Hash"
+            ]
+           },
+           {
+            "t": "b",
+            "c": [
+             "SHA-256"
+            ]
+           }
+          ]
+         },
+         {
+          "t": "div",
+          "c": [
+           {
+            "t": "span",
+            "c": [
+             "Timestamp"
+            ]
+           },
+           {
+            "t": "b",
+            "c": [
+             "TrustCA TSA"
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-btn",
+        "c": [
+         "Sign"
+        ]
+       }
+      ]
+     },
+     {
+      "title": "Approve",
+      "call": "credentials/authorize → SAD",
+      "screen": [
+       {
+        "t": "div",
+        "cls": "ph-bar",
+        "c": [
+         {
+          "t": "i",
+          "c": [
+           "‹"
+          ]
+         },
+         {
+          "t": "b",
+          "c": [
+           "Enter PIN"
+          ]
+         }
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-pin",
+        "c": [
+         {
+          "t": "div",
+          "cls": "ph-dots",
+          "c": [
+           {
+            "t": "i",
+            "cls": "on"
+           },
+           {
+            "t": "i",
+            "cls": "on"
+           },
+           {
+            "t": "i",
+            "cls": "on"
+           },
+           {
+            "t": "i"
+           },
+           {
+            "t": "i"
+           },
+           {
+            "t": "i"
+           }
+          ]
+         },
+         {
+          "t": "div",
+          "cls": "ph-kp",
+          "c": [
+           {
+            "t": "span",
+            "c": [
+             "1"
+            ]
+           },
+           {
+            "t": "span",
+            "c": [
+             "2"
+            ]
+           },
+           {
+            "t": "span",
+            "c": [
+             "3"
+            ]
+           },
+           {
+            "t": "span",
+            "c": [
+             "4"
+            ]
+           },
+           {
+            "t": "span",
+            "c": [
+             "5"
+            ]
+           },
+           {
+            "t": "span",
+            "c": [
+             "6"
+            ]
+           },
+           {
+            "t": "span",
+            "c": [
+             "7"
+            ]
+           },
+           {
+            "t": "span",
+            "c": [
+             "8"
+            ]
+           },
+           {
+            "t": "span",
+            "c": [
+             "9"
+            ]
+           },
+           {
+            "t": "span"
+           },
+           {
+            "t": "span",
+            "c": [
+             "0"
+            ]
+           },
+           {
+            "t": "span",
+            "c": [
+             "⌫"
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "title": "Signed",
+      "call": "signatures/signDoc (X)",
+      "screen": [
+       {
+        "t": "div",
+        "cls": "ph-bar",
+        "c": [
+         {
+          "t": "b",
+          "c": [
+           "TrustSign"
+          ]
+         }
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-big ok",
+        "c": [
+         {
+          "t": "span",
+          "c": [
+           {
+            "icon": "shield"
+           }
+          ]
+         },
+         {
+          "t": "b",
+          "c": [
+           "XML signed"
+          ]
+         },
+         {
+          "t": "em",
+          "c": [
+           "Sent back to the tax portal"
+          ]
+         }
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-btn",
+        "c": [
+         "Done"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "tx",
+    "title": "Approve a transaction",
+    "lead": "Payment or transfer approval with dynamic linking: the signature covers the amount and the payee.",
+    "steps": [
+     {
+      "title": "Approval request",
+      "call": "",
+      "screen": [
+       {
+        "t": "div",
+        "cls": "ph-bar",
+        "c": [
+         {
+          "t": "b",
+          "c": [
+           "Notifications"
+          ]
+         }
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-push",
+        "c": [
+         {
+          "t": "span",
+          "c": [
+           {
+            "icon": "pen"
+           }
+          ]
+         },
+         {
+          "t": "div",
+          "c": [
+           {
+            "t": "b",
+            "c": [
+             "Bank transfer"
+            ]
+           },
+           {
+            "t": "em",
+            "c": [
+             "Approve a transfer of 250,000,000 VND"
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "title": "Check the transaction",
+      "call": "",
+      "screen": [
+       {
+        "t": "div",
+        "cls": "ph-bar",
+        "c": [
+         {
+          "t": "i",
+          "c": [
+           "‹"
+          ]
+         },
+         {
+          "t": "b",
+          "c": [
+           "Transfer"
+          ]
+         }
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-card",
+        "c": [
+         {
+          "t": "div",
+          "c": [
+           {
+            "t": "span",
+            "c": [
+             "To"
+            ]
+           },
+           {
+            "t": "b",
+            "c": [
+             "CONG TY ABC"
+            ]
+           }
+          ]
+         },
+         {
+          "t": "div",
+          "c": [
+           {
+            "t": "span",
+            "c": [
+             "Account"
+            ]
+           },
+           {
+            "t": "b",
+            "c": [
+             "•••• 6789"
+            ]
+           }
+          ]
+         },
+         {
+          "t": "div",
+          "c": [
+           {
+            "t": "span",
+            "c": [
+             "Amount"
+            ]
+           },
+           {
+            "t": "b",
+            "c": [
+             "250,000,000 VND"
+            ]
+           }
+          ]
+         },
+         {
+          "t": "div",
+          "c": [
+           {
+            "t": "span",
+            "c": [
+             "Reference"
+            ]
+           },
+           {
+            "t": "b",
+            "c": [
+             "Invoice 1289"
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "t": "p",
+        "cls": "ph-note",
+        "c": [
+         "What you see is what you sign."
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-btn",
+        "c": [
+         "Approve"
+        ]
+       }
+      ]
+     },
+     {
+      "title": "Approve",
+      "call": "FIDO2 assertion → SAD",
+      "screen": [
+       {
+        "t": "div",
+        "cls": "ph-bar",
+        "c": [
+         {
+          "t": "i",
+          "c": [
+           "‹"
+          ]
+         },
+         {
+          "t": "b",
+          "c": [
+           "Approve"
+          ]
+         }
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-big nfc",
+        "c": [
+         {
+          "t": "span",
+          "c": [
+           {
+            "icon": "finger"
+           }
+          ]
+         },
+         {
+          "t": "b",
+          "c": [
+           "Touch the sensor"
+          ]
+         },
+         {
+          "t": "em",
+          "c": [
+           "Passkey bound to this device"
+          ]
+         }
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-btn ph-btn2",
+        "c": [
+         "Cancel"
+        ]
+       }
+      ]
+     },
+     {
+      "title": "Approved",
+      "call": "signatures/signHash",
+      "screen": [
+       {
+        "t": "div",
+        "cls": "ph-bar",
+        "c": [
+         {
+          "t": "b",
+          "c": [
+           "TrustSign"
+          ]
+         }
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-big ok",
+        "c": [
+         {
+          "t": "span",
+          "c": [
+           {
+            "icon": "shield"
+           }
+          ]
+         },
+         {
+          "t": "b",
+          "c": [
+           "Transfer approved"
+          ]
+         },
+         {
+          "t": "em",
+          "c": [
+           "Ref. TX-7Q2K9 · 09:15:03"
+          ]
+         }
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-btn",
+        "c": [
+         "Done"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "verify",
+    "title": "Verify a signature",
+    "lead": "Anyone can check a signed file: certificate chain, revocation, timestamp and level.",
+    "steps": [
+     {
+      "title": "Choose a file",
+      "call": "",
+      "screen": [
+       {
+        "t": "div",
+        "cls": "ph-bar",
+        "c": [
+         {
+          "t": "b",
+          "c": [
+           "Verify"
+          ]
+         }
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-big",
+        "c": [
+         {
+          "t": "span",
+          "c": [
+           {
+            "icon": "doc"
+           }
+          ]
+         },
+         {
+          "t": "b",
+          "c": [
+           "Check a signed file"
+          ]
+         },
+         {
+          "t": "em",
+          "c": [
+           "PDF, XML or .p7s"
+          ]
+         }
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-btn",
+        "c": [
+         "Choose file"
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-btn ph-btn2",
+        "c": [
+         "Scan QR on paper"
+        ]
+       }
+      ]
+     },
+     {
+      "title": "Checking",
+      "call": "POST /validation/v1/reports",
+      "screen": [
+       {
+        "t": "div",
+        "cls": "ph-bar",
+        "c": [
+         {
+          "t": "i",
+          "c": [
+           "‹"
+          ]
+         },
+         {
+          "t": "b",
+          "c": [
+           "Verifying"
+          ]
+         }
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-chk",
+        "c": [
+         {
+          "t": "div",
+          "cls": "ok",
+          "c": [
+           {
+            "t": "i",
+            "c": [
+             "✓"
+            ]
+           },
+           "Signature integrity"
+          ]
+         },
+         {
+          "t": "div",
+          "cls": "ok",
+          "c": [
+           {
+            "t": "i",
+            "c": [
+             "✓"
+            ]
+           },
+           "Certificate chain to TrustCA"
+          ]
+         },
+         {
+          "t": "div",
+          "cls": "ok",
+          "c": [
+           {
+            "t": "i",
+            "c": [
+             "✓"
+            ]
+           },
+           "Revocation (OCSP)"
+          ]
+         },
+         {
+          "t": "div",
+          "c": [
+           {
+            "t": "i",
+            "c": [
+             "…"
+            ]
+           },
+           "Timestamp"
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "title": "Valid",
+      "call": "indication: TOTAL-PASSED",
+      "screen": [
+       {
+        "t": "div",
+        "cls": "ph-bar",
+        "c": [
+         {
+          "t": "i",
+          "c": [
+           "‹"
+          ]
+         },
+         {
+          "t": "b",
+          "c": [
+           "Result"
+          ]
+         }
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-big ok",
+        "c": [
+         {
+          "t": "span",
+          "c": [
+           {
+            "icon": "shield"
+           }
+          ]
+         },
+         {
+          "t": "b",
+          "c": [
+           "Signature is valid"
+          ]
+         },
+         {
+          "t": "em",
+          "c": [
+           "Qualified electronic signature"
+          ]
+         }
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-card",
+        "c": [
+         {
+          "t": "div",
+          "c": [
+           {
+            "t": "span",
+            "c": [
+             "Signer"
+            ]
+           },
+           {
+            "t": "b",
+            "c": [
+             "NGUYEN VAN A"
+            ]
+           }
+          ]
+         },
+         {
+          "t": "div",
+          "c": [
+           {
+            "t": "span",
+            "c": [
+             "Signed"
+            ]
+           },
+           {
+            "t": "b",
+            "c": [
+             "19/11/2026 09:12"
+            ]
+           }
+          ]
+         },
+         {
+          "t": "div",
+          "c": [
+           {
+            "t": "span",
+            "c": [
+             "Level"
+            ]
+           },
+           {
+            "t": "b",
+            "c": [
+             "PAdES-B-LT"
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "title": "Report",
+      "call": "GET /reports/{id}/pdf",
+      "screen": [
+       {
+        "t": "div",
+        "cls": "ph-bar",
+        "c": [
+         {
+          "t": "i",
+          "c": [
+           "‹"
+          ]
+         },
+         {
+          "t": "b",
+          "c": [
+           "Validation report"
+          ]
+         }
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-card",
+        "c": [
+         {
+          "t": "div",
+          "c": [
+           {
+            "t": "span",
+            "c": [
+             "Policy"
+            ]
+           },
+           {
+            "t": "b",
+            "c": [
+             "QES"
+            ]
+           }
+          ]
+         },
+         {
+          "t": "div",
+          "c": [
+           {
+            "t": "span",
+            "c": [
+             "Issuer"
+            ]
+           },
+           {
+            "t": "b",
+            "c": [
+             "TrustCA QTSP"
+            ]
+           }
+          ]
+         },
+         {
+          "t": "div",
+          "c": [
+           {
+            "t": "span",
+            "c": [
+             "OCSP"
+            ]
+           },
+           {
+            "t": "b",
+            "c": [
+             "Good"
+            ]
+           }
+          ]
+         },
+         {
+          "t": "div",
+          "c": [
+           {
+            "t": "span",
+            "c": [
+             "TSA"
+            ]
+           },
+           {
+            "t": "b",
+            "c": [
+             "TrustCA TSA"
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "t": "div",
+        "cls": "ph-btn",
+        "c": [
+         "Download report"
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "flow": {
+  "eyebrow": "Partner onboarding",
+  "title": "From application to production in five stages",
+  "lead": "Every partner follows the same path, gated by agreed checks. Typical duration: 5–10 weeks, depending on the APIs you use.",
+  "stages": [
+   {
+    "title": "Apply & agree",
+    "time": "1–2 weeks",
+    "who": [
+     "You",
+     "SAVIS"
+    ],
+    "you": [
+     "Submit partner application and company documents (KYB)",
+     "Choose APIs: CSC signing, Paperless, Biometric SDK, FIDO2",
+     "Sign API terms, data processing agreement and TrustCA subscriber terms"
+    ],
+    "savis": [
+     "Verify the company and its use case",
+     "Assign a partner manager and solution engineer"
+    ],
+    "standards": [
+     "Partner agreement",
+     "DPA"
+    ],
+    "gate": "Agreement signed"
+   },
+   {
+    "title": "Sandbox access",
+    "time": "Days",
+    "who": [
+     "You",
+     "SAVIS"
+    ],
+    "you": [
+     "Generate signing keys and publish a JWKS URL",
+     "Register the client: redirect URIs, JWKS, mTLS certificate or DPoP key"
+    ],
+    "savis": [
+     "Create the sandbox tenant",
+     "Issue test signing credentials and test certificates",
+     "Issue Biometric SDK test license bound to your app ID"
+    ],
+    "standards": [
+     "FAPI 2.0 client registration",
+     "private_key_jwt",
+     "mTLS / DPoP"
+    ],
+    "gate": "Client registered"
+   },
+   {
+    "title": "Build & integrate",
+    "time": "2–6 weeks",
+    "who": [
+     "You",
+     "SAVIS"
+    ],
+    "you": [
+     "Authorize with PAR, then exchange the code with PKCE for a sender-constrained token",
+     "Call CSC credentials/list, credentials/info and signatures/signHash",
+     "Register passkeys (WebAuthn) and add the Biometric SDK to onboarding"
+    ],
+    "savis": [
+     "Technical support and integration reviews",
+     "Test data for each signing and onboarding scenario"
+    ],
+    "standards": [
+     "FAPI 2.0 Security Profile",
+     "CSC API 2.0 / 2.2",
+     "FIDO2 / WebAuthn"
+    ],
+    "gate": "Sandbox test plan passed"
+   },
+   {
+    "title": "Verify & certify",
+    "time": "1–2 weeks",
+    "who": [
+     "You",
+     "SAVIS"
+    ],
+    "you": [
+     "Run the FAPI 2.0 tests against your client",
+     "Run the CSC signing test plan and the SDK test plan",
+     "Provide a security assessment of your app and back end"
+    ],
+    "savis": [
+     "Review test evidence and the security assessment",
+     "Check data protection and user-consent flows"
+    ],
+    "standards": [
+     "FAPI 2.0 conformance",
+     "CSC interoperability",
+     "Security review"
+    ],
+    "gate": "Production approval"
+   },
+   {
+    "title": "Go live & operate",
+    "time": "Ongoing",
+    "who": [
+     "You",
+     "SAVIS"
+    ],
+    "you": [
+     "Register a production client with new keys and certificates",
+     "Rotate keys through your JWKS before they expire",
+     "Follow API version notices and deprecation dates"
+    ],
+    "savis": [
+     "Issue production credentials and SDK license",
+     "Monitor traffic and certificates",
+     "Service desk for incidents and changes"
+    ],
+    "standards": [
+     "Key rotation",
+     "Monitoring",
+     "Service desk"
+    ],
+    "gate": ""
+   }
+  ],
+  "sequence": {
+   "eyebrow": "How a signing call works",
+   "title": "FAPI 2.0 authorization, then CSC signing",
+   "label": "Signing sequence: partner app, user, SAVIS authorization server, CSC API and HSM",
+   "actors": [
+    "Partner app",
+    "User",
+    "SAVIS Auth Server",
+    "CSC API · TrustCA",
+    "QSCD / HSM"
+   ],
+   "messages": [
+    {
+     "from": 0,
+     "to": 2,
+     "reply": false,
+     "text": "1 PAR: authorization_details (credential, hash) · private_key_jwt",
+     "result": "→ request_uri"
+    },
+    {
+     "from": 0,
+     "to": 1,
+     "reply": false,
+     "text": "2 Redirect to authorize",
+     "result": ""
+    },
+    {
+     "from": 1,
+     "to": 2,
+     "reply": false,
+     "text": "3 Sign in and approve: passkey or face + liveness (SCA)",
+     "result": ""
+    },
+    {
+     "from": 2,
+     "to": 0,
+     "reply": true,
+     "text": "4 Authorization code",
+     "result": ""
+    },
+    {
+     "from": 0,
+     "to": 2,
+     "reply": false,
+     "text": "5 Token request: code + PKCE + private_key_jwt + DPoP proof",
+     "result": ""
+    },
+    {
+     "from": 2,
+     "to": 0,
+     "reply": true,
+     "text": "6 Sender-constrained access token (credential scope)",
+     "result": ""
+    },
+    {
+     "from": 0,
+     "to": 3,
+     "reply": false,
+     "text": "7 signatures/signHash (DPoP-bound token)",
+     "result": ""
+    },
+    {
+     "from": 3,
+     "to": 4,
+     "reply": false,
+     "text": "8 Sign with the user's key (sole control)",
+     "result": ""
+    },
+    {
+     "from": 3,
+     "to": 0,
+     "reply": true,
+     "text": "9 Signature returned",
+     "result": ""
+    }
+   ],
+   "note": "The user's signing key never leaves the QSCD. The partner never sees credentials: it holds only a short-lived token bound to its own key (DPoP or mTLS)."
+  },
+  "requirements": {
+   "title": "What you need before you connect",
+   "columns": [
+    "Area",
+    "Requirement",
+    "Standard"
+   ],
+   "rows": [
+    [
+     "Client authentication",
+     "Asymmetric keys published in a JWKS; no shared secrets",
+     "FAPI 2.0 · private_key_jwt"
+    ],
+    [
+     "Authorization",
+     "Pushed authorization requests and PKCE",
+     "FAPI 2.0 · RFC 9126 · RFC 7636"
+    ],
+    [
+     "Token binding",
+     "Sender-constrained access tokens",
+     "mTLS (RFC 8705) or DPoP (RFC 9449)"
+    ],
+    [
+     "Remote signing",
+     "CSC endpoints for credentials and signatures",
+     "CSC API 2.0 / 2.2"
+    ],
+    [
+     "User authentication",
+     "Passkeys or biometric step-up for signature approval",
+     "FIDO2 / WebAuthn · ISO/IEC 30107-3 PAD"
+    ],
+    [
+     "Mobile apps",
+     "Biometric SDK license bound to your app ID; app integrity checks",
+     "Biometric SDK · device trust"
+    ],
+    [
+     "Security & privacy",
+     "Security assessment, incident contact, data processing agreement",
+     "Partner agreement · DPA"
+    ]
+   ]
+  }
+ }
+}

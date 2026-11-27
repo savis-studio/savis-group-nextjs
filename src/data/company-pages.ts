@@ -2,14 +2,17 @@
  * Copy for the company pages (services, about, culture, ESG, integrity, innovation, careers, investors, trust center),
  * taken from the mockup. Kept as typed data so Payload globals can replace it later without touching the pages.
  */
+import type { LineIconName } from "@/lib/line-icons";
+import { slugify } from "@/lib/slug";
 
 export type Pair = [title: string, text: string];
 
 /* ----------------------------- Services ----------------------------- */
-export const SERVICE_STAGES: Array<{ n: string; title: string; text: string; items: string[] }> = [
-  { n: "01 · Advise", title: "Advise", text: "Strategy, regulation and readiness - before you build.", items: ["Consulting & Advisory", "Readiness Programs"] },
-  { n: "02 · Build", title: "Build", text: "Integration and engineering by the team that makes the technology.", items: ["System Integration", "Software Engineering", "Digitization & Data Services"] },
-  { n: "03 · Operate", title: "Operate", text: "Cloud, managed services and trust services, 24/7.", items: ["Cloud Transformation & Infrastructure", "Managed Services", "Trust Services"] },
+export const SERVICE_STAGES: Array<{ title: string; text: string; items: string[]; icon: LineIconName }> = [
+  { title: "Assess", icon: "compass", text: "Understand the need. Requirements, regulation and current systems.", items: ["Consulting & Advisory", "Readiness Programs"] },
+  { title: "Design", icon: "draft", text: "Plan the solution. Architecture, security model and rollout plan.", items: ["Solution architecture", "Readiness by standard"] },
+  { title: "Deploy", icon: "layers", text: "Build and integrate. Install, integrate, test and train your teams.", items: ["System Integration", "Software Engineering", "Digitization & Data Services"] },
+  { title: "Operate", icon: "gauge", text: "Run it with you. 24/7 monitoring, support and continuous updates.", items: ["Cloud", "Managed Services", "Trust Services"] },
 ];
 
 export const PROJECT_STEPS: Pair[] = [
@@ -56,7 +59,32 @@ export const SUPPORT_SERVICES: Array<[string, string, string[]]> = [
   ["Documentation & knowledge base", "Guides, API references and how-tos for administrators and developers.", ["Product documentation", "API references", "How-to articles"]],
 ];
 
-/* ----------------------------- About ----------------------------- */
+/** Icon of each offering in the lists and the services menu. */
+export const SERVICE_ICONS: Record<string, LineIconName> = {
+  "Consulting & Advisory": "compass", "Readiness Programs": "shield", "Readiness by standard": "shield", "System Integration": "layers",
+  "Software Engineering": "chip", "Digitization & Data Services": "chip", "Cloud Transformation & Infrastructure": "gauge",
+  "Managed Services": "gauge", "Trust Services": "sign", "Solution architecture & design": "compass", "Implementation & integration": "layers",
+  "Migration & upgrades": "tools", "Health checks & optimization": "shield", "Training & knowledge transfer": "cap",
+  "Service desk": "headset", "Incident & problem management": "bolt", "Updates & security patches": "shield", "Documentation & knowledge base": "chip",
+};
+
+/** Anchor of an offering on /services, such as "svc-service-desk". */
+export const serviceAnchor = (name: string): string => `svc-${slugify(name)}`;
+
+/** The two lists of /services, ready for the offering blocks and the services menu. */
+export const serviceOfferings = (list: Array<[string, string, string[]]>) =>
+  list.map(([name, text, bullets]) => ({ id: serviceAnchor(name), name, text, bullets, icon: SERVICE_ICONS[name] ?? ("layers" as LineIconName) }));
+
+/** Services behind each challenge card, by use-case id. */
+export const CHALLENGE_SERVICES: Record<string, string[]> = {
+  "remote-onboarding": ["System Integration", "Managed Services"],
+  "passwordless-sca": ["System Integration", "Managed Services"],
+  "remote-signing": ["Trust Services", "Readiness Programs"],
+  "secure-payment": ["Consulting & Advisory", "Managed Services"],
+  "national-abis-deduplication": ["Consulting & Advisory", "System Integration"],
+  "open-banking": ["Software Engineering", "System Integration"],
+};
+
 export const ABOUT_STATS: Pair[] = [["22+", "years of digital trust"], ["200+", "international partners"], ["5,000+", "customers"]];
 
 export const TRACK_RECORD: Pair[] = [

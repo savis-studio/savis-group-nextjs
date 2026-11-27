@@ -5,6 +5,7 @@ import { Button, Logo } from "@/components/ui";
 import { NavLink as SmartLink } from "./NavLink";
 import type { Catalog } from "@/lib/cms";
 import { SearchOverlay } from "./SearchOverlay";
+import { ServicesMenu, type ServiceGroup } from "./ServicesMenu";
 import {
   companyMenu, insightsMenu, mainNav, resourcesMenu, servicesMenu, solutionsMenu, utilityLinks,
 } from "./nav-data";
@@ -38,7 +39,7 @@ function Cards({ cards, art, onNavigate }: { cards: FeatureCard[]; art: Record<s
     <div className="sv-mx__cards">
       {cards.map((c) => (
         <SmartLink key={c.title} href={c.href} className="sv-mx__card" onClick={onNavigate}>
-          <span className={`sv-mx__thumb${c.art ? ` uc-th-${c.art.cls}` : ""}`} aria-hidden="true">{c.photo ? <img src={c.photo} alt="" loading="lazy" className="sv-mx__photo" /> : art[c.title] && <span dangerouslySetInnerHTML={{ __html: art[c.title] }} />}</span>
+          <span className={`sv-mx__thumb${c.art ? ` uc-th-${c.art.cls}` : ""}`} aria-hidden="true">{c.photo ? <img src={c.photo} alt="" loading="lazy" className="sv-mx__photo" /> : art[c.title] && <span dangerouslySetInnerHTML={{ __html: art[c.title] }} />}{c.video && <span className="sv-mx__play" />}</span>
           <span className="sv-mx__body">
             <em>{c.tag}</em>
             <b>{c.title}</b>
@@ -59,7 +60,7 @@ function LinkList({ links, onNavigate }: { links: Link[]; onNavigate: () => void
 }
 
 /** Utility bar, sticky header, five mega-menus (desktop) and a full-screen drawer (up to 1080px). */
-export function AppHeader({ pillars, industries, productHrefs, cardArt, latest }: Catalog & { productHrefs: Record<string, string>; cardArt: Record<string, string>; latest: MenuStory[] }) {
+export function AppHeader({ pillars, industries, productHrefs, cardArt, latest, serviceGroups }: Catalog & { productHrefs: Record<string, string>; cardArt: Record<string, string>; latest: MenuStory[]; serviceGroups: ServiceGroup[] }) {
   const [open, setOpen] = useState<MenuId | null>(null);
   const [drawer, setDrawer] = useState(false);
   const [searching, setSearching] = useState(false);
@@ -209,15 +210,11 @@ export function AppHeader({ pillars, industries, productHrefs, cardArt, latest }
               )}
 
               {open === "services" && (
-                <div className="sv-mx__split">
-                  <div className="sv-mx__side">
-                    <span className="sv-mx__k">{servicesMenu.heading}</span>
-                    <LinkList links={servicesMenu.links} onNavigate={close} />
-                    <SmartLink href={servicesMenu.all.href} className="sv-mx__more" onClick={close}>{servicesMenu.all.label}</SmartLink>
-                    <SmartLink href={servicesMenu.talk.href} className="sv-mx__more" onClick={close}>{servicesMenu.talk.label}</SmartLink>
-                  </div>
-                  <div><div className="sv-mx__head"><span className="sv-mx__k">Featured</span><SmartLink href={servicesMenu.all.href} onClick={close}>{servicesMenu.all.label}</SmartLink></div><Cards cards={servicesMenu.cards} art={cardArt} onNavigate={close} /></div>
-                </div>
+                <ServicesMenu
+                  groups={serviceGroups}
+                  onNavigate={close}
+                  featured={<><div className="sv-mx__head"><span className="sv-mx__k">Featured</span><SmartLink href={servicesMenu.all.href} onClick={close}>{servicesMenu.all.label}</SmartLink></div><Cards cards={servicesMenu.cards} art={cardArt} onNavigate={close} /></>}
+                />
               )}
 
               {open === "insights" && (
