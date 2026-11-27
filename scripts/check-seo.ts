@@ -10,7 +10,21 @@ eq("description <= 160", String(m.description).length <= 160, true);
 eq("canonical", (m.alternates as any).canonical, "https://savis-group.com/customers/neac-national-pki");
 eq("short title untouched", clip("Hello world", 40), "Hello world");
 eq("noindex", (buildMetadata({ title: "a", description: "b", path: "/x", noindex: true }).robots as any).index, false);
-eq("breadcrumb positions", (breadcrumbLd([{ name: "Solutions", path: "/solutions" }, { name: "Identity", path: "/solutions/identity" }]) as any).itemListElement.map((i: any) => i.position + ":" + i.item), ["1:https://savis-group.com/","2:https://savis-group.com/solutions","3:https://savis-group.com/solutions/identity"]);
+// article slugs and categories
+import { slugFromTitle, validateSlug } from "../src/lib/slug";
+import { validateCategory } from "../src/lib/insight-categories";
+import bundledNews from "../src/data/mockup/news.json";
+eq("slug from a Vietnamese title", slugFromTitle("Định danh số: 11 ngành phải liên kết VNeID!"), "dinh-danh-so-11-nganh-phai-lien-ket-vneid");
+eq("long slug cut between words", slugFromTitle("alpha beta gamma delta", 12), "alpha-beta");
+eq("long slug ending on a word", slugFromTitle("alpha beta gamma", 10), "alpha-beta");
+eq("long single word", slugFromTitle("abcdefghij", 4), "abcd");
+eq("generated slug is valid", validateSlug(slugFromTitle(long)), true);
+eq("category of its section", validateCategory("Press release", "press"), true);
+eq("category of another section", validateCategory("Press release", "insight") === true, false);
+eq("category without a section", validateCategory("Insight", undefined), "Choose a section first.");
+eq("bundled articles use listed categories", bundledNews.filter((n) => validateCategory(n.cat, n.type) !== true).map((n) => n.id), []);
+
+eq("breadcrumb positions",(breadcrumbLd([{ name: "Solutions", path: "/solutions" }, { name: "Identity", path: "/solutions/identity" }]) as any).itemListElement.map((i: any) => i.position + ":" + i.item), ["1:https://savis-group.com/","2:https://savis-group.com/solutions","3:https://savis-group.com/solutions/identity"]);
 eq("article date", (articleLd({ title: "t", description: "d", path: "/insights/a", published: "2026-11-22" }) as any).datePublished, "2026-11-22");
 
 // route mapper

@@ -2,6 +2,7 @@ import { mcpPlugin } from "@payloadcms/plugin-mcp";
 import { APIError, type CollectionBeforeChangeHook, type CollectionBeforeOperationHook, type Field, type PayloadRequest } from "payload";
 import { adminOnlyField, isAdmin } from "./access";
 import { auditChange, auditDelete } from "./collections/audit";
+import { INSIGHT_SECTIONS } from "./lib/insight-categories";
 
 /** True when the request comes from an AI assistant through /api/mcp. */
 export const isMcpRequest = (req: PayloadRequest): boolean =>
@@ -60,8 +61,9 @@ export const keepHtmlBlocks: CollectionBeforeChangeHook = ({ data, originalDoc, 
 const ARTICLES = [
   "SAVIS website articles (research, regulatory news, press), written in English and shown at /insights/<slug>.",
   "Everything saved here is a draft: a person reviews and publishes it in the admin panel. Deleting is not possible.",
-  "Required: title; slug (lowercase letters, digits and single hyphens, unique); type (insight, news or press);",
-  "cat (category, e.g. Event, Award, Corporate, Partnership, Press release, Regulation, Insight); summary (about 150 characters).",
+  "Required: title; type (the website section); cat (a category of that section); summary (about 150 characters).",
+  `Allowed values: ${INSIGHT_SECTIONS.map((s) => `type ${s.value} (${s.label}) with cat ${s.categories.join(" | ")}`).join("; ")}.`,
+  "slug (lowercase letters, digits and single hyphens, unique): send an empty string to have it made from the title.",
   "body is Lexical JSON: paragraph, heading (h2 or h3), list and link nodes; links use linkType custom.",
   "htmlBlock and diagramHtml blocks are for people only: never add or edit one; when updating, send existing ones back unchanged.",
   "Never invent facts, figures, quotes or sources. Pass draft: true when finding, to see unpublished changes.",

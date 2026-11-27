@@ -4,9 +4,11 @@ import type { CollectionAfterChangeHook, CollectionAfterDeleteHook, CollectionBe
 import { isAdmin, isStaff, publishedOrStaff } from "../access";
 import { insightBlocks } from "../blocks/insights";
 import { INSIGHTS_TAG } from "../lib/cache-tags";
+import { INSIGHT_SECTIONS, validateCategory } from "../lib/insight-categories";
 import { validateSlug } from "../lib/slug";
 import { draftOnlyForMcp, keepHtmlBlocks } from "../mcp";
 import { auditChange, auditDelete } from "./audit";
+import { fillSlug } from "./fill-slug";
 
 const purge = (slug?: string, context?: Record<string, unknown>) => {
   if (context?.disableRevalidate) return;
@@ -44,17 +46,29 @@ export const Insights: CollectionConfig = {
   fields: [
     { name: "title", type: "text", required: true },
     {
-      name: "slug", type: "text", required: true, unique: true, index: true, validate: (value: unknown) => validateSlug(value),
-      admin: { description: "URL: /insights/<slug>. Lowercase letters, digits and hyphens. Changing it breaks existing links." },
+      name: "slug", type: "text", required: true, unique: true, index: true,
+      // Empty passes here because the hook fills it before the article is saved.
+      validate: (value: unknown) => (value ? validateSlug(value) : true),
+      hooks: { beforeValidate: [fillSlug], beforeDuplicate: [() => ""] },
+      admin: { description: "URL: /insights/<slug>. Leave empty to make it from the title when you save. Changing it later breaks existing links." },
     },
     {
       type: "row",
       fields: [
         {
-          name: "type", type: "select", required: true, defaultValue: "insight",
-          options: [{ label: "Insight", value: "insight" }, { label: "Regulatory news", value: "news" }, { label: "Press", value: "press" }],
+          // No default: a pre-filled section put press releases on the Blog tab without anyone choosing it.
+          name: "type", label: "Section", type: "select", required: true,
+          options: INSIGHT_SECTIONS.map(({ label, value }) => ({ label, value })),
+          admin: { description: "The tab of /insights that shows the article." },
         },
-        { name: "cat", label: "Category", type: "text", required: true },
+        {
+          name: "cat", label: "Category", type: "text", required: true,
+          validate: (value: unknown, { siblingData }: { siblingData: unknown }) => validateCategory(value, (siblingData as { type?: unknown }).type),
+          admin: {
+            components: { Field: "/components/admin/CategorySelect#CategorySelect" },
+            description: "In News & Regulation, “Regulation” shows under Regulation & Policy.",
+          },
+        },
         { name: "publishedAt", label: "Published", type: "date", admin: { date: { pickerAppearance: "dayOnly" } } },
         { name: "dateLabel", label: "Date label", type: "text", admin: { description: "Shown on cards when no exact date is known, e.g. “Mar 2026”." } },
       ],

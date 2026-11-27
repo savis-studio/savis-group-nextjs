@@ -11,6 +11,14 @@ export const slugify = (text: string): string =>
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
 
+/** A slug made from a title, cut between words so that the URL stays readable. */
+export function slugFromTitle(title: unknown, max = 80): string {
+  const full = slugify(typeof title === "string" ? title : "");
+  if (full.length <= max) return full;
+  const end = full.lastIndexOf("-", max);
+  return full.slice(0, end > 0 ? end : max);
+}
+
 /** True, or the message shown under the field in the admin and returned by the API. */
 export function validateSlug(value: unknown): true | string {
   if (typeof value !== "string" || value === "") return "A slug is required.";
