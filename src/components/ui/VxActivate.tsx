@@ -4,8 +4,8 @@ import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
 /** Starts a thumbnail's animation when it scrolls into view (and stops it again when it leaves), so off-screen art costs nothing. */
-function animateThumbs() {
-  const els = Array.from(document.querySelectorAll<HTMLElement>(".vx"));
+export function animateThumbs(root: ParentNode = document) {
+  const els = Array.from(root.querySelectorAll<HTMLElement>(".vx"));
   if (els.length === 0) return;
   if (!("IntersectionObserver" in window)) {
     els.forEach((e) => e.classList.add("on"));

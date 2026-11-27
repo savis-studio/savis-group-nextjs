@@ -96,22 +96,29 @@ export const insightsMenu = {
   overview: { label: "Insights overview →", href: "#insights" },
 };
 
+export type ResourceKind = "reports" | "datasheets" | "brochures" | "briefs" | "videos" | "blog";
+
 export const resourcesMenu = {
   heading: "Resources",
-  links: [
-    { label: "Reports", href: "#resources-reports" },
-    { label: "Datasheets", href: "#resources-datasheets" },
-    { label: "Solution brochures", href: "#resources-brochures" },
-    { label: "Solution briefs", href: "#resources-briefs" },
-    { label: "Videos", href: "#resources-videos" },
-    { label: "Blog", href: "#resources-blog" },
-  ] as Link[],
+  /** Each category previews three of its items beside the list; `panel` is the heading above them. */
+  categories: [
+    // The website has no report pages yet: the category and its cards ask for a copy through the contact form.
+    { id: "reports", label: "Reports", href: "#resources-reports", panel: "Reports and whitepapers", more: { label: "Request a report →", href: "#contact" } },
+    { id: "datasheets", label: "Datasheets", href: "#resources-datasheets", panel: "Featured datasheets", more: { label: "All datasheets →", href: "#resources-datasheets" } },
+    { id: "brochures", label: "Solution brochures", href: "#resources-brochures", panel: "Solution brochures", more: { label: "All brochures →", href: "#resources-brochures" } },
+    { id: "briefs", label: "Solution briefs", href: "#resources-briefs", panel: "Featured solution briefs", more: { label: "All solution briefs →", href: "#resources-briefs" } },
+    { id: "videos", label: "Videos", href: "#resources-videos", panel: "Featured videos", more: { label: "All videos →", href: "#resources-videos" } },
+    { id: "blog", label: "Blog", href: "#resources-blog", panel: "Latest from the blog", more: { label: "All blog posts →", href: "#resources-blog" } },
+  ] as Array<Link & { id: ResourceKind; panel: string; more: Link }>,
   all: { label: "Resource library →", href: "#resources" },
-  cards: [
-    { photo: "/images/company/film-poster.jpg", tag: "Video", title: "Our history, vision, growth and global reach", cta: "Watch the film →", href: "#resources-videos", art: { cls: "identity", icon: "mega", lbl: "SAVIS · Brand film|mx-film-brand" } },
-    { tag: "Datasheet", title: "SAVIS TrustOnboard", cta: "View datasheet →", href: "#ds-trustonboard", art: { cls: "identity", icon: "face", lbl: "~mx-ds-trustonboard" } },
-    { photo: "/images/company/datacenter.jpg", tag: "Brochure", title: "Cybersecurity & Quantum-Safe Infrastructure", cta: "Read the brochure →", href: "#pillar-cyber", art: { cls: "cyber", icon: "shield", lbl: "~mx-br-cyber" } },
-  ] as FeatureCard[],
+  /** Shown until a category is pointed at: the brand video, then this datasheet and this pillar's brochure. */
+  featured: { panel: "Featured resources", datasheet: "trustonboard", brochure: "cyber" },
+  datasheets: ["trustonboard", "kms", "open-banking-suite"],
+  reports: [
+    { kind: "Whitepaper", tag: "Digital identity", pal: "wallet", title: "Digital ID wallets: architecture and standards", text: "The seven layers of a wallet ecosystem, the standards that have converged, and the design decisions to make early" },
+    { kind: "Report", tag: "AI security", pal: "ai", title: "Secure AI in regulated organizations", text: "A 2026 playbook for banks, governments and telecom operators" },
+    { kind: "Report", tag: "Quantum", pal: "cyber", title: "Post-Quantum Readiness Report 2026", text: "Timelines, priorities and a migration plan for banks, governments and telecom operators" },
+  ],
 };
 
 export const companyMenu = {

@@ -9,8 +9,6 @@ const ALIASES: Record<string, string> = {
   "ds-smart-ekyc": "ds-trustonboard",
   "ds-digital-id-mobile": "ds-national-eid-trust",
   "partner-portal": "partners",
-  // No /resources section yet: its entries land on the closest page that exists.
-  resources: "insights",
   "customers-stories": "customers",
 };
 
@@ -33,7 +31,12 @@ const NESTED: Record<string, string> = {
   "services-e2e": "/services#professional",
   developers: "/services/developers",
   "services-developers": "/services/developers",
-  "resources-datasheets": "/solutions",
+  // No report pages yet: a copy is requested through the contact form.
+  "resources-reports": "/contact",
+  "resources-datasheets": "/resources/datasheets",
+  "resources-brochures": "/resources/brochures",
+  "resources-briefs": "/resources/briefs",
+  "resources-videos": "/resources/videos",
   "resources-blog": "/insights#insights",
   "tech-bulletins": "/insights#bulletins",
 };
@@ -63,10 +66,12 @@ export function hashToPath(href: string): string {
   return family ?? "/";
 }
 
-/** `services-pricing` → `/services#pricing`, `resources-*` → `/insights` until a resources section exists, etc. */
+/** `services-pricing` → `/services#pricing`, an unknown `resources-*` → `/resources`, etc. */
 function anchorFamily(key: string): string | null {
   const m = /^(services|about|insights|customers|use-cases)-(.+)$/.exec(key);
   if (m) return `/${m[1]}#${m[2]}`;
-  if (/^(resources-|report-)/.test(key)) return "/insights";
+  if (key.startsWith("resources-")) return "/resources";
+  // A single report has no page yet.
+  if (key.startsWith("report-")) return "/insights";
   return null;
 }

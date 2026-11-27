@@ -7,9 +7,10 @@ import "@/styles/vx.css";
 // Shared page classes (.sv-grid, .sv-steps, ...). Global, so a page never depends on which components it happens to import.
 import "@/styles/solutions.css";
 import "@/styles/insights.css";
+import "@/styles/resources.css";
 import "./globals.css";
 import { newsThumb, thumbArt, vxArt } from "@/lib/thumbs";
-import { companyMenu, resourcesMenu, servicesMenu } from "@/components/layout/nav-data";
+import { companyMenu, servicesMenu } from "@/components/layout/nav-data";
 import { AppHeader, type MenuStory } from "@/components/layout/AppHeader";
 import type { ServiceGroup } from "@/components/layout/ServicesMenu";
 import type { Sector, SolutionPillar } from "@/components/layout/SolutionsMenu";
@@ -21,6 +22,7 @@ import { INDUSTRY_GROUPS, groupsOfPillar, pillarById } from "@/lib/content";
 import { getCatalog, type Catalog } from "@/lib/cms";
 import { INSIGHT_GROUPS, newestFirst } from "@/lib/insight-groups";
 import { getArticles } from "@/lib/insights";
+import { resourceSets } from "@/lib/resources";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_ORIGIN, SITE_TAGLINE } from "@/lib/site";
 
 const sora = Sora({ subsets: ["latin"], weight: ["600", "700"], variable: "--font-sora", display: "swap" });
@@ -58,7 +60,7 @@ function bySector(industries: Catalog["industries"]): Sector[] {
 
 /** Scene art for the mega-menu feature cards, rendered here so the art code stays out of the client bundle. */
 const cardArt: Record<string, string> = Object.fromEntries(
-  [...servicesMenu.cards, ...resourcesMenu.cards, ...companyMenu.cards].flatMap((c) => (c.art ? [[c.title, vxArt(c.art.icon, undefined, undefined, c.art.lbl)]] : [])),
+  [...servicesMenu.cards, ...companyMenu.cards].flatMap((c) => (c.art ? [[c.title, vxArt(c.art.icon, undefined, undefined, c.art.lbl)]] : [])),
 );
 
 /** Services listed in each panel of the Services menu, linking to the item that opens on its page. */
@@ -84,12 +86,12 @@ async function latestNews(): Promise<MenuStory[]> {
 }
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const [catalog, latest] = await Promise.all([getCatalog(), latestNews()]);
+  const [catalog, latest, articles] = await Promise.all([getCatalog(), latestNews(), getArticles()]);
   return (
     <html lang="en" className={`${sora.variable} ${inter.variable}`}>
       <body style={{ margin: 0, background: "var(--bg)", color: "var(--text)", font: "400 16px/1.6 var(--font-body)" }}>
         <a href="#main" className="sr-only focus:not-sr-only">Skip to content</a>
-        <AppHeader pillars={solutionPillars(catalog.pillars)} sectors={bySector(catalog.industries)} cardArt={cardArt} latest={latest} serviceGroups={serviceGroups} />
+        <AppHeader pillars={solutionPillars(catalog.pillars)} sectors={bySector(catalog.industries)} cardArt={cardArt} latest={latest} serviceGroups={serviceGroups} resources={resourceSets(articles)} />
         <div id="main">{children}</div>
         <AppFooter {...catalog} />
         <VxActivate />

@@ -16,7 +16,9 @@ Source of truth for Phase 1–6. Data lives in `src/data/mockup/*.json`, extract
 | `#customers`, `#customers-*` | `/customers` | 4 |
 | `#insights`, `#insights-*` | `/insights` (overview; tabs are the hashes `#news`, `#press`, `#regulation`, `#insights` = Blog) | 4 |
 | `#resources` | `/resources` | 4 |
-| `#resources-blog/videos/brochures/briefs/datasheets/reports` | `/resources/[kind]` | 4 |
+| `#resources-datasheets/brochures/briefs/videos` | `/resources/[kind]` | 4 |
+| `#resources-blog` | `/insights#insights` (the Blog tab) | 4 |
+| `#resources-reports`, `#report-<id>` | no page yet: `/contact` and `/insights` | later |
 | `#services`, `#services-pro/support/watch` | `/services` (+ anchors); the older `#services-advise/build/operate/e2e` go to `#professional` | 5 |
 | `#developers`, `#services-developers` | `/services/developers` | 5 |
 | `#innovation` | `/innovation` | 5 |
@@ -112,9 +114,9 @@ Hash URLs are never seen by the server, so no redirect is needed for them. The p
 
 ## Status after Phase 6 (2026-11-25)
 
-All routes above are built except `/resources` and `/resources/[kind]`, which were dropped (no reports or whitepaper data was
-extracted). Mockup links to it (`#resources-*`, `#report-*`, `#tech-bulletins`) resolve to `/insights`,
-`#resources-blog` to `/insights#insights` and `#resources-datasheets` to `/solutions`; see `src/lib/routes.ts`. If `/resources` is built later, remove those mappings.
+All routes above are built. `/resources` and its four category pages (2026-11-27) list datasheets, solution brochures and briefs
+(from the catalogue) and the videos (`src/data/films.ts`). Reports and whitepapers have no page yet: the Resources menu sends
+report requests to `/contact`, `#resources-reports` resolves there and `#report-<id>` to `/insights`; see `src/lib/routes.ts`.
 
 Checks, run against a production build (for example `CF_ACCESS_ENFORCE=off npx next start -p 3150`):
 

@@ -14,9 +14,9 @@ export function localMedia(html: string, url: (file: string) => string | undefin
     .replace(/<a\s[^>]*href="media\/[^>]*>[\s\S]*?<\/a>/g, "");
 }
 
-/** Mockup in-app hashes become real paths; the whitepaper library (no pages yet) points at /insights. */
+/** Mockup in-app hashes become real paths; reports (no pages yet) point at /insights. */
 export function mapHref(href: string): string {
   if (!href.startsWith("#")) return href;
   const key = href.slice(1);
-  return /^(report-|resources)/.test(key) ? "/insights" : hashToPath(href);
+  return /^(report-|resources-reports$)/.test(key) ? "/insights" : hashToPath(href);
 }
