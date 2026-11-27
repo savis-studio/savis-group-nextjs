@@ -34,7 +34,7 @@ const cases: Array<[string, string]> = [
   ["#news-asocio-smart-city-2026", "/insights/asocio-smart-city-2026"], ["#pillar-gov", "/solutions/gov"], ["#grp-zero-trust", "/solutions#zero-trust"],
   ["#pqc-lab", "/innovation/pqc-lab"], ["#culture", "/about/culture"], ["#partners", "/partners"], ["#partner-portal", "/partners"],
   ["#p-smart-ekyc", "/products/trustonboard"], ["#ds-digital-id-mobile", "/products/national-eid-trust/datasheet"],
-  ["#services-advise", "/services#professional"], ["#developers", "/services/developers"], ["#resources-blog", "/insights#insights"], ["#resources", "/resources"], ["#resources-datasheets", "/resources/datasheets"], ["#resources-reports", "/contact"], ["#resources-unknown", "/resources"], ["#tech-bulletins", "/insights#bulletins"], ["#services-pro", "/services#professional"], ["#report-nd-case-2026", "/insights"], ["#use-cases-matrix", "/use-cases#matrix"], ["/already/a/path", "/already/a/path"], ["mailto:a@b.c", "mailto:a@b.c"],
+  ["#services-advise", "/services#professional"], ["#developers", "/services/developers"], ["#resources-blog", "/insights#insights"], ["#resources", "/resources"], ["#resources-datasheets", "/resources/datasheets"], ["#resources-reports", "/resources/reports"], ["#resources-unknown", "/resources"], ["#tech-bulletins", "/insights#bulletins"], ["#services-pro", "/services#professional"], ["#report-nd-case-2026", "/insights"], ["#use-cases-matrix", "/use-cases#matrix"], ["/already/a/path", "/already/a/path"], ["mailto:a@b.c", "mailto:a@b.c"],
 ];
 for (const [h, p] of cases) eq(`route ${h}`, hashToPath(h), p);
 
@@ -64,3 +64,26 @@ eq("hubspot message is the visitor's text", hs.fields.at(-1)?.value, "Need PKI f
 const full = buildPayload({ name: "Le Minh", email: "a@b.co", topic: "Get a quote", pillar: "Services", services: "Trust Services, Managed Services", timeline: "6–12 months", message: "Need PKI for 5 banks" }, { pageUri: "https://savis-group.com/contact" });
 eq("hubspot properties", Object.fromEntries(full.fields.filter((f) => /^(inquiry_|chu_)/.test(f.name)).map((f) => [f.name, f.value])), { chu_e_quan_tam: "Services", inquiry_topic: "Get a quote", inquiry_services: "Trust Services;Managed Services", inquiry_timeline: "6–12 months" });
 eq("hubspot context", hs.context, { pageUri: "https://savis-group.com/contact", pageName: "Contact | SAVIS Group", hutk: "abc" });
+
+// request for a report or whitepaper
+import { buildRequestPayload } from "../src/lib/hubspot";
+import { REQUEST_COUNTRIES, readRequest } from "../src/lib/request-options";
+const form = (o: Record<string, string>) => { const f = new FormData(); for (const [k, v] of Object.entries(o)) f.set(k, v); return f; };
+const visitor = { firstName: " An ", lastName: "Le", email: "AN@Gmail.com", company: "ACME", country: "Vietnam", consent: "yes" };
+const read = readRequest(form(visitor));
+eq("request accepted, free email too", [read.errors, read.values.firstName, read.values.email, read.values.marketingOptIn], [{}, "An", "an@gmail.com", false]);
+eq("request needs its required fields", Object.keys(readRequest(form({})).errors), ["firstName", "lastName", "email", "company", "country", "consent"]);
+eq("request refuses an unlisted country", Object.keys(readRequest(form({ ...visitor, country: "Atlantis" })).errors), ["country"]);
+eq("other is a country choice", REQUEST_COUNTRIES.includes("Other"), true);
+const rq = buildRequestPayload({ firstName: "An", lastName: "Le", email: "an@gmail.com", company: "ACME", country: "Vietnam", jobTitle: "", marketingOptIn: false, document: "Secure AI" }, { pageUri: "https://savis-group.com/resources/reports/secure-ai-2026" });
+eq("resource request fields", rq.fields.map((f) => f.name), ["email", "firstname", "lastname", "company", "country", "requested_document", "resource_marketing_optin"]);
+eq("opt-in is sent when not ticked", rq.fields.at(-1)?.value, "false");
+
+// report links inside articles
+import { relink, reportLinks } from "../src/lib/report-links";
+const targets = reportLinks('<a href="#report-a-2026">Part one: the case</a> <a href="#report-b-2026">Read it</a> <a href="#report-c-2026">Read it</a> <a href="#p-x">Other</a>');
+eq("report link words", [...targets], [["part one the case", "report-a-2026"]]);
+const hits: string[] = [];
+const body = { children: [{ type: "link", fields: { url: "/insights" }, children: [{ text: "Part one: " }, { text: "the case" }] }, { type: "link", fields: { url: "/insights" }, children: [{ text: "All insights" }] }, { fields: { text: "See [**Part one: the case**](/insights).", html: '<a href="/insights">Part one: the case</a>' } }] };
+const linked = JSON.stringify(relink(body, (w) => (targets.has(w) ? "/resources/reports/a-2026" : undefined), hits));
+eq("report links changed", [hits.length, linked.split("/resources/reports/a-2026").length - 1, linked.split('"/insights"').length - 1], [3, 3, 1]);

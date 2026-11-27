@@ -4,7 +4,8 @@ import products from "@/data/mockup/products.json";
 import useCases from "@/data/mockup/use-cases.json";
 import { getCases, getPillars } from "./content";
 import { getArticles } from "./insights";
-import { INSIGHTS_TAG } from "./cache-tags";
+import { INSIGHTS_TAG, REPORTS_TAG } from "./cache-tags";
+import { getReports, reportPath } from "./reports";
 import { clip } from "./seo";
 import type { SearchEntry } from "./search";
 
@@ -48,10 +49,13 @@ async function build(): Promise<SearchEntry[]> {
   for (const u of useCases) out.push({ t: u.name, u: `/use-cases/${u.id}`, k: "Use case", s: clip(u.tagline, 140) });
   for (const c of getCases()) out.push({ t: c.title, u: `/customers/${c.id}`, k: "Customer story", s: clip(c.summary, 140), x: `${c.client} ${c.country}` });
   for (const a of await getArticles()) out.push({ t: a.title, u: `/insights/${a.id}`, k: KIND[a.type] ?? "Insight", s: clip(a.sum, 140), x: `${a.cat} ${a.tags.join(" ")}` });
+  const reports = await getReports();
+  if (reports.length) out.push({ t: "Reports", u: "/resources/reports", k: "Page", s: "Reports and whitepaper series from SAVIS experts.", x: "whitepapers research" });
+  for (const r of reports) out.push({ t: r.title, u: reportPath(r.slug), k: r.kind, s: clip(r.subtitle, 140), x: `${r.topic} ${r.series?.name ?? ""}` });
   return out;
 }
 
-const cached = unstable_cache(build, ["search-index"], { tags: [INSIGHTS_TAG], revalidate: 3600 });
+const cached = unstable_cache(build, ["search-index"], { tags: [INSIGHTS_TAG, REPORTS_TAG], revalidate: 3600 });
 
 /** The search index. While `next build` runs there is no database, so it is built uncached from the bundled data. */
 export const getSearchIndex = (): Promise<SearchEntry[]> =>

@@ -8,6 +8,7 @@ node_modules
 data
 media
 src/data/insight-media
+src/data/report-import
 backups
 *.md
 !design-system/**/*.md

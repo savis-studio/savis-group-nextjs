@@ -73,7 +73,9 @@ export interface Config {
     pillars: Pillar;
     industries: Industry;
     insights: Insight;
+    reports: Report;
     inquiries: Inquiry;
+    'document-requests': DocumentRequest;
     'audit-logs': AuditLog;
     'payload-mcp-api-keys': PayloadMcpApiKey;
     'payload-kv': PayloadKv;
@@ -88,7 +90,9 @@ export interface Config {
     pillars: PillarsSelect<false> | PillarsSelect<true>;
     industries: IndustriesSelect<false> | IndustriesSelect<true>;
     insights: InsightsSelect<false> | InsightsSelect<true>;
+    reports: ReportsSelect<false> | ReportsSelect<true>;
     inquiries: InquiriesSelect<false> | InquiriesSelect<true>;
+    'document-requests': DocumentRequestsSelect<false> | DocumentRequestsSelect<true>;
     'audit-logs': AuditLogsSelect<false> | AuditLogsSelect<true>;
     'payload-mcp-api-keys': PayloadMcpApiKeysSelect<false> | PayloadMcpApiKeysSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
@@ -320,6 +324,162 @@ export interface Insight {
   _status?: ('draft' | 'published') | null;
 }
 /**
+ * The web pages under /resources/reports. Do not upload the documents here: files in Media are public.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "reports".
+ */
+export interface Report {
+  id: number;
+  title: string;
+  /**
+   * URL: /resources/reports/<slug>. Leave empty to make it from the title when you save. Changing it later breaks existing links.
+   */
+  slug: string;
+  kind: 'report' | 'whitepaper';
+  /**
+   * Label on cards, e.g. “AI security”.
+   */
+  topic: string;
+  palette:
+    | 'identity'
+    | 'cyber'
+    | 'ai'
+    | 'wallet'
+    | 'mea'
+    | 'bank'
+    | 'corp'
+    | 'app'
+    | 'pwl'
+    | 'tp'
+    | 'qt'
+    | 'ng'
+    | 'fr'
+    | 'sg'
+    | 'zt'
+    | 'dt'
+    | 'pk'
+    | 'ip'
+    | 'mp'
+    | 'ta'
+    | 'hs'
+    | 'nd'
+    | 'pp'
+    | 'eu'
+    | 'gg';
+  publishedAt?: string | null;
+  /**
+   * Lower numbers show first in the library.
+   */
+  order?: number | null;
+  /**
+   * Show in the Resources menu, which has room for three: untick one before ticking another.
+   */
+  featured?: boolean | null;
+  /**
+   * Line under the title, on the cover and on cards.
+   */
+  subtitle: string;
+  /**
+   * One short sentence above the introduction.
+   */
+  hook?: string | null;
+  lead: string;
+  series?: {
+    /**
+     * Empty for a document that is not part of a series.
+     */
+    name?: string | null;
+    part?: number | null;
+    parts?: number | null;
+    /**
+     * Line under the series heading in the library. Taken from the first part that has one.
+     */
+    summary?: string | null;
+  };
+  /**
+   * e.g. “SAVIS Research. November 2026.”
+   */
+  credit?: string | null;
+  stats?:
+    | {
+        value: string;
+        label: string;
+        id?: string | null;
+      }[]
+    | null;
+  why?:
+    | {
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
+  editions?:
+    | {
+        audience: string;
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
+  learn?:
+    | {
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * An image, or a diagram from the design. Do not show more of the document than its page should give away.
+   */
+  previews?:
+    | {
+        image?: (number | null) | Media;
+        diagram?: string | null;
+        caption: string;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * The last part of each product page address, e.g. “trustonboard”.
+   */
+  products?: string[] | null;
+  /**
+   * Titles only. The text of a chapter belongs in the document, not on the website.
+   */
+  chapters?:
+    | {
+        title: string;
+        id?: string | null;
+      }[]
+    | null;
+  questions?: {
+    /**
+     * Empty: “Built around the questions regulators ask first”.
+     */
+    heading?: string | null;
+    intro?: string | null;
+    items?:
+      | {
+          title: string;
+          text: string;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  path?: {
+    title?: string | null;
+    text?: string | null;
+  };
+  board?:
+    | {
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "inquiries".
  */
@@ -351,6 +511,38 @@ export interface Inquiry {
    */
   hubspot?: ('sent' | 'failed') | null;
   status?: ('new' | 'in-progress' | 'answered' | 'spam') | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "document-requests".
+ */
+export interface DocumentRequest {
+  id: number;
+  documentTitle: string;
+  document?: (number | null) | Report;
+  firstName: string;
+  lastName: string;
+  email: string;
+  company: string;
+  country: string;
+  jobTitle?: string | null;
+  phone?: string | null;
+  /**
+   * The sentence the visitor agreed to. The date of the request is the date of consent.
+   */
+  consentText: string;
+  marketingOptIn?: boolean | null;
+  sourcePath?: string | null;
+  /**
+   * Whether the request reached HubSpot. Empty when HubSpot is not connected.
+   */
+  hubspot?: ('sent' | 'failed') | null;
+  /**
+   * “sent” once the document has gone to the visitor.
+   */
+  status?: ('new' | 'sent' | 'spam') | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -455,8 +647,16 @@ export interface PayloadLockedDocument {
         value: number | Insight;
       } | null)
     | ({
+        relationTo: 'reports';
+        value: number | Report;
+      } | null)
+    | ({
         relationTo: 'inquiries';
         value: number | Inquiry;
+      } | null)
+    | ({
+        relationTo: 'document-requests';
+        value: number | DocumentRequest;
       } | null)
     | ({
         relationTo: 'audit-logs';
@@ -644,6 +844,101 @@ export interface InsightsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "reports_select".
+ */
+export interface ReportsSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  kind?: T;
+  topic?: T;
+  palette?: T;
+  publishedAt?: T;
+  order?: T;
+  featured?: T;
+  subtitle?: T;
+  hook?: T;
+  lead?: T;
+  series?:
+    | T
+    | {
+        name?: T;
+        part?: T;
+        parts?: T;
+        summary?: T;
+      };
+  credit?: T;
+  stats?:
+    | T
+    | {
+        value?: T;
+        label?: T;
+        id?: T;
+      };
+  why?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  editions?:
+    | T
+    | {
+        audience?: T;
+        text?: T;
+        id?: T;
+      };
+  learn?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  previews?:
+    | T
+    | {
+        image?: T;
+        diagram?: T;
+        caption?: T;
+        id?: T;
+      };
+  products?: T;
+  chapters?:
+    | T
+    | {
+        title?: T;
+        id?: T;
+      };
+  questions?:
+    | T
+    | {
+        heading?: T;
+        intro?: T;
+        items?:
+          | T
+          | {
+              title?: T;
+              text?: T;
+              id?: T;
+            };
+      };
+  path?:
+    | T
+    | {
+        title?: T;
+        text?: T;
+      };
+  board?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "inquiries_select".
  */
 export interface InquiriesSelect<T extends boolean = true> {
@@ -657,6 +952,28 @@ export interface InquiriesSelect<T extends boolean = true> {
   services?: T;
   timeline?: T;
   message?: T;
+  sourcePath?: T;
+  hubspot?: T;
+  status?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "document-requests_select".
+ */
+export interface DocumentRequestsSelect<T extends boolean = true> {
+  documentTitle?: T;
+  document?: T;
+  firstName?: T;
+  lastName?: T;
+  email?: T;
+  company?: T;
+  country?: T;
+  jobTitle?: T;
+  phone?: T;
+  consentText?: T;
+  marketingOptIn?: T;
   sourcePath?: T;
   hubspot?: T;
   status?: T;

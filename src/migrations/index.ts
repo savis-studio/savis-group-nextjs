@@ -6,6 +6,7 @@ import * as migration_20261125_081626_inquiry_services from './20261125_081626_i
 import * as migration_20261126_023131_drafts_mcp from './20261126_023131_drafts_mcp';
 import * as migration_20261126_093154_insight_cover_media_card from './20261126_093154_insight_cover_media_card';
 import * as migration_20261127_081851_insight_section_no_default from './20261127_081851_insight_section_no_default';
+import * as migration_20261127_101523_reports_and_document_requests from './20261127_101523_reports_and_document_requests';
 
 export const migrations = [
   {
@@ -46,6 +47,11 @@ export const migrations = [
   {
     up: migration_20261127_081851_insight_section_no_default.up,
     down: migration_20261127_081851_insight_section_no_default.down,
-    name: '20261127_081851_insight_section_no_default'
+    name: '20261127_081851_insight_section_no_default',
+  },
+  {
+    up: migration_20261127_101523_reports_and_document_requests.up,
+    down: migration_20261127_101523_reports_and_document_requests.down,
+    name: '20261127_101523_reports_and_document_requests'
   },
 ];

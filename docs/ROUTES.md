@@ -18,7 +18,8 @@ Source of truth for Phase 1–6. Data lives in `src/data/mockup/*.json`, extract
 | `#resources` | `/resources` | 4 |
 | `#resources-datasheets/brochures/briefs/videos` | `/resources/[kind]` | 4 |
 | `#resources-blog` | `/insights#insights` (the Blog tab) | 4 |
-| `#resources-reports`, `#report-<id>` | no page yet: `/contact` and `/insights` | later |
+| `#resources-reports` | `/resources/reports` (redirects to `/contact` while no report is published) | 4 |
+| `#report-<id>` | report pages are `/resources/reports/[slug]`; links in the bundled articles map to `/insights` until `npm run link:reports` points them at published reports | 4 |
 | `#services`, `#services-pro/support/watch` | `/services` (+ anchors); the older `#services-advise/build/operate/e2e` go to `#professional` | 5 |
 | `#developers`, `#services-developers` | `/services/developers` | 5 |
 | `#innovation` | `/innovation` | 5 |
@@ -115,8 +116,10 @@ Hash URLs are never seen by the server, so no redirect is needed for them. The p
 ## Status after Phase 6 (2026-11-25)
 
 All routes above are built. `/resources` and its four category pages (2026-11-27) list datasheets, solution brochures and briefs
-(from the catalogue) and the videos (`src/data/films.ts`). Reports and whitepapers have no page yet: the Resources menu sends
-report requests to `/contact`, `#resources-reports` resolves there and `#report-<id>` to `/insights`; see `src/lib/routes.ts`.
+(from the catalogue) and the videos (`src/data/films.ts`). Reports and whitepapers (`/resources/reports` and
+`/resources/reports/[slug]`) come only from the CMS collection `reports`: nothing is bundled, and only published ones are shown,
+listed in the sitemap and searchable. Their pages ask for the document through a form (collection `document-requests` and
+HubSpot); the website holds no PDF. See `DEPLOY.md`.
 
 Checks, run against a production build (for example `CF_ACCESS_ENFORCE=off npx next start -p 3150`):
 

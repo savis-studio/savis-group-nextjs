@@ -1,11 +1,13 @@
 import { resourcesMenu, type ResourceKind } from "@/components/layout/nav-data";
 import { Button, Section } from "@/components/ui";
 import { SmartLink } from "@/components/ui/SmartLink";
+import { getReports } from "@/lib/reports";
 import { hashToPath } from "@/lib/routes";
 
-/** Switches between the library and its categories. Reports are left out until they have pages. */
-export function LibraryTabs({ current }: { current?: ResourceKind }) {
-  const tabs = resourcesMenu.categories.filter((c) => c.id !== "reports");
+/** Switches between the library and its categories. Reports are left out until one is published. */
+export async function LibraryTabs({ current }: { current?: ResourceKind }) {
+  const hasReports = (await getReports()).length > 0;
+  const tabs = resourcesMenu.categories.filter((c) => c.id !== "reports" || hasReports);
   return (
     <nav className="sv-libtabs" aria-label="Resource types">
       <div className="sv-wrap">

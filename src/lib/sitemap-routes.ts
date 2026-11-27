@@ -63,4 +63,9 @@ export function dynamicRoutes(articles: NewsItem[] = getNews()): SitemapRoute[] 
   return out;
 }
 
-export const readyRoutes = (articles?: NewsItem[]): SitemapRoute[] => [...STATIC_ROUTES, ...dynamicRoutes(articles)].filter((r) => r.ready);
+/** The report pages, listed only once something is published. */
+const reportRoutes = (slugs: string[]): SitemapRoute[] =>
+  slugs.length ? [staticRoute("/resources/reports", true, 0.6), ...slugs.map((s) => staticRoute(`/resources/reports/${s}`, true, 0.5))] : [];
+
+export const readyRoutes = (articles?: NewsItem[], reports: string[] = []): SitemapRoute[] =>
+  [...STATIC_ROUTES, ...dynamicRoutes(articles), ...reportRoutes(reports)].filter((r) => r.ready);

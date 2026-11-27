@@ -64,7 +64,7 @@ function LinkList({ links, onNavigate }: { links: Link[]; onNavigate: () => void
 }
 
 /** Utility bar, sticky header, five mega-menus (desktop) and a full-screen drawer (up to 1080px). */
-export function AppHeader({ pillars, sectors, cardArt, latest, serviceGroups, resources }: { pillars: SolutionPillar[]; sectors: Sector[]; cardArt: Record<string, string>; latest: MenuStory[]; serviceGroups: ServiceGroup[]; resources: ResourceSet[] }) {
+export function AppHeader({ pillars, sectors, cardArt, latest, serviceGroups, resources, reportLinks }: { pillars: SolutionPillar[]; sectors: Sector[]; cardArt: Record<string, string>; latest: MenuStory[]; serviceGroups: ServiceGroup[]; resources: ResourceSet[]; reportLinks: Record<string, string> }) {
   const [open, setOpen] = useState<MenuId | null>(null);
   const [drawer, setDrawer] = useState(false);
   const [searching, setSearching] = useState(false);
@@ -176,7 +176,7 @@ export function AppHeader({ pillars, sectors, cardArt, latest, serviceGroups, re
         {open && (
           <div className="sv-mega" id="sv-mx">
             <div className="sv-wrap sv-mx">
-              {open === "solutions" && <SolutionsMenu pillars={pillars} sectors={sectors} onNavigate={close} />}
+              {open === "solutions" && <SolutionsMenu pillars={pillars} sectors={sectors} reportLinks={reportLinks} onNavigate={close} />}
 
               {open === "services" && (
                 <ServicesMenu

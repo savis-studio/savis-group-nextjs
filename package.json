@@ -21,6 +21,8 @@
     "tokens": "node scripts/build-tokens.mjs design-system/tokens.json src/styles/generated",
     "seed": "payload run src/seed/index.ts",
     "import:insights": "payload run scripts/import-insights.ts",
+    "import:reports": "payload run scripts/import-reports.ts",
+    "link:reports": "payload run scripts/link-reports.ts",
     "check:insights": "payload run scripts/check-insights.tsx",
     "wording:cms": "payload run scripts/apply-wording.ts",
     "payload": "payload",
